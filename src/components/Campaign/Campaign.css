@@ -1,0 +1,404 @@
+html,
+body {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
+
+@keyframes animate{ 
+    0%{ 
+        opacity: 0; 
+    } 
+    50%{ 
+        opacity: 0.7; 
+    } 
+    100%{ 
+        opacity: 1; 
+    } 
+} 
+
+.warning {
+    animation-name: animate ;
+    animation-duration: 2s ;
+    animation-timing-function: step-end ;
+    animation-iteration-count: infinite ;
+    color: black;
+    text-shadow: black;
+    font-size: 30px;
+    position: absolute;
+    top: 90%;
+    left: 32%;
+}
+
+.levelOne button {
+    position: absolute;
+    top: 74%;
+    left: 44%;
+    background-color: rgb(237, 9, 9);
+    outline: 3px solid black;
+    border: 3px solid rgb(255, 255, 255);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 40px;
+    font-family: 'New Super Mario Font U';
+    text-align: center;
+    padding: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.levelOne button:disabled {
+    cursor: default;
+    background-color: rgb(119, 116, 116);
+}
+
+.levelOne button:hover:not(:disabled) {
+    /* width: 45px;
+    height: 45px;
+    font-size: 35px; */
+    background-color: rgb(171, 6, 6);
+}
+
+.levelTwo button {
+    position: absolute;
+    top: 73%;
+    left: 54%;
+    background-color: rgb(237, 9, 9);
+    outline: 3px solid black;
+    border: 3px solid rgb(255, 255, 255);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 40px;
+    font-family: 'New Super Mario Font U';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.levelTwo button:disabled {
+    cursor:default;
+    background-color: rgb(119, 116, 116);
+}
+
+.levelTwo button:hover:not(:disabled) {
+    /* width: 45px;
+    height: 45px;
+    font-size: 35px; */
+    background-color: rgb(171, 6, 6);
+}
+
+.levelThree button {
+    position: absolute;
+    top: 53.5%;
+    left: 59%;
+    background-color: rgb(237, 9, 9);
+    outline: 3px solid black;
+    border: 3px solid rgb(255, 255, 255);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 40px;
+    font-family: 'New Super Mario Font U';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.levelThree button:disabled {
+    cursor:default;
+    background-color: rgb(119, 116, 116);
+}
+
+.levelThree button:hover:not(:disabled) {
+    /* width: 45px;
+    height: 45px;
+    font-size: 35px; */
+    background-color: rgb(171, 6, 6);
+}
+
+.levelFour button {
+    position: absolute;
+    top: 41%;
+    left: 64%;
+    background-color: rgb(237, 9, 9);
+    outline: 3px solid black;
+    border: 3px solid rgb(255, 255, 255);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 40px;
+    font-family: 'New Super Mario Font U';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.levelFour button:disabled {
+    cursor:default;
+    background-color: rgb(119, 116, 116);
+}
+
+.levelFour button:hover:not(:disabled) {
+    /* width: 45px;
+    height: 45px;
+    font-size: 35px; */
+    background-color: rgb(171, 6, 6);
+}
+
+.levelFive button {
+    position: absolute;
+    top: 17.5%;
+    left: 62%;
+    background-color: rgb(237, 9, 9);
+    outline: 3px solid black;
+    border: 3px solid rgb(255, 255, 255);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 40px;
+    font-family: 'New Super Mario Font U';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.levelFive button:disabled {
+    cursor:default;
+    background-color: rgb(119, 116, 116);
+}
+
+.levelFive button:hover:not(:disabled){
+    /* width: 45px;
+    height: 45px;
+    font-size: 35px; */
+    background-color: rgb(171, 6, 6);
+}
+
+.levelSix button {
+    position: absolute;
+    top: 19.7%;
+    left: 54%;
+    background-color: rgb(237, 9, 9);
+    outline: 3px solid black;
+    border: 3px solid rgb(255, 255, 255);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 40px;
+    font-family: 'New Super Mario Font U';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.levelSix button:disabled {
+    cursor:default;
+    background-color: rgb(119, 116, 116);
+}
+
+.levelSix button:hover:not(:disabled){
+    /* width: 45px;
+    height: 45px;
+    font-size: 35px; */
+    background-color: rgb(171, 6, 6);
+}
+
+.levelSeven button {
+    position: absolute;
+    top: 17.4%;
+    left: 43.7%;
+    background-color: rgb(237, 9, 9);
+    outline: 3px solid black;
+    border: 3px solid rgb(255, 255, 255);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 40px;
+    font-family: 'New Super Mario Font U';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.levelSeven button:disabled {
+    cursor:default;
+    background-color: rgb(119, 116, 116);
+}
+
+.levelSeven button:hover:not(:disabled){
+    /* width: 45px;
+    height: 45px;
+    font-size: 35px; */
+    background-color: rgb(171, 6, 6);
+}
+
+.levelEight button {
+    position: absolute;
+    top: 39%;
+    left: 44.9%;
+    background-color: rgb(237, 9, 9);
+    outline: 3px solid black;
+    border: 3px solid rgb(255, 255, 255);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 40px;
+    font-family: 'New Super Mario Font U';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.levelEight button:disabled {
+    cursor:default;
+    background-color: rgb(119, 116, 116);
+}
+
+.levelEight button:hover:not(:disabled) {
+    /* width: 45px;
+    height: 45px;
+    font-size: 35px; */
+    background-color: rgb(171, 6, 6);
+}
+
+.levelNine button {
+    position: absolute;
+    top: 50.3%;
+    left: 35.1%;
+    background-color: rgb(237, 9, 9);
+    outline: 3px solid black;
+    border: 3px solid rgb(255, 255, 255);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 40px;
+    font-family: 'New Super Mario Font U';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.levelNine button:disabled {
+    cursor:default;
+    background-color: rgb(119, 116, 116);
+}
+
+.levelNine button:hover:not(:disabled) {
+    /* width: 45px;
+    height: 45px;
+    font-size: 35px; */
+    background-color: rgb(171, 6, 6);
+}
+
+.levelTen button {
+    position: absolute;
+    top: 65%;
+    left: 35%;
+    background-color: rgb(237, 9, 9);
+    outline: 3px solid black;
+    border: 3px solid rgb(255, 255, 255);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 35px;
+    font-family: 'New Super Mario Font U';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.levelTen button:disabled {
+    cursor:default;
+    background-color: rgb(119, 116, 116);
+}
+
+.levelTen button:hover:not(:disabled){
+    /* width: 45px;
+    height: 45px;
+    font-size: 35px; */
+    background-color: rgb(171, 6, 6);
+}
+
+  .secretButton button {
+    position: absolute;
+    bottom: 1%;
+    right: 1%;
+    background-color: #777878;
+    text-decoration: none;
+    width: 4%;
+    height: 6%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+}
+
+.secretButton button:disabled {
+    cursor:default;
+    background-color: rgb(52, 51, 51);
+}
+
+.secretButton button:hover:not(:disabled){
+    background-color: rgb(54, 53, 53);
+}
+
+.secretLevelOne button {
+    position: absolute;
+    top: 22%;
+    left: 36.5%;
+    background-color: rgb(237, 9, 9);
+    outline: 3px solid black;
+    border: 3px solid rgb(255, 255, 255);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 35px;
+    font-family: 'New Super Mario Font U';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.secretLevelOne button:disabled {
+    cursor:default;
+    background-color: rgb(119, 116, 116);
+}
+
+.secretLevelOne button:hover:not(:disabled){
+    /* width: 45px;
+    height: 45px;
+    font-size: 35px; */
+    background-color: rgb(171, 6, 6);
+}
+
+.secretLevelTwo button {
+    position: absolute;
+    top: 18.5%;
+    left: 53.5%;
+    background-color: rgb(237, 9, 9);
+    outline: 3px solid black;
+    border: 3px solid rgb(255, 255, 255);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 35px;
+    font-family: 'New Super Mario Font U';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.secretLevelTwo button:disabled {
+    cursor:default;
+    background-color: rgb(119, 116, 116);
+}
+
+.secretLevelTwo button:hover:not(:disabled){
+    /* width: 45px;
+    height: 45px;
+    font-size: 35px; */
+    background-color: rgb(171, 6, 6);
+}

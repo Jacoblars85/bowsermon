@@ -1,0 +1,154 @@
+.characterButton {
+  position: absolute;
+  top: 25%;
+  left: 0.1%;
+  height: 50px;
+  width: 300px;
+  border: 2px solid black;
+  font-size: 30px;
+}
+
+.characterButton:hover {
+  background-color: #a1a3a3;
+}
+
+.shopButton {
+  position: absolute;
+  top: 45%;
+  left: 0.1%;
+  height: 50px;
+  width: 300px;
+  border: 2px solid black;
+  font-size: 30px;
+}
+
+.shopButton:hover {
+  background-color: #a1a3a3;
+}
+
+.inventoryButton {
+  position: absolute;
+  top: 35%;
+  left: 0.1%;
+  height: 50px;
+  width: 300px;
+  border: 2px solid black;
+  font-size: 30px;
+}
+
+.inventoryButton:hover {
+  background-color: #a1a3a3;
+}
+
+.campaignButton {
+  position: absolute;
+  bottom: 1.5%;
+  left: 0.5%;
+  height: 10%;
+  width: 30%;
+  background-image: url('/public/images/campaignButtonPic.png');
+  background-repeat: no-repeat;
+  background-size: 55%;
+  background-position: center;
+  background-position-y: 100%;
+  text-align: center;
+  padding-bottom: 200px;
+  border: 3px solid black;
+  font-size: 40px;
+}
+
+.campaignButton:hover {
+  background-color: #a1a3a3;
+}
+
+.bigStarterHomeView {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  top: 15%;
+  left: 78%;
+  height: 80%;
+  width: 20%;
+  column-gap: 1%;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+.starterHomeView {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  height: 100%;
+  width: 98%;
+  border: 3px solid black;
+  background-color: rgb(56, 188, 233);
+  box-shadow: 1px 1px 1px 1px black;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+.switchButtonHomePage {
+  width: 15%;
+}
+
+.starter-single-box {
+  height: 50%;
+  width: 100%;
+  background-image: url('/public/images/brickBlock.png');
+  background-repeat: repeat-x;
+  background-size: 8.7vh;
+  background-position-y: bottom;
+}
+
+.starterSingleBoxUl {
+  height: 50%;
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+}
+
+.starterHomeView h5 {
+  margin: 0px;
+  color: black;
+  font-size: 24px;
+  text-align: center;
+  text-shadow: 1px 1px white;
+}
+
+.starterHomeView h2 {
+  text-align: center;
+  font-size: 40px;
+  text-shadow: 1px 1px white;
+  margin: 0px;
+}
+
+.starterPictures img {
+  cursor: pointer;
+  height: 170px;
+  width: fit-content;
+}
+  
+.starterTextHp {
+  color: red;
+  text-shadow: 1px 1px black;
+  font-size: 20px;
+  margin: 0px;
+}
+
+.starterTextStamina {
+  color: lime;
+  text-shadow: 1px 1px black;
+  font-size: 20px;
+  margin: 0px;
+}
+
+.starterTextAttack {
+  text-shadow: 1px 1px white;
+  font-size: 20px;
+  margin-bottom: 0px;
+}
+
+  
