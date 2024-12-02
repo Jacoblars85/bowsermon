@@ -375,7 +375,7 @@ function Consumables({ consumableItem }) {
             value={consumableValue}
             onChange={(event, val) => setConsumableValue(val)}
             min={1}
-            max={Math.floor(user.coins / consumableItem.cost)}
+            max={Math.floor(user.coins / consumableItem.cost) >= 9 ? 9 : Math.floor(user.coins / consumableItem.cost)}
           />
           <Button
             sx={{
