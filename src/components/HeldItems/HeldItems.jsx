@@ -350,7 +350,7 @@ function HeldItems({ heldItem }) {
             value={heldValue}
             onChange={(event, val) => setHeldValue(val)}
             min={1}
-            max={Math.floor(user.coins / heldItem.cost)}
+            max={Math.floor(user.coins / heldItem.cost) >= 9 ? 9 : Math.floor(user.coins / heldItem.cost)}
           />
           <Button
             sx={{
