@@ -179,7 +179,6 @@ function HeldItems({ heldItem }) {
       //     .catch((err) => {
       //       console.log(err);
       //     });
-
     }
   };
 
@@ -309,7 +308,7 @@ function HeldItems({ heldItem }) {
         </h5>
 
         <button
-        style={{ width: "100%"}}
+          style={{ width: "100%" }}
           disabled={user.coins < heldItem.cost ? true : false}
           onClick={handleHeldClickOpen}
         >
@@ -350,17 +349,21 @@ function HeldItems({ heldItem }) {
             value={heldValue}
             onChange={(event, val) => setHeldValue(val)}
             min={1}
-            max={Math.floor(user.coins / heldItem.cost) >= 9 ? 9 : Math.floor(user.coins / heldItem.cost)}
+            max={
+              Math.floor(user.coins / heldItem.cost) >= 9
+                ? 9
+                : Math.floor(user.coins / heldItem.cost)
+            }
           />
           <Button
             sx={{
               color: "whitesmoke",
               fontSize: 16,
               fontFamily: "New Super Mario Font U",
-              borderColor: "black"
+              borderColor: "black",
             }}
             color="success"
-              variant="contained"
+            variant="contained"
             onClick={() => buyHeld(heldValue)}
             autoFocus
           >
@@ -371,7 +374,7 @@ function HeldItems({ heldItem }) {
               color: "black",
               fontSize: 16,
               fontFamily: "New Super Mario Font U",
-              borderColor: "black"
+              borderColor: "black",
             }}
             variant="outlined"
             onClick={handleHeldClose}
