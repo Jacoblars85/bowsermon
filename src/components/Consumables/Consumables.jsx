@@ -333,7 +333,7 @@ function Consumables({ consumableItem }) {
         </h5>
 
         <button
-        style={{ width: "100%"}}
+          style={{ width: "100%" }}
           disabled={user.coins < consumableItem.cost ? true : false}
           onClick={handleConsumableClickOpen}
         >
@@ -375,17 +375,21 @@ function Consumables({ consumableItem }) {
             value={consumableValue}
             onChange={(event, val) => setConsumableValue(val)}
             min={1}
-            max={Math.floor(user.coins / consumableItem.cost) >= 9 ? 9 : Math.floor(user.coins / consumableItem.cost)}
+            max={
+              Math.floor(user.coins / consumableItem.cost) >= 9
+                ? 9
+                : Math.floor(user.coins / consumableItem.cost)
+            }
           />
           <Button
             sx={{
               color: "whitesmoke",
               fontSize: 16,
               fontFamily: "New Super Mario Font U",
-              borderColor: "black"
+              borderColor: "black",
             }}
             color="success"
-              variant="contained"
+            variant="contained"
             onClick={() => buyConsumable(consumableValue)}
             autoFocus
           >
@@ -396,7 +400,7 @@ function Consumables({ consumableItem }) {
               color: "black",
               fontSize: 16,
               fontFamily: "New Super Mario Font U",
-              borderColor: "black"
+              borderColor: "black",
             }}
             variant="outlined"
             onClick={handleConsumableClose}
