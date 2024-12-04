@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import BackButton from '../BackButton/BackButton';
 import { useHistory } from 'react-router-dom';
 import Nav from '../Nav/Nav';
-import background from '../../il_570xN.720708044_8vd9.webp';
+import background from '../../marioWorldMap.webp';
 import './Campaign.css';
 import { useDispatch, useSelector } from 'react-redux';
 import EastIcon from '@mui/icons-material/East';
