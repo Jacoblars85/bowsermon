@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef  } from 'react';
 import {useSelector} from 'react-redux';
 import "./gameWorld.css";
-import MarioMap from './bowsermon-map-v1.png'
+import MarioMap from './img/bowsermon-map-v1.png'
+import PlayerDown from './img/playerDown.png'
 
 function GameWorld() {
     
@@ -20,9 +21,22 @@ function GameWorld() {
         const image = new Image()
         image.src = MarioMap
         // console.log(image);
+
+        const playerImage = new Image()
+        playerImage.src = PlayerDown
         
         image.onload = () => {
-            c.drawImage(image, -4750, -5900)
+            c.drawImage(image, -4767.5, -5980)
+            c.drawImage(playerImage, 
+                0,
+                0,
+                playerImage.width / 4,
+                playerImage.height,
+                canvas.width / 2 - playerImage.width / 4 / 2, 
+                canvas.height / 2 - playerImage.height / 2, 
+                playerImage.width / 4,
+                playerImage.height
+            )
         }
       }
     }, []);
