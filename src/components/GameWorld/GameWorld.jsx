@@ -5,9 +5,9 @@ function GameWorld() {
 
 
   return (
-    <div>
-      <p>hi</p>
-    </div>
+    <canvas id='canvasForGameWorld'>
+
+    </canvas>
   );
 }
 
