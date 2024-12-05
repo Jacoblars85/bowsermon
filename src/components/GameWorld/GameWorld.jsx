@@ -25,8 +25,43 @@ function GameWorld() {
         const playerImage = new Image()
         playerImage.src = PlayerDown
         
-        image.onload = () => {
-            c.drawImage(image, -4767.5, -5980)
+
+        class Sprite {
+            constructor({ position, velocity, image}) {
+                this.position = position
+                this.image = image
+            }
+
+            draw() {
+                c.drawImage(this.image, this.position.x, this.position.y)
+            }
+        }
+
+        const background = new Sprite({ position: {
+            x: -4767.5,
+            y: -5980
+        },
+    image: image
+    })
+
+    const keys = {
+        w: {
+            pressed: false
+        },
+        a: {
+            pressed: false
+        },
+        s: {
+            pressed: false
+        },
+        d: {
+            pressed: false
+        },
+    }
+
+        function animate() {
+            window.requestAnimationFrame(animate)
+            background.draw()
             c.drawImage(playerImage, 
                 0,
                 0,
@@ -37,9 +72,49 @@ function GameWorld() {
                 playerImage.width / 4,
                 playerImage.height
             )
+
+            if (keys.w.pressed) background.position.y += 3
+            else if (keys.a.pressed) background.position.x += 3
+            else if (keys.s.pressed) background.position.y -= 3
+            else if (keys.d.pressed) background.position.x -= 3
+            
         }
+        animate()
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'w') {
+                keys.w.pressed = true
+            } else if (e.key === 'a') {
+                keys.a.pressed = true
+            } else if (e.key === 's') {
+                keys.s.pressed = true
+            } else if (e.key === 'd') {
+                keys.d.pressed = true
+            }
+        })
+
+        window.addEventListener('keyup', (e) => {
+            if (e.key === 'w') {
+                keys.w.pressed = false
+            } else if (e.key === 'a') {
+                keys.a.pressed = false
+            } else if (e.key === 's') {
+                keys.s.pressed = false
+            } else if (e.key === 'd') {
+                keys.d.pressed = false
+            }
+            
+        })
+
+
+console.log(keys);
+
+
+
       }
     }, []);
+
+    
 
   return (
     <canvas ref={canvasRef} height={576} width={1024} id='canvasForGameWorld' className='canvasForGame'>
