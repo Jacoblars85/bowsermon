@@ -73,23 +73,29 @@ function GameWorld() {
                 playerImage.height
             )
 
-            if (keys.w.pressed) background.position.y += 3
-            else if (keys.a.pressed) background.position.x += 3
-            else if (keys.s.pressed) background.position.y -= 3
-            else if (keys.d.pressed) background.position.x -= 3
+            if (keys.w.pressed && lastKey === 'w') background.position.y += 3
+            else if (keys.a.pressed && lastKey === 'a') background.position.x += 3
+            else if (keys.s.pressed && lastKey === 's') background.position.y -= 3
+            else if (keys.d.pressed && lastKey === 'd') background.position.x -= 3
             
         }
         animate()
 
+        let lastKey = '';
+
         window.addEventListener('keydown', (e) => {
             if (e.key === 'w') {
                 keys.w.pressed = true
+                lastKey = 'w'
             } else if (e.key === 'a') {
                 keys.a.pressed = true
+                lastKey = 'a'
             } else if (e.key === 's') {
                 keys.s.pressed = true
+                lastKey = 's'
             } else if (e.key === 'd') {
                 keys.d.pressed = true
+                lastKey = 'd'
             }
         })
 
