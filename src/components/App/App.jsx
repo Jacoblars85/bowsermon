@@ -18,6 +18,7 @@ import Shop from '../Shop/Shop';
 import Characters from '../Characters/Characters';
 import Inventory from '../Inventory/Inventory';
 import SecretCampaign from '../SecretCampaign/SecretCampaign';
+import GameWorld from '../GameWorld/GameWorld';
 import EndingCredits from '../EndingCredits/EndingCredits';
 import './App.css';
 
@@ -88,6 +89,10 @@ function App() {
 
           <ProtectedRoute exact path="/secretCampaign">
             <SecretCampaign />
+          </ProtectedRoute>
+
+          <ProtectedRoute exact path="/exploring">
+            <GameWorld />
           </ProtectedRoute>
 
           <ProtectedRoute exact path="/credits">
