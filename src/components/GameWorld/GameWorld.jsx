@@ -1,17 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef  } from 'react';
 import {useSelector} from 'react-redux';
 import "./gameWorld.css";
 
 function GameWorld() {
-
-    const canvas = document.getElementById('canvasForGameWorld');
-
-    console.log('canvas', canvas);
     
+    const canvasRef = useRef(null);
 
+    useEffect(() => {
+      if (canvasRef.current) {
+        const canvas = canvasRef.current;
+        const c = canvas.getContext('2d'); 
+  
+        console.log('c', c);
+      }
+    }, []);
 
   return (
-    <canvas id='canvasForGameWorld' className='canvasForGame'>
+    <canvas ref={canvasRef} id='canvasForGameWorld' className='canvasForGame'>
 
     </canvas>
   );
