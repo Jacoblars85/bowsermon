@@ -50,7 +50,7 @@ function GameWorld() {
         }
 
         draw() {
-          c.fillStyle = "rgba(255, 0, 0, 0.5)";
+          c.fillStyle = "rgba(255, 0, 0, 0.0)";
           c.fillRect(this.position.x, this.position.y, this.width, this.height);
         }
       }
@@ -208,6 +208,10 @@ function GameWorld() {
         );
       }
 
+      const battle = {
+        initiated: false
+      }
+
       function animate() {
         window.requestAnimationFrame(animate);
         background.draw();
@@ -220,24 +224,34 @@ function GameWorld() {
         player.draw();
         foreground.draw();
 
+        let moving = true;
+        player.moving = false
+
+        if (battle.initiated) return
+        // activate a battle
         if (keys.w.pressed || keys.a.pressed || keys.s.pressed || keys.d.pressed) {
             for (let i = 0; i < battleZones.length; i++) {
                 const battleZone = battleZones[i];
+                const overlappingArea = 
+                (Math.min(player.position.x + player.width, battleZone.position.x + battleZone.width)
+                - Math.max(player.position.x, battleZone.position.x)) 
+                * (Math.min(player.position.y + player.height, battleZone.position.y + battleZone.height)
+                - Math.max(player.position.y, battleZone.position.y))
+
                 if (
                   rectangularCollisions({
                     rectangle1: player,
                     rectangle2: battleZone
-            })
+            }) && 
+            overlappingArea > (player.width * player.height) / 2
+            && Math.random() < 0.015
                 ) {
-                  console.log('colliding');
-                  
+                  console.log('battle start');
+                  battle.initiated = true
                   break;
                 }
               }
         }
-
-        let moving = true;
-        player.moving = false
 
         if (keys.w.pressed && lastKey === "w") {
             player.moving = true
