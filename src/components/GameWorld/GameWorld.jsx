@@ -9,10 +9,14 @@ import PlayerRight from "./img/playerRight.png";
 import PlayerDown from "./img/playerDown.png";
 const bowsermonMapJson = require("./data/bowsermonMap");
 const collisionsArray = require("./data/collisions");
+const battleZonesArray = require("./data/battleZones");
+
 
 function GameWorld() {
   // console.log('bowsermonMapJson', bowsermonMapJson);
   // console.log('collisionsArray', collisionsArray);
+//   console.log('battleZonesArray', battleZonesArray);
+  
 
   const canvasRef = useRef(null);
 
@@ -28,6 +32,14 @@ function GameWorld() {
       }
       // console.log(collisionsMap);
 
+      const battleZonesMap = [];
+
+      for (let i = 0; i < battleZonesArray.length; i += 235) {
+        battleZonesMap.push(battleZonesArray.slice(i, 235 + i));
+      }
+
+    //   console.log(battleZonesMap);
+      
       class Boundary {
         static width = 48;
         static height = 48;
@@ -38,22 +50,39 @@ function GameWorld() {
         }
 
         draw() {
-          c.fillStyle = "rgba(255, 0, 0, 0.0)";
+          c.fillStyle = "rgba(255, 0, 0, 0.5)";
           c.fillRect(this.position.x, this.position.y, this.width, this.height);
         }
       }
-
-      const boundaries = [];
 
       const offset = {
         x: -4767.5,
         y: -5990,
       };
 
+      const boundaries = [];
+
       collisionsMap.forEach((row, i) => {
         row.forEach((symbol, j) => {
           if (symbol === 1025) {
             boundaries.push(
+              new Boundary({
+                position: {
+                  x: j * Boundary.width + offset.x,
+                  y: i * Boundary.height + offset.y,
+                },
+              })
+            );
+          }
+        });
+      });
+
+      const battleZones = []
+
+      battleZonesMap.forEach((row, i) => {
+        row.forEach((symbol, j) => {
+          if (symbol === 1025) {
+            battleZones.push(
               new Boundary({
                 position: {
                   x: j * Boundary.width + offset.x,
@@ -168,7 +197,7 @@ function GameWorld() {
         },
       };
 
-      const movables = [background, ...boundaries, foreground];
+      const movables = [background, ...boundaries, foreground, ...battleZones];
 
       function rectangularCollisions({ rectangle1, rectangle2 }) {
         return (
@@ -185,6 +214,9 @@ function GameWorld() {
         boundaries.forEach((boundary) => {
           boundary.draw();
         });
+        battleZones.forEach((battleZone) => {
+            battleZone.draw();
+          });
         player.draw();
         foreground.draw();
 
