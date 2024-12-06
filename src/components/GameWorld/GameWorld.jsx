@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import "./gameWorld.css";
 import MarioMap from "./img/bowsermon-map-v1.png";
 import MarioMapForegroundImage from "./img/foregroundObjects.png";
@@ -17,6 +18,7 @@ function GameWorld() {
   // console.log('collisionsArray', collisionsArray);
   //   console.log('battleZonesArray', battleZonesArray);
 
+  const history = useHistory();
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -274,8 +276,12 @@ function GameWorld() {
                   gsap.to("#fadeOutDiv", {
                     opacity: 1,
                     duration: 0.4,
+                    onComplete() {
+                      // where you get sent to the battle
+                      // added the fade out in the battle seq
+                      history.push(`/battle/${1}`);
+                    },
                   });
-                  // where you get sent to the battle
                 },
               });
               break;
