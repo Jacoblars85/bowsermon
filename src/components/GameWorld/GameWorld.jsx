@@ -12,12 +12,10 @@ const bowsermonMapJson = require("./data/bowsermonMap");
 const collisionsArray = require("./data/collisions");
 const battleZonesArray = require("./data/battleZones");
 
-
 function GameWorld() {
   // console.log('bowsermonMapJson', bowsermonMapJson);
   // console.log('collisionsArray', collisionsArray);
-//   console.log('battleZonesArray', battleZonesArray);
-
+  //   console.log('battleZonesArray', battleZonesArray);
 
   const canvasRef = useRef(null);
 
@@ -39,8 +37,8 @@ function GameWorld() {
         battleZonesMap.push(battleZonesArray.slice(i, 235 + i));
       }
 
-    //   console.log(battleZonesMap);
-      
+      //   console.log(battleZonesMap);
+
       class Boundary {
         static width = 48;
         static height = 48;
@@ -78,7 +76,7 @@ function GameWorld() {
         });
       });
 
-      const battleZones = []
+      const battleZones = [];
 
       battleZonesMap.forEach((row, i) => {
         row.forEach((symbol, j) => {
@@ -115,16 +113,22 @@ function GameWorld() {
       playerRightImage.src = PlayerRight;
 
       class Sprite {
-        constructor({ position, velocity, image, frames = { max: 1 }, sprites = [] }) {
+        constructor({
+          position,
+          velocity,
+          image,
+          frames = { max: 1 },
+          sprites = [],
+        }) {
           this.position = position;
           this.image = image;
-          this.frames = {...frames, val: 0, elapsed: 0 },
-            this.image.onload = () => {
+          (this.frames = { ...frames, val: 0, elapsed: 0 }),
+            (this.image.onload = () => {
               this.width = this.image.width / this.frames.max;
               this.height = this.image.height;
-            }
-            this.moving = false
-            this.sprites = sprites
+            });
+          this.moving = false;
+          this.sprites = sprites;
         }
 
         draw() {
@@ -139,14 +143,14 @@ function GameWorld() {
             this.image.width / this.frames.max,
             this.image.height
           );
-          if (!this.moving) return
+          if (!this.moving) return;
           if (this.frames.max > 1) {
-            this.frames.elapsed++
+            this.frames.elapsed++;
           }
           if (this.frames.elapsed % 10 === 0) {
-          if (this.frames.val < this.frames.max - 1) this.frames.val++
-          else this.frames.val = 0
-        }
+            if (this.frames.val < this.frames.max - 1) this.frames.val++;
+            else this.frames.val = 0;
+          }
         }
       }
 
@@ -160,11 +164,11 @@ function GameWorld() {
           max: 4,
         },
         sprites: {
-            up: playerUpImage,
-            left: playerLeftImage,
-            right: playerRightImage,
-            down: playerDownImage
-        }
+          up: playerUpImage,
+          left: playerLeftImage,
+          right: playerRightImage,
+          down: playerDownImage,
+        },
       });
 
       const foreground = new Sprite({
@@ -210,8 +214,8 @@ function GameWorld() {
       }
 
       const battle = {
-        initiated: false
-      }
+        initiated: false,
+      };
 
       function animate() {
         const animationId = window.requestAnimationFrame(animate);
@@ -220,58 +224,68 @@ function GameWorld() {
           boundary.draw();
         });
         battleZones.forEach((battleZone) => {
-            battleZone.draw();
-          });
+          battleZone.draw();
+        });
         player.draw();
         foreground.draw();
 
         let moving = true;
-        player.moving = false
+        player.moving = false;
 
-        if (battle.initiated) return
+        if (battle.initiated) return;
         // activate a battle
-        if (keys.w.pressed || keys.a.pressed || keys.s.pressed || keys.d.pressed) {
-            for (let i = 0; i < battleZones.length; i++) {
-                const battleZone = battleZones[i];
-                const overlappingArea = 
-                (Math.min(player.position.x + player.width, battleZone.position.x + battleZone.width)
-                - Math.max(player.position.x, battleZone.position.x)) 
-                * (Math.min(player.position.y + player.height, battleZone.position.y + battleZone.height)
-                - Math.max(player.position.y, battleZone.position.y))
+        if (
+          keys.w.pressed ||
+          keys.a.pressed ||
+          keys.s.pressed ||
+          keys.d.pressed
+        ) {
+          for (let i = 0; i < battleZones.length; i++) {
+            const battleZone = battleZones[i];
+            const overlappingArea =
+              (Math.min(
+                player.position.x + player.width,
+                battleZone.position.x + battleZone.width
+              ) -
+                Math.max(player.position.x, battleZone.position.x)) *
+              (Math.min(
+                player.position.y + player.height,
+                battleZone.position.y + battleZone.height
+              ) -
+                Math.max(player.position.y, battleZone.position.y));
 
-                if (
-                  rectangularCollisions({
-                    rectangle1: player,
-                    rectangle2: battleZone
-            }) && 
-            overlappingArea > (player.width * player.height) / 2
-            && Math.random() < 0.015
-                ) {
-                  console.log('battle start');
-                  window.cancelAnimationFrame(animationId)
-                  battle.initiated = true
-                  gsap.to('#fadeOutDiv', {
+            if (
+              rectangularCollisions({
+                rectangle1: player,
+                rectangle2: battleZone,
+              }) &&
+              overlappingArea > (player.width * player.height) / 2 &&
+              Math.random() < 0.015
+            ) {
+              console.log("battle start");
+              window.cancelAnimationFrame(animationId);
+              battle.initiated = true;
+              gsap.to("#fadeOutDiv", {
+                opacity: 1,
+                repeat: 3,
+                yoyo: true,
+                duration: 0.4,
+                onComplete() {
+                  gsap.to("#fadeOutDiv", {
                     opacity: 1,
-                    repeat: 3,
-                    yoyo: true,
                     duration: 0.4,
-                    onComplete() {
-                        gsap.to('#fadeOutDiv', {
-                            opacity: 1,
-                            duration: 0.4,
-                        })
-// where you get sent to the battle
-                        
-                    }
-                  })
-                  break;
-                }
-              }
+                  });
+                  // where you get sent to the battle
+                },
+              });
+              break;
+            }
+          }
         }
 
         if (keys.w.pressed && lastKey === "w") {
-            player.moving = true
-            player.image = player.sprites.up
+          player.moving = true;
+          player.image = player.sprites.up;
           for (let i = 0; i < boundaries.length; i++) {
             const boundary = boundaries[i];
             if (
@@ -295,8 +309,8 @@ function GameWorld() {
               movable.position.y += 3;
             });
         } else if (keys.a.pressed && lastKey === "a") {
-            player.moving = true
-            player.image = player.sprites.left
+          player.moving = true;
+          player.image = player.sprites.left;
           for (let i = 0; i < boundaries.length; i++) {
             const boundary = boundaries[i];
             if (
@@ -320,8 +334,8 @@ function GameWorld() {
               movable.position.x += 3;
             });
         } else if (keys.s.pressed && lastKey === "s") {
-            player.moving = true
-            player.image = player.sprites.down
+          player.moving = true;
+          player.image = player.sprites.down;
           for (let i = 0; i < boundaries.length; i++) {
             const boundary = boundaries[i];
             if (
@@ -345,8 +359,8 @@ function GameWorld() {
               movable.position.y -= 3;
             });
         } else if (keys.d.pressed && lastKey === "d") {
-            player.moving = true
-            player.image = player.sprites.right
+          player.moving = true;
+          player.image = player.sprites.right;
           for (let i = 0; i < boundaries.length; i++) {
             const boundary = boundaries[i];
             if (
@@ -408,14 +422,26 @@ function GameWorld() {
   }, []);
 
   return (
-    <div style={{ display: "inline-block", position: "relative"}}>
-        <div id="fadeOutDiv" style={{ backgroundColor: "black", position: "absolute", top: 0, right: 0, bottom: 0, left: 0, opacity: 0, pointerEvents: "none" }}></div>
-    <canvas
-      ref={canvasRef}
-      height={576}
-      width={1024}
-      className="canvasForGame"
-    ></canvas>
+    <div style={{ display: "inline-block", position: "relative" }}>
+      <div
+        id="fadeOutDiv"
+        style={{
+          backgroundColor: "black",
+          position: "absolute",
+          top: 0,
+          right: 0,
+          bottom: 0,
+          left: 0,
+          opacity: 0,
+          pointerEvents: "none",
+        }}
+      ></div>
+      <canvas
+        ref={canvasRef}
+        height={576}
+        width={1024}
+        className="canvasForGame"
+      ></canvas>
     </div>
   );
 }
