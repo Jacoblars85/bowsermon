@@ -7,6 +7,7 @@ import PlayerUp from "./img/playerUp.png";
 import PlayerLeft from "./img/playerLeft.png";
 import PlayerRight from "./img/playerRight.png";
 import PlayerDown from "./img/playerDown.png";
+import { duration } from "@mui/material";
 const bowsermonMapJson = require("./data/bowsermonMap");
 const collisionsArray = require("./data/collisions");
 const battleZonesArray = require("./data/battleZones");
@@ -16,7 +17,7 @@ function GameWorld() {
   // console.log('bowsermonMapJson', bowsermonMapJson);
   // console.log('collisionsArray', collisionsArray);
 //   console.log('battleZonesArray', battleZonesArray);
-  
+
 
   const canvasRef = useRef(null);
 
@@ -50,7 +51,7 @@ function GameWorld() {
         }
 
         draw() {
-          c.fillStyle = "rgba(255, 0, 0, 0.0)";
+          c.fillStyle = "rgba(255, 0, 0, 0.4)";
           c.fillRect(this.position.x, this.position.y, this.width, this.height);
         }
       }
@@ -213,7 +214,7 @@ function GameWorld() {
       }
 
       function animate() {
-        window.requestAnimationFrame(animate);
+        const animationId = window.requestAnimationFrame(animate);
         background.draw();
         boundaries.forEach((boundary) => {
           boundary.draw();
@@ -247,7 +248,22 @@ function GameWorld() {
             && Math.random() < 0.015
                 ) {
                   console.log('battle start');
+                  window.cancelAnimationFrame(animationId)
                   battle.initiated = true
+                  gsap.to('#fadeOutDiv', {
+                    opacity: 1,
+                    repeat: 3,
+                    yoyo: true,
+                    duration: 0.4,
+                    onComplete() {
+                        gsap.to('#fadeOutDiv', {
+                            opacity: 1,
+                            duration: 0.4,
+                        })
+// where you get sent to the battle
+                        
+                    }
+                  })
                   break;
                 }
               }
@@ -392,12 +408,15 @@ function GameWorld() {
   }, []);
 
   return (
+    <div style={{ display: "inline-block", position: "relative"}}>
+        <div id="fadeOutDiv" style={{ backgroundColor: "black", position: "absolute", top: 0, right: 0, bottom: 0, left: 0, opacity: 0, pointerEvents: "none" }}></div>
     <canvas
       ref={canvasRef}
       height={576}
       width={1024}
       className="canvasForGame"
     ></canvas>
+    </div>
   );
 }
 
