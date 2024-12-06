@@ -8,7 +8,7 @@ import PlayerUp from "./img/playerUp.png";
 import PlayerLeft from "./img/playerLeft.png";
 import PlayerRight from "./img/playerRight.png";
 import PlayerDown from "./img/playerDown.png";
-import { duration } from "@mui/material";
+// import { duration } from "@mui/material";
 const bowsermonMapJson = require("./data/bowsermonMap");
 const collisionsArray = require("./data/collisions");
 const battleZonesArray = require("./data/battleZones");
@@ -51,7 +51,7 @@ function GameWorld() {
         }
 
         draw() {
-          c.fillStyle = "rgba(255, 0, 0, 0.4)";
+          c.fillStyle = "rgba(255, 0, 0, 0.0)";
           c.fillRect(this.position.x, this.position.y, this.width, this.height);
         }
       }
@@ -234,60 +234,63 @@ function GameWorld() {
         let moving = true;
         player.moving = false;
 
-        if (battle.initiated) return;
-        // activate a battle
-        if (
-          keys.w.pressed ||
-          keys.a.pressed ||
-          keys.s.pressed ||
-          keys.d.pressed
-        ) {
-          for (let i = 0; i < battleZones.length; i++) {
-            const battleZone = battleZones[i];
-            const overlappingArea =
-              (Math.min(
-                player.position.x + player.width,
-                battleZone.position.x + battleZone.width
-              ) -
-                Math.max(player.position.x, battleZone.position.x)) *
-              (Math.min(
-                player.position.y + player.height,
-                battleZone.position.y + battleZone.height
-              ) -
-                Math.max(player.position.y, battleZone.position.y));
+        if (battle.initiated) return
 
-            if (
-              rectangularCollisions({
-                rectangle1: player,
-                rectangle2: battleZone,
-              }) &&
-              overlappingArea > (player.width * player.height) / 2 &&
-              Math.random() < 0.015
-            ) {
-              console.log("battle start");
-              window.cancelAnimationFrame(animationId);
-              battle.initiated = true;
-              gsap.to("#fadeOutDiv", {
-                opacity: 1,
-                repeat: 3,
-                yoyo: true,
-                duration: 0.4,
-                onComplete() {
-                  gsap.to("#fadeOutDiv", {
-                    opacity: 1,
-                    duration: 0.4,
-                    onComplete() {
-                      // where you get sent to the battle
-                      // added the fade out in the battle seq
-                      history.push(`/battle/${1}`);
-                    },
-                  });
-                },
-              });
-              break;
+        // activate battle
+          if (
+            keys.w.pressed ||
+            keys.a.pressed ||
+            keys.s.pressed ||
+            keys.d.pressed
+          ) {
+            for (let i = 0; i < battleZones.length; i++) {
+              const battleZone = battleZones[i];
+              const overlappingArea =
+                (Math.min(
+                  player.position.x + player.width,
+                  battleZone.position.x + battleZone.width
+                ) -
+                  Math.max(player.position.x, battleZone.position.x)) *
+                (Math.min(
+                  player.position.y + player.height,
+                  battleZone.position.y + battleZone.height
+                ) -
+                  Math.max(player.position.y, battleZone.position.y));
+
+              if (
+                rectangularCollisions({
+                  rectangle1: player,
+                  rectangle2: battleZone,
+                }) &&
+                overlappingArea > (player.width * player.height) / 2 &&
+                Math.random() < 0.015
+              ) {
+                battle.initiated = true;
+                console.log(battle.initiated, 'battle.initiated ');
+                
+                // console.log("battle start");
+                window.cancelAnimationFrame(animationId);
+                gsap.to("#fadeOutDiv", {
+                  opacity: 1,
+                  repeat: 3,
+                  yoyo: true,
+                  duration: 0.4,
+                  onComplete() {
+                    gsap.to("#fadeOutDiv", {
+                      opacity: 1,
+                      duration: 0.4,
+                      onComplete() {
+                        // where you get sent to the battle
+                        // added the fade out in the battle seq
+                        history.push(`/battle/${1}`);
+                      },
+                    });
+                  },
+                });
+                break;
+              }
             }
           }
-        }
 
         if (keys.w.pressed && lastKey === "w") {
           player.moving = true;
