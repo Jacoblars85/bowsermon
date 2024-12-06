@@ -35,7 +35,7 @@ function GameWorld() {
           this.width = 48;
           this.height = 48;
         }
-    
+
         draw() {
           c.fillStyle = "rgba(255, 0, 0, 0.0)";
           c.fillRect(this.position.x, this.position.y, this.width, this.height);
@@ -66,7 +66,7 @@ function GameWorld() {
 
       const image = new Image();
       image.src = MarioMap;
-    //   console.log(image);
+      //   console.log(image);
 
       const foregroundImage = new Image();
       foregroundImage.src = MarioMapForegroundImage;
@@ -78,15 +78,15 @@ function GameWorld() {
         constructor({ position, velocity, image, frames = { max: 1 } }) {
           this.position = position;
           this.image = image;
-          this.frames = frames,
-          this.image.onload = () => {
-            this.width = this.image.width / this.frames.max
-            this.height = this.image.height
-          }
+          (this.frames = frames),
+            (this.image.onload = () => {
+              this.width = this.image.width / this.frames.max;
+              this.height = this.image.height;
+            });
         }
-    
+
         draw() {
-        //   c.drawImage(this.image, this.position.x, this.position.y);
+          //   c.drawImage(this.image, this.position.x, this.position.y);
           c.drawImage(
             this.image,
             0,
@@ -101,18 +101,18 @@ function GameWorld() {
         }
       }
 
-    const player = new Sprite({
+      const player = new Sprite({
         position: {
-            x: canvas.width / 2 - 192 / 4 / 2,
-            y: canvas.height / 2 - 68 / 2
-          },
-          image: playerImage,
-          frames: {
-            max: 4
-          }
-    })
+          x: canvas.width / 2 - 192 / 4 / 2,
+          y: canvas.height / 2 - 68 / 2,
+        },
+        image: playerImage,
+        frames: {
+          max: 4,
+        },
+      });
 
-    const foreground = new Sprite({
+      const foreground = new Sprite({
         position: {
           x: offset.x,
           y: offset.y,
@@ -127,7 +127,6 @@ function GameWorld() {
         },
         image: image,
       });
-
 
       const keys = {
         w: {
@@ -144,101 +143,120 @@ function GameWorld() {
         },
       };
 
-      const movables = [background, ...boundaries, foreground]
+      const movables = [background, ...boundaries, foreground];
 
       function rectangularCollisions({ rectangle1, rectangle2 }) {
-        return (rectangle1.position.x + rectangle1.width >= rectangle2.position.x && 
-            rectangle1.position.x <= rectangle2.position.x + rectangle2.width && 
-            rectangle1.position.y + rectangle1.height >= rectangle2.position.y && 
-            rectangle1.position.y <= rectangle2.position.y + rectangle2.height)
+        return (
+          rectangle1.position.x + rectangle1.width >= rectangle2.position.x &&
+          rectangle1.position.x <= rectangle2.position.x + rectangle2.width &&
+          rectangle1.position.y + rectangle1.height >= rectangle2.position.y &&
+          rectangle1.position.y <= rectangle2.position.y + rectangle2.height
+        );
       }
 
       function animate() {
         window.requestAnimationFrame(animate);
-        background.draw()
+        background.draw();
         boundaries.forEach((boundary) => {
           boundary.draw();
         });
-        player.draw()
-        foreground.draw()
- 
-       let moving = true
+        player.draw();
+        foreground.draw();
+
+        let moving = true;
 
         if (keys.w.pressed && lastKey === "w") {
-            for (let i = 0; i < boundaries.length; i++) {
-                const boundary = boundaries[i]
-                if (rectangularCollisions({
-                    rectangle1: player,
-                    rectangle2: {...boundary, position: {
-                        x: boundary.position.x,
-                        y: boundary.position.y + 3
-                    }}
-                })) {
-                    moving = false
-                    break
-                }
-        }
-        if (moving)
-             movables.forEach((movable) => {
-            movable.position.y += 3
-            })
-        }
-        else if (keys.a.pressed && lastKey === "a") {
-            for (let i = 0; i < boundaries.length; i++) {
-                const boundary = boundaries[i]
-                if (rectangularCollisions({
-                    rectangle1: player,
-                    rectangle2: {...boundary, position: {
-                        x: boundary.position.x + 3,
-                        y: boundary.position.y
-                    }}
-                })) {
-                    moving = false
-                    break
-                }
-        }
-        if (moving)
-             movables.forEach((movable) => {
-            movable.position.x += 3
-            })
-        }
-        else if (keys.s.pressed && lastKey === "s") {
-            for (let i = 0; i < boundaries.length; i++) {
-                const boundary = boundaries[i]
-                if (rectangularCollisions({
-                    rectangle1: player,
-                    rectangle2: {...boundary, position: {
-                        x: boundary.position.x,
-                        y: boundary.position.y - 3
-                    }}
-                })) {
-                    moving = false
-                    break
-                }
-        }
-        if (moving)
-             movables.forEach((movable) => {
-            movable.position.y -= 3
-            })
-        }
-        else if (keys.d.pressed && lastKey === "d") {
-            for (let i = 0; i < boundaries.length; i++) {
-                const boundary = boundaries[i]
-                if (rectangularCollisions({
-                    rectangle1: player,
-                    rectangle2: {...boundary, position: {
-                        x: boundary.position.x - 3,
-                        y: boundary.position.y
-                    }}
-                })) {
-                    moving = false
-                    break
-                }
-        }
-        if (moving)
-             movables.forEach((movable) => {
-            movable.position.x -= 3
-            })
+          for (let i = 0; i < boundaries.length; i++) {
+            const boundary = boundaries[i];
+            if (
+              rectangularCollisions({
+                rectangle1: player,
+                rectangle2: {
+                  ...boundary,
+                  position: {
+                    x: boundary.position.x,
+                    y: boundary.position.y + 3,
+                  },
+                },
+              })
+            ) {
+              moving = false;
+              break;
+            }
+          }
+          if (moving)
+            movables.forEach((movable) => {
+              movable.position.y += 3;
+            });
+        } else if (keys.a.pressed && lastKey === "a") {
+          for (let i = 0; i < boundaries.length; i++) {
+            const boundary = boundaries[i];
+            if (
+              rectangularCollisions({
+                rectangle1: player,
+                rectangle2: {
+                  ...boundary,
+                  position: {
+                    x: boundary.position.x + 3,
+                    y: boundary.position.y,
+                  },
+                },
+              })
+            ) {
+              moving = false;
+              break;
+            }
+          }
+          if (moving)
+            movables.forEach((movable) => {
+              movable.position.x += 3;
+            });
+        } else if (keys.s.pressed && lastKey === "s") {
+          for (let i = 0; i < boundaries.length; i++) {
+            const boundary = boundaries[i];
+            if (
+              rectangularCollisions({
+                rectangle1: player,
+                rectangle2: {
+                  ...boundary,
+                  position: {
+                    x: boundary.position.x,
+                    y: boundary.position.y - 3,
+                  },
+                },
+              })
+            ) {
+              moving = false;
+              break;
+            }
+          }
+          if (moving)
+            movables.forEach((movable) => {
+              movable.position.y -= 3;
+            });
+        } else if (keys.d.pressed && lastKey === "d") {
+          for (let i = 0; i < boundaries.length; i++) {
+            const boundary = boundaries[i];
+            if (
+              rectangularCollisions({
+                rectangle1: player,
+                rectangle2: {
+                  ...boundary,
+                  position: {
+                    x: boundary.position.x - 3,
+                    y: boundary.position.y,
+                  },
+                },
+              })
+            ) {
+              moving = false;
+              break;
+            }
+          }
+          if (moving)
+            movables.forEach((movable) => {
+              movable.position.x -= 3;
+            });
         }
       }
       animate();
@@ -274,12 +292,6 @@ function GameWorld() {
       });
 
       // console.log(keys);
-
-
-
-
-
-
     }
   }, []);
 
