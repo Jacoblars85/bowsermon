@@ -3,8 +3,16 @@ import {useSelector} from 'react-redux';
 import "./gameWorld.css";
 import MarioMap from './img/bowsermon-map-v1.png'
 import PlayerDown from './img/playerDown.png'
+const bowsermonMapJson = require('./data/bowsermonMap');
+const collisionsArray = require('./data/collisions');
+
 
 function GameWorld() {
+
+    // console.log('bowsermonMapJson', bowsermonMapJson);
+    // console.log('collisionsArray', collisionsArray);
+
+    
     
     const canvasRef = useRef(null);
 
@@ -15,8 +23,54 @@ function GameWorld() {
   
         // console.log('c', c);
 
-        c.fillRect(0,0, canvas.width, canvas.height);
-        c.fillStyle = 'white';
+        const collisionsMap = []
+
+        for (let i = 0; i < collisionsArray.length; i += 235) {
+            collisionsMap.push(collisionsArray.slice(i, 235 + i))
+            
+        }
+        // console.log(collisionsMap);
+
+        class Boundary {
+            static width = 48
+            static height = 48
+            constructor({ position }) {
+                this.position = position
+                this.width = 48
+                this.height = 48
+            }
+
+            draw() {
+                c.fillStyle = 'red'
+                c.fillRect(this.position.x, this.position.y, this.width, this.height)
+            }
+        }
+
+        const boundaries = []
+
+        const offset = {
+            x: -4767.5,
+            y: -5980
+        }
+
+        collisionsMap.forEach((row, i) => {
+            row.forEach((symbol, j) => {
+                if (symbol === 1025) {
+                    boundaries.push(
+                        new Boundary({position: {
+                        x: j * Boundary.width + offset.x,
+                        y: i * Boundary.height + offset.y
+                    }}))
+                }
+                // boundaries.push(
+                //     new Boundary({position: {
+                //     x: j * Boundary.width,
+                //     y: i * Boundary.height
+                // }}))
+ 
+            })
+        })
+        
 
         const image = new Image()
         image.src = MarioMap
@@ -37,9 +91,11 @@ function GameWorld() {
             }
         }
 
+       
+
         const background = new Sprite({ position: {
-            x: -4767.5,
-            y: -5980
+            x: offset.x,
+            y: offset.y
         },
     image: image
     })
@@ -62,6 +118,9 @@ function GameWorld() {
         function animate() {
             window.requestAnimationFrame(animate)
             background.draw()
+            boundaries.forEach(boundary => {
+                boundary.draw()
+            })
             c.drawImage(playerImage, 
                 0,
                 0,
@@ -113,7 +172,7 @@ function GameWorld() {
         })
 
 
-console.log(keys);
+// console.log(keys);
 
 
 
