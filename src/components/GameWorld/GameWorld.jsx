@@ -220,6 +220,22 @@ function GameWorld() {
         player.draw();
         foreground.draw();
 
+        if (keys.w.pressed || keys.a.pressed || keys.s.pressed || keys.d.pressed) {
+            for (let i = 0; i < battleZones.length; i++) {
+                const battleZone = battleZones[i];
+                if (
+                  rectangularCollisions({
+                    rectangle1: player,
+                    rectangle2: battleZone
+            })
+                ) {
+                  console.log('colliding');
+                  
+                  break;
+                }
+              }
+        }
+
         let moving = true;
         player.moving = false
 
