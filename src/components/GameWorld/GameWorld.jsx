@@ -79,10 +79,11 @@ function GameWorld() {
           this.position = position;
           this.image = image;
           this.frames = {...frames, val: 0, elapsed: 0 },
-            (this.image.onload = () => {
+            this.image.onload = () => {
               this.width = this.image.width / this.frames.max;
               this.height = this.image.height;
-            });
+            }
+            this.moving = false
         }
 
         draw() {
@@ -98,6 +99,7 @@ function GameWorld() {
             this.image.width / this.frames.max,
             this.image.height
           );
+          if (!this.moving) return
           if (this.frames.max > 1) {
             this.frames.elapsed++
           }
@@ -171,8 +173,10 @@ function GameWorld() {
         foreground.draw();
 
         let moving = true;
+        player.moving = false
 
         if (keys.w.pressed && lastKey === "w") {
+            player.moving = true
           for (let i = 0; i < boundaries.length; i++) {
             const boundary = boundaries[i];
             if (
@@ -196,6 +200,7 @@ function GameWorld() {
               movable.position.y += 3;
             });
         } else if (keys.a.pressed && lastKey === "a") {
+            player.moving = true
           for (let i = 0; i < boundaries.length; i++) {
             const boundary = boundaries[i];
             if (
@@ -219,6 +224,7 @@ function GameWorld() {
               movable.position.x += 3;
             });
         } else if (keys.s.pressed && lastKey === "s") {
+            player.moving = true
           for (let i = 0; i < boundaries.length; i++) {
             const boundary = boundaries[i];
             if (
@@ -242,6 +248,7 @@ function GameWorld() {
               movable.position.y -= 3;
             });
         } else if (keys.d.pressed && lastKey === "d") {
+            player.moving = true
           for (let i = 0; i < boundaries.length; i++) {
             const boundary = boundaries[i];
             if (
