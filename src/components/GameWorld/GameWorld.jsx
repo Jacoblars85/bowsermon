@@ -3,6 +3,9 @@ import { useSelector } from "react-redux";
 import "./gameWorld.css";
 import MarioMap from "./img/bowsermon-map-v1.png";
 import MarioMapForegroundImage from "./img/foregroundObjects.png";
+import PlayerUp from "./img/playerUp.png";
+import PlayerLeft from "./img/playerLeft.png";
+import PlayerRight from "./img/playerRight.png";
 import PlayerDown from "./img/playerDown.png";
 const bowsermonMapJson = require("./data/bowsermonMap");
 const collisionsArray = require("./data/collisions");
@@ -17,8 +20,6 @@ function GameWorld() {
     if (canvasRef.current) {
       const canvas = canvasRef.current;
       const c = canvas.getContext("2d");
-
-      // console.log('c', c);
 
       const collisionsMap = [];
 
@@ -71,11 +72,20 @@ function GameWorld() {
       const foregroundImage = new Image();
       foregroundImage.src = MarioMapForegroundImage;
 
-      const playerImage = new Image();
-      playerImage.src = PlayerDown;
+      const playerDownImage = new Image();
+      playerDownImage.src = PlayerDown;
+
+      const playerUpImage = new Image();
+      playerUpImage.src = PlayerUp;
+
+      const playerLeftImage = new Image();
+      playerLeftImage.src = PlayerLeft;
+
+      const playerRightImage = new Image();
+      playerRightImage.src = PlayerRight;
 
       class Sprite {
-        constructor({ position, velocity, image, frames = { max: 1 } }) {
+        constructor({ position, velocity, image, frames = { max: 1 }, sprites = [] }) {
           this.position = position;
           this.image = image;
           this.frames = {...frames, val: 0, elapsed: 0 },
@@ -84,10 +94,10 @@ function GameWorld() {
               this.height = this.image.height;
             }
             this.moving = false
+            this.sprites = sprites
         }
 
         draw() {
-          //   c.drawImage(this.image, this.position.x, this.position.y);
           c.drawImage(
             this.image,
             this.frames.val * this.width,
@@ -115,10 +125,16 @@ function GameWorld() {
           x: canvas.width / 2 - 192 / 4 / 2,
           y: canvas.height / 2 - 68 / 2,
         },
-        image: playerImage,
+        image: playerDownImage,
         frames: {
           max: 4,
         },
+        sprites: {
+            up: playerUpImage,
+            left: playerLeftImage,
+            right: playerRightImage,
+            down: playerDownImage
+        }
       });
 
       const foreground = new Sprite({
@@ -177,6 +193,7 @@ function GameWorld() {
 
         if (keys.w.pressed && lastKey === "w") {
             player.moving = true
+            player.image = player.sprites.up
           for (let i = 0; i < boundaries.length; i++) {
             const boundary = boundaries[i];
             if (
@@ -201,6 +218,7 @@ function GameWorld() {
             });
         } else if (keys.a.pressed && lastKey === "a") {
             player.moving = true
+            player.image = player.sprites.left
           for (let i = 0; i < boundaries.length; i++) {
             const boundary = boundaries[i];
             if (
@@ -225,6 +243,7 @@ function GameWorld() {
             });
         } else if (keys.s.pressed && lastKey === "s") {
             player.moving = true
+            player.image = player.sprites.down
           for (let i = 0; i < boundaries.length; i++) {
             const boundary = boundaries[i];
             if (
@@ -249,6 +268,7 @@ function GameWorld() {
             });
         } else if (keys.d.pressed && lastKey === "d") {
             player.moving = true
+            player.image = player.sprites.right
           for (let i = 0; i < boundaries.length; i++) {
             const boundary = boundaries[i];
             if (
