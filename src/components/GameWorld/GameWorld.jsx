@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 import "./gameWorld.css";
 import MarioMap from "./img/bowsermon-map-v1.png";
+import MarioMapForegroundImage from "./img/foregroundObjects.png";
 import PlayerDown from "./img/playerDown.png";
 const bowsermonMapJson = require("./data/bowsermonMap");
 const collisionsArray = require("./data/collisions");
@@ -34,9 +35,9 @@ function GameWorld() {
           this.width = 48;
           this.height = 48;
         }
-
+    
         draw() {
-          c.fillStyle = "red";
+          c.fillStyle = "rgba(255, 0, 0, 0.0)";
           c.fillRect(this.position.x, this.position.y, this.width, this.height);
         }
       }
@@ -45,7 +46,7 @@ function GameWorld() {
 
       const offset = {
         x: -4767.5,
-        y: -5980,
+        y: -5990,
       };
 
       collisionsMap.forEach((row, i) => {
@@ -65,7 +66,10 @@ function GameWorld() {
 
       const image = new Image();
       image.src = MarioMap;
-      // console.log(image);
+    //   console.log(image);
+
+      const foregroundImage = new Image();
+      foregroundImage.src = MarioMapForegroundImage;
 
       const playerImage = new Image();
       playerImage.src = PlayerDown;
@@ -80,7 +84,7 @@ function GameWorld() {
             this.height = this.image.height
           }
         }
-
+    
         draw() {
         //   c.drawImage(this.image, this.position.x, this.position.y);
           c.drawImage(
@@ -108,6 +112,14 @@ function GameWorld() {
           }
     })
 
+    const foreground = new Sprite({
+        position: {
+          x: offset.x,
+          y: offset.y,
+        },
+        image: foregroundImage,
+      });
+
       const background = new Sprite({
         position: {
           x: offset.x,
@@ -115,6 +127,7 @@ function GameWorld() {
         },
         image: image,
       });
+
 
       const keys = {
         w: {
@@ -131,45 +144,102 @@ function GameWorld() {
         },
       };
 
-      const testBoundary = new Boundary({
-        position: {
-            x: 0,
-            y: 0
-        }
-      })
+      const movables = [background, ...boundaries, foreground]
 
-      const movables = [background, testBoundary]
+      function rectangularCollisions({ rectangle1, rectangle2 }) {
+        return (rectangle1.position.x + rectangle1.width >= rectangle2.position.x && 
+            rectangle1.position.x <= rectangle2.position.x + rectangle2.width && 
+            rectangle1.position.y + rectangle1.height >= rectangle2.position.y && 
+            rectangle1.position.y <= rectangle2.position.y + rectangle2.height)
+      }
 
       function animate() {
         window.requestAnimationFrame(animate);
-        background.draw();
-        // boundaries.forEach((boundary) => {
-        //   boundary.draw();
-        // });
-        testBoundary.draw()
+        background.draw()
+        boundaries.forEach((boundary) => {
+          boundary.draw();
+        });
         player.draw()
+        foreground.draw()
  
-        if (player.position.x + player.width >= testBoundary.position.x && 
-            player.position.x <= testBoundary.position.x + testBoundary.width && 
-            player.position.y + player.height >= testBoundary.position.y && 
-            player.position.y <= testBoundary.position.y + testBoundary.height) {
-                
-            console.log('colliding');
-            
-        }
+       let moving = true
 
-        if (keys.w.pressed && lastKey === "w") movables.forEach((movable) => {
+        if (keys.w.pressed && lastKey === "w") {
+            for (let i = 0; i < boundaries.length; i++) {
+                const boundary = boundaries[i]
+                if (rectangularCollisions({
+                    rectangle1: player,
+                    rectangle2: {...boundary, position: {
+                        x: boundary.position.x,
+                        y: boundary.position.y + 3
+                    }}
+                })) {
+                    moving = false
+                    break
+                }
+        }
+        if (moving)
+             movables.forEach((movable) => {
             movable.position.y += 3
-        }) 
-        else if (keys.a.pressed && lastKey === "a") movables.forEach((movable) => {
+            })
+        }
+        else if (keys.a.pressed && lastKey === "a") {
+            for (let i = 0; i < boundaries.length; i++) {
+                const boundary = boundaries[i]
+                if (rectangularCollisions({
+                    rectangle1: player,
+                    rectangle2: {...boundary, position: {
+                        x: boundary.position.x + 3,
+                        y: boundary.position.y
+                    }}
+                })) {
+                    moving = false
+                    break
+                }
+        }
+        if (moving)
+             movables.forEach((movable) => {
             movable.position.x += 3
-        }) 
-        else if (keys.s.pressed && lastKey === "s") movables.forEach((movable) => {
+            })
+        }
+        else if (keys.s.pressed && lastKey === "s") {
+            for (let i = 0; i < boundaries.length; i++) {
+                const boundary = boundaries[i]
+                if (rectangularCollisions({
+                    rectangle1: player,
+                    rectangle2: {...boundary, position: {
+                        x: boundary.position.x,
+                        y: boundary.position.y - 3
+                    }}
+                })) {
+                    moving = false
+                    break
+                }
+        }
+        if (moving)
+             movables.forEach((movable) => {
             movable.position.y -= 3
-        }) 
-        else if (keys.d.pressed && lastKey === "d") movables.forEach((movable) => {
+            })
+        }
+        else if (keys.d.pressed && lastKey === "d") {
+            for (let i = 0; i < boundaries.length; i++) {
+                const boundary = boundaries[i]
+                if (rectangularCollisions({
+                    rectangle1: player,
+                    rectangle2: {...boundary, position: {
+                        x: boundary.position.x - 3,
+                        y: boundary.position.y
+                    }}
+                })) {
+                    moving = false
+                    break
+                }
+        }
+        if (moving)
+             movables.forEach((movable) => {
             movable.position.x -= 3
-        }) 
+            })
+        }
       }
       animate();
 
@@ -218,7 +288,6 @@ function GameWorld() {
       ref={canvasRef}
       height={576}
       width={1024}
-      id="canvasForGameWorld"
       className="canvasForGame"
     ></canvas>
   );
