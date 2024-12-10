@@ -119,8 +119,9 @@ function GameWorld() {
           position,
           velocity,
           image,
-          frames = { max: 1 },
-          sprites = [],
+          frames = { max: 1, hold: 10 },
+          sprites,
+          animate = false
         }) {
           this.position = position;
           this.image = image;
@@ -129,7 +130,7 @@ function GameWorld() {
               this.width = this.image.width / this.frames.max;
               this.height = this.image.height;
             });
-          this.moving = false;
+          this.animate = animate;
           this.sprites = sprites;
         }
 
@@ -145,11 +146,11 @@ function GameWorld() {
             this.image.width / this.frames.max,
             this.image.height
           );
-          if (!this.moving) return;
+          if (!this.animate) return;
           if (this.frames.max > 1) {
             this.frames.elapsed++;
           }
-          if (this.frames.elapsed % 10 === 0) {
+          if (this.frames.elapsed % this.frames.hold === 0) {
             if (this.frames.val < this.frames.max - 1) this.frames.val++;
             else this.frames.val = 0;
           }
@@ -164,6 +165,7 @@ function GameWorld() {
         image: playerDownImage,
         frames: {
           max: 4,
+          hold: 10
         },
         sprites: {
           up: playerUpImage,
@@ -232,7 +234,7 @@ function GameWorld() {
         foreground.draw();
 
         let moving = true;
-        player.moving = false;
+        player.animate = false;
 
         if (battle.initiated) return;
 
@@ -293,7 +295,7 @@ function GameWorld() {
         }
 
         if (keys.w.pressed && lastKey === "w") {
-          player.moving = true;
+          player.animate = true;
           player.image = player.sprites.up;
           for (let i = 0; i < boundaries.length; i++) {
             const boundary = boundaries[i];
@@ -318,7 +320,7 @@ function GameWorld() {
               movable.position.y += 3;
             });
         } else if (keys.a.pressed && lastKey === "a") {
-          player.moving = true;
+          player.animate = true;
           player.image = player.sprites.left;
           for (let i = 0; i < boundaries.length; i++) {
             const boundary = boundaries[i];
@@ -343,7 +345,7 @@ function GameWorld() {
               movable.position.x += 3;
             });
         } else if (keys.s.pressed && lastKey === "s") {
-          player.moving = true;
+          player.animate = true;
           player.image = player.sprites.down;
           for (let i = 0; i < boundaries.length; i++) {
             const boundary = boundaries[i];
@@ -368,7 +370,7 @@ function GameWorld() {
               movable.position.y -= 3;
             });
         } else if (keys.d.pressed && lastKey === "d") {
-          player.moving = true;
+          player.animate = true;
           player.image = player.sprites.right;
           for (let i = 0; i < boundaries.length; i++) {
             const boundary = boundaries[i];
