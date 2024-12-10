@@ -1453,8 +1453,8 @@ function Battle() {
 
 
       const image = new Image();
-      image.src = MarioMap;
-      //   console.log(image);
+      image.src = lakeBackground
+        console.log(image);
 
 
 
@@ -1500,27 +1500,10 @@ function Battle() {
         }
       }
 
-      const player = new Sprite({
-        position: {
-          x: canvas.width / 2 - 192 / 4 / 2,
-          y: canvas.height / 2 - 68 / 2,
-        },
-        image: playerDownImage,
-        frames: {
-          max: 4,
-        },
-        sprites: {
-          up: playerUpImage,
-          left: playerLeftImage,
-          right: playerRightImage,
-          down: playerDownImage,
-        },
-      });
-
       const background = new Sprite({
         position: {
-          x: offset.x,
-          y: offset.y,
+          x: 0,
+          y: 0,
         },
         image: image,
       });
@@ -1528,19 +1511,7 @@ function Battle() {
 
 
       function animate() {
-        const animationId = window.requestAnimationFrame(animate);
         background.draw();
-        boundaries.forEach((boundary) => {
-          boundary.draw();
-        });
-        battleZones.forEach((battleZone) => {
-          battleZone.draw();
-        });
-        player.draw();
-        foreground.draw();
-
-        let moving = true;
-        player.moving = false;
 
       }
       animate();
