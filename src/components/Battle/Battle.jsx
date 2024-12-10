@@ -19,7 +19,7 @@ import lakeBackground from "./img/LakeBackground.png";
 import forestBackground from "./img/RockForest.webp";
 import battleBackground from "./img/battleBackground.png";
 import draggleSpriteImage from "./img/draggleSprite.png";
-import embySpriteImage from "./img/draggleSprite.png";
+import embySpriteImage from "./img/embySprite.png";
 import ListItemText from "@mui/material/ListItemText";
 import ListItem from "@mui/material/ListItem";
 import List from "@mui/material/List";
@@ -1495,16 +1495,16 @@ function Battle() {
 
       const draggle = new Sprite({
         position: {
-          x: 0,
-          y: 0,
+          x: 700,
+          y: 100,
         },
         image: draggleImage,
       });
 
       const emby = new Sprite({
         position: {
-          x: 0,
-          y: 0,
+          x: 175,
+          y: 350,
         },
         image: embyImage,
       });
