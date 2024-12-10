@@ -1512,6 +1512,8 @@ function Battle() {
       function animateBattle() {
         window.requestAnimationFrame(animateBattle);
         background.draw();
+        draggle.draw();
+        emby.draw();
       }
       animateBattle();
     }
