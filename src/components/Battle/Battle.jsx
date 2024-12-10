@@ -1450,7 +1450,7 @@ function Battle() {
           image,
           frames = { max: 1, hold: 10 },
           sprites,
-          animate = false
+          animate = false,
         }) {
           this.position = position;
           this.image = image;
@@ -1502,22 +1502,22 @@ function Battle() {
         image: draggleImage,
         frames: {
           max: 4,
-          hold: 30
+          hold: 30,
         },
-        animate: true
+        animate: true,
       });
 
       const emby = new Sprite({
         position: {
-          x: 300,
-          y: 330,
+          x: 280,
+          y: 325,
         },
         image: embyImage,
         frames: {
           max: 4,
-          hold: 30
+          hold: 30,
         },
-        animate: true
+        animate: true,
       });
 
       function animateBattle() {
