@@ -359,3 +359,8 @@ background: limegreen;
     box-shadow: 6px 4px 8px -2px;
 }
 
+.canvasForBattle {
+    /* width: 1024px;
+    height: 576px; */
+    background-color: white;
+}
