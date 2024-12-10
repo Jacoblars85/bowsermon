@@ -18,8 +18,8 @@ import DialogTitle from "@mui/material/DialogTitle";
 import lakeBackground from "./img/LakeBackground.png";
 import forestBackground from "./img/RockForest.webp";
 import battleBackground from "./img/battleBackground.png";
-import draggleImage from "./img/draggleSprite.png";
-import embyImage from "./img/draggleSprite.png";
+import draggleSpriteImage from "./img/draggleSprite.png";
+import embySpriteImage from "./img/draggleSprite.png";
 import ListItemText from "@mui/material/ListItemText";
 import ListItem from "@mui/material/ListItem";
 import List from "@mui/material/List";
@@ -1436,6 +1436,12 @@ function Battle() {
       const backgroundImage = new Image();
       backgroundImage.src = battleBackground;
       // console.log(backgroundImage);
+
+      const draggleImage = new Image();
+      draggleImage.src = draggleSpriteImage;
+
+      const embyImage = new Image();
+      embyImage.src = embySpriteImage;
 
       class Sprite {
         constructor({
