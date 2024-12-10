@@ -1448,8 +1448,9 @@ function Battle() {
           position,
           velocity,
           image,
-          frames = { max: 1 },
-          sprites = [],
+          frames = { max: 1, hold: 10 },
+          sprites,
+          animate = false
         }) {
           this.position = position;
           this.image = image;
@@ -1458,7 +1459,7 @@ function Battle() {
               this.width = this.image.width / this.frames.max;
               this.height = this.image.height;
             });
-          this.moving = false;
+          this.animate = animate;
           this.sprites = sprites;
         }
 
@@ -1474,11 +1475,11 @@ function Battle() {
             this.image.width / this.frames.max,
             this.image.height
           );
-          if (!this.moving) return;
+          if (!this.animate) return;
           if (this.frames.max > 1) {
             this.frames.elapsed++;
           }
-          if (this.frames.elapsed % 10 === 0) {
+          if (this.frames.elapsed % this.frames.hold === 0) {
             if (this.frames.val < this.frames.max - 1) this.frames.val++;
             else this.frames.val = 0;
           }
@@ -1501,7 +1502,9 @@ function Battle() {
         image: draggleImage,
         frames: {
           max: 4,
+          hold: 30
         },
+        animate: true
       });
 
       const emby = new Sprite({
@@ -1512,25 +1515,10 @@ function Battle() {
         image: embyImage,
         frames: {
           max: 4,
+          hold: 30
         },
+        animate: true
       });
-
-      // const player = new Sprite({
-      //   position: {
-      //     x: canvas.width / 2 - 192 / 4 / 2,
-      //     y: canvas.height / 2 - 68 / 2,
-      //   },
-      //   image: playerDownImage,
-      //   frames: {
-      //     max: 4,
-      //   },
-      //   sprites: {
-      //     up: playerUpImage,
-      //     left: playerLeftImage,
-      //     right: playerRightImage,
-      //     down: playerDownImage,
-      //   },
-      // });
 
       function animateBattle() {
         window.requestAnimationFrame(animateBattle);
