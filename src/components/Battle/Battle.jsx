@@ -1425,15 +1425,15 @@ function Battle() {
   };
 
   const battleCanvasRef = useRef(null);
-  
+
   useEffect(() => {
     if (battleCanvasRef.current) {
       const canvas = battleCanvasRef.current;
       const c = canvas.getContext("2d");
 
       const backgroundImage = new Image();
-      backgroundImage.src = battleBackground
-        // console.log(backgroundImage);
+      backgroundImage.src = battleBackground;
+      // console.log(backgroundImage);
 
       class Sprite {
         constructor({
@@ -1486,9 +1486,8 @@ function Battle() {
       });
 
       function animateBattle() {
-        window.requestAnimationFrame(animateBattle)
+        window.requestAnimationFrame(animateBattle);
         background.draw();
-
       }
       animateBattle();
     }
@@ -2053,7 +2052,6 @@ function Battle() {
           </List>
         </Dialog>
       </Fragment>
-      
     </div>
   );
 }
