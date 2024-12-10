@@ -202,6 +202,7 @@ function Battle() {
     setSwitchOpen(false);
   };
 
+  // All of the Dead switch dialog function
   const [deadOpen, setDeadOpen] = useState(false);
 
   const handleDeadOpen = () => {
