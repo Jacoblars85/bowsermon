@@ -1545,12 +1545,27 @@ function Battle() {
     >
       <audio src={battleMusic} autoPlay />
 
+    <div style={{ display: "inline-block", position: "relative" }}>
+
+
       <canvas
         ref={battleCanvasRef}
         height={576}
         width={1024}
         className="canvasForBattle"
       ></canvas>
+
+      <div style={{
+        backgroundColor: 'white',
+        height: `140px`,
+        // width: `200px`,
+        position: "absolute",
+        bottom: 0,
+        left: 0,
+        right: 0,
+      }}></div>
+
+      </div>
 
       {/* <div className={shakeTheScreen}></div>
 
