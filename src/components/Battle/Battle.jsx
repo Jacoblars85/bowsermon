@@ -1493,6 +1493,22 @@ function Battle() {
         image: backgroundImage,
       });
 
+      const draggle = new Sprite({
+        position: {
+          x: 0,
+          y: 0,
+        },
+        image: draggleImage,
+      });
+
+      const emby = new Sprite({
+        position: {
+          x: 0,
+          y: 0,
+        },
+        image: embyImage,
+      });
+
       function animateBattle() {
         window.requestAnimationFrame(animateBattle);
         background.draw();
