@@ -121,7 +121,7 @@ function GameWorld() {
           image,
           frames = { max: 1, hold: 10 },
           sprites,
-          animate = false
+          animate = false,
         }) {
           this.position = position;
           this.image = image;
@@ -165,7 +165,7 @@ function GameWorld() {
         image: playerDownImage,
         frames: {
           max: 4,
-          hold: 10
+          hold: 10,
         },
         sprites: {
           up: playerUpImage,
