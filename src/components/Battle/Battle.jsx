@@ -15,8 +15,8 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
-import lakeBackground from "../../LakeBackground.webp";
-import forestBackground from "../../RockForest.webp";
+import lakeBackground from "./img/LakeBackground.png";
+import forestBackground from "./img/RockForest.webp";
 import ListItemText from "@mui/material/ListItemText";
 import ListItem from "@mui/material/ListItem";
 import List from "@mui/material/List";
@@ -1423,40 +1423,16 @@ function Battle() {
     }
   };
 
-  const canvasRef = useRef(null);
+  const battleCanvasRef = useRef(null);
 
   useEffect(() => {
-    if (canvasRef.current) {
-      const canvas = canvasRef.current;
+    if (battleCanvasRef.current) {
+      const canvas = battleCanvasRef.current;
       const c = canvas.getContext("2d");
-
-      // class Boundary {
-      //   static width = 48;
-      //   static height = 48;
-      //   constructor({ position }) {
-      //     this.position = position;
-      //     this.width = 48;
-      //     this.height = 48;
-      //   }
-
-      //   draw() {
-      //     c.fillStyle = "rgba(255, 0, 0, 0.0)";
-      //     c.fillRect(this.position.x, this.position.y, this.width, this.height);
-      //   }
-      // }
-
-      // const offset = {
-      //   x: -4767.5,
-      //   y: -5990,
-      // };
-
-
 
       const image = new Image();
       image.src = lakeBackground
         console.log(image);
-
-
 
       class Sprite {
         constructor({
@@ -1508,8 +1484,6 @@ function Battle() {
         image: image,
       });
 
-
-
       function animate() {
         background.draw();
 
@@ -1535,10 +1509,10 @@ function Battle() {
 
       <div style={{ display: "inline-block", position: "relative" }}>
       <canvas
-        ref={canvasRef}
+        ref={battleCanvasRef}
         height={576}
         width={1024}
-        className="canvasForGame"
+        className="canvasForBattle"
       ></canvas>
     </div>
 
