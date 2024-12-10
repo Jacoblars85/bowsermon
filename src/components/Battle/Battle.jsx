@@ -17,6 +17,7 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import lakeBackground from "./img/LakeBackground.png";
 import forestBackground from "./img/RockForest.webp";
+import battleBackground from "./img/battleBackground.png";
 import ListItemText from "@mui/material/ListItemText";
 import ListItem from "@mui/material/ListItem";
 import List from "@mui/material/List";
@@ -1424,15 +1425,15 @@ function Battle() {
   };
 
   const battleCanvasRef = useRef(null);
-
+  
   useEffect(() => {
     if (battleCanvasRef.current) {
       const canvas = battleCanvasRef.current;
       const c = canvas.getContext("2d");
 
-      const image = new Image();
-      image.src = lakeBackground
-        console.log(image);
+      const backgroundImage = new Image();
+      backgroundImage.src = battleBackground
+        // console.log(backgroundImage);
 
       class Sprite {
         constructor({
@@ -1481,14 +1482,15 @@ function Battle() {
           x: 0,
           y: 0,
         },
-        image: image,
+        image: backgroundImage,
       });
 
-      function animate() {
+      function animateBattle() {
+        window.requestAnimationFrame(animateBattle)
         background.draw();
 
       }
-      animate();
+      animateBattle();
     }
   }, []);
 
@@ -1507,14 +1509,12 @@ function Battle() {
     >
       <audio src={battleMusic} autoPlay />
 
-      <div style={{ display: "inline-block", position: "relative" }}>
       <canvas
         ref={battleCanvasRef}
         height={576}
         width={1024}
         className="canvasForBattle"
       ></canvas>
-    </div>
 
       <div className={shakeTheScreen}></div>
 
@@ -2053,6 +2053,7 @@ function Battle() {
           </List>
         </Dialog>
       </Fragment>
+      
     </div>
   );
 }
