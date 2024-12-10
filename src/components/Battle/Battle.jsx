@@ -1495,19 +1495,42 @@ function Battle() {
 
       const draggle = new Sprite({
         position: {
-          x: 700,
+          x: 800,
           y: 100,
         },
         image: draggleImage,
+        frames: {
+          max: 4,
+        },
       });
 
       const emby = new Sprite({
         position: {
-          x: 175,
-          y: 350,
+          x: 300,
+          y: 330,
         },
         image: embyImage,
+        frames: {
+          max: 4,
+        },
       });
+
+      // const player = new Sprite({
+      //   position: {
+      //     x: canvas.width / 2 - 192 / 4 / 2,
+      //     y: canvas.height / 2 - 68 / 2,
+      //   },
+      //   image: playerDownImage,
+      //   frames: {
+      //     max: 4,
+      //   },
+      //   sprites: {
+      //     up: playerUpImage,
+      //     left: playerLeftImage,
+      //     right: playerRightImage,
+      //     down: playerDownImage,
+      //   },
+      // });
 
       function animateBattle() {
         window.requestAnimationFrame(animateBattle);
