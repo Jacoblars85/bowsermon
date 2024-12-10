@@ -234,63 +234,63 @@ function GameWorld() {
         let moving = true;
         player.moving = false;
 
-        if (battle.initiated) return
+        if (battle.initiated) return;
 
         // activate battle
-          if (
-            keys.w.pressed ||
-            keys.a.pressed ||
-            keys.s.pressed ||
-            keys.d.pressed
-          ) {
-            for (let i = 0; i < battleZones.length; i++) {
-              const battleZone = battleZones[i];
-              const overlappingArea =
-                (Math.min(
-                  player.position.x + player.width,
-                  battleZone.position.x + battleZone.width
-                ) -
-                  Math.max(player.position.x, battleZone.position.x)) *
-                (Math.min(
-                  player.position.y + player.height,
-                  battleZone.position.y + battleZone.height
-                ) -
-                  Math.max(player.position.y, battleZone.position.y));
+        if (
+          keys.w.pressed ||
+          keys.a.pressed ||
+          keys.s.pressed ||
+          keys.d.pressed
+        ) {
+          for (let i = 0; i < battleZones.length; i++) {
+            const battleZone = battleZones[i];
+            const overlappingArea =
+              (Math.min(
+                player.position.x + player.width,
+                battleZone.position.x + battleZone.width
+              ) -
+                Math.max(player.position.x, battleZone.position.x)) *
+              (Math.min(
+                player.position.y + player.height,
+                battleZone.position.y + battleZone.height
+              ) -
+                Math.max(player.position.y, battleZone.position.y));
 
-              if (
-                rectangularCollisions({
-                  rectangle1: player,
-                  rectangle2: battleZone,
-                }) &&
-                overlappingArea > (player.width * player.height) / 2 &&
-                Math.random() < 0.015
-              ) {
-                battle.initiated = true;
-                console.log(battle.initiated, 'battle.initiated ');
-                
-                // console.log("battle start");
-                window.cancelAnimationFrame(animationId);
-                gsap.to("#fadeOutDiv", {
-                  opacity: 1,
-                  repeat: 3,
-                  yoyo: true,
-                  duration: 0.4,
-                  onComplete() {
-                    gsap.to("#fadeOutDiv", {
-                      opacity: 1,
-                      duration: 0.4,
-                      onComplete() {
-                        // where you get sent to the battle
-                        // added the fade out in the battle seq
-                        history.push(`/battle/${1}`);
-                      },
-                    });
-                  },
-                });
-                break;
-              }
+            if (
+              rectangularCollisions({
+                rectangle1: player,
+                rectangle2: battleZone,
+              }) &&
+              overlappingArea > (player.width * player.height) / 2 &&
+              Math.random() < 0.015
+            ) {
+              battle.initiated = true;
+              console.log(battle.initiated, "battle.initiated ");
+
+              // console.log("battle start");
+              window.cancelAnimationFrame(animationId);
+              gsap.to("#fadeOutDiv", {
+                opacity: 1,
+                repeat: 3,
+                yoyo: true,
+                duration: 0.4,
+                onComplete() {
+                  gsap.to("#fadeOutDiv", {
+                    opacity: 1,
+                    duration: 0.4,
+                    onComplete() {
+                      // where you get sent to the battle
+                      // added the fade out in the battle seq
+                      history.push(`/battle/${1}`);
+                    },
+                  });
+                },
+              });
+              break;
             }
           }
+        }
 
         if (keys.w.pressed && lastKey === "w") {
           player.moving = true;
