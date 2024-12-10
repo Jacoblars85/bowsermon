@@ -18,6 +18,8 @@ import DialogTitle from "@mui/material/DialogTitle";
 import lakeBackground from "./img/LakeBackground.png";
 import forestBackground from "./img/RockForest.webp";
 import battleBackground from "./img/battleBackground.png";
+import draggleImage from "./img/draggleSprite.png";
+import embyImage from "./img/draggleSprite.png";
 import ListItemText from "@mui/material/ListItemText";
 import ListItem from "@mui/material/ListItem";
 import List from "@mui/material/List";
@@ -1496,15 +1498,15 @@ function Battle() {
   return (
     <div
       className="battle"
-      style={{
-        backgroundImage: `url(${
-          enemyOne.level_id % 2 ? lakeBackground : forestBackground
-        })`,
-        backgroundRepeat: `no-repeat`,
-        backgroundSize: `cover`,
-        height: `100vh`,
-        width: `100vw`,
-      }}
+      // style={{
+      //   backgroundImage: `url(${
+      //     enemyOne.level_id % 2 ? lakeBackground : forestBackground
+      //   })`,
+      //   backgroundRepeat: `no-repeat`,
+      //   backgroundSize: `cover`,
+      //   height: `100vh`,
+      //   width: `100vw`,
+      // }}
     >
       <audio src={battleMusic} autoPlay />
 
@@ -1515,7 +1517,7 @@ function Battle() {
         className="canvasForBattle"
       ></canvas>
 
-      <div className={shakeTheScreen}></div>
+      {/* <div className={shakeTheScreen}></div>
 
       <div className="character">
         <p className="hp-text">
@@ -1590,7 +1592,7 @@ function Battle() {
         <p>{textBox}</p>
       </div>
 
-      <div className="attacks">{toggleButtons()}</div>
+      <div className="attacks">{toggleButtons()}</div> */}
 
       {/* for the winner  */}
       <Fragment>
