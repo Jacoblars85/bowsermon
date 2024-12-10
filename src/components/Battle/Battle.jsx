@@ -1423,6 +1423,130 @@ function Battle() {
     }
   };
 
+  const canvasRef = useRef(null);
+
+  useEffect(() => {
+    if (canvasRef.current) {
+      const canvas = canvasRef.current;
+      const c = canvas.getContext("2d");
+
+      // class Boundary {
+      //   static width = 48;
+      //   static height = 48;
+      //   constructor({ position }) {
+      //     this.position = position;
+      //     this.width = 48;
+      //     this.height = 48;
+      //   }
+
+      //   draw() {
+      //     c.fillStyle = "rgba(255, 0, 0, 0.0)";
+      //     c.fillRect(this.position.x, this.position.y, this.width, this.height);
+      //   }
+      // }
+
+      // const offset = {
+      //   x: -4767.5,
+      //   y: -5990,
+      // };
+
+
+
+      const image = new Image();
+      image.src = MarioMap;
+      //   console.log(image);
+
+
+
+      class Sprite {
+        constructor({
+          position,
+          velocity,
+          image,
+          frames = { max: 1 },
+          sprites = [],
+        }) {
+          this.position = position;
+          this.image = image;
+          (this.frames = { ...frames, val: 0, elapsed: 0 }),
+            (this.image.onload = () => {
+              this.width = this.image.width / this.frames.max;
+              this.height = this.image.height;
+            });
+          this.moving = false;
+          this.sprites = sprites;
+        }
+
+        draw() {
+          c.drawImage(
+            this.image,
+            this.frames.val * this.width,
+            0,
+            this.image.width / this.frames.max,
+            this.image.height,
+            this.position.x,
+            this.position.y,
+            this.image.width / this.frames.max,
+            this.image.height
+          );
+          if (!this.moving) return;
+          if (this.frames.max > 1) {
+            this.frames.elapsed++;
+          }
+          if (this.frames.elapsed % 10 === 0) {
+            if (this.frames.val < this.frames.max - 1) this.frames.val++;
+            else this.frames.val = 0;
+          }
+        }
+      }
+
+      const player = new Sprite({
+        position: {
+          x: canvas.width / 2 - 192 / 4 / 2,
+          y: canvas.height / 2 - 68 / 2,
+        },
+        image: playerDownImage,
+        frames: {
+          max: 4,
+        },
+        sprites: {
+          up: playerUpImage,
+          left: playerLeftImage,
+          right: playerRightImage,
+          down: playerDownImage,
+        },
+      });
+
+      const background = new Sprite({
+        position: {
+          x: offset.x,
+          y: offset.y,
+        },
+        image: image,
+      });
+
+
+
+      function animate() {
+        const animationId = window.requestAnimationFrame(animate);
+        background.draw();
+        boundaries.forEach((boundary) => {
+          boundary.draw();
+        });
+        battleZones.forEach((battleZone) => {
+          battleZone.draw();
+        });
+        player.draw();
+        foreground.draw();
+
+        let moving = true;
+        player.moving = false;
+
+      }
+      animate();
+    }
+  }, []);
+
   return (
     <div
       className="battle"
