@@ -1546,6 +1546,43 @@ function Battle() {
       <audio src={battleMusic} autoPlay />
 
       <div style={{ display: "inline-block", position: "relative" }}>
+        <div
+        style={{
+          backgroundColor: "white",
+          height: `140px`,
+          width: `400px`,
+          position: "absolute",
+          top: 6,
+          left: 6,
+          right: 0,
+          border: "4px solid black",
+          display: "flex",
+          padding: "12px"
+        }}>
+          <h1>Draggle</h1>
+          <progress
+          className="hp-meter"
+          value={
+            starter.length === 1
+              ? starterOneHp
+              : currentId === starterOne.id
+              ? starterOneHp
+              : starterTwoHp
+          }
+          max={maxHp}
+        ></progress>
+        <progress
+          className="stamina-meter"
+          value={
+            starter.length === 1
+              ? starterOneStamina
+              : currentId === starterOne.id
+              ? starterOneStamina
+              : starterTwoStamina
+          }
+          max={maxStamina}
+        ></progress>
+        </div>
         <canvas
           ref={battleCanvasRef}
           height={576}
