@@ -1565,25 +1565,24 @@ function Battle() {
         right: 0,
         borderTop: "4px solid black",
         display: "flex",
-
       }}>
-        <div 
-        style={{ 
-          width: "66.66%",
-          display: "grid",
-          alignItems: "center",
-          justifyContent: "center",
 
-        }}>{toggleButtons()}</div>
         <div style={{ 
-          width: "33.33%",
+          width: "66.66%",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          borderLeft: "4px solid black",
-        }}><p>attack type</p></div>
-      </div>
 
+        }}><p>attack type</p></div>
+
+        <div 
+        style={{ 
+          width: "33.33%",
+          display: "grid",
+          gridTemplateColumns: "repeat(2, 1fr)",
+          borderLeft: "4px solid black",
+        }}>{toggleButtons()}</div>
+              </div>
       </div>
 
       {/* <div className={shakeTheScreen}></div>
