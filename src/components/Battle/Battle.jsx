@@ -1563,7 +1563,26 @@ function Battle() {
         bottom: 0,
         left: 0,
         right: 0,
-      }}></div>
+        borderTop: "4px solid black",
+        display: "flex",
+
+      }}>
+        <div 
+        style={{ 
+          width: "66.66%",
+          display: "grid",
+          alignItems: "center",
+          justifyContent: "center",
+
+        }}>{toggleButtons()}</div>
+        <div style={{ 
+          width: "33.33%",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          borderLeft: "4px solid black",
+        }}><p>attack type</p></div>
+      </div>
 
       </div>
 
