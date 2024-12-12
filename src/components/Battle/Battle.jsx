@@ -1509,79 +1509,79 @@ function Battle() {
     } else if (displayButtons === "inventory") {
       return (
         <>
-                      {usersConsumableItems &&
-                usersConsumableItems.map((usersConsumables) => {
-                  return (
-                    <div key={usersConsumables.id}>
-                      <ListItem>
-                        <Box
-                          display="flex"
-                          flexDirection="row"
-                          columnGap={5}
-                          justifyContent="space-around"
-                          alignItems="center"
-                        >
-                          <p
-                            style={{
-                              color: "black",
-                              fontSize: "25px",
-                            }}
-                          >
-                            {usersConsumables.number}X
-                          </p>
-                          <img
-                            height={125}
-                            width={125}
-                            src={usersConsumables.pic}
-                          />
-                        </Box>
+          {usersConsumableItems &&
+            usersConsumableItems.map((usersConsumables) => {
+              return (
+                <div key={usersConsumables.id}>
+                  <ListItem>
+                    <Box
+                      display="flex"
+                      flexDirection="row"
+                      columnGap={5}
+                      justifyContent="space-around"
+                      alignItems="center"
+                    >
+                      <p
+                        style={{
+                          color: "black",
+                          fontSize: "25px",
+                        }}
+                      >
+                        {usersConsumables.number}X
+                      </p>
+                      <img
+                        height={125}
+                        width={125}
+                        src={usersConsumables.pic}
+                      />
+                    </Box>
 
-                        <ListItemText
-                          sx={{
-                            ml: 55,
-                            fontFamily: "New Super Mario Font U",
-                          }}
-                          primary={usersConsumables.name}
-                          secondary={`${
-                            usersConsumables.hp === 0
-                              ? ""
-                              : `+${usersConsumables.hp} hp`
-                          } ${
-                            usersConsumables.stamina === 0
-                              ? ""
-                              : usersConsumables.hp === 0
-                              ? `+${usersConsumables.stamina} stamina`
-                              : `| +${usersConsumables.stamina} stamina`
-                          } ${
-                            usersConsumables.speed === 0
-                              ? ""
-                              : `| +${usersConsumables.speed} speed`
-                          }`}
-                        />
-                        <Button
-                          sx={{
-                            color: "black",
-                            fontSize: 20,
-                            fontFamily: "New Super Mario Font U",
-                            borderColor: "black",
-                          }}
-                          variant="outlined"
-                          disabled={usersConsumables.number <= 0 ? true : false}
-                          onClick={() => battle(usersConsumables)}
-                        >
-                          Use Consumable
-                        </Button>
-                      </ListItem>
-                      <Divider />
-                    </div>
-                  );
-                })}
+                    <ListItemText
+                      sx={{
+                        ml: 55,
+                        fontFamily: "New Super Mario Font U",
+                      }}
+                      primary={usersConsumables.name}
+                      secondary={`${
+                        usersConsumables.hp === 0
+                          ? ""
+                          : `+${usersConsumables.hp} hp`
+                      } ${
+                        usersConsumables.stamina === 0
+                          ? ""
+                          : usersConsumables.hp === 0
+                          ? `+${usersConsumables.stamina} stamina`
+                          : `| +${usersConsumables.stamina} stamina`
+                      } ${
+                        usersConsumables.speed === 0
+                          ? ""
+                          : `| +${usersConsumables.speed} speed`
+                      }`}
+                    />
+                    <Button
+                      sx={{
+                        color: "black",
+                        fontSize: 20,
+                        fontFamily: "New Super Mario Font U",
+                        borderColor: "black",
+                      }}
+                      variant="outlined"
+                      disabled={usersConsumables.number <= 0 ? true : false}
+                      onClick={() => battle(usersConsumables)}
+                    >
+                      Use Consumable
+                    </Button>
+                  </ListItem>
+                  <Divider />
+                </div>
+              );
+            })}
         </>
       );
     } else if (displayButtons === "switch") {
       return (
         <>
-                  {starter.length === 1 ? (
+          {starter.length === 1 ? (
             <List>
               <ListItem>
                 <img height={200} width={200} src={starterOne.profile_pic} />
@@ -1786,8 +1786,6 @@ function Battle() {
           console.log("clicked");
         });
       });
-
-
     }
   }, []);
 
@@ -1912,38 +1910,38 @@ function Battle() {
             }}
           >
             <>
-          <button
-            onClick={() => setDisplayButtons("inventory")}
-            className="inventoryMove"
-            disabled={isDisabled}
-          >
-            Inventory
-          </button>
+              <button
+                onClick={() => setDisplayButtons("inventory")}
+                className="inventoryMove"
+                disabled={isDisabled}
+              >
+                Inventory
+              </button>
 
-          <button
-            onClick={() => setDisplayButtons("switch")}
-            className="switch"
-            disabled={isDisabled}
-          >
-            Switch
-          </button>
+              <button
+                onClick={() => setDisplayButtons("switch")}
+                className="switch"
+                disabled={isDisabled}
+              >
+                Switch
+              </button>
 
-          <button
-            onClick={() => history.push("/home")}
-            className="runButton"
-            disabled={isDisabled}
-          >
-            Run
-          </button>
+              <button
+                onClick={() => history.push("/home")}
+                className="runButton"
+                disabled={isDisabled}
+              >
+                Run
+              </button>
 
-          <button
-            onClick={() => setDisplayButtons("attack")}
-            className="attackToggleButton"
-            disabled={isDisabled}
-          >
-            Attack
-          </button>
-        </>
+              <button
+                onClick={() => setDisplayButtons("attack")}
+                className="attackToggleButton"
+                disabled={isDisabled}
+              >
+                Attack
+              </button>
+            </>
           </div>
         </div>
       </div>
