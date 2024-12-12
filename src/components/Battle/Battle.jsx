@@ -1566,25 +1566,13 @@ function Battle() {
 
           <progress
           className="hp-meter"
-          value={
-            starter.length === 1
-              ? starterOneHp
-              : currentId === starterOne.id
-              ? starterOneHp
-              : starterTwoHp
-          }
-          max={maxHp}
+          value={enemyHp}
+          max={enemyOne.hp}
         ></progress>
         <progress
           className="stamina-meter"
-          value={
-            starter.length === 1
-              ? starterOneStamina
-              : currentId === starterOne.id
-              ? starterOneStamina
-              : starterTwoStamina
-          }
-          max={maxStamina}
+          value={enemyStamina}
+          max={enemyOne.stamina}
         ></progress>
         </div>
 
