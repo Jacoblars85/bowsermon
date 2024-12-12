@@ -1527,6 +1527,16 @@ function Battle() {
         emby.draw();
       }
       animateBattle();
+
+document.querySelectorAll('button').forEach((button) => {
+  button.addEventListener('click', () => {
+    console.log("clicked");
+    
+  })
+})
+
+      
+
     }
   }, []);
 
@@ -1549,7 +1559,6 @@ function Battle() {
         <div
           style={{
             backgroundColor: "white",
-            // height: `140px`,
             width: `300px`,
             position: "absolute",
             top: "30px",
@@ -1577,7 +1586,6 @@ function Battle() {
         <div
           style={{
             backgroundColor: "white",
-            // height: `140px`,
             width: `300px`,
             position: "absolute",
             top: "300px",
@@ -1625,7 +1633,6 @@ function Battle() {
           style={{
             backgroundColor: "white",
             height: `140px`,
-            // width: `200px`,
             position: "absolute",
             bottom: 0,
             left: 0,
