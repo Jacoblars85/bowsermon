@@ -1482,14 +1482,6 @@ function Battle() {
             {kickAttack}
           </button>
 
-          {/* <button
-            onClick={() => setDisplayButtons("switch")}
-            className="backButtonAttack"
-            disabled={isDisabled}
-          >
-            Back
-          </button> */}
-
           <button
             onClick={() => battle("poke")}
             className="pokeAttack"
