@@ -84,13 +84,13 @@ body:has(.shake ) {
 
 
 .hp-meter {
-    position: absolute;
-    top: 4.3%;
-    position: absolute;
-    height: 10%;
-    width: 65%;
+    /* top: 4.3%; */
+    /* position: absolute; */
+    height: 15px;
+    width: 95%;
     background: white;
-    margin: 0px auto -30px auto;
+    /* margin: 0px auto -30px auto; */
+    margin: 3px;
     display: block;
     border: 2px solid black;
     box-shadow: 6px 4px 8px -2px black;
@@ -101,13 +101,13 @@ body:has(.shake ) {
 }
 
 .stamina-meter {
-    position: absolute;
-    top: 15%;
-    position: absolute;
-    height: 7%;
-    width: 60%;
+    /* top: 15%; */
+    /* position: absolute; */
+    height: 10px;
+    width: 95%;
     background: white;
-    margin: 0px auto -30px auto;
+    /* margin: 0px auto -30px auto; */
+    margin: 3px;
     display: block;
     border: 2px solid black;
     box-shadow: 6px 4px 8px -2px black;
