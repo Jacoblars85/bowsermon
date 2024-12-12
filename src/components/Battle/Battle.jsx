@@ -1545,44 +1545,49 @@ function Battle() {
     >
       <audio src={battleMusic} autoPlay />
 
-    <div style={{ display: "inline-block", position: "relative" }}>
+      <div style={{ display: "inline-block", position: "relative" }}>
+        <canvas
+          ref={battleCanvasRef}
+          height={576}
+          width={1024}
+          className="canvasForBattle"
+        ></canvas>
 
+        <div
+          style={{
+            backgroundColor: "white",
+            height: `140px`,
+            // width: `200px`,
+            position: "absolute",
+            bottom: 0,
+            left: 0,
+            right: 0,
+            borderTop: "4px solid black",
+            display: "flex",
+          }}
+        >
+          <div
+            style={{
+              width: "66.66%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <p>attack type</p>
+          </div>
 
-      <canvas
-        ref={battleCanvasRef}
-        height={576}
-        width={1024}
-        className="canvasForBattle"
-      ></canvas>
-
-      <div style={{
-        backgroundColor: 'white',
-        height: `140px`,
-        // width: `200px`,
-        position: "absolute",
-        bottom: 0,
-        left: 0,
-        right: 0,
-        borderTop: "4px solid black",
-        display: "flex",
-      }}>
-
-        <div style={{ 
-          width: "66.66%",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-
-        }}><p>attack type</p></div>
-
-        <div 
-        style={{ 
-          width: "33.33%",
-          display: "grid",
-          gridTemplateColumns: "repeat(2, 1fr)",
-          borderLeft: "4px solid black",
-        }}>{toggleButtons()}</div>
-              </div>
+          <div
+            style={{
+              width: "33.33%",
+              display: "grid",
+              gridTemplateColumns: "repeat(2, 1fr)",
+              borderLeft: "4px solid black",
+            }}
+          >
+            {toggleButtons()}
+          </div>
+        </div>
       </div>
 
       {/* <div className={shakeTheScreen}></div>
