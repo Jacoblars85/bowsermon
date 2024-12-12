@@ -1426,6 +1426,259 @@ function Battle() {
     }
   };
 
+  const [displayButtons, setDisplayButtons] = useState("attack");
+
+  const toggleAllButtons = () => {
+    if (displayButtons === "attack") {
+      return (
+        <>
+          <button
+            onClick={() => battle("unique")}
+            className="uniqueAttack"
+            // disabled={
+            //   starter.length === 1
+            //     ? starterOneStamina < starterOne.unique_stamina
+            //       ? true
+            //       : isDisabled
+            //     : currentId === starterOne.id
+            //     ? starterOneStamina < starterOne.unique_stamina
+            //       ? true
+            //       : isDisabled
+            //     : starterTwoStamina < starterTwo.unique_stamina
+            //     ? true
+            //     : isDisabled
+            // }
+          >
+            {starter.length === 1
+              ? starterOne.unique_attack
+              : currentId === starterOne.id
+              ? starterOne.unique_attack
+              : starterTwo.unique_attack}
+          </button>
+
+          <button
+            onClick={() => battle("punch")}
+            className="kickAttack"
+            // disabled={
+            //   starter.length === 1
+            //     ? starterOneStamina < kickStamina
+            //       ? true
+            //       : isDisabled
+            //     : currentId === starterOne.id
+            //     ? starterOneStamina < basicAttacks[0].stamina
+            //       ? true
+            //       : isDisabled
+            //     : starterTwoStamina < basicAttacks[0].stamina
+            //     ? true
+            //     : isDisabled
+            // }
+          >
+            {kickAttack}
+          </button>
+
+          {/* <button
+            onClick={() => setDisplayButtons("switch")}
+            className="backButtonAttack"
+            disabled={isDisabled}
+          >
+            Back
+          </button> */}
+
+          <button
+            onClick={() => battle("poke")}
+            className="pokeAttack"
+            // disabled={
+            //   starter.length === 1
+            //     ? starterOneStamina < basicAttacks[1].stamina
+            //       ? true
+            //       : isDisabled
+            //     : currentId === starterOne.id
+            //     ? starterOneStamina < basicAttacks[1].stamina
+            //       ? true
+            //       : isDisabled
+            //     : starterTwoStamina < basicAttacks[1].stamina
+            //     ? true
+            //     : isDisabled
+            // }
+          >
+            {/* {basicAttacks[1].attack} */}
+            poke
+          </button>
+        </>
+      );
+    } else if (displayButtons === "inventory") {
+      return (
+        <>
+                      {usersConsumableItems &&
+                usersConsumableItems.map((usersConsumables) => {
+                  return (
+                    <div key={usersConsumables.id}>
+                      <ListItem>
+                        <Box
+                          display="flex"
+                          flexDirection="row"
+                          columnGap={5}
+                          justifyContent="space-around"
+                          alignItems="center"
+                        >
+                          <p
+                            style={{
+                              color: "black",
+                              fontSize: "25px",
+                            }}
+                          >
+                            {usersConsumables.number}X
+                          </p>
+                          <img
+                            height={125}
+                            width={125}
+                            src={usersConsumables.pic}
+                          />
+                        </Box>
+
+                        <ListItemText
+                          sx={{
+                            ml: 55,
+                            fontFamily: "New Super Mario Font U",
+                          }}
+                          primary={usersConsumables.name}
+                          secondary={`${
+                            usersConsumables.hp === 0
+                              ? ""
+                              : `+${usersConsumables.hp} hp`
+                          } ${
+                            usersConsumables.stamina === 0
+                              ? ""
+                              : usersConsumables.hp === 0
+                              ? `+${usersConsumables.stamina} stamina`
+                              : `| +${usersConsumables.stamina} stamina`
+                          } ${
+                            usersConsumables.speed === 0
+                              ? ""
+                              : `| +${usersConsumables.speed} speed`
+                          }`}
+                        />
+                        <Button
+                          sx={{
+                            color: "black",
+                            fontSize: 20,
+                            fontFamily: "New Super Mario Font U",
+                            borderColor: "black",
+                          }}
+                          variant="outlined"
+                          disabled={usersConsumables.number <= 0 ? true : false}
+                          onClick={() => battle(usersConsumables)}
+                        >
+                          Use Consumable
+                        </Button>
+                      </ListItem>
+                      <Divider />
+                    </div>
+                  );
+                })}
+        </>
+      );
+    } else if (displayButtons === "switch") {
+      return (
+        <>
+                  {starter.length === 1 ? (
+            <List>
+              <ListItem>
+                <img height={200} width={200} src={starterOne.profile_pic} />
+                <ListItemText
+                  sx={{ ml: 55 }}
+                  primary={`starter 1: ${starterOne.name}`}
+                  secondary={`${starterOneHp}/${starterOne.hp} hp | ${starterOneStamina}/${starterOne.stamina} stamina | ${starterOne.speed} speed`}
+                />
+                <Button
+                  sx={{
+                    color: "black",
+                    fontSize: 20,
+                    fontFamily: "New Super Mario Font U",
+                    borderColor: "black",
+                  }}
+                  variant="outlined"
+                  disabled={
+                    currentId === starterOne.id
+                      ? true
+                      : starterOneHp <= 0
+                      ? true
+                      : false
+                  }
+                  onClick={() => battle("starterOne")}
+                >
+                  Change Starter
+                </Button>
+              </ListItem>
+              <Divider />
+            </List>
+          ) : (
+            <List>
+              <ListItem>
+                <img height={200} width={200} src={starterOne.profile_pic} />
+                <ListItemText
+                  sx={{ ml: 55 }}
+                  primary={`starter 1: ${starterOne.name}`}
+                  secondary={`${starterOneHp}/${starterOne.hp} hp | ${starterOneStamina}/${starterOne.stamina} stamina | ${starterOne.speed} speed`}
+                />
+                <Button
+                  sx={{
+                    color: "black",
+                    fontSize: 20,
+                    fontFamily: "New Super Mario Font U",
+                    borderColor: "black",
+                  }}
+                  variant="outlined"
+                  disabled={
+                    currentId === starterOne.id
+                      ? true
+                      : starterOneHp <= 0
+                      ? true
+                      : false
+                  }
+                  onClick={() => battle("starterOne")}
+                >
+                  Change Starter
+                </Button>
+              </ListItem>
+
+              <Divider />
+
+              <ListItem>
+                <img height={200} width={200} src={starterTwo.profile_pic} />
+                <ListItemText
+                  sx={{ ml: 55 }}
+                  primary={`starter 2: ${starterTwo.name}`}
+                  secondary={`${starterTwoHp}/${starterTwo.hp} hp | ${starterTwoStamina}/${starterTwo.stamina} stamina | ${starterTwo.speed} speed`}
+                />
+                <Button
+                  sx={{
+                    color: "black",
+                    fontSize: 20,
+                    fontFamily: "New Super Mario Font U",
+                    borderColor: "black",
+                  }}
+                  variant="outlined"
+                  disabled={
+                    currentId === starterTwo.id
+                      ? true
+                      : starterTwoHp <= 0
+                      ? true
+                      : false
+                  }
+                  onClick={() => battle("starterTwo")}
+                >
+                  Change Starter
+                </Button>
+              </ListItem>
+              <Divider />
+            </List>
+          )}
+        </>
+      );
+    }
+  };
+
   const battleCanvasRef = useRef(null);
 
   useEffect(() => {
@@ -1534,7 +1787,7 @@ function Battle() {
         });
       });
 
-      
+
     }
   }, []);
 
@@ -1647,7 +1900,7 @@ function Battle() {
               justifyContent: "center",
             }}
           >
-            <p>attack type</p>
+            {toggleAllButtons()}
           </div>
 
           <div
@@ -1658,7 +1911,39 @@ function Battle() {
               borderLeft: "4px solid black",
             }}
           >
-            {toggleButtons()}
+            <>
+          <button
+            onClick={() => setDisplayButtons("inventory")}
+            className="inventoryMove"
+            disabled={isDisabled}
+          >
+            Inventory
+          </button>
+
+          <button
+            onClick={() => setDisplayButtons("switch")}
+            className="switch"
+            disabled={isDisabled}
+          >
+            Switch
+          </button>
+
+          <button
+            onClick={() => history.push("/home")}
+            className="runButton"
+            disabled={isDisabled}
+          >
+            Run
+          </button>
+
+          <button
+            onClick={() => setDisplayButtons("attack")}
+            className="attackToggleButton"
+            disabled={isDisabled}
+          >
+            Attack
+          </button>
+        </>
           </div>
         </div>
       </div>
