@@ -111,9 +111,9 @@ function Battle() {
   const [kickAttack, setKickAttack] = useState("");
   const [kickStamina, setKickStamina] = useState(0);
 
-    // poke attack name and stamina
-    const [pokeAttack, setPokeAttack] = useState("");
-    const [pokeStamina, setPokeStamina] = useState(0);
+  // poke attack name and stamina
+  const [pokeAttack, setPokeAttack] = useState("");
+  const [pokeStamina, setPokeStamina] = useState(0);
 
   // axios functions
   const getStarters = () => {
@@ -1433,7 +1433,7 @@ function Battle() {
   };
 
   const [displayButtons, setDisplayButtons] = useState("attack");
-  
+
   const toggleAllButtons = () => {
     if (displayButtons === "attack") {
       return (
@@ -1505,7 +1505,7 @@ function Battle() {
       );
     } else if (displayButtons === "inventory") {
       return (
-        <Box sx={{ columnGap: "1px"}}>
+        <Box sx={{ columnGap: "1px" }}>
           {usersConsumableItems &&
             usersConsumableItems.map((usersConsumables) => {
               return (
@@ -1526,11 +1526,7 @@ function Battle() {
                       >
                         {usersConsumables.number}X
                       </p>
-                      <img
-                        height={30}
-                        width={30}
-                        src={usersConsumables.pic}
-                      />
+                      <img height={30} width={30} src={usersConsumables.pic} />
                     </Box>
 
                     <ListItemText
