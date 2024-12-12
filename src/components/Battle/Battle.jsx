@@ -1427,7 +1427,7 @@ function Battle() {
   };
 
   const [displayButtons, setDisplayButtons] = useState("attack");
-
+  
   const toggleAllButtons = () => {
     if (displayButtons === "attack") {
       return (
@@ -1435,19 +1435,19 @@ function Battle() {
           <button
             onClick={() => battle("unique")}
             className="uniqueAttack"
-            // disabled={
-            //   starter.length === 1
-            //     ? starterOneStamina < starterOne.unique_stamina
-            //       ? true
-            //       : isDisabled
-            //     : currentId === starterOne.id
-            //     ? starterOneStamina < starterOne.unique_stamina
-            //       ? true
-            //       : isDisabled
-            //     : starterTwoStamina < starterTwo.unique_stamina
-            //     ? true
-            //     : isDisabled
-            // }
+            disabled={
+              starter.length === 1
+                ? starterOneStamina < starterOne.unique_stamina
+                  ? true
+                  : isDisabled
+                : currentId === starterOne.id
+                ? starterOneStamina < starterOne.unique_stamina
+                  ? true
+                  : isDisabled
+                : starterTwoStamina < starterTwo.unique_stamina
+                ? true
+                : isDisabled
+            }
           >
             {starter.length === 1
               ? starterOne.unique_attack
@@ -1459,19 +1459,19 @@ function Battle() {
           <button
             onClick={() => battle("punch")}
             className="kickAttack"
-            // disabled={
-            //   starter.length === 1
-            //     ? starterOneStamina < kickStamina
-            //       ? true
-            //       : isDisabled
-            //     : currentId === starterOne.id
-            //     ? starterOneStamina < basicAttacks[0].stamina
-            //       ? true
-            //       : isDisabled
-            //     : starterTwoStamina < basicAttacks[0].stamina
-            //     ? true
-            //     : isDisabled
-            // }
+            disabled={
+              starter.length === 1
+                ? starterOneStamina < kickStamina
+                  ? true
+                  : isDisabled
+                : currentId === starterOne.id
+                ? starterOneStamina < kickStamina
+                  ? true
+                  : isDisabled
+                : starterTwoStamina < kickStamina
+                ? true
+                : isDisabled
+            }
           >
             {kickAttack}
           </button>
@@ -1508,7 +1508,7 @@ function Battle() {
       );
     } else if (displayButtons === "inventory") {
       return (
-        <>
+        <Box sx={{ columnGap: "1px"}}>
           {usersConsumableItems &&
             usersConsumableItems.map((usersConsumables) => {
               return (
@@ -1524,14 +1524,14 @@ function Battle() {
                       <p
                         style={{
                           color: "black",
-                          fontSize: "25px",
+                          fontSize: "15px",
                         }}
                       >
                         {usersConsumables.number}X
                       </p>
                       <img
-                        height={125}
-                        width={125}
+                        height={30}
+                        width={30}
                         src={usersConsumables.pic}
                       />
                     </Box>
@@ -1561,7 +1561,7 @@ function Battle() {
                     <Button
                       sx={{
                         color: "black",
-                        fontSize: 20,
+                        fontSize: 10,
                         fontFamily: "New Super Mario Font U",
                         borderColor: "black",
                       }}
@@ -1572,11 +1572,10 @@ function Battle() {
                       Use Consumable
                     </Button>
                   </ListItem>
-                  <Divider />
                 </div>
               );
             })}
-        </>
+        </Box>
       );
     } else if (displayButtons === "switch") {
       return (
