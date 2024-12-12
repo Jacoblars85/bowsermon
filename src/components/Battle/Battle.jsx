@@ -1580,7 +1580,7 @@ function Battle() {
           {starter.length === 1 ? (
             <List>
               <ListItem>
-                <img height={200} width={200} src={starterOne.profile_pic} />
+                <img height={50} width={50} src={starterOne.profile_pic} />
                 <ListItemText
                   sx={{ ml: 55 }}
                   primary={`starter 1: ${starterOne.name}`}
@@ -1589,7 +1589,7 @@ function Battle() {
                 <Button
                   sx={{
                     color: "black",
-                    fontSize: 20,
+                    fontSize: 10,
                     fontFamily: "New Super Mario Font U",
                     borderColor: "black",
                   }}
@@ -1606,12 +1606,11 @@ function Battle() {
                   Change Starter
                 </Button>
               </ListItem>
-              <Divider />
             </List>
           ) : (
             <List>
               <ListItem>
-                <img height={200} width={200} src={starterOne.profile_pic} />
+                <img height={50} width={50} src={starterOne.profile_pic} />
                 <ListItemText
                   sx={{ ml: 55 }}
                   primary={`starter 1: ${starterOne.name}`}
@@ -1620,7 +1619,7 @@ function Battle() {
                 <Button
                   sx={{
                     color: "black",
-                    fontSize: 20,
+                    fontSize: 10,
                     fontFamily: "New Super Mario Font U",
                     borderColor: "black",
                   }}
@@ -1641,7 +1640,7 @@ function Battle() {
               <Divider />
 
               <ListItem>
-                <img height={200} width={200} src={starterTwo.profile_pic} />
+                <img height={50} width={50} src={starterTwo.profile_pic} />
                 <ListItemText
                   sx={{ ml: 55 }}
                   primary={`starter 2: ${starterTwo.name}`}
@@ -1650,7 +1649,7 @@ function Battle() {
                 <Button
                   sx={{
                     color: "black",
-                    fontSize: 20,
+                    fontSize: 10,
                     fontFamily: "New Super Mario Font U",
                     borderColor: "black",
                   }}
@@ -1667,7 +1666,6 @@ function Battle() {
                   Change Starter
                 </Button>
               </ListItem>
-              <Divider />
             </List>
           )}
         </>
