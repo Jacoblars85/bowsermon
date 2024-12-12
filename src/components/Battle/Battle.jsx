@@ -1549,17 +1549,20 @@ function Battle() {
         <div
         style={{
           backgroundColor: "white",
-          height: `140px`,
-          width: `400px`,
+          // height: `140px`,
+          width: `300px`,
           position: "absolute",
           top: 6,
           left: 6,
           right: 0,
           border: "4px solid black",
           display: "flex",
+          flexDirection: "column",
           padding: "12px"
         }}>
-          <h1>Draggle</h1>
+
+          <h1 style={{ margin: 0,}}>Draggle</h1>
+
           <progress
           className="hp-meter"
           value={
@@ -1583,6 +1586,7 @@ function Battle() {
           max={maxStamina}
         ></progress>
         </div>
+
         <canvas
           ref={battleCanvasRef}
           height={576}
