@@ -111,6 +111,10 @@ function Battle() {
   const [kickAttack, setKickAttack] = useState("");
   const [kickStamina, setKickStamina] = useState(0);
 
+    // poke attack name and stamina
+    const [pokeAttack, setPokeAttack] = useState("");
+    const [pokeStamina, setPokeStamina] = useState(0);
+
   // axios functions
   const getStarters = () => {
     axios({
@@ -166,6 +170,8 @@ function Battle() {
       .then((response) => {
         setKickAttack(response.data[0].attack);
         setKickStamina(response.data[0].stamina);
+        setPokeAttack(response.data[1].attack);
+        setPokeStamina(response.data[1].stamina);
       })
       .catch((err) => {
         console.log(err);
@@ -1487,22 +1493,21 @@ function Battle() {
           <button
             onClick={() => battle("poke")}
             className="pokeAttack"
-            // disabled={
-            //   starter.length === 1
-            //     ? starterOneStamina < basicAttacks[1].stamina
-            //       ? true
-            //       : isDisabled
-            //     : currentId === starterOne.id
-            //     ? starterOneStamina < basicAttacks[1].stamina
-            //       ? true
-            //       : isDisabled
-            //     : starterTwoStamina < basicAttacks[1].stamina
-            //     ? true
-            //     : isDisabled
-            // }
+            disabled={
+              starter.length === 1
+                ? starterOneStamina < pokeStamina
+                  ? true
+                  : isDisabled
+                : currentId === starterOne.id
+                ? starterOneStamina < pokeStamina
+                  ? true
+                  : isDisabled
+                : starterTwoStamina < pokeStamina
+                ? true
+                : isDisabled
+            }
           >
-            {/* {basicAttacks[1].attack} */}
-            poke
+            {pokeAttack}
           </button>
         </>
       );
