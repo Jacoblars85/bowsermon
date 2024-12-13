@@ -1506,11 +1506,13 @@ function Battle() {
     } else if (displayButtons === "inventory") {
       return (
         <Box
-        height="">
+        height="140px"
+        overflow={'scroll'}
+        >
           {usersConsumableItems &&
             usersConsumableItems.map((usersConsumables) => {
               return (
-                <div key={usersConsumables.id}>
+                <div key={usersConsumables.id} style={{ height: "40px"}}>
                   <ListItem>
                     <Box
                       display="flex"
@@ -1527,12 +1529,12 @@ function Battle() {
                       >
                         {usersConsumables.number}X
                       </p>
-                      <img height={30} width={30} src={usersConsumables.pic} />
+                      <img height={35} width={35} src={usersConsumables.pic} />
                     </Box>
 
                     <ListItemText
                       sx={{
-                        ml: 55,
+                        ml: 20,
                         fontFamily: "New Super Mario Font U",
                       }}
                       primary={usersConsumables.name}
@@ -1541,8 +1543,9 @@ function Battle() {
 
 <ListItemText
                       sx={{
-                        ml: 55,
+                        ml: 5,
                         fontFamily: "New Super Mario Font U",
+                        width: "70px"
                       }}
                       // primary={usersConsumables.name}
                       secondary={`${
@@ -1564,9 +1567,11 @@ function Battle() {
                     <Button
                       sx={{
                         color: "black",
-                        fontSize: 10,
+                        fontSize: 9,
                         fontFamily: "New Super Mario Font U",
                         borderColor: "black",
+                        height: "35px",
+                        width: '60px'
                       }}
                       variant="outlined"
                       disabled={usersConsumables.number <= 0 ? true : false}
