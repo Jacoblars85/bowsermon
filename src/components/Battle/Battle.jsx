@@ -1589,7 +1589,7 @@ function Battle() {
               <ListItem>
                 <img height={50} width={50} src={starterOne.profile_pic} />
                 <ListItemText
-                  sx={{ ml: 55 }}
+                  sx={{ ml: 25 }}
                   primary={`starter 1: ${starterOne.name}`}
                   secondary={`${starterOneHp}/${starterOne.hp} hp | ${starterOneStamina}/${starterOne.stamina} stamina | ${starterOne.speed} speed`}
                 />
@@ -1619,7 +1619,7 @@ function Battle() {
               <ListItem>
                 <img height={50} width={50} src={starterOne.profile_pic} />
                 <ListItemText
-                  sx={{ ml: 55 }}
+                  sx={{ ml: 25 }}
                   primary={`starter 1: ${starterOne.name}`}
                   secondary={`${starterOneHp}/${starterOne.hp} hp | ${starterOneStamina}/${starterOne.stamina} stamina | ${starterOne.speed} speed`}
                 />
@@ -1649,7 +1649,7 @@ function Battle() {
               <ListItem>
                 <img height={50} width={50} src={starterTwo.profile_pic} />
                 <ListItemText
-                  sx={{ ml: 55 }}
+                  sx={{ ml: 25 }}
                   primary={`starter 2: ${starterTwo.name}`}
                   secondary={`${starterTwoHp}/${starterTwo.hp} hp | ${starterTwoStamina}/${starterTwo.stamina} stamina | ${starterTwo.speed} speed`}
                 />
@@ -1659,6 +1659,7 @@ function Battle() {
                     fontSize: 10,
                     fontFamily: "New Super Mario Font U",
                     borderColor: "black",
+                    ml: 2
                   }}
                   variant="outlined"
                   disabled={
