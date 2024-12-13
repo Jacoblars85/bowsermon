@@ -1441,15 +1441,15 @@ function Battle() {
           <Button
             onClick={() => battle("unique")}
             // className="uniqueAttack"
-            style={{ 
+            style={{
               display: "flex",
-              width: "33.33%", 
-              height: "100%", 
-              textAlign: "center", 
-              fontSize: "30px", 
+              width: "33.33%",
+              height: "100%",
+              textAlign: "center",
+              fontSize: "30px",
               color: "black",
               fontFamily: "New Super Mario Font U",
-              justifyContent: "center", 
+              justifyContent: "center",
               alignItems: "center",
               borderRight: "4px solid black",
               // backgroundColor: "white",
@@ -1479,15 +1479,15 @@ function Battle() {
           <Button
             onClick={() => battle("punch")}
             // className="kickAttack"
-            style={{ 
+            style={{
               display: "flex",
-              width: "33.33%", 
-              height: "100%", 
-              textAlign: "center", 
-              fontSize: "30px", 
+              width: "33.33%",
+              height: "100%",
+              textAlign: "center",
+              fontSize: "30px",
               color: "black",
               fontFamily: "New Super Mario Font U",
-              justifyContent: "center", 
+              justifyContent: "center",
               alignItems: "center",
               borderRight: "4px solid black",
               borderLeft: "4px solid black",
@@ -1514,15 +1514,15 @@ function Battle() {
           <Button
             onClick={() => battle("poke")}
             // className="pokeAttack"
-            style={{ 
+            style={{
               display: "flex",
-              width: "33.33%", 
-              height: "100%", 
-              textAlign: "center", 
-              fontSize: "30px", 
+              width: "33.33%",
+              height: "100%",
+              textAlign: "center",
+              fontSize: "30px",
               color: "black",
               fontFamily: "New Super Mario Font U",
-              justifyContent: "center", 
+              justifyContent: "center",
               alignItems: "center",
               border: 0,
               borderLeft: "4px solid black",
@@ -1553,7 +1553,10 @@ function Battle() {
           {usersConsumableItems &&
             usersConsumableItems.map((usersConsumables) => {
               return (
-                <div key={usersConsumables.id} style={{ height: "40px", padding: 10 }}>
+                <div
+                  key={usersConsumables.id}
+                  style={{ height: "40px", padding: 10 }}
+                >
                   <ListItem>
                     <Box
                       display="flex"
@@ -1704,7 +1707,7 @@ function Battle() {
                     fontSize: 10,
                     fontFamily: "New Super Mario Font U",
                     borderColor: "black",
-                    ml: 2
+                    ml: 2,
                   }}
                   variant="outlined"
                   disabled={
