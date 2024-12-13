@@ -35,6 +35,7 @@ import axios from "axios";
 import Box from "@mui/material/Box";
 // import ListItemButton from "@mui/material/ListItemButton";
 import battleMusic from "../../audio/battleMusic.mp3";
+import { duration } from "@mui/material";
 
 const Transition = forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -1790,6 +1791,18 @@ function Battle() {
             else this.frames.val = 0;
           }
         }
+
+        attack({ attack, recipient }) {
+          const tl = gsap.timeline()
+          tl.to(this.position, {
+              x: this.position.x - 20
+            }).to(this.position, {
+              x: this.position.x + 40,
+              duration: 0.1,
+            }).to(this.position, {
+              x: this.position.x
+            })
+        }
       }
 
       const background = new Sprite({
@@ -1836,13 +1849,21 @@ function Battle() {
 
       document.querySelectorAll("button").forEach((button) => {
         button.addEventListener("click", () => {
-          console.log("clicked", button);
-
           if (button.id === "attackButton") {
-            
+            console.log("clicked");
+
+            emby.attack({ attack: {
+              name: "tackle",
+              damage: 10,
+              type: "normal"
+            },
+            recipient: draggle
+          })
           }
+
         });
       });
+
     }
   }, []);
 
