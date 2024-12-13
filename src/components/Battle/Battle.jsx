@@ -1438,9 +1438,23 @@ function Battle() {
     if (displayButtons === "attack") {
       return (
         <>
-          <button
+          <Button
             onClick={() => battle("unique")}
-            className="uniqueAttack"
+            // className="uniqueAttack"
+            style={{ 
+              display: "flex",
+              width: "33.33%", 
+              height: "100%", 
+              textAlign: "center", 
+              fontSize: "30px", 
+              color: "black",
+              fontFamily: "New Super Mario Font U",
+              justifyContent: "center", 
+              alignItems: "center",
+              borderRight: "4px solid black",
+              // backgroundColor: "white",
+              boxShadow: "0 0 0 0",
+            }}
             disabled={
               starter.length === 1
                 ? starterOneStamina < starterOne.unique_stamina
@@ -1460,11 +1474,26 @@ function Battle() {
               : currentId === starterOne.id
               ? starterOne.unique_attack
               : starterTwo.unique_attack}
-          </button>
+          </Button>
 
-          <button
+          <Button
             onClick={() => battle("punch")}
-            className="kickAttack"
+            // className="kickAttack"
+            style={{ 
+              display: "flex",
+              width: "33.33%", 
+              height: "100%", 
+              textAlign: "center", 
+              fontSize: "30px", 
+              color: "black",
+              fontFamily: "New Super Mario Font U",
+              justifyContent: "center", 
+              alignItems: "center",
+              borderRight: "4px solid black",
+              borderLeft: "4px solid black",
+              // backgroundColor: "white",
+              boxShadow: "0 0 0 0",
+            }}
             disabled={
               starter.length === 1
                 ? starterOneStamina < kickStamina
@@ -1480,11 +1509,26 @@ function Battle() {
             }
           >
             {kickAttack}
-          </button>
+          </Button>
 
-          <button
+          <Button
             onClick={() => battle("poke")}
-            className="pokeAttack"
+            // className="pokeAttack"
+            style={{ 
+              display: "flex",
+              width: "33.33%", 
+              height: "100%", 
+              textAlign: "center", 
+              fontSize: "30px", 
+              color: "black",
+              fontFamily: "New Super Mario Font U",
+              justifyContent: "center", 
+              alignItems: "center",
+              border: 0,
+              borderLeft: "4px solid black",
+              // backgroundColor: "white",
+              boxShadow: "0 0 0 0",
+            }}
             disabled={
               starter.length === 1
                 ? starterOneStamina < pokeStamina
@@ -1500,7 +1544,7 @@ function Battle() {
             }
           >
             {pokeAttack}
-          </button>
+          </Button>
         </>
       );
     } else if (displayButtons === "inventory") {
