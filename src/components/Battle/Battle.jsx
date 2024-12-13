@@ -1505,14 +1505,11 @@ function Battle() {
       );
     } else if (displayButtons === "inventory") {
       return (
-        <Box
-        height="140px"
-        overflow={'scroll'}
-        >
+        <Box height="140px" overflow={"scroll"}>
           {usersConsumableItems &&
             usersConsumableItems.map((usersConsumables) => {
               return (
-                <div key={usersConsumables.id} style={{ height: "40px"}}>
+                <div key={usersConsumables.id} style={{ height: "40px" }}>
                   <ListItem>
                     <Box
                       display="flex"
@@ -1538,14 +1535,13 @@ function Battle() {
                         fontFamily: "New Super Mario Font U",
                       }}
                       primary={usersConsumables.name}
-                      
                     />
 
-<ListItemText
+                    <ListItemText
                       sx={{
                         ml: 5,
                         fontFamily: "New Super Mario Font U",
-                        width: "70px"
+                        width: "70px",
                       }}
                       // primary={usersConsumables.name}
                       secondary={`${
@@ -1571,7 +1567,7 @@ function Battle() {
                         fontFamily: "New Super Mario Font U",
                         borderColor: "black",
                         height: "35px",
-                        width: '60px'
+                        width: "60px",
                       }}
                       variant="outlined"
                       disabled={usersConsumables.number <= 0 ? true : false}
@@ -1809,11 +1805,7 @@ function Battle() {
     >
       <audio src={battleMusic} autoPlay />
 
-
-
-
       <div style={{ display: "inline-block", position: "relative" }}>
-
         {/* draggle health box */}
         <div
           style={{
@@ -1842,7 +1834,7 @@ function Battle() {
           ></progress>
         </div>
 
-{/* emby health box */}
+        {/* emby health box */}
         <div
           style={{
             backgroundColor: "white",
@@ -1882,7 +1874,7 @@ function Battle() {
           ></progress>
         </div>
 
-{/* canvas */}
+        {/* canvas */}
         <canvas
           ref={battleCanvasRef}
           height={576}
@@ -1890,7 +1882,7 @@ function Battle() {
           className="canvasForBattle"
         ></canvas>
 
-{/* the attack box */}
+        {/* the attack box */}
         <div
           style={{
             backgroundColor: "white",
@@ -1915,7 +1907,7 @@ function Battle() {
             {toggleAllButtons()}
           </div>
 
-{/* all of the basic buttons */}
+          {/* all of the basic buttons */}
           <div
             style={{
               width: "33.33%",
@@ -1925,7 +1917,7 @@ function Battle() {
             }}
           >
             <>
-            {/* the inventory button */}
+              {/* the inventory button */}
               <button
                 onClick={() => setDisplayButtons("inventory")}
                 className="inventoryMove"
@@ -1934,7 +1926,7 @@ function Battle() {
                 Inventory
               </button>
 
-{/* the switch button */}
+              {/* the switch button */}
               <button
                 onClick={() => setDisplayButtons("switch")}
                 className="switch"
@@ -1943,7 +1935,7 @@ function Battle() {
                 Switch
               </button>
 
-{/* run button */}
+              {/* run button */}
               <button
                 onClick={() => history.push("/home")}
                 className="runButton"
@@ -1952,7 +1944,7 @@ function Battle() {
                 Run
               </button>
 
-{/* shows all the attack buttons */}
+              {/* shows all the attack buttons */}
               <button
                 onClick={() => setDisplayButtons("attack")}
                 className="attackToggleButton"
@@ -1964,11 +1956,6 @@ function Battle() {
           </div>
         </div>
       </div>
-
-
-
-
-
 
       {/* <div className={shakeTheScreen}></div>
 
