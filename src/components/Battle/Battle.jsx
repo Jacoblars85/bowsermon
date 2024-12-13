@@ -1440,6 +1440,7 @@ function Battle() {
         <>
           <Button
             onClick={() => battle("unique")}
+            id="attackButton"
             // className="uniqueAttack"
             style={{
               display: "flex",
@@ -1478,6 +1479,7 @@ function Battle() {
 
           <Button
             onClick={() => battle("punch")}
+            id="attackButton"
             // className="kickAttack"
             style={{
               display: "flex",
@@ -1514,6 +1516,7 @@ function Battle() {
           <Button
             onClick={() => battle("poke")}
             // className="pokeAttack"
+            id="attackButton"
             style={{
               display: "flex",
               width: "33.33%",
@@ -1833,7 +1836,11 @@ function Battle() {
 
       document.querySelectorAll("button").forEach((button) => {
         button.addEventListener("click", () => {
-          console.log("clicked");
+          console.log("clicked", button);
+
+          if (button.id === "attackButton") {
+            
+          }
         });
       });
     }
