@@ -1509,7 +1509,7 @@ function Battle() {
           {usersConsumableItems &&
             usersConsumableItems.map((usersConsumables) => {
               return (
-                <div key={usersConsumables.id} style={{ height: "40px" }}>
+                <div key={usersConsumables.id} style={{ height: "40px", padding: 10 }}>
                   <ListItem>
                     <Box
                       display="flex"
@@ -1576,6 +1576,7 @@ function Battle() {
                       Use Consumable
                     </Button>
                   </ListItem>
+                  <Divider />
                 </div>
               );
             })}
