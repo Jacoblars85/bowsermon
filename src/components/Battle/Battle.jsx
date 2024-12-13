@@ -1505,7 +1505,8 @@ function Battle() {
       );
     } else if (displayButtons === "inventory") {
       return (
-        <Box sx={{ columnGap: "1px" }}>
+        <Box
+        height="">
           {usersConsumableItems &&
             usersConsumableItems.map((usersConsumables) => {
               return (
@@ -1535,6 +1536,15 @@ function Battle() {
                         fontFamily: "New Super Mario Font U",
                       }}
                       primary={usersConsumables.name}
+                      
+                    />
+
+<ListItemText
+                      sx={{
+                        ml: 55,
+                        fontFamily: "New Super Mario Font U",
+                      }}
+                      // primary={usersConsumables.name}
                       secondary={`${
                         usersConsumables.hp === 0
                           ? ""
@@ -1794,7 +1804,12 @@ function Battle() {
     >
       <audio src={battleMusic} autoPlay />
 
+
+
+
       <div style={{ display: "inline-block", position: "relative" }}>
+
+        {/* draggle health box */}
         <div
           style={{
             backgroundColor: "white",
@@ -1822,6 +1837,7 @@ function Battle() {
           ></progress>
         </div>
 
+{/* emby health box */}
         <div
           style={{
             backgroundColor: "white",
@@ -1861,6 +1877,7 @@ function Battle() {
           ></progress>
         </div>
 
+{/* canvas */}
         <canvas
           ref={battleCanvasRef}
           height={576}
@@ -1868,6 +1885,7 @@ function Battle() {
           className="canvasForBattle"
         ></canvas>
 
+{/* the attack box */}
         <div
           style={{
             backgroundColor: "white",
@@ -1880,6 +1898,7 @@ function Battle() {
             display: "flex",
           }}
         >
+          {/* all of the togglable buttons */}
           <div
             style={{
               width: "66.66%",
@@ -1891,6 +1910,7 @@ function Battle() {
             {toggleAllButtons()}
           </div>
 
+{/* all of the basic buttons */}
           <div
             style={{
               width: "33.33%",
@@ -1900,6 +1920,7 @@ function Battle() {
             }}
           >
             <>
+            {/* the inventory button */}
               <button
                 onClick={() => setDisplayButtons("inventory")}
                 className="inventoryMove"
@@ -1908,6 +1929,7 @@ function Battle() {
                 Inventory
               </button>
 
+{/* the switch button */}
               <button
                 onClick={() => setDisplayButtons("switch")}
                 className="switch"
@@ -1916,6 +1938,7 @@ function Battle() {
                 Switch
               </button>
 
+{/* run button */}
               <button
                 onClick={() => history.push("/home")}
                 className="runButton"
@@ -1924,6 +1947,7 @@ function Battle() {
                 Run
               </button>
 
+{/* shows all the attack buttons */}
               <button
                 onClick={() => setDisplayButtons("attack")}
                 className="attackToggleButton"
@@ -1935,6 +1959,11 @@ function Battle() {
           </div>
         </div>
       </div>
+
+
+
+
+
 
       {/* <div className={shakeTheScreen}></div>
 
