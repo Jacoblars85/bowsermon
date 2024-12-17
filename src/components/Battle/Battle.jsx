@@ -1758,6 +1758,7 @@ function Battle() {
           frames = { max: 1, hold: 10 },
           sprites,
           animate = false,
+          isEnemy = false,
         }) {
           this.position = position;
           this.image = image;
@@ -1769,6 +1770,7 @@ function Battle() {
           this.animate = animate;
           this.sprites = sprites;
           this.opacity = 1;
+          this.isEnemy = isEnemy
         }
 
         draw() {
@@ -1799,11 +1801,18 @@ function Battle() {
 
         attack({ attack, recipient }) {
           const tl = gsap.timeline();
+
+          let movementDistance = 20
+
+          if (this.isEnemy) {
+            movementDistance = -20
+          }
+
           tl.to(this.position, {
-            x: this.position.x - 20,
+            x: this.position.x - movementDistance,
           })
             .to(this.position, {
-              x: this.position.x + 40,
+              x: this.position.x + movementDistance * 2,
               duration: 0.1,
               onComplete() {
                 gsap.to(recipient.position, {
@@ -1845,6 +1854,7 @@ function Battle() {
           hold: 30,
         },
         animate: true,
+        isEnemy: true,
       });
 
       const emby = new Sprite({
@@ -1881,9 +1891,24 @@ function Battle() {
               },
               recipient: draggle,
             });
+
+            setTimeout(() => {
+              draggle.attack({
+                attack: {
+                  name: "tackle",
+                  damage: 10,
+                  type: "normal",
+                },
+                recipient: emby,
+              });
+            }, 2700);
+            
           }
         });
       });
+
+
+
     }
   }, []);
 
