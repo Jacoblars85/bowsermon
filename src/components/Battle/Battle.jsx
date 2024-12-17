@@ -1770,7 +1770,7 @@ function Battle() {
           this.animate = animate;
           this.sprites = sprites;
           this.opacity = 1;
-          this.isEnemy = isEnemy
+          this.isEnemy = isEnemy;
         }
 
         draw() {
@@ -1802,10 +1802,10 @@ function Battle() {
         attack({ attack, recipient }) {
           const tl = gsap.timeline();
 
-          let movementDistance = 20
+          let movementDistance = 20;
 
           if (this.isEnemy) {
-            movementDistance = -20
+            movementDistance = -20;
           }
 
           tl.to(this.position, {
@@ -1879,9 +1879,9 @@ function Battle() {
       animateBattle();
 
       document.querySelectorAll("button").forEach((button) => {
-        button.addEventListener("click", () => {
+        button.addEventListener("click", (e) => {
           if (button.id === "attackButton") {
-            console.log("clicked");
+            console.log(e.currentTarget.innerHTML);
 
             emby.attack({
               attack: {
@@ -1902,13 +1902,9 @@ function Battle() {
                 recipient: emby,
               });
             }, 2700);
-            
           }
         });
       });
-
-
-
     }
   }, []);
 
