@@ -1740,6 +1740,10 @@ function Battle() {
       const canvas = battleCanvasRef.current;
       const c = canvas.getContext("2d");
 
+      console.log('isDisabled', isDisabled);
+      console.log('characterPicture', characterPicture);
+      
+
       const backgroundImage = new Image();
       backgroundImage.src = battleBackground;
       // console.log(backgroundImage);
@@ -1906,7 +1910,7 @@ function Battle() {
         });
       });
     }
-  }, []);
+  }, [pokeAttack])
 
   return (
     <div
