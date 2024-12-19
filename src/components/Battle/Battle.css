@@ -5,16 +5,6 @@ body {
     width: 100%;
 }
 
-body:has(.shakeTheScreen ) {
-    animation: shake 0.6s;
-    animation-iteration-count: infinite;
-}
-
-body:has(.shake ) {
-    animation: shake 0.6s;
-    animation-iteration-count: infinite;
-}
-
 /* https://www.w3schools.com/howto/howto_css_shake_image.asp */
 @keyframes shake {
     0% {
