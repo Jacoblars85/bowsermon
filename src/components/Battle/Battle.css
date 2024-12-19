@@ -10,16 +10,6 @@ body:has(.shakeTheScreen ) {
     animation-iteration-count: infinite;
 }
 
-.enemyPicAttack {
-    margin-right: 700px;
-    margin-top: 200px;
-}
-
-.chacracterPicAttack {
-    margin-left: 700px;
-    position: absolute;
-}
-
 body:has(.shake ) {
     animation: shake 0.6s;
     animation-iteration-count: infinite;
