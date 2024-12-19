@@ -143,27 +143,6 @@ background: limegreen;
     /* text-shadow: 0px 0px 9px #ff0000; */
 }
 
-.enemy, .shake{
-    position: absolute;
-    display: flex;
-    flex-wrap: wrap;
-    top: 5%;
-    right: 16%;
-    /* border: 1px solid blue; */
-    width: 30%;
-    height: 45%;
-    justify-content: center;
-}
-
-.enemy img, .shake img {
-    position: absolute;
-    top: 23%;
-    /* border: 1px solid blue; */
-    width: 50%;
-    height: 80%;
-    animation: MoveUpDown .8s linear infinite;
-}
-
 .attacks {
     position: absolute;
     right: 0.5%;
