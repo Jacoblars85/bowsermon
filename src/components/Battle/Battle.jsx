@@ -100,7 +100,10 @@ function Battle() {
   // Starter picture on the screen
   const [characterPicture, setCharacterPicture] = useState();
   const [currentId, setCurrentId] = useState(0);
+  const [currentHp, setCurrentHp] = useState(0);
+  const [currentStamina, setCurrentStamina] = useState(0);
   const [currentSpeed, setCurrentSpeed] = useState(0);
+  const [currentUniqueDamage, setUniqueDamage] = useState(0);
   const [maxHp, setMaxHp] = useState(0);
   const [maxStamina, setMaxStamina] = useState(0);
 
