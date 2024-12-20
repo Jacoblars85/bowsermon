@@ -115,27 +115,27 @@ CREATE TABLE "user_rewards" (
 INSERT INTO "characters" 
 	("name", "hp", "stamina", "speed", "unique_attack", "unique_damage", "unique_stamina", "profile_pic", "battle_pic")
 	VALUES 
-	('Goomba', 30, 50, 80, 'charge', 40, 10, '', ''),
-	('Koopa Troopa', 60, 60, 55, 'shell smash', 35, 10, ''),
-	('Dry Bones', 50, 70, 50, 'bone swing', 50, 15, '', ''),
-	('Shy Guy', 85, 40, 10, 'slap', 55, 15, ''),
-	('Boo', 40, 60, 60, 'lick', 50, 20, '', ''),
-	('Hammer Bro', 55, 60, 50, 'hammer bash', 45, 10, '', ''),
-	('Chain Chomp', 20, 25, 65, 'chomp', 65, 10, '', ''),
-	('Roy', 55, 35, 20, 'fireball', 75, 15, '', ''),
-	('Morton', 100, 25, 5, 'body slam', 45, 10, '', ''),
-	('Toad', 100, 55, 70, 'headbutt', 10, 10, '', ''),
-	('Toadett', 160, 50, 60, 'slap', 15, 10, '', ''),
-	('Toadsworth', 180, 50, 30, 'cane wack', 20, 15, '', ''),
-	('Diddy Kong', 170, 50, 85, 'banana shot', 55, 10, '', ''),
-	('Rosalina', 190, 60, 60, 'ice blast', 35, 10, '', ''),
-	('Daisy', 210, 50, 50, 'arm bar', 50, 10, '', ''),
-	('Yoshi', 240, 100, 75, 'stomp', 20, 10, ''),
-	('Donkey Kong', 300, 70, 10, 'giant punch', 35, 10, '', ''),
-	('Luigi', 80, 60, 85, 'punch', 150, 25, '', ''),
-	('Mario', 250, 150, 50, 'upper cut', 40, 20, '', ''),
-	('Waluigi', 180, 100, 100, 'stab', 35, 10, '', ''),
-	('Wario', 280, 65, 10, 'belly flop', 45, 10, '', ''); 
+	('', 30, 50, 80, 'charge', 40, 10, '', ''),
+	('', 60, 60, 55, 'shell smash', 35, 10, ''),
+	('', 50, 70, 50, 'bone swing', 50, 15, '', ''),
+	('', 85, 40, 10, 'slap', 55, 15, ''),
+	('', 40, 60, 60, 'lick', 50, 20, '', ''),
+	('', 55, 60, 50, 'hammer bash', 45, 10, '', ''),
+	('', 20, 25, 65, 'chomp', 65, 10, '', ''),
+	('', 55, 35, 20, 'fireball', 75, 15, '', ''),
+	('', 100, 25, 5, 'body slam', 45, 10, '', ''),
+	('', 100, 55, 70, 'headbutt', 10, 10, '', ''),
+	('', 160, 50, 60, 'slap', 15, 10, '', ''),
+	('', 180, 50, 30, 'cane wack', 20, 15, '', ''),
+	('', 170, 50, 85, 'banana shot', 55, 10, '', ''),
+	('', 190, 60, 60, 'ice blast', 35, 10, '', ''),
+	('', 210, 50, 50, 'arm bar', 50, 10, '', ''),
+	('', 240, 100, 75, 'stomp', 20, 10, ''),
+	('', 300, 70, 10, 'giant punch', 35, 10, '', ''),
+	('', 80, 60, 85, 'punch', 150, 25, '', ''),
+	('', 250, 150, 50, 'upper cut', 40, 20, '', ''),
+	('', 180, 100, 100, 'stab', 35, 10, '', ''),
+	('', 280, 65, 10, 'belly flop', 45, 10, '', ''); 
 	
 INSERT INTO "basic_attacks" 
 	("attack", "damage", "stamina")
