@@ -183,13 +183,12 @@ function Battle() {
   };
 
   // text box for actions
-  const [textBox, setTextBox] = useState("");
+  // const [textBox, setTextBox] = useState("");
 
   // features that get triggered as the battle goes on
   const [isDisabled, setIsDisabled] = useState(false);
   const [enemyClassName, setEnemyClassName] = useState("enemy");
   const [enemyPicAttack, setEnemyPicAttack] = useState("");
-  const [characterPicAttack, setCharacterPicAttack] = useState("");
 
   // All the inventory dialog functions
   const [inventoryOpen, setInventoryOpen] = useState(false);
@@ -499,17 +498,11 @@ function Battle() {
 
   // this is for the users attacks or actions
   const attack = (attackType, basicAttacks, starterOne, enemyAttackTimeOut) => {
-    setTimeout(() => {
-      setCharacterPicAttack("");
-    }, 150);
-
     if (starter.length === 1) {
       if (currentId === starterOne.id) {
         if (attackType === "unique") {
           setEnemyHp(enemyHp - starterOne.unique_damage);
           setStarterOneStamina(starterOneStamina - starterOne.unique_stamina);
-
-          setCharacterPicAttack("chacracterPicAttack");
 
           if (enemyHp - starterOne.unique_damage <= 0) {
             setEnemyHp(0);
@@ -520,8 +513,6 @@ function Battle() {
           setEnemyHp(enemyHp - basicAttacks[0].damage);
           setStarterOneStamina(starterOneStamina - basicAttacks[0].stamina);
 
-          setCharacterPicAttack("chacracterPicAttack");
-
           if (enemyHp - basicAttacks[0].damage <= 0) {
             setEnemyHp(0);
             clearTimeout(enemyAttackTimeOut);
@@ -530,8 +521,6 @@ function Battle() {
         } else if (attackType === "poke") {
           setEnemyHp(enemyHp - basicAttacks[1].damage);
           setStarterOneStamina(starterOneStamina - basicAttacks[1].stamina);
-
-          setCharacterPicAttack("chacracterPicAttack");
 
           if (enemyHp - basicAttacks[1].damage <= 0) {
             setEnemyHp(0);
@@ -566,8 +555,6 @@ function Battle() {
           setEnemyHp(enemyHp - starterOne.unique_damage);
           setStarterOneStamina(starterOneStamina - starterOne.unique_stamina);
 
-          setCharacterPicAttack("chacracterPicAttack");
-
           if (enemyHp - starterOne.unique_damage <= 0) {
             setEnemyHp(0);
             clearTimeout(enemyAttackTimeOut);
@@ -577,8 +564,6 @@ function Battle() {
           setEnemyHp(enemyHp - basicAttacks[0].damage);
           setStarterOneStamina(starterOneStamina - basicAttacks[0].stamina);
 
-          setCharacterPicAttack("chacracterPicAttack");
-
           if (enemyHp - basicAttacks[0].damage <= 0) {
             setEnemyHp(0);
             clearTimeout(enemyAttackTimeOut);
@@ -587,8 +572,6 @@ function Battle() {
         } else if (attackType === "poke") {
           setEnemyHp(enemyHp - basicAttacks[1].damage);
           setStarterOneStamina(starterOneStamina - basicAttacks[1].stamina);
-
-          setCharacterPicAttack("chacracterPicAttack");
 
           if (enemyHp - basicAttacks[1].damage <= 0) {
             setEnemyHp(0);
@@ -628,8 +611,6 @@ function Battle() {
           setEnemyHp(enemyHp - starterTwo.unique_damage);
           setStarterTwoStamina(starterTwoStamina - starterTwo.unique_stamina);
 
-          setCharacterPicAttack("chacracterPicAttack");
-
           if (enemyHp - starterTwo.unique_damage <= 0) {
             setEnemyHp(0);
             clearTimeout(enemyAttackTimeOut);
@@ -639,8 +620,6 @@ function Battle() {
           setEnemyHp(enemyHp - basicAttacks[0].damage);
           setStarterTwoStamina(starterTwoStamina - basicAttacks[0].stamina);
 
-          setCharacterPicAttack("chacracterPicAttack");
-
           if (enemyHp - basicAttacks[0].damage <= 0) {
             setEnemyHp(0);
             clearTimeout(enemyAttackTimeOut);
@@ -649,8 +628,6 @@ function Battle() {
         } else if (attackType === "poke") {
           setEnemyHp(enemyHp - basicAttacks[1].damage);
           setStarterTwoStamina(starterTwoStamina - basicAttacks[1].stamina);
-
-          setCharacterPicAttack("chacracterPicAttack");
 
           if (enemyHp - basicAttacks[1].damage <= 0) {
             setEnemyHp(0);
