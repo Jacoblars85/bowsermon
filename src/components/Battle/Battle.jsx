@@ -35,7 +35,6 @@ import axios from "axios";
 import Box from "@mui/material/Box";
 // import ListItemButton from "@mui/material/ListItemButton";
 import battleMusic from "../../audio/battleMusic.mp3";
-import { duration } from "@mui/material";
 
 const Transition = forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -56,24 +55,75 @@ function Battle() {
 
   useEffect(() => {
     dispatch({ type: "SAGA_FETCH_CHARACTERS" });
-  }, []);
-
-  useEffect(() => {
-    dispatch({
-      type: "SAGA_FETCH_LEVEL_ENEMY",
-      payload: id,
-    });
-  }, []);
-
-  useEffect(() => {
+    dispatch({type: "SAGA_FETCH_LEVEL_ENEMY", payload: id});
     dispatch({ type: "SAGA_FETCH_IVENTORY" });
-  }, []);
-
-  useEffect(() => {
     getStarters();
     getEnemy();
     getBasicAttacks();
   }, []);
+
+    // axios functions
+    const getStarters = () => {
+      axios({
+        method: "GET",
+        url: "/api/characters/starter",
+      })
+        .then((response) => {
+          if (response.data.length === 1) {
+            setStarterOneHp(response.data[0].hp);
+            setStarterOneStamina(response.data[0].stamina);
+            setCurrentId(response.data[0].id);
+            setCurrentSpeed(response.data[0].speed);
+            setMaxHp(response.data[0].hp);
+            setMaxStamina(response.data[0].stamina);
+            setCharacterPicture(response.data[0].battle_pic);
+          } else if (response.data.length === 2) {
+            setStarterOneHp(response.data[0].hp);
+            setStarterOneStamina(response.data[0].stamina);
+            setCurrentId(response.data[0].id);
+            setCurrentSpeed(response.data[0].speed);
+            setMaxHp(response.data[0].hp);
+            setMaxStamina(response.data[0].stamina);
+            setCharacterPicture(response.data[0].battle_pic);
+  
+            setStarterTwoHp(response.data[1].hp);
+            setStarterTwoStamina(response.data[1].stamina);
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    };
+  
+    const getEnemy = () => {
+      axios({
+        method: "GET",
+        url: `/api/characters/enemy/${id}`,
+      })
+        .then((response) => {
+          setEnemyHp(response.data[0].hp);
+          setEnemyStamina(response.data[0].stamina);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    };
+  
+    const getBasicAttacks = () => {
+      axios({
+        method: "GET",
+        url: `/api/characters/basic`,
+      })
+        .then((response) => {
+          setKickAttack(response.data[0].attack);
+          setKickStamina(response.data[0].stamina);
+          setPokeAttack(response.data[1].attack);
+          setPokeStamina(response.data[1].stamina);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    };
 
   const basicAttacks = useSelector((store) => store.character.basicAttacks);
   const characters = useSelector((store) => store.character.userCharacters);
@@ -118,72 +168,6 @@ function Battle() {
   // poke attack name and stamina
   const [pokeAttack, setPokeAttack] = useState("");
   const [pokeStamina, setPokeStamina] = useState(0);
-
-  // axios functions
-  const getStarters = () => {
-    axios({
-      method: "GET",
-      url: "/api/characters/starter",
-    })
-      .then((response) => {
-        if (response.data.length === 1) {
-          setStarterOneHp(response.data[0].hp);
-          setStarterOneStamina(response.data[0].stamina);
-          setCurrentId(response.data[0].id);
-          setCurrentSpeed(response.data[0].speed);
-          setMaxHp(response.data[0].hp);
-          setMaxStamina(response.data[0].stamina);
-          setCharacterPicture(response.data[0].battle_pic);
-        } else if (response.data.length === 2) {
-          setStarterOneHp(response.data[0].hp);
-          setStarterOneStamina(response.data[0].stamina);
-          setCurrentId(response.data[0].id);
-          setCurrentSpeed(response.data[0].speed);
-          setMaxHp(response.data[0].hp);
-          setMaxStamina(response.data[0].stamina);
-          setCharacterPicture(response.data[0].battle_pic);
-
-          setStarterTwoHp(response.data[1].hp);
-          setStarterTwoStamina(response.data[1].stamina);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
-  const getEnemy = () => {
-    axios({
-      method: "GET",
-      url: `/api/characters/enemy/${id}`,
-    })
-      .then((response) => {
-        setEnemyHp(response.data[0].hp);
-        setEnemyStamina(response.data[0].stamina);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
-  const getBasicAttacks = () => {
-    axios({
-      method: "GET",
-      url: `/api/characters/basic`,
-    })
-      .then((response) => {
-        setKickAttack(response.data[0].attack);
-        setKickStamina(response.data[0].stamina);
-        setPokeAttack(response.data[1].attack);
-        setPokeStamina(response.data[1].stamina);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
-  // text box for actions
-  // const [textBox, setTextBox] = useState("");
 
   // disables all buttons when user clicks button
   const [isDisabled, setIsDisabled] = useState(false);
@@ -373,125 +357,6 @@ function Battle() {
 
       // setRoundOver(true);
     }, 4500);
-  };
-
-  const [displayAttacks, setDisplayAttacks] = useState(false);
-
-  // toggles attack buttons
-  const toggleButtons = () => {
-    if (displayAttacks) {
-      return (
-        <>
-          <button
-            onClick={() => battle("unique")}
-            className="uniqueAttack"
-            disabled={
-              starter.length === 1
-                ? starterOneStamina < starterOne.unique_stamina
-                  ? true
-                  : isDisabled
-                : currentId === starterOne.id
-                ? starterOneStamina < starterOne.unique_stamina
-                  ? true
-                  : isDisabled
-                : starterTwoStamina < starterTwo.unique_stamina
-                ? true
-                : isDisabled
-            }
-          >
-            {starter.length === 1
-              ? starterOne.unique_attack
-              : currentId === starterOne.id
-              ? starterOne.unique_attack
-              : starterTwo.unique_attack}
-          </button>
-
-          <button
-            onClick={() => battle("punch")}
-            className="kickAttack"
-            disabled={
-              starter.length === 1
-                ? starterOneStamina < kickStamina
-                  ? true
-                  : isDisabled
-                : currentId === starterOne.id
-                ? starterOneStamina < basicAttacks[0].stamina
-                  ? true
-                  : isDisabled
-                : starterTwoStamina < basicAttacks[0].stamina
-                ? true
-                : isDisabled
-            }
-          >
-            {kickAttack}
-          </button>
-
-          <button
-            onClick={() => setDisplayAttacks(false)}
-            className="backButtonAttack"
-            disabled={isDisabled}
-          >
-            Back
-          </button>
-
-          <button
-            onClick={() => battle("poke")}
-            className="pokeAttack"
-            disabled={
-              starter.length === 1
-                ? starterOneStamina < basicAttacks[1].stamina
-                  ? true
-                  : isDisabled
-                : currentId === starterOne.id
-                ? starterOneStamina < basicAttacks[1].stamina
-                  ? true
-                  : isDisabled
-                : starterTwoStamina < basicAttacks[1].stamina
-                ? true
-                : isDisabled
-            }
-          >
-            {basicAttacks[1].attack}
-          </button>
-        </>
-      );
-    } else {
-      return (
-        <>
-          <button
-            onClick={handleInventoryOpen}
-            className="inventoryMove"
-            disabled={isDisabled}
-          >
-            Inventory
-          </button>
-
-          <button
-            onClick={handleSwitchOpen}
-            className="switch"
-            disabled={isDisabled}
-          >
-            Switch
-          </button>
-
-          <button
-            onClick={() => history.push("/home")}
-            className="runButton"
-            disabled={isDisabled}
-          >
-            Run
-          </button>
-
-          <button
-            onClick={() => setDisplayAttacks(true)}
-            className="attackToggleButton"
-            disabled={isDisabled}
-          >
-            Attack
-          </button>
-        </>
-      );
-    }
   };
 
   // this is for the users attacks or actions
@@ -1850,6 +1715,7 @@ function Battle() {
       {/* plays battle music */}
       <audio src={battleMusic} autoPlay />
 
+{/* the area of the whole canvas */}
       <div style={{ display: "inline-block", position: "relative" }}>
         {/* draggle health box */}
         <div
