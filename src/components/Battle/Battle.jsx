@@ -76,7 +76,7 @@ function Battle() {
           setCurrentSpeed(response.data[0].speed);
           setMaxHp(response.data[0].hp);
           setMaxStamina(response.data[0].stamina);
-          setCharacterPicture(response.data[0].battle_pic);
+          // setCharacterPicture(response.data[0].battle_pic);
         } else if (response.data.length === 2) {
           setStarterOneHp(response.data[0].hp);
           setStarterOneStamina(response.data[0].stamina);
@@ -84,7 +84,7 @@ function Battle() {
           setCurrentSpeed(response.data[0].speed);
           setMaxHp(response.data[0].hp);
           setMaxStamina(response.data[0].stamina);
-          setCharacterPicture(response.data[0].battle_pic);
+          // setCharacterPicture(response.data[0].battle_pic);
 
           setStarterTwoHp(response.data[1].hp);
           setStarterTwoStamina(response.data[1].stamina);
@@ -146,7 +146,7 @@ function Battle() {
   const [starterTwoStamina, setStarterTwoStamina] = useState(0);
 
   // All current varibles for battle
-  const [characterPicture, setCharacterPicture] = useState();
+  const [characterPicture, setCharacterPicture] = useState("data:image/png;base64,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");
   const [currentId, setCurrentId] = useState(0);
   const [currentHp, setCurrentHp] = useState(0);
   const [currentStamina, setCurrentStamina] = useState(0);
@@ -1538,11 +1538,12 @@ function Battle() {
 
       const enemyImage = new Image();
       enemyImage.src = enemyPicture;
-      console.log('enemyImage', enemyImage);
+      // console.log('enemyImage', enemyImage);
       
 
       const starterImage = new Image();
-      starterImage.src = embySpriteImage;
+      starterImage.src = characterPicture;
+      
 
       class Sprite {
         constructor({
@@ -1677,25 +1678,53 @@ function Battle() {
           if (button.id === "attackButton") {
             console.log(e.currentTarget.innerHTML);
 
-            starter.attack({
-              attack: {
-                name: "tackle",
-                damage: 10,
-                type: "normal",
-              },
-              recipient: enemy,
-            });
+if (currentSpeed >= enemyOne.speed ||
+  button.id === "starterOne" ||
+  button.id === "starterTwo" ||
+  button.id == "consumable") {
 
-            setTimeout(() => {
-              enemy.attack({
-                attack: {
-                  name: "tackle",
-                  damage: 10,
-                  type: "normal",
-                },
-                recipient: starter,
-              });
-            }, 2700);
+    enemy.attack({
+      attack: {
+        name: "tackle",
+        damage: 10,
+        type: "normal",
+      },
+      recipient: starter,
+    });
+
+    setTimeout(() => {
+      starter.attack({
+        attack: {
+          name: "tackle",
+          damage: 10,
+          type: "normal",
+        },
+        recipient: enemy,
+      });
+    }, 2700);
+
+} else {
+  starter.attack({
+    attack: {
+      name: "tackle",
+      damage: 10,
+      type: "normal",
+    },
+    recipient: enemy,
+  });
+
+  setTimeout(() => {
+    enemy.attack({
+      attack: {
+        name: "tackle",
+        damage: 10,
+        type: "normal",
+      },
+      recipient: starter,
+    });
+  }, 2700);
+
+}
           }
         });
       });
