@@ -184,8 +184,6 @@ function Battle() {
 
   // text box for actions
   const [textBox, setTextBox] = useState("");
-  // when set, it will shake the screen
-  const [shakeTheScreen, setShakeTheScreen] = useState("");
 
   // features that get triggered as the battle goes on
   const [isDisabled, setIsDisabled] = useState(false);
@@ -503,7 +501,6 @@ function Battle() {
   const attack = (attackType, basicAttacks, starterOne, enemyAttackTimeOut) => {
     setTimeout(() => {
       setCharacterPicAttack("");
-      setShakeTheScreen("");
     }, 150);
 
     if (starter.length === 1) {
@@ -513,7 +510,6 @@ function Battle() {
           setStarterOneStamina(starterOneStamina - starterOne.unique_stamina);
 
           setCharacterPicAttack("chacracterPicAttack");
-          setShakeTheScreen("shakeTheScreen");
 
           if (enemyHp - starterOne.unique_damage <= 0) {
             setEnemyHp(0);
@@ -525,7 +521,6 @@ function Battle() {
           setStarterOneStamina(starterOneStamina - basicAttacks[0].stamina);
 
           setCharacterPicAttack("chacracterPicAttack");
-          setShakeTheScreen("shakeTheScreen");
 
           if (enemyHp - basicAttacks[0].damage <= 0) {
             setEnemyHp(0);
@@ -537,7 +532,6 @@ function Battle() {
           setStarterOneStamina(starterOneStamina - basicAttacks[1].stamina);
 
           setCharacterPicAttack("chacracterPicAttack");
-          setShakeTheScreen("shakeTheScreen");
 
           if (enemyHp - basicAttacks[1].damage <= 0) {
             setEnemyHp(0);
@@ -573,7 +567,6 @@ function Battle() {
           setStarterOneStamina(starterOneStamina - starterOne.unique_stamina);
 
           setCharacterPicAttack("chacracterPicAttack");
-          setShakeTheScreen("shakeTheScreen");
 
           if (enemyHp - starterOne.unique_damage <= 0) {
             setEnemyHp(0);
@@ -585,7 +578,6 @@ function Battle() {
           setStarterOneStamina(starterOneStamina - basicAttacks[0].stamina);
 
           setCharacterPicAttack("chacracterPicAttack");
-          setShakeTheScreen("shakeTheScreen");
 
           if (enemyHp - basicAttacks[0].damage <= 0) {
             setEnemyHp(0);
@@ -597,7 +589,6 @@ function Battle() {
           setStarterOneStamina(starterOneStamina - basicAttacks[1].stamina);
 
           setCharacterPicAttack("chacracterPicAttack");
-          setShakeTheScreen("shakeTheScreen");
 
           if (enemyHp - basicAttacks[1].damage <= 0) {
             setEnemyHp(0);
@@ -638,7 +629,6 @@ function Battle() {
           setStarterTwoStamina(starterTwoStamina - starterTwo.unique_stamina);
 
           setCharacterPicAttack("chacracterPicAttack");
-          setShakeTheScreen("shakeTheScreen");
 
           if (enemyHp - starterTwo.unique_damage <= 0) {
             setEnemyHp(0);
@@ -650,7 +640,6 @@ function Battle() {
           setStarterTwoStamina(starterTwoStamina - basicAttacks[0].stamina);
 
           setCharacterPicAttack("chacracterPicAttack");
-          setShakeTheScreen("shakeTheScreen");
 
           if (enemyHp - basicAttacks[0].damage <= 0) {
             setEnemyHp(0);
@@ -662,7 +651,6 @@ function Battle() {
           setStarterTwoStamina(starterTwoStamina - basicAttacks[1].stamina);
 
           setCharacterPicAttack("chacracterPicAttack");
-          setShakeTheScreen("shakeTheScreen");
 
           if (enemyHp - basicAttacks[1].damage <= 0) {
             setEnemyHp(0);
