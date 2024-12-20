@@ -1680,11 +1680,11 @@ function Battle() {
       backgroundImage.src = battleBackground;
       // console.log(backgroundImage);
 
-      const draggleImage = new Image();
-      draggleImage.src = draggleSpriteImage;
+      const enemyImage = new Image();
+      enemyImage.src = draggleSpriteImage;
 
-      const embyImage = new Image();
-      embyImage.src = embySpriteImage;
+      const starterImage = new Image();
+      starterImage.src = embySpriteImage;
 
       class Sprite {
         constructor({
@@ -1779,12 +1779,12 @@ function Battle() {
         image: backgroundImage,
       });
 
-      const draggle = new Sprite({
+      const enemy = new Sprite({
         position: {
           x: 800,
           y: 100,
         },
-        image: draggleImage,
+        image: enemyImage,
         frames: {
           max: 4,
           hold: 30,
@@ -1793,12 +1793,12 @@ function Battle() {
         isEnemy: true,
       });
 
-      const emby = new Sprite({
+      const starter = new Sprite({
         position: {
           x: 280,
           y: 325,
         },
-        image: embyImage,
+        image: starterImage,
         frames: {
           max: 4,
           hold: 30,
@@ -1809,8 +1809,8 @@ function Battle() {
       function animateBattle() {
         window.requestAnimationFrame(animateBattle);
         background.draw();
-        draggle.draw();
-        emby.draw();
+        enemy.draw();
+        starter.draw();
       }
       animateBattle();
 
@@ -1819,23 +1819,23 @@ function Battle() {
           if (button.id === "attackButton") {
             console.log(e.currentTarget.innerHTML);
 
-            emby.attack({
+            starter.attack({
               attack: {
                 name: "tackle",
                 damage: 10,
                 type: "normal",
               },
-              recipient: draggle,
+              recipient: enemy,
             });
 
             setTimeout(() => {
-              draggle.attack({
+              enemy.attack({
                 attack: {
                   name: "tackle",
                   damage: 10,
                   type: "normal",
                 },
-                recipient: emby,
+                recipient: starter,
               });
             }, 2700);
           }
