@@ -55,75 +55,75 @@ function Battle() {
 
   useEffect(() => {
     dispatch({ type: "SAGA_FETCH_CHARACTERS" });
-    dispatch({type: "SAGA_FETCH_LEVEL_ENEMY", payload: id});
+    dispatch({ type: "SAGA_FETCH_LEVEL_ENEMY", payload: id });
     dispatch({ type: "SAGA_FETCH_IVENTORY" });
     getStarters();
     getEnemy();
     getBasicAttacks();
   }, []);
 
-    // axios functions
-    const getStarters = () => {
-      axios({
-        method: "GET",
-        url: "/api/characters/starter",
+  // axios functions
+  const getStarters = () => {
+    axios({
+      method: "GET",
+      url: "/api/characters/starter",
+    })
+      .then((response) => {
+        if (response.data.length === 1) {
+          setStarterOneHp(response.data[0].hp);
+          setStarterOneStamina(response.data[0].stamina);
+          setCurrentId(response.data[0].id);
+          setCurrentSpeed(response.data[0].speed);
+          setMaxHp(response.data[0].hp);
+          setMaxStamina(response.data[0].stamina);
+          setCharacterPicture(response.data[0].battle_pic);
+        } else if (response.data.length === 2) {
+          setStarterOneHp(response.data[0].hp);
+          setStarterOneStamina(response.data[0].stamina);
+          setCurrentId(response.data[0].id);
+          setCurrentSpeed(response.data[0].speed);
+          setMaxHp(response.data[0].hp);
+          setMaxStamina(response.data[0].stamina);
+          setCharacterPicture(response.data[0].battle_pic);
+
+          setStarterTwoHp(response.data[1].hp);
+          setStarterTwoStamina(response.data[1].stamina);
+        }
       })
-        .then((response) => {
-          if (response.data.length === 1) {
-            setStarterOneHp(response.data[0].hp);
-            setStarterOneStamina(response.data[0].stamina);
-            setCurrentId(response.data[0].id);
-            setCurrentSpeed(response.data[0].speed);
-            setMaxHp(response.data[0].hp);
-            setMaxStamina(response.data[0].stamina);
-            setCharacterPicture(response.data[0].battle_pic);
-          } else if (response.data.length === 2) {
-            setStarterOneHp(response.data[0].hp);
-            setStarterOneStamina(response.data[0].stamina);
-            setCurrentId(response.data[0].id);
-            setCurrentSpeed(response.data[0].speed);
-            setMaxHp(response.data[0].hp);
-            setMaxStamina(response.data[0].stamina);
-            setCharacterPicture(response.data[0].battle_pic);
-  
-            setStarterTwoHp(response.data[1].hp);
-            setStarterTwoStamina(response.data[1].stamina);
-          }
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    };
-  
-    const getEnemy = () => {
-      axios({
-        method: "GET",
-        url: `/api/characters/enemy/${id}`,
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const getEnemy = () => {
+    axios({
+      method: "GET",
+      url: `/api/characters/enemy/${id}`,
+    })
+      .then((response) => {
+        setEnemyHp(response.data[0].hp);
+        setEnemyStamina(response.data[0].stamina);
       })
-        .then((response) => {
-          setEnemyHp(response.data[0].hp);
-          setEnemyStamina(response.data[0].stamina);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    };
-  
-    const getBasicAttacks = () => {
-      axios({
-        method: "GET",
-        url: `/api/characters/basic`,
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const getBasicAttacks = () => {
+    axios({
+      method: "GET",
+      url: `/api/characters/basic`,
+    })
+      .then((response) => {
+        setKickAttack(response.data[0].attack);
+        setKickStamina(response.data[0].stamina);
+        setPokeAttack(response.data[1].attack);
+        setPokeStamina(response.data[1].stamina);
       })
-        .then((response) => {
-          setKickAttack(response.data[0].attack);
-          setKickStamina(response.data[0].stamina);
-          setPokeAttack(response.data[1].attack);
-          setPokeStamina(response.data[1].stamina);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    };
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   const basicAttacks = useSelector((store) => store.character.basicAttacks);
   const characters = useSelector((store) => store.character.userCharacters);
@@ -1707,15 +1707,14 @@ function Battle() {
         });
       });
     }
-  }, [pokeAttack])
+  }, [pokeAttack]);
 
   return (
     <div className="battle">
-
       {/* plays battle music */}
       <audio src={battleMusic} autoPlay />
 
-{/* the area of the whole canvas */}
+      {/* the area of the whole canvas */}
       <div style={{ display: "inline-block", position: "relative" }}>
         {/* draggle health box */}
         <div
