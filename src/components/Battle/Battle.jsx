@@ -97,7 +97,7 @@ function Battle() {
   const [starterTwoHp, setStarterTwoHp] = useState(0);
   const [starterTwoStamina, setStarterTwoStamina] = useState(0);
 
-  // Starter picture on the screen
+  // All current varibles for battle
   const [characterPicture, setCharacterPicture] = useState();
   const [currentId, setCurrentId] = useState(0);
   const [currentHp, setCurrentHp] = useState(0);
@@ -1912,18 +1912,7 @@ function Battle() {
   }, [pokeAttack])
 
   return (
-    <div
-      className="battle"
-      // style={{
-      //   backgroundImage: `url(${
-      //     enemyOne.level_id % 2 ? lakeBackground : forestBackground
-      //   })`,
-      //   backgroundRepeat: `no-repeat`,
-      //   backgroundSize: `cover`,
-      //   height: `100vh`,
-      //   width: `100vw`,
-      // }}
-    >
+    <div className="battle">
       <audio src={battleMusic} autoPlay />
 
       <div style={{ display: "inline-block", position: "relative" }}>
