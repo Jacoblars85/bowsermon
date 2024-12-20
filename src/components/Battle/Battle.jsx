@@ -187,8 +187,6 @@ function Battle() {
 
   // features that get triggered as the battle goes on
   const [isDisabled, setIsDisabled] = useState(false);
-  const [enemyClassName, setEnemyClassName] = useState("enemy");
-  const [enemyPicAttack, setEnemyPicAttack] = useState("");
 
   // All the inventory dialog functions
   const [inventoryOpen, setInventoryOpen] = useState(false);
@@ -873,9 +871,6 @@ function Battle() {
                 setLoserOpen(true);
               }
             }
-
-            setEnemyPicAttack("enemyPicAttack");
-            setEnemyClassName("shake");
           } else if (enemyStamina >= basicAttacks[0].stamina) {
             if (attackType.type == "consumable") {
               if (starterOneHp + attackType.hp > starterOne.hp) {
@@ -912,9 +907,6 @@ function Battle() {
                 setLoserOpen(true);
               }
             }
-
-            setEnemyPicAttack("enemyPicAttack");
-            setEnemyClassName("shake");
           } else if (enemyStamina >= basicAttacks[1].stamina) {
             if (attackType.type == "consumable") {
               if (starterOneHp + attackType.hp > starterOne.hp) {
@@ -951,9 +943,6 @@ function Battle() {
                 setLoserOpen(true);
               }
             }
-
-            setEnemyPicAttack("enemyPicAttack");
-            setEnemyClassName("shake");
           }
         }
       } else if (starter.length === 2) {
@@ -1018,9 +1007,6 @@ function Battle() {
                 handleDeadOpen();
               }
             }
-
-            setEnemyPicAttack("enemyPicAttack");
-            setEnemyClassName("shake");
           } else if (enemyStamina >= basicAttacks[0].stamina) {
             if (attackType.type == "consumable") {
               if (starterOneHp + attackType.hp > starterOne.hp) {
@@ -1081,9 +1067,6 @@ function Battle() {
                 handleDeadOpen();
               }
             }
-
-            setEnemyPicAttack("enemyPicAttack");
-            setEnemyClassName("shake");
           } else if (enemyStamina >= basicAttacks[1].stamina) {
             if (attackType.type == "consumable") {
               if (starterOneHp + attackType.hp > starterOne.hp) {
@@ -1144,9 +1127,6 @@ function Battle() {
                 handleDeadOpen();
               }
             }
-
-            setEnemyPicAttack("enemyPicAttack");
-            setEnemyClassName("shake");
           }
         } else if (currentId === starterTwo.id) {
           if (enemyStamina >= enemyOne.unique_stamina) {
@@ -1209,9 +1189,6 @@ function Battle() {
                 handleDeadOpen();
               }
             }
-
-            setEnemyPicAttack("enemyPicAttack");
-            setEnemyClassName("shake");
           } else if (enemyStamina >= basicAttacks[0].stamina) {
             if (attackType.type == "consumable") {
               if (starterTwoHp + attackType.hp > starterTwo.hp) {
@@ -1272,9 +1249,6 @@ function Battle() {
                 handleDeadOpen();
               }
             }
-
-            setEnemyPicAttack("enemyPicAttack");
-            setEnemyClassName("shake");
           } else if (enemyStamina >= basicAttacks[1].stamina) {
             if (attackType.type == "consumable") {
               if (starterTwoHp + attackType.hp > starterTwo.hp) {
@@ -1335,17 +1309,10 @@ function Battle() {
                 handleDeadOpen();
               }
             }
-            setEnemyPicAttack("enemyPicAttack");
-            setEnemyClassName("shake");
           }
         }
       }
     }, 200);
-
-    setTimeout(() => {
-      setEnemyPicAttack("");
-      setEnemyClassName("enemy");
-    }, 350);
 
     return starterOneHp;
   };
