@@ -1368,6 +1368,7 @@ function Battle() {
     }
   };
 
+  // Displays the canvas buttons
   const [displayButtons, setDisplayButtons] = useState("attack");
 
   const toggleAllButtons = () => {
@@ -1668,8 +1669,8 @@ function Battle() {
     }
   };
 
+  // the canvas function
   const battleCanvasRef = useRef(null);
-
   useEffect(() => {
     if (battleCanvasRef.current) {
       const canvas = battleCanvasRef.current;
@@ -1845,6 +1846,8 @@ function Battle() {
 
   return (
     <div className="battle">
+
+      {/* plays battle music */}
       <audio src={battleMusic} autoPlay />
 
       <div style={{ display: "inline-block", position: "relative" }}>
