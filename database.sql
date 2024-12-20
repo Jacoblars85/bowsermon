@@ -113,29 +113,29 @@ CREATE TABLE "user_rewards" (
 	
 
 INSERT INTO "characters" 
-	("name", "profile_pic", "hp", "stamina", "speed", "unique_attack", "unique_damage", "unique_stamina", "battle_pic")
+	("name", "hp", "stamina", "speed", "unique_attack", "unique_damage", "unique_stamina", "profile_pic", "battle_pic")
 	VALUES 
-	('Goomba', 'images/Masthead_Goomba.png', 30, 50, 80, 'charge', 40, 10, 'images/Masthead_Goomba.png'),
-	('Koopa Troopa', 'images/koopaTroopaProfilePic.webp', 60, 60, 55, 'shell smash', 35, 10, 'images/koopaTroopaBattlePic.webp'),
-	('Dry Bones', 'images/Drybones.webp', 50, 70, 50, 'bone swing', 50, 15, 'images/Drybones.webp'),
-	('Shy Guy', 'images/ShyGuyProfilePic.webp', 85, 40, 10, 'slap', 55, 15, 'images/shyGuyBattlePic.webp'),
-	('Boo', 'images/BooProfilePic.webp', 40, 60, 60, 'lick', 50, 20, 'images/BooProfilePic.webp'),
-	('Hammer Bro', 'images/hammerBroProfilePic.webp', 55, 60, 50, 'hammer bash', 45, 10, 'images/Hammer_BroBattlePic.webp'),
-	('Chain Chomp', 'images/ChainChompProfilePic.webp', 20, 25, 65, 'chomp', 65, 10, 'images/chainChompBattlePic2.png'),
-	('Roy', 'images/RoyProfilePic.webp', 55, 35, 20, 'fireball', 75, 15, 'images/RoyBattlePic.webp'),
-	('Morton', 'images/MortonProfilePic.webp', 100, 25, 5, 'body slam', 45, 10, 'images/MortonBattlePic.webp'),
-	('Toad', '', 100, 55, 70, 'headbutt', 10, 10, 'images/Toad_Portal.webp'),
-	('Toadett', '', 160, 50, 60, 'slap', 15, 10, 'images/ToadetteBattlePic.png'),
-	('Toadsworth', '', 180, 50, 30, 'cane wack', 20, 15, 'images/ToadsworthBattlePic.webp'),
-	('Diddy Kong', '', 170, 50, 85, 'banana shot', 55, 10, 'images/diddyKongBattleKong.webp'),
-	('Rosalina', '', 190, 60, 60, 'ice blast', 35, 10, 'images/RosalinaBattlePic.webp'),
-	('Daisy', '', 210, 50, 50, 'arm bar', 50, 10, 'images/daisyBattlePic.png'),
-	('Yoshi', '', 240, 100, 75, 'stomp', 20, 10, 'images/YoshiBattlePic.webp'),
-	('Donkey Kong', '', 300, 70, 10, 'giant punch', 35, 10, 'images/donkeyKongBattlePic.webp'),
-	('Luigi', '', 80, 60, 85, 'punch', 150, 25, 'images/LuigiBattlePic.png'),
-	('Mario', '', 250, 150, 50, 'upper cut', 40, 20, 'images/MarioBattlePic.png'),
-	('Waluigi', '', 180, 100, 100, 'stab', 35, 10, 'images/waluigiBattlePic.webp'),
-	('Wario', '', 280, 65, 10, 'belly flop', 45, 10, 'images/warioBattlePic.png'); 
+	('Goomba', 30, 50, 80, 'charge', 40, 10, '', ''),
+	('Koopa Troopa', 60, 60, 55, 'shell smash', 35, 10, ''),
+	('Dry Bones', 50, 70, 50, 'bone swing', 50, 15, '', ''),
+	('Shy Guy', 85, 40, 10, 'slap', 55, 15, ''),
+	('Boo', 40, 60, 60, 'lick', 50, 20, '', ''),
+	('Hammer Bro', 55, 60, 50, 'hammer bash', 45, 10, '', ''),
+	('Chain Chomp', 20, 25, 65, 'chomp', 65, 10, '', ''),
+	('Roy', 55, 35, 20, 'fireball', 75, 15, '', ''),
+	('Morton', 100, 25, 5, 'body slam', 45, 10, '', ''),
+	('Toad', 100, 55, 70, 'headbutt', 10, 10, '', ''),
+	('Toadett', 160, 50, 60, 'slap', 15, 10, '', ''),
+	('Toadsworth', 180, 50, 30, 'cane wack', 20, 15, '', ''),
+	('Diddy Kong', 170, 50, 85, 'banana shot', 55, 10, '', ''),
+	('Rosalina', 190, 60, 60, 'ice blast', 35, 10, '', ''),
+	('Daisy', 210, 50, 50, 'arm bar', 50, 10, '', ''),
+	('Yoshi', 240, 100, 75, 'stomp', 20, 10, ''),
+	('Donkey Kong', 300, 70, 10, 'giant punch', 35, 10, '', ''),
+	('Luigi', 80, 60, 85, 'punch', 150, 25, '', ''),
+	('Mario', 250, 150, 50, 'upper cut', 40, 20, '', ''),
+	('Waluigi', 180, 100, 100, 'stab', 35, 10, '', ''),
+	('Wario', 280, 65, 10, 'belly flop', 45, 10, '', ''); 
 	
 INSERT INTO "basic_attacks" 
 	("attack", "damage", "stamina")
