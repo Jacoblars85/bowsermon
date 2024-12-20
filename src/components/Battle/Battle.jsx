@@ -692,163 +692,163 @@ function Battle() {
   };
 
   // after an action it reads it and puts it on the screen
-  const characterTextBox = (attackType, basicAttacks, starterOne) => {
-    if (starter.length === 1) {
-      if (currentId === starterOne.id) {
-        if (attackType === "unique") {
-          setTextBox(
-            `${
-              starterOne.nickname === null
-                ? starterOne.name
-                : starterOne.nickname
-            } used ${starterOne.unique_attack}. It did ${
-              starterOne.unique_damage
-            } damage and took ${starterOne.unique_stamina} stamina.`
-          );
-        } else if (attackType === "punch") {
-          setTextBox(
-            `${
-              starterOne.nickname === null
-                ? starterOne.name
-                : starterOne.nickname
-            } used ${basicAttacks[0].attack}. It did ${
-              basicAttacks[0].damage
-            } damage and took ${basicAttacks[0].stamina} stamina.`
-          );
-        } else if (attackType === "poke") {
-          setTextBox(
-            `${
-              starterOne.nickname === null
-                ? starterOne.name
-                : starterOne.nickname
-            } used ${basicAttacks[1].attack}. It did ${
-              basicAttacks[1].damage
-            } damage and took ${basicAttacks[1].stamina} stamina.`
-          );
-        } else if (attackType.type == "consumable") {
-          setTextBox(
-            `${
-              starterOne.nickname === null
-                ? starterOne.name
-                : starterOne.nickname
-            } used a ${attackType.name} and it healed ${
-              attackType.hp
-            } hp and added ${attackType.stamina} stamina.`
-          );
-        } else if (attackType === "starterTwo") {
-          setTextBox(
-            `${
-              starterOne.nickname === null
-                ? starterOne.name
-                : starterOne.nickname
-            } switched out into ${starterTwo.name}.`
-          );
-        }
-      }
-    } else if (starter.length === 2) {
-      if (currentId === starterOne.id) {
-        if (attackType === "unique") {
-          setTextBox(
-            `${
-              starterOne.nickname === null
-                ? starterOne.name
-                : starterOne.nickname
-            } used ${starterOne.unique_attack}. It did ${
-              starterOne.unique_damage
-            } damage and took ${starterOne.unique_stamina} stamina.`
-          );
-        } else if (attackType === "punch") {
-          setTextBox(
-            `${
-              starterOne.nickname === null
-                ? starterOne.name
-                : starterOne.nickname
-            } used ${basicAttacks[0].attack}. It did ${
-              basicAttacks[0].damage
-            } damage and took ${basicAttacks[0].stamina} stamina.`
-          );
-        } else if (attackType === "poke") {
-          setTextBox(
-            `${
-              starterOne.nickname === null
-                ? starterOne.name
-                : starterOne.nickname
-            } used ${basicAttacks[1].attack}. It did ${
-              basicAttacks[1].damage
-            } damage and took ${basicAttacks[1].stamina} stamina.`
-          );
-        } else if (attackType.type == "consumable") {
-          setTextBox(
-            `${
-              starterOne.nickname === null
-                ? starterOne.name
-                : starterOne.nickname
-            } used a ${attackType.name} and it healed ${
-              attackType.hp
-            } hp and added ${attackType.stamina} stamina.`
-          );
-        } else if (attackType === "starterTwo") {
-          setTextBox(
-            `${
-              starterOne.nickname === null
-                ? starterOne.name
-                : starterOne.nickname
-            } switched out into ${starterTwo.name}.`
-          );
-        }
-      } else if (currentId === starterTwo.id) {
-        if (attackType === "unique") {
-          setTextBox(
-            `${
-              starterTwo.nickname === null
-                ? starterTwo.name
-                : starterTwo.nickname
-            } used ${starterTwo.unique_attack}. It did ${
-              starterTwo.unique_damage
-            } damage and took ${starterTwo.unique_stamina} stamina.`
-          );
-        } else if (attackType === "punch") {
-          setTextBox(
-            `${
-              starterTwo.nickname === null
-                ? starterTwo.name
-                : starterTwo.nickname
-            } used ${basicAttacks[0].attack}. It did ${
-              basicAttacks[0].damage
-            } damage and took ${basicAttacks[0].stamina} stamina.`
-          );
-        } else if (attackType === "poke") {
-          setTextBox(
-            `${
-              starterTwo.nickname === null
-                ? starterTwo.name
-                : starterTwo.nickname
-            } used ${basicAttacks[1].attack}. It did ${
-              basicAttacks[1].damage
-            } damage and took ${basicAttacks[1].stamina} stamina.`
-          );
-        } else if (attackType.type == "consumable") {
-          setTextBox(
-            `${
-              starterTwo.nickname === null
-                ? starterTwo.name
-                : starterTwo.nickname
-            } used a ${attackType.name} and it healed ${
-              attackType.hp
-            } hp and added ${attackType.stamina} stamina.`
-          );
-        } else if (attackType === "starterOne") {
-          setTextBox(
-            `${
-              starterTwo.nickname === null
-                ? starterTwo.name
-                : starterTwo.nickname
-            } switched out into ${starterOne.name}.`
-          );
-        }
-      }
-    }
-  };
+  // const characterTextBox = (attackType, basicAttacks, starterOne) => {
+  //   if (starter.length === 1) {
+  //     if (currentId === starterOne.id) {
+  //       if (attackType === "unique") {
+  //         setTextBox(
+  //           `${
+  //             starterOne.nickname === null
+  //               ? starterOne.name
+  //               : starterOne.nickname
+  //           } used ${starterOne.unique_attack}. It did ${
+  //             starterOne.unique_damage
+  //           } damage and took ${starterOne.unique_stamina} stamina.`
+  //         );
+  //       } else if (attackType === "punch") {
+  //         setTextBox(
+  //           `${
+  //             starterOne.nickname === null
+  //               ? starterOne.name
+  //               : starterOne.nickname
+  //           } used ${basicAttacks[0].attack}. It did ${
+  //             basicAttacks[0].damage
+  //           } damage and took ${basicAttacks[0].stamina} stamina.`
+  //         );
+  //       } else if (attackType === "poke") {
+  //         setTextBox(
+  //           `${
+  //             starterOne.nickname === null
+  //               ? starterOne.name
+  //               : starterOne.nickname
+  //           } used ${basicAttacks[1].attack}. It did ${
+  //             basicAttacks[1].damage
+  //           } damage and took ${basicAttacks[1].stamina} stamina.`
+  //         );
+  //       } else if (attackType.type == "consumable") {
+  //         setTextBox(
+  //           `${
+  //             starterOne.nickname === null
+  //               ? starterOne.name
+  //               : starterOne.nickname
+  //           } used a ${attackType.name} and it healed ${
+  //             attackType.hp
+  //           } hp and added ${attackType.stamina} stamina.`
+  //         );
+  //       } else if (attackType === "starterTwo") {
+  //         setTextBox(
+  //           `${
+  //             starterOne.nickname === null
+  //               ? starterOne.name
+  //               : starterOne.nickname
+  //           } switched out into ${starterTwo.name}.`
+  //         );
+  //       }
+  //     }
+  //   } else if (starter.length === 2) {
+  //     if (currentId === starterOne.id) {
+  //       if (attackType === "unique") {
+  //         setTextBox(
+  //           `${
+  //             starterOne.nickname === null
+  //               ? starterOne.name
+  //               : starterOne.nickname
+  //           } used ${starterOne.unique_attack}. It did ${
+  //             starterOne.unique_damage
+  //           } damage and took ${starterOne.unique_stamina} stamina.`
+  //         );
+  //       } else if (attackType === "punch") {
+  //         setTextBox(
+  //           `${
+  //             starterOne.nickname === null
+  //               ? starterOne.name
+  //               : starterOne.nickname
+  //           } used ${basicAttacks[0].attack}. It did ${
+  //             basicAttacks[0].damage
+  //           } damage and took ${basicAttacks[0].stamina} stamina.`
+  //         );
+  //       } else if (attackType === "poke") {
+  //         setTextBox(
+  //           `${
+  //             starterOne.nickname === null
+  //               ? starterOne.name
+  //               : starterOne.nickname
+  //           } used ${basicAttacks[1].attack}. It did ${
+  //             basicAttacks[1].damage
+  //           } damage and took ${basicAttacks[1].stamina} stamina.`
+  //         );
+  //       } else if (attackType.type == "consumable") {
+  //         setTextBox(
+  //           `${
+  //             starterOne.nickname === null
+  //               ? starterOne.name
+  //               : starterOne.nickname
+  //           } used a ${attackType.name} and it healed ${
+  //             attackType.hp
+  //           } hp and added ${attackType.stamina} stamina.`
+  //         );
+  //       } else if (attackType === "starterTwo") {
+  //         setTextBox(
+  //           `${
+  //             starterOne.nickname === null
+  //               ? starterOne.name
+  //               : starterOne.nickname
+  //           } switched out into ${starterTwo.name}.`
+  //         );
+  //       }
+  //     } else if (currentId === starterTwo.id) {
+  //       if (attackType === "unique") {
+  //         setTextBox(
+  //           `${
+  //             starterTwo.nickname === null
+  //               ? starterTwo.name
+  //               : starterTwo.nickname
+  //           } used ${starterTwo.unique_attack}. It did ${
+  //             starterTwo.unique_damage
+  //           } damage and took ${starterTwo.unique_stamina} stamina.`
+  //         );
+  //       } else if (attackType === "punch") {
+  //         setTextBox(
+  //           `${
+  //             starterTwo.nickname === null
+  //               ? starterTwo.name
+  //               : starterTwo.nickname
+  //           } used ${basicAttacks[0].attack}. It did ${
+  //             basicAttacks[0].damage
+  //           } damage and took ${basicAttacks[0].stamina} stamina.`
+  //         );
+  //       } else if (attackType === "poke") {
+  //         setTextBox(
+  //           `${
+  //             starterTwo.nickname === null
+  //               ? starterTwo.name
+  //               : starterTwo.nickname
+  //           } used ${basicAttacks[1].attack}. It did ${
+  //             basicAttacks[1].damage
+  //           } damage and took ${basicAttacks[1].stamina} stamina.`
+  //         );
+  //       } else if (attackType.type == "consumable") {
+  //         setTextBox(
+  //           `${
+  //             starterTwo.nickname === null
+  //               ? starterTwo.name
+  //               : starterTwo.nickname
+  //           } used a ${attackType.name} and it healed ${
+  //             attackType.hp
+  //           } hp and added ${attackType.stamina} stamina.`
+  //         );
+  //       } else if (attackType === "starterOne") {
+  //         setTextBox(
+  //           `${
+  //             starterTwo.nickname === null
+  //               ? starterTwo.name
+  //               : starterTwo.nickname
+  //           } switched out into ${starterOne.name}.`
+  //         );
+  //       }
+  //     }
+  //   }
+  // };
 
   // after 3.5 seconds after user attacks, this will do all of the enemys attacks
   const enemyAttack = (
@@ -1374,27 +1374,27 @@ function Battle() {
   };
 
   // after 3.5 seconds this will run and put whatever enemy did on the screen
-  const enemyTextBox = (enemyOne, basicAttacks) => {
-    setTimeout(() => {
-      if (enemyStamina >= enemyOne.unique_stamina) {
-        setTextBox(
-          `${enemyOne.name} used ${enemyOne.unique_attack}. It did ${enemyOne.unique_damage} damage and took ${enemyOne.unique_stamina} stamina.`
-        );
-      } else if (enemyStamina >= basicAttacks[0].stamina) {
-        setTextBox(
-          `${enemyOne.name} used ${basicAttacks[0].attack}. It did ${basicAttacks[0].damage} damage and took ${basicAttacks[0].stamina} stamina.`
-        );
-      } else if (enemyStamina >= basicAttacks[1].stamina) {
-        setTextBox(
-          `${enemyOne.name} used ${basicAttacks[1].attack}. It did ${basicAttacks[1].damage} damage and took ${basicAttacks[1].stamina} stamina.`
-        );
-      } else if (enemyStamina === 0) {
-        setTextBox(
-          `${enemyOne.name} tried to attack but it failed. They have no more stamina and could not move.`
-        );
-      }
-    }, 300);
-  };
+  // const enemyTextBox = (enemyOne, basicAttacks) => {
+  //   setTimeout(() => {
+  //     if (enemyStamina >= enemyOne.unique_stamina) {
+  //       setTextBox(
+  //         `${enemyOne.name} used ${enemyOne.unique_attack}. It did ${enemyOne.unique_damage} damage and took ${enemyOne.unique_stamina} stamina.`
+  //       );
+  //     } else if (enemyStamina >= basicAttacks[0].stamina) {
+  //       setTextBox(
+  //         `${enemyOne.name} used ${basicAttacks[0].attack}. It did ${basicAttacks[0].damage} damage and took ${basicAttacks[0].stamina} stamina.`
+  //       );
+  //     } else if (enemyStamina >= basicAttacks[1].stamina) {
+  //       setTextBox(
+  //         `${enemyOne.name} used ${basicAttacks[1].attack}. It did ${basicAttacks[1].damage} damage and took ${basicAttacks[1].stamina} stamina.`
+  //       );
+  //     } else if (enemyStamina === 0) {
+  //       setTextBox(
+  //         `${enemyOne.name} tried to attack but it failed. They have no more stamina and could not move.`
+  //       );
+  //     }
+  //   }, 300);
+  // };
 
   // holds every battle funtions inside and in order
   const battle = (attackType) => {
@@ -1408,19 +1408,19 @@ function Battle() {
     ) {
       const enemyAttackTimeOut = setTimeout(() => {
         enemyAttack(attackType, enemyOne, basicAttacks);
-        enemyTextBox(enemyOne, basicAttacks);
+        // enemyTextBox(enemyOne, basicAttacks);
       }, 3000);
 
       attack(attackType, basicAttacks, starterOne, enemyAttackTimeOut);
-      characterTextBox(attackType, basicAttacks, starterOne);
+      // characterTextBox(attackType, basicAttacks, starterOne);
     } else {
       const characterAttackTimeOut = setTimeout(() => {
         attack(attackType, basicAttacks, starterOne);
-        characterTextBox(attackType, basicAttacks, starterOne);
+        // characterTextBox(attackType, basicAttacks, starterOne);
       }, 3000);
 
       enemyAttack(attackType, enemyOne, basicAttacks, characterAttackTimeOut);
-      enemyTextBox(enemyOne, basicAttacks);
+      // enemyTextBox(enemyOne, basicAttacks);
     }
   };
 
