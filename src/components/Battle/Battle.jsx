@@ -185,7 +185,7 @@ function Battle() {
   // text box for actions
   // const [textBox, setTextBox] = useState("");
 
-  // features that get triggered as the battle goes on
+  // disables all buttons when user clicks button
   const [isDisabled, setIsDisabled] = useState(false);
 
   // All the inventory dialog functions
