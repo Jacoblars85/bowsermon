@@ -131,9 +131,7 @@ function Battle() {
   const levelEnemy = useSelector((store) => store.character.levelEnemy);
   const user = useSelector((store) => store.user.userReducer);
   const inventory = useSelector((store) => store.inventory.inventory);
-  const usersConsumableItems = useSelector(
-    (store) => store.inventory.usersConsumableItems
-  );
+  const usersConsumableItems = useSelector((store) => store.inventory.usersConsumableItems);
 
   // setting each starter/enemy to a varriable
   let enemyOne = levelEnemy[0];
@@ -175,20 +173,12 @@ function Battle() {
   // All the inventory dialog functions
   const [inventoryOpen, setInventoryOpen] = useState(false);
 
-  const handleInventoryOpen = () => {
-    setInventoryOpen(true);
-  };
-
   const handleInventoryClose = () => {
     setInventoryOpen(false);
   };
 
   // All of the Switch dialog functions
   const [switchOpen, setSwitchOpen] = useState(false);
-
-  const handleSwitchOpen = () => {
-    setSwitchOpen(true);
-  };
 
   const handleSwitchClose = () => {
     setSwitchOpen(false);
