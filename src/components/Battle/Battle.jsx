@@ -18,8 +18,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import lakeBackground from "./img/LakeBackground.png";
 import forestBackground from "./img/RockForest.webp";
 import battleBackground from "./img/battleBackground.png";
-import enemySpriteImage from "./img/draggleSprite.png";
-import embySpriteImage from "./img/embySprite.png";
+import enemySpriteImage from "./img/Mole/Mole.png";
 import ListItemText from "@mui/material/ListItemText";
 import ListItem from "@mui/material/ListItem";
 import List from "@mui/material/List";
@@ -1688,6 +1687,11 @@ function Battle() {
               button.id === "starterTwo" ||
               button.id == "consumable"
             ) {
+
+              console.log('currentSpeed if', currentSpeed);
+              console.log('enemyOne.speed', enemyOne.speed);
+
+              
               enemy.attack({
                 attack: {
                   name: "tackle",
@@ -1708,6 +1712,9 @@ function Battle() {
                 });
               }, 2700);
             } else {
+              console.log('currentSpeed else', currentSpeed);
+              console.log('enemyOne.speed', enemyOne.speed);
+
               starter.attack({
                 attack: {
                   name: "tackle",
