@@ -18,7 +18,9 @@ import DialogTitle from "@mui/material/DialogTitle";
 import lakeBackground from "./img/LakeBackground.png";
 import forestBackground from "./img/RockForest.webp";
 import battleBackground from "./img/battleBackground.png";
-import enemySpriteImage from "./img/Dragon/SpriteSheet.png";
+
+import enemySpriteImage from "./img/GreenOctopus/SpriteSheet.png";
+
 import ListItemText from "@mui/material/ListItemText";
 import ListItem from "@mui/material/ListItem";
 import List from "@mui/material/List";
@@ -1542,7 +1544,7 @@ function Battle() {
       // console.log(backgroundImage);
 
       const enemyImage = new Image();
-      enemyImage.src = enemyPicture;
+      enemyImage.src = enemySpriteImage;
       // console.log('enemyImage', enemyImage);
 
       const starterImage = new Image();
@@ -1574,16 +1576,29 @@ function Battle() {
         draw() {
           c.save();
           c.globalAlpha = this.opacity;
+
+          // c.drawImage(
+          //   this.image,
+          //   this.frames.val * this.width,
+          //   0,
+          //   this.image.width / this.frames.max,
+          //   this.image.height,
+          //   this.position.x,
+          //   this.position.y,
+          //   this.image.width / this.frames.max,
+          //   this.image.height
+          // );
+
           c.drawImage(
             this.image,
-            this.frames.val * this.width,
             0,
+            this.frames.val * this.width,
             this.image.width / this.frames.max,
-            this.image.height,
+            this.image.height / this.frames.max,
             this.position.x,
             this.position.y,
-            this.image.width / this.frames.max,
-            this.image.height
+            this.image.width,
+            this.image.height 
           );
           c.restore();
 
