@@ -81,6 +81,8 @@ CREATE TABLE "user_characters" (
 	"starter_3" BOOLEAN DEFAULT FALSE,
 	"nickname" VARCHAR(20) DEFAULT NULL,
 	"new" BOOLEAN DEFAULT TRUE,
+	"xp_level" DEC DEFAULT 1,
+	"merged_level" DEC DEFAULT 1,
 	"item_id" INT DEFAULT NULL REFERENCES "items" ON DELETE CASCADE);
 	
 	
