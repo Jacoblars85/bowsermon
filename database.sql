@@ -37,9 +37,7 @@ CREATE TABLE "user" (
 	"credit_video_completed" BOOLEAN DEFAULT FALSE,
 	"level_11_completed" BOOLEAN DEFAULT FALSE,
 	"level_12_completed" BOOLEAN DEFAULT FALSE, 
-	"rewards_received" INT DEFAULT 1
-);
-
+	"rewards_received" INT DEFAULT 1);
 	
 CREATE TABLE "characters" (
 	"id" SERIAL PRIMARY KEY,
@@ -71,7 +69,6 @@ CREATE TABLE "rewards" (
 	"pic" VARCHAR(100),
 	"cost" INT);
 	
-	
 CREATE TABLE "user_characters" (
 	"id" SERIAL PRIMARY KEY,
 	"user_id" INT NOT NULL REFERENCES "user" ON DELETE CASCADE,
@@ -85,19 +82,16 @@ CREATE TABLE "user_characters" (
 	"merged_level" DEC DEFAULT 1,
 	"item_id" INT DEFAULT NULL REFERENCES "items" ON DELETE CASCADE);
 	
-	
 CREATE TABLE "basic_attacks" (
 	"id" SERIAL PRIMARY KEY,
 	"attack" VARCHAR(10),
 	"damage" INT,
 	"stamina" INT);
 	
-	
 CREATE TABLE "levels" (
 	"id" SERIAL PRIMARY KEY,
 	"name" VARCHAR(20),
 	"enemy_id" INT NOT NULL REFERENCES "characters" ON DELETE CASCADE);
-	
 	
 CREATE TABLE "user_inventory" (
 	"id" SERIAL PRIMARY KEY,
