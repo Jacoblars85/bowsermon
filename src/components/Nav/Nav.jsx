@@ -286,7 +286,7 @@ function Nav(props) {
             <img
               height={20}
               width={20}
-              src="/images/Coin_-_New_Super_Mario_Bros.webp"
+              src="/images/Coin2Preview.gif"
             />{" "}
             {user.coins}
           </div>

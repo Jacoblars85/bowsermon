@@ -118,7 +118,7 @@ export default function Settings() {
                   <img
                     height={25}
                     width={25}
-                    src="/images/Coin_-_New_Super_Mario_Bros.webp"
+                    src="/images/Coin2Preview.gif"
                   />
                 )}
               </ListItemIcon>
