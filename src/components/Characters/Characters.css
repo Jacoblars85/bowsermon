@@ -110,7 +110,7 @@
   justify-content: center;
   text-align: center;
   background-color: black;
-  background-image: url('/public/images/bowserBlock.png');
+  background-image: url('/public/images/brickBlock.png');
   background-repeat: repeat-x;
   background-size: 6vh;
   background-position-y: 150px;
@@ -170,7 +170,7 @@
   justify-content: center;
   text-align: center;
   background-color: black;
-  background-image: url('/public/images/bowserBlock.png');
+  background-image: url('/public/images/brickBlock.png');
   background-repeat: repeat-x;
   background-size: 6vh;
   background-position-y: 150px;
