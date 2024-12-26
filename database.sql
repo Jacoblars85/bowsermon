@@ -131,10 +131,10 @@ INSERT INTO "characters"
 	('spirit 2', 80, 60, 45, '', 25, 25, '', '', ''),
 	('octapus 1', 50, 150, 50, '', 50, 50, '', '', ''),
 	('octapus 2', 80, 100, 60, '', 10, 10, '', '', ''),
-	('lantern red', 80, 65, 10, '', 60, 60, '', '', ''),
-	('lantern green', 80, 65, 60, '', 10, 10, '', '', ''),
-	('mushroom 1', 80, 65, 50, '', 20, 20, '', '', ''),
-	('mushroom 2', 60, 65, 10, '', 80, 80, '', '', ''); 
+	('lantern red', 80, 65, 10, 'flamethrower', 60, 60, '', '', ''),
+	('lantern green', 80, 65, 60, 'leaf slice', 10, 10, '', '', ''),
+	('mushroom 1', 80, 65, 50, 'spore', 20, 20, '', '', ''),
+	('mushroom 2', 60, 65, 10, 'solar beam', 80, 80, '', '', ''); 
 
 	
 INSERT INTO "basic_attacks" 
