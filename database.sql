@@ -147,38 +147,39 @@ INSERT INTO "basic_attacks"
 INSERT INTO "levels" 
 	("name", "enemy_id")
 	VALUES 
-	('bowser lands', 10),
-	('bowser lands', 11),
-	('outside forest', 12),
+	('lands', 10),
+	('lands', 11),
+	('forest', 12),
 	('forest', 13),
 	('mountain', 14),
 	('bridge', 15),
 	('mountain', 16),
 	('lake', 17),
 	('lake', 18),
-	('peach castle', 19),
-	('wario berg', 20),
-	('wario skull', 21);
+	('castle', 19),
+	('berg', 20),
+	('skull', 21);
 	
 	
 INSERT INTO "items" 
 	("name", "type", "hp", "stamina", "speed", "attack", "pic", "cost", "color")
 	VALUES 
-	('healing mushroom', 'consumable', 25, 0, 0, 0, 'images/redMushroomPic.webp', 10, '#FF0100'),
-	('stamina mushroom', 'consumable', 0, 30, 0, 0, 'images/greenMushroomPic.webp', 10, '#00D400'),
-	('propeller mushroom', 'consumable', 0, 50, 10, 0, 'images/propelerMushroomPic.webp', 40, '#FF9A1E'),
-	('mega mushroom', 'consumable', 40, 40, 0, 0, 'images/megaMushroomPic.webp', 50, '#FFD42A'),
-	('mega healing mushroom', 'consumable', 75, 0, 0, 0, 'images/bigRedMushroomPic.webp', 70, '#FF0100'),
-	('golden mushroom', 'consumable', 100, 100, 0, 0, 'images/goldMushroomPic.webp', 120, '#FEF202'),
-	('fire flower', 'held', 10, 0, 0, 5, 'images/fireFlowerPic.webp', 100, '#000000'),
-	('shield', 'held', 20, 0, 0, 0, 'images/linkShieldPic.png', 150, '#000000'),
-	('feather', 'held', 0, 10, 5, 0, 'images/featherPic.webp', 80, '#000000'),
-	('boots', 'held', 0, 10, 10, 0, 'images/bootsPic.webp', 150, '#000000'),
-	('cloud flower', 'held', 0, 30, 0, 0, 'images/cloudFlowerPic.webp', 80, '#000000'),
-	('boomerang', 'held', 0, 0, 0, 5, 'images/boomarangPic.webp', 100, '#000000'),
-	('hammer', 'held', 0, 0, 0, 10, 'images/hammerPic.png', 150, '#000000'),
-	('gold flower', 'held', 20, 0, 0, 10, 'images/goldFlowerPic.webp', 200, '#000000'),
-	('super star', 'held', 10, 15, 10, 10, 'images/starPic.webp', 250, '#000000');
+	('healing pot', 'consumable', 25, 0, 0, 0, '', 10, '#FF0100'),
+	('stamina pot', 'consumable', 0, 30, 0, 0, '', 10, '#00D400'),
+	('propeller pot', 'consumable', 0, 50, 10, 0, '', 40, '#FF9A1E'),
+	('mega pot', 'consumable', 40, 40, 0, 0, '', 50, '#FFD42A'),
+	('mega healing pot', 'consumable', 75, 0, 0, 0, '', 70, '#FF0100'),
+	('golden pot', 'consumable', 100, 100, 0, 0, '', 120, '#FEF202'),
+
+	('fire', 'held', 10, 0, 0, 5, '', 100, '#000000'),
+	('shield', 'held', 20, 0, 0, 0, '', 150, '#000000'),
+	('feather', 'held', 0, 10, 5, 0, '', 80, '#000000'),
+	('boots', 'held', 0, 10, 10, 0, '', 150, '#000000'),
+	('cloud', 'held', 0, 30, 0, 0, '', 80, '#000000'),
+	('boomerang', 'held', 0, 0, 0, 5, '', 100, '#000000'),
+	('hammer', 'held', 0, 0, 0, 10, '', 150, '#000000'),
+	('gold', 'held', 20, 0, 0, 10, '', 200, '#000000'),
+	('super', 'held', 10, 15, 10, 10, '', 250, '#000000');
 	
 	
 INSERT INTO "rewards" 
