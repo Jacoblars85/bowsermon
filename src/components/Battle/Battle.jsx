@@ -15,11 +15,11 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
-import lakeBackground from "./img/LakeBackground.png";
-import forestBackground from "./img/RockForest.webp";
-import battleBackground from "./img/battleBackground.png";
+import lakeBackground from "./img/backgroundImg/LakeBackground.png";
+import forestBackground from "./img/backgroundImg/RockForest.webp";
+import battleBackground from "./img/backgroundImg/battleBackground.png";
 
-import enemySpriteImage from "./img/GreenOctopus/SpriteSheet.png";
+import enemySpriteImage from "./img/sprites/GreenOctopus/SpriteSheet.png";
 
 import ListItemText from "@mui/material/ListItemText";
 import ListItem from "@mui/material/ListItem";
