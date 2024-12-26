@@ -166,9 +166,9 @@ INSERT INTO "items"
 	VALUES 
 	('healing pot', 'consumable', 25, 0, 0, 0, '', 10, '#FF0100'),
 	('stamina pot', 'consumable', 0, 30, 0, 0, '', 10, '#00D400'),
-	('propeller pot', 'consumable', 0, 50, 10, 0, '', 40, '#FF9A1E'),
+	('speed pot', 'consumable', 0, 50, 10, 0, '', 40, '#FF9A1E'),
 	('mega pot', 'consumable', 40, 40, 0, 0, '', 50, '#FFD42A'),
-	('mega healing pot', 'consumable', 75, 0, 0, 0, '', 70, '#FF0100'),
+	('med kit', 'consumable', 75, 0, 0, 0, '', 70, '#FF0100'),
 	('golden pot', 'consumable', 100, 100, 0, 0, '', 120, '#FEF202'),
 
 	('fire', 'held', 10, 0, 0, 5, '', 100, '#000000'),
