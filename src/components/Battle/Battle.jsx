@@ -19,7 +19,8 @@ import lakeBackground from "./img/backgroundImg/LakeBackground.png";
 import forestBackground from "./img/backgroundImg/RockForest.webp";
 import battleBackground from "./img/backgroundImg/battleBackground.png";
 
-import enemySpriteImage from "./img/sprites/GreenOctopus/SpriteSheet.png";
+import enemySpriteImage from "./img/sprites/DragonYellow/SpriteSheet.png";
+import starterSpriteImage from "./img/sprites/Dragon/SpriteSheet.png";
 
 import ListItemText from "@mui/material/ListItemText";
 import ListItem from "@mui/material/ListItem";
@@ -1545,17 +1546,19 @@ function Battle() {
 
       const enemyImage = new Image();
       enemyImage.src = enemySpriteImage;
-      // console.log('enemyImage', enemyImage);
+      console.log('enemySpriteImage', enemySpriteImage);
 
       const starterImage = new Image();
-      starterImage.src = characterPicture;
+      starterImage.src = starterSpriteImage;
+      console.log('starterSpriteImage', starterSpriteImage);
+      
 
       class Sprite {
         constructor({
           position,
           velocity,
           image,
-          frames = { max: 1, hold: 10 },
+          frames = { max: 1, hold: 10, alignment: 0  },
           sprites,
           animate = false,
           isEnemy = false,
@@ -1591,14 +1594,14 @@ function Battle() {
 
           c.drawImage(
             this.image,
-            0,
+            this.frames.alignment,
             this.frames.val * this.width,
             this.image.width / this.frames.max,
             this.image.height / this.frames.max,
             this.position.x,
             this.position.y,
-            this.image.width,
-            this.image.height
+            this.image.width / this.frames.max,
+            this.image.height / this.frames.max
           );
           c.restore();
 
@@ -1665,6 +1668,7 @@ function Battle() {
         frames: {
           max: 4,
           hold: 30,
+          alignment: 0,
         },
         animate: true,
         isEnemy: true,
@@ -1679,6 +1683,7 @@ function Battle() {
         frames: {
           max: 4,
           hold: 30,
+          alignment: 86,
         },
         animate: true,
       });
