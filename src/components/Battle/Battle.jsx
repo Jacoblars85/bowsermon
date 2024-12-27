@@ -1710,29 +1710,6 @@ function Battle() {
               console.log("currentSpeed if", currentSpeed);
               console.log("enemyOne.speed", enemyOne.speed);
 
-              enemy.attack({
-                attack: {
-                  name: "tackle",
-                  damage: 10,
-                  type: "normal",
-                },
-                recipient: starter,
-              });
-
-              setTimeout(() => {
-                starter.attack({
-                  attack: {
-                    name: "tackle",
-                    damage: 10,
-                    type: "normal",
-                  },
-                  recipient: enemy,
-                });
-              }, 2700);
-            } else {
-              console.log("currentSpeed else", currentSpeed);
-              console.log("enemyOne.speed", enemyOne.speed);
-
               starter.attack({
                 attack: {
                   name: "tackle",
@@ -1750,6 +1727,33 @@ function Battle() {
                     type: "normal",
                   },
                   recipient: starter,
+                });
+              }, 2700);
+
+            } else {
+              // console.log("currentSpeed else", currentSpeed);
+              // console.log("enemyOne.speed", enemyOne.speed);
+
+
+              
+
+              enemy.attack({
+                attack: {
+                  name: "tackle",
+                  damage: 10,
+                  type: "normal",
+                },
+                recipient: starter,
+              });
+
+              setTimeout(() => {
+                starter.attack({
+                  attack: {
+                    name: "tackle",
+                    damage: 10,
+                    type: "normal",
+                  },
+                  recipient: enemy,
                 });
               }, 2700);
             }
