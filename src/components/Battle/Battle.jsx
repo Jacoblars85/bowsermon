@@ -1623,8 +1623,6 @@ function Battle() {
         }
 
         attack({ attack, recipient }) {
-          console.log("attack", attack);
-
           if (attack === "charge") {
             console.log("in charge");
 
@@ -1660,6 +1658,16 @@ function Battle() {
               .to(this.position, {
                 x: this.position.x,
               });
+          } else if (attack === "fireball") {
+            
+          } else if (attack === "ice") {
+            
+          } else if (attack === "rock") {
+            
+          } else if (attack === "plant") {
+            
+          } else if (attack === "fire") {
+            
           } else if (attack === "kick") {
             console.log("in kick");
 
