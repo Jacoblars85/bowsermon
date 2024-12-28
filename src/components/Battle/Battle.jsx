@@ -1242,11 +1242,13 @@ function Battle() {
           <button
             onClick={() => battle("unique")}
             id="attackButton"
-            className={starter.length === 1
-              ? starterOne.unique_attack
-              : currentId === starterOne.id
-              ? starterOne.unique_attack
-              : starterTwo.unique_attack}
+            className={
+              starter.length === 1
+                ? starterOne.unique_attack
+                : currentId === starterOne.id
+                ? starterOne.unique_attack
+                : starterTwo.unique_attack
+            }
             style={{
               display: "flex",
               width: "33.33%",
@@ -1537,8 +1539,7 @@ function Battle() {
     }
   };
 
-  console.log('current speed', currentSpeed);
-  
+  console.log("current speed", currentSpeed);
 
   // the canvas function
   const battleCanvasRef = useRef(null);
@@ -1558,14 +1559,13 @@ function Battle() {
       const starterImage = new Image();
       starterImage.src = characterPicture;
       // console.log('starterSpriteImage', starterSpriteImage);
-      
 
       class Sprite {
         constructor({
           position,
           velocity,
           image,
-          frames = { max: 1, hold: 10, alignment: 0  },
+          frames = { max: 1, hold: 10, alignment: 0 },
           sprites,
           animate = false,
           isEnemy = false,
@@ -1623,119 +1623,114 @@ function Battle() {
         }
 
         attack({ attack, recipient }) {
-          console.log('attack', attack);
-          
-if (attack === 'charge') {
-  console.log('in charge');
+          console.log("attack", attack);
 
-  const tl = gsap.timeline();
+          if (attack === "charge") {
+            console.log("in charge");
 
-          let movementDistance = 20;
+            const tl = gsap.timeline();
 
-          if (this.isEnemy) {
-            movementDistance = -20;
-          }
+            let movementDistance = 20;
 
-          tl.to(this.position, {
-            x: this.position.x - movementDistance,
-          })
-            .to(this.position, {
-              x: this.position.x + movementDistance * 2,
-              duration: 0.1,
-              onComplete() {
-                gsap.to(recipient.position, {
-                  x: recipient.position.x + 10,
-                  yoyo: true,
-                  repeat: 5,
-                  duration: 0.08,
-                });
-                gsap.to(recipient, {
-                  opacity: 0,
-                  repeat: 5,
-                  yoyo: true,
-                  duration: 0.08,
-                });
-              },
+            if (this.isEnemy) {
+              movementDistance = -20;
+            }
+
+            tl.to(this.position, {
+              x: this.position.x - movementDistance,
             })
-            .to(this.position, {
-              x: this.position.x,
-            });
-  
-} else if (attack === 'kick') {
-  console.log('in kick');
+              .to(this.position, {
+                x: this.position.x + movementDistance * 2,
+                duration: 0.1,
+                onComplete() {
+                  gsap.to(recipient.position, {
+                    x: recipient.position.x + 10,
+                    yoyo: true,
+                    repeat: 5,
+                    duration: 0.08,
+                  });
+                  gsap.to(recipient, {
+                    opacity: 0,
+                    repeat: 5,
+                    yoyo: true,
+                    duration: 0.08,
+                  });
+                },
+              })
+              .to(this.position, {
+                x: this.position.x,
+              });
+          } else if (attack === "kick") {
+            console.log("in kick");
 
-  const tl = gsap.timeline();
+            const tl = gsap.timeline();
 
-          let movementDistance = 20;
+            let movementDistance = 20;
 
-          if (this.isEnemy) {
-            movementDistance = -20;
-          }
+            if (this.isEnemy) {
+              movementDistance = -20;
+            }
 
-          tl.to(this.position, {
-            x: this.position.x - movementDistance,
-          })
-            .to(this.position, {
-              x: this.position.x + movementDistance * 2,
-              duration: 0.1,
-              onComplete() {
-                gsap.to(recipient.position, {
-                  x: recipient.position.x + 10,
-                  yoyo: true,
-                  repeat: 5,
-                  duration: 0.08,
-                });
-                gsap.to(recipient, {
-                  opacity: 0,
-                  repeat: 5,
-                  yoyo: true,
-                  duration: 0.08,
-                });
-              },
+            tl.to(this.position, {
+              x: this.position.x - movementDistance,
             })
-            .to(this.position, {
-              x: this.position.x,
-            });
-  
-} else if (attack === 'poke') {
-  console.log('in poke');
-  
-  const tl = gsap.timeline();
+              .to(this.position, {
+                x: this.position.x + movementDistance * 2,
+                duration: 0.1,
+                onComplete() {
+                  gsap.to(recipient.position, {
+                    x: recipient.position.x + 10,
+                    yoyo: true,
+                    repeat: 5,
+                    duration: 0.08,
+                  });
+                  gsap.to(recipient, {
+                    opacity: 0,
+                    repeat: 5,
+                    yoyo: true,
+                    duration: 0.08,
+                  });
+                },
+              })
+              .to(this.position, {
+                x: this.position.x,
+              });
+          } else if (attack === "poke") {
+            console.log("in poke");
 
-          let movementDistance = 20;
+            const tl = gsap.timeline();
 
-          if (this.isEnemy) {
-            movementDistance = -20;
-          }
+            let movementDistance = 20;
 
-          tl.to(this.position, {
-            x: this.position.x - movementDistance,
-          })
-            .to(this.position, {
-              x: this.position.x + movementDistance * 2,
-              duration: 0.1,
-              onComplete() {
-                gsap.to(recipient.position, {
-                  x: recipient.position.x + 10,
-                  yoyo: true,
-                  repeat: 5,
-                  duration: 0.08,
-                });
-                gsap.to(recipient, {
-                  opacity: 0,
-                  repeat: 5,
-                  yoyo: true,
-                  duration: 0.08,
-                });
-              },
+            if (this.isEnemy) {
+              movementDistance = -20;
+            }
+
+            tl.to(this.position, {
+              x: this.position.x - movementDistance,
             })
-            .to(this.position, {
-              x: this.position.x,
-            });
-} 
-
-
-          
+              .to(this.position, {
+                x: this.position.x + movementDistance * 2,
+                duration: 0.1,
+                onComplete() {
+                  gsap.to(recipient.position, {
+                    x: recipient.position.x + 10,
+                    yoyo: true,
+                    repeat: 5,
+                    duration: 0.08,
+                  });
+                  gsap.to(recipient, {
+                    opacity: 0,
+                    repeat: 5,
+                    yoyo: true,
+                    duration: 0.08,
+                  });
+                },
+              })
+              .to(this.position, {
+                x: this.position.x,
+              });
+          }
         }
       }
 
@@ -1788,7 +1783,7 @@ if (attack === 'charge') {
         button.addEventListener("click", (e) => {
           if (button.id === "attackButton") {
             // console.log(button);
-            const selectedAttack = button.className
+            const selectedAttack = button.className;
 
             if (
               currentSpeed >= enemyOne.speed ||
@@ -1807,7 +1802,6 @@ if (attack === 'charge') {
                   recipient: starter,
                 });
               }, 2700);
-
             } else if (currentSpeed < enemyOne.speed) {
               enemy.attack({
                 attack: selectedAttack,
