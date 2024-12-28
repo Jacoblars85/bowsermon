@@ -1322,7 +1322,7 @@ function Battle() {
 
           <button
             onClick={() => battle("poke")}
-            className="poke"
+            className="tackle"
             id="attackButton"
             style={{
               display: "flex",
@@ -1660,6 +1660,8 @@ function Battle() {
               });
           } else if (attack === "fireball") {
             console.log('in fireball');
+
+            
             
           } else if (attack === "ice") {
             console.log('in ice');
@@ -1708,41 +1710,7 @@ function Battle() {
               .to(this.position, {
                 x: this.position.x,
               });
-          } else if (attack === "poke") {
-            console.log("in poke");
-
-            const tl = gsap.timeline();
-
-            let movementDistance = 20;
-
-            if (this.isEnemy) {
-              movementDistance = -20;
-            }
-
-            tl.to(this.position, {
-              x: this.position.x - movementDistance,
-            })
-              .to(this.position, {
-                x: this.position.x + movementDistance * 2,
-                duration: 0.1,
-                onComplete() {
-                  gsap.to(recipient.position, {
-                    x: recipient.position.x + 10,
-                    yoyo: true,
-                    repeat: 5,
-                    duration: 0.08,
-                  });
-                  gsap.to(recipient, {
-                    opacity: 0,
-                    repeat: 5,
-                    yoyo: true,
-                    duration: 0.08,
-                  });
-                },
-              })
-              .to(this.position, {
-                x: this.position.x,
-              });
+          
           }
         }
       }
