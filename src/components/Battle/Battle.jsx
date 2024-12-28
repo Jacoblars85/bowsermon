@@ -1623,8 +1623,8 @@ function Battle() {
         }
 
         attack({ attack, recipient }) {
-          if (attack === "charge") {
-            console.log("in charge");
+          if (attack === "tackle") {
+            console.log("in tackle");
 
             const tl = gsap.timeline();
 
@@ -1675,42 +1675,6 @@ function Battle() {
           } else if (attack === "fire") {
             console.log('in fire');
             
-          } else if (attack === "tackle") {
-            console.log("in tackle");
-
-            const tl = gsap.timeline();
-
-            let movementDistance = 20;
-
-            if (this.isEnemy) {
-              movementDistance = -20;
-            }
-
-            tl.to(this.position, {
-              x: this.position.x - movementDistance,
-            })
-              .to(this.position, {
-                x: this.position.x + movementDistance * 2,
-                duration: 0.1,
-                onComplete() {
-                  gsap.to(recipient.position, {
-                    x: recipient.position.x + 10,
-                    yoyo: true,
-                    repeat: 5,
-                    duration: 0.08,
-                  });
-                  gsap.to(recipient, {
-                    opacity: 0,
-                    repeat: 5,
-                    yoyo: true,
-                    duration: 0.08,
-                  });
-                },
-              })
-              .to(this.position, {
-                x: this.position.x,
-              });
-          
           }
         }
       }
