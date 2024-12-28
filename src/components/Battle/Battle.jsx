@@ -105,6 +105,8 @@ function Battle() {
       .then((response) => {
         setEnemyHp(response.data[0].hp);
         setEnemyStamina(response.data[0].stamina);
+
+        // setEnemyPicture(response.data[0].battle_pic)
       })
       .catch((err) => {
         console.log(err);
@@ -1660,6 +1662,10 @@ function Battle() {
               });
           } else if (attack === "fireball") {
             console.log("in fireball");
+
+
+
+
           } else if (attack === "ice") {
             console.log("in ice");
           } else if (attack === "rock") {
@@ -1757,7 +1763,7 @@ function Battle() {
         });
       });
     }
-  }, [currentSpeed]);
+  }, [pokeAttack]);
 
   return (
     <div className="battle">
