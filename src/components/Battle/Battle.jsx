@@ -1287,7 +1287,7 @@ function Battle() {
           <button
             onClick={() => battle("punch")}
             id="attackButton"
-            className="kick"
+            className="tackele"
             style={{
               display: "flex",
               width: "33.33%",
@@ -1668,8 +1668,8 @@ function Battle() {
             
           } else if (attack === "fire") {
             
-          } else if (attack === "kick") {
-            console.log("in kick");
+          } else if (attack === "tackle") {
+            console.log("in tackle");
 
             const tl = gsap.timeline();
 
