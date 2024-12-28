@@ -1659,14 +1659,19 @@ function Battle() {
                 x: this.position.x,
               });
           } else if (attack === "fireball") {
+            console.log('in fireball');
             
           } else if (attack === "ice") {
+            console.log('in ice');
             
           } else if (attack === "rock") {
+            console.log('in rock');
             
           } else if (attack === "plant") {
+            console.log('in plant');
             
           } else if (attack === "fire") {
+            console.log('in fire');
             
           } else if (attack === "tackle") {
             console.log("in tackle");
@@ -1827,7 +1832,7 @@ function Battle() {
         });
       });
     }
-  }, [pokeAttack]);
+  }, [currentSpeed]);
 
   return (
     <div className="battle">
