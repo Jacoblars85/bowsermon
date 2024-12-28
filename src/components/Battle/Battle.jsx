@@ -1674,6 +1674,10 @@ function Battle() {
             console.log("in plant");
           } else if (attack === "fire") {
             console.log("in fire");
+          } else if (attack === "lightning") {
+            console.log("in lightning");
+          } else if (attack === "poison") {
+            console.log("in poison");
           }
         }
       }
