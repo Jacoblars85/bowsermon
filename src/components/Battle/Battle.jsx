@@ -18,6 +18,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import lakeBackground from "./img/backgroundImg/LakeBackground.png";
 import forestBackground from "./img/backgroundImg/RockForest.webp";
 import battleBackground from "./img/backgroundImg/battleBackground.png";
+import fireballSpriteImage from "./img/fx/fireball.png"
 
 import enemySpriteImage from "./img/sprites/Snake3/Snake3.png";
 import starterSpriteImage from "./img/sprites/Snake4/Snake4.png";
@@ -1289,7 +1290,8 @@ function Battle() {
           <button
             onClick={() => battle("punch")}
             id="attackButton"
-            className="tackele"
+            // className="tackele"
+            className="fireball"
             style={{
               display: "flex",
               width: "33.33%",
@@ -1324,8 +1326,8 @@ function Battle() {
 
           <button
             onClick={() => battle("poke")}
-            className="tackle"
             id="attackButton"
+            className="fireball"
             style={{
               display: "flex",
               width: "33.33%",
@@ -1624,7 +1626,7 @@ function Battle() {
           }
         }
 
-        attack({ attack, recipient }) {
+        attack({ attack, recipient, renderedSprites }) {
           if (attack === "tackle") {
             console.log("in tackle");
 
@@ -1663,7 +1665,24 @@ function Battle() {
           } else if (attack === "fireball") {
             console.log("in fireball");
 
+            const fireballImage = new Image();
+            fireballImage.src = fireballSpriteImage;
 
+            const fireball = new Sprite({
+              position: {
+                x: this.position.x,
+                y: this.position.y,
+              },
+              image: fireballImage,
+              // frames: {
+              //   max: 4,
+              //   hold: 30,
+              //   alignment: 0,
+              // },
+              // animate: true,
+            });
+
+            renderedSprites.push(fireball)
 
 
           } else if (attack === "ice") {
@@ -1719,11 +1738,17 @@ function Battle() {
         animate: true,
       });
 
+      const renderedSprites = []
+
       function animateBattle() {
         window.requestAnimationFrame(animateBattle);
         background.draw();
         enemy.draw();
         starter.draw();
+
+        renderedSprites.forEach((sprite) => {
+          sprite.draw()
+        })
       }
       animateBattle();
 
@@ -1742,24 +1767,28 @@ function Battle() {
               starter.attack({
                 attack: selectedAttack,
                 recipient: enemy,
+                renderedSprites
               });
 
               setTimeout(() => {
                 enemy.attack({
                   attack: selectedAttack,
                   recipient: starter,
+                  renderedSprites
                 });
               }, 2700);
-            } else if (currentSpeed < enemyOne.speed) {
+            } else {
               enemy.attack({
                 attack: selectedAttack,
                 recipient: starter,
+                renderedSprites
               });
 
               setTimeout(() => {
                 starter.attack({
                   attack: selectedAttack,
                   recipient: enemy,
+                  renderedSprites
                 });
               }, 2700);
             }
