@@ -18,7 +18,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import lakeBackground from "./img/backgroundImg/LakeBackground.png";
 import forestBackground from "./img/backgroundImg/RockForest.webp";
 import battleBackground from "./img/backgroundImg/battleBackground.png";
-import fireballSpriteImage from "./img/fx/fireball.png"
+import fireballSpriteImage from "./img/fx/fireball.png";
 
 import enemySpriteImage from "./img/sprites/Snake3/Snake3.png";
 import starterSpriteImage from "./img/sprites/Snake4/Snake4.png";
@@ -1593,17 +1593,16 @@ function Battle() {
 
           if (this.frames.attackFx) {
             c.drawImage(
-            this.image,
-            this.frames.val * this.width,
-            0,
-            this.image.width / this.frames.max,
-            this.image.height,
-            this.position.x,
-            this.position.y,
-            this.image.width / this.frames.max,
-            this.image.height
-          );
-
+              this.image,
+              this.frames.val * this.width,
+              0,
+              this.image.width / this.frames.max,
+              this.image.height,
+              this.position.x,
+              this.position.y,
+              this.image.width / this.frames.max,
+              this.image.height
+            );
           } else {
             c.drawImage(
               this.image,
@@ -1705,14 +1704,12 @@ function Battle() {
                 max: 4,
                 hold: 30,
                 alignment: 0,
-                attackFx: true
+                attackFx: true,
               },
               animate: true,
             });
 
-            renderedSprites.push(fireball)
-
-
+            renderedSprites.push(fireball);
           } else if (attack === "ice") {
             console.log("in ice");
           } else if (attack === "rock") {
@@ -1766,7 +1763,7 @@ function Battle() {
         animate: true,
       });
 
-      const renderedSprites = []
+      const renderedSprites = [];
 
       function animateBattle() {
         window.requestAnimationFrame(animateBattle);
@@ -1775,8 +1772,8 @@ function Battle() {
         starter.draw();
 
         renderedSprites.forEach((sprite) => {
-          sprite.draw()
-        })
+          sprite.draw();
+        });
       }
       animateBattle();
 
@@ -1795,28 +1792,28 @@ function Battle() {
               starter.attack({
                 attack: selectedAttack,
                 recipient: enemy,
-                renderedSprites
+                renderedSprites,
               });
 
               setTimeout(() => {
                 enemy.attack({
                   attack: selectedAttack,
                   recipient: starter,
-                  renderedSprites
+                  renderedSprites,
                 });
               }, 2700);
             } else {
               enemy.attack({
                 attack: selectedAttack,
                 recipient: starter,
-                renderedSprites
+                renderedSprites,
               });
 
               setTimeout(() => {
                 starter.attack({
                   attack: selectedAttack,
                   recipient: enemy,
-                  renderedSprites
+                  renderedSprites,
                 });
               }, 2700);
             }
