@@ -1591,6 +1591,9 @@ function Battle() {
 
         draw() {
           c.save();
+          c.translate(this.position.x + this.width / 2, this.position.y + this.height / 2)
+          c.rotate(this.rotation)
+          c.translate(-this.position.x - this.width / 2, -this.position.y - this.height / 2)
           c.globalAlpha = this.opacity;
 
           if (this.frames.attackFx) {
@@ -1655,6 +1658,9 @@ function Battle() {
         }
 
         attack({ attack, recipient, renderedSprites }) {
+          let rotation = 1
+          if (this.isEnemy) rotation = -2.2
+            
           if (attack === "tackle") {
             console.log("in tackle");
 
@@ -1708,6 +1714,7 @@ function Battle() {
                 attackFx: true,
               },
               animate: true,
+              rotation
             });
 
             renderedSprites.splice(1, 0, fireball)
