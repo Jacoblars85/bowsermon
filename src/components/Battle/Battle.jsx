@@ -1702,14 +1702,34 @@ function Battle() {
               image: fireballImage,
               frames: {
                 max: 4,
-                hold: 30,
-                alignment: 0,
+                hold: 10,
                 attackFx: true,
               },
               animate: true,
             });
 
             renderedSprites.push(fireball);
+
+            gsap.to(fireball.position, {
+              x: recipient.position.x,
+              y: recipient.position.y,
+              onComplete: () => {
+                gsap.to(recipient.position, {
+                  x: recipient.position.x + 10,
+                  yoyo: true,
+                  repeat: 5,
+                  duration: 0.08,
+                });
+                gsap.to(recipient, {
+                  opacity: 0,
+                  repeat: 5,
+                  yoyo: true,
+                  duration: 0.08,
+                });
+
+                renderedSprites.pop()
+              }
+            })
           } else if (attack === "ice") {
             console.log("in ice");
           } else if (attack === "rock") {
@@ -1763,13 +1783,11 @@ function Battle() {
         animate: true,
       });
 
-      const renderedSprites = [];
+      const renderedSprites = [enemy, starter];
 
       function animateBattle() {
         window.requestAnimationFrame(animateBattle);
         background.draw();
-        enemy.draw();
-        starter.draw();
 
         renderedSprites.forEach((sprite) => {
           sprite.draw();
