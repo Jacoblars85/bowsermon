@@ -1569,7 +1569,7 @@ function Battle() {
           position,
           velocity,
           image,
-          frames = { max: 1, hold: 10, alignment: 0 },
+          frames = { max: 1, hold: 10, alignment: 0, attackFx: false },
           sprites,
           animate = false,
           isEnemy = false,
@@ -1591,6 +1591,33 @@ function Battle() {
           c.save();
           c.globalAlpha = this.opacity;
 
+          if (this.frames.attackFx) {
+            c.drawImage(
+            this.image,
+            this.frames.val * this.width,
+            0,
+            this.image.width / this.frames.max,
+            this.image.height,
+            this.position.x,
+            this.position.y,
+            this.image.width / this.frames.max,
+            this.image.height
+          );
+
+          } else {
+            c.drawImage(
+              this.image,
+              this.frames.alignment,
+              this.frames.val * this.width,
+              this.image.width / this.frames.max,
+              this.image.height / this.frames.max,
+              this.position.x,
+              this.position.y,
+              this.image.width / this.frames.max,
+              this.image.height / this.frames.max
+            );
+          }
+
           // c.drawImage(
           //   this.image,
           //   this.frames.val * this.width,
@@ -1603,17 +1630,17 @@ function Battle() {
           //   this.image.height
           // );
 
-          c.drawImage(
-            this.image,
-            this.frames.alignment,
-            this.frames.val * this.width,
-            this.image.width / this.frames.max,
-            this.image.height / this.frames.max,
-            this.position.x,
-            this.position.y,
-            this.image.width / this.frames.max,
-            this.image.height / this.frames.max
-          );
+          // c.drawImage(
+          //   this.image,
+          //   this.frames.alignment,
+          //   this.frames.val * this.width,
+          //   this.image.width / this.frames.max,
+          //   this.image.height / this.frames.max,
+          //   this.position.x,
+          //   this.position.y,
+          //   this.image.width / this.frames.max,
+          //   this.image.height / this.frames.max
+          // );
           c.restore();
 
           if (!this.animate) return;
@@ -1674,12 +1701,13 @@ function Battle() {
                 y: this.position.y,
               },
               image: fireballImage,
-              // frames: {
-              //   max: 4,
-              //   hold: 30,
-              //   alignment: 0,
-              // },
-              // animate: true,
+              frames: {
+                max: 4,
+                hold: 30,
+                alignment: 0,
+                attackFx: true
+              },
+              animate: true,
             });
 
             renderedSprites.push(fireball)
