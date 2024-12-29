@@ -1573,6 +1573,7 @@ function Battle() {
           sprites,
           animate = false,
           isEnemy = false,
+          rotation = 0,
         }) {
           this.position = position;
           this.image = image;
@@ -1585,6 +1586,7 @@ function Battle() {
           this.sprites = sprites;
           this.opacity = 1;
           this.isEnemy = isEnemy;
+          this.rotation = rotation;
         }
 
         draw() {
@@ -1708,7 +1710,7 @@ function Battle() {
               animate: true,
             });
 
-            renderedSprites.push(fireball);
+            renderedSprites.splice(1, 0, fireball)
 
             gsap.to(fireball.position, {
               x: recipient.position.x,
@@ -1727,7 +1729,7 @@ function Battle() {
                   duration: 0.08,
                 });
 
-                renderedSprites.pop()
+                renderedSprites.splice(1, 1)
               }
             })
           } else if (attack === "ice") {
