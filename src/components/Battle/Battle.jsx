@@ -1816,9 +1816,6 @@ function Battle() {
                 renderedSprites,
               });
 
-              // document.getElementById("dialogueBox").innerHTML =
-              //   currentName + " used " + selectedAttack;
-
               setTimeout(() => {
                 enemy.attack({
                   attack: selectedAttack,
@@ -1826,8 +1823,6 @@ function Battle() {
                   renderedSprites,
                 });
 
-                // document.getElementById("dialogueBox").innerHTML =
-                // enemyTextBox()
               }, 2700);
             } else {
               enemy.attack({
@@ -1836,8 +1831,6 @@ function Battle() {
                 renderedSprites,
               });
 
-              // document.getElementById("dialogueBox").innerHTML = enemyTextBox()
-
               setTimeout(() => {
                 starter.attack({
                   attack: selectedAttack,
@@ -1845,8 +1838,6 @@ function Battle() {
                   renderedSprites,
                 });
 
-                // document.getElementById("dialogueBox").innerHTML =
-                //   currentName + " used " + selectedAttack;
               }, 2700);
             }
             setTimeout(() => {
