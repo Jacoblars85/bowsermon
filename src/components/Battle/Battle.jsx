@@ -38,6 +38,7 @@ import axios from "axios";
 import Box from "@mui/material/Box";
 // import ListItemButton from "@mui/material/ListItemButton";
 import battleMusic from "../../audio/battleMusic.mp3";
+import logger from "redux-logger";
 
 const Transition = forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -1546,7 +1547,7 @@ function Battle() {
     }
   };
 
-  console.log("current speed", currentSpeed);
+  // console.log("current speed", currentSpeed);
 
   // the canvas function
   const battleCanvasRef = useRef(null);
@@ -1669,12 +1670,6 @@ function Battle() {
         }
 
         attack({ attack, recipient, renderedSprites }) {
-
-          console.log('attack', attack);
-        
-          document.getElementById("dialogueBox").style.display = 'block'
-          document.getElementById("dialogueBox").innerHTML = currentName + ' used ' + attack
-
           
           let rotation = 1;
           if (this.isEnemy) rotation = -2.2;
@@ -1828,6 +1823,11 @@ function Battle() {
             // console.log(button);
             const selectedAttack = button.className;
 
+            document.getElementById("dialogueBox").style.display = 'block';
+
+            console.log('enemyOne', enemyOne);
+            
+
             if (
               currentSpeed >= enemyOne.speed ||
               button.id === "starterOne" ||
@@ -1840,12 +1840,16 @@ function Battle() {
                 renderedSprites,
               });
 
+              document.getElementById("dialogueBox").innerHTML = currentName + ' used ' + selectedAttack
+
               setTimeout(() => {
                 enemy.attack({
                   attack: selectedAttack,
                   recipient: starter,
                   renderedSprites,
                 });
+
+                document.getElementById("dialogueBox").innerHTML = enemyOne.name + ' used ' + enemyOne.unique_attack
               }, 2700);
             } else {
               enemy.attack({
@@ -1854,14 +1858,22 @@ function Battle() {
                 renderedSprites,
               });
 
+              document.getElementById("dialogueBox").innerHTML = enemyOne.name + ' used ' + enemyOne.unique_attack
+
               setTimeout(() => {
                 starter.attack({
                   attack: selectedAttack,
                   recipient: enemy,
                   renderedSprites,
                 });
+
+                document.getElementById("dialogueBox").innerHTML = currentName + ' used ' + selectedAttack
+
               }, 2700);
             }
+            setTimeout(() => {
+              document.getElementById("dialogueBox").style.display = 'none';
+            }, 4500);
           }
         });
       });
