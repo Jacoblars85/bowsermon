@@ -1863,7 +1863,8 @@ function Battle() {
 
       {/* the area of the whole canvas */}
       <div style={{ display: "inline-block", position: "relative" }}>
-        {/* draggle health box */}
+        
+        {/* enemy health box */}
         <div
           style={{
             backgroundColor: "white",
@@ -1877,7 +1878,7 @@ function Battle() {
             padding: "10px",
           }}
         >
-          <h1 style={{ margin: 0 }}>Draggle</h1>
+          <h1 style={{ margin: 0 }}>{enemyOne.name}</h1>
 
           <progress
             className="hp-meter"
@@ -1891,7 +1892,7 @@ function Battle() {
           ></progress>
         </div>
 
-        {/* emby health box */}
+        {/* starter health box */}
         <div
           style={{
             backgroundColor: "white",
@@ -1905,7 +1906,11 @@ function Battle() {
             padding: "10px",
           }}
         >
-          <h1 style={{ margin: 0 }}>Emby</h1>
+          <h1 style={{ margin: 0 }}>{starter.length === 1
+                ? starterOne.name
+                : currentId === starterOne.id
+                ? starterOne.name
+                : starterTwo.name}</h1>
 
           <progress
             className="hp-meter"
