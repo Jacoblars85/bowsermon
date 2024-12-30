@@ -166,13 +166,13 @@ INSERT INTO "levels"
 INSERT INTO "items" 
 	("name", "type", "hp", "stamina", "speed", "attack", "pic", "cost", "color")
 	VALUES 
-	('healing pot', 'consumable', 25, 0, 0, 0, '', 10, '#FF0100'),
-	('stamina pot', 'consumable', 0, 30, 0, 0, '', 10, '#00D400'),
-	('speed pot', 'consumable', 0, 50, 10, 0, '', 40, '#FF9A1E'),
-	('mega pot', 'consumable', 40, 40, 0, 0, '', 50, '#FFD42A'),
-	('beef', 'consumable', 30, 40, 0, 0, '', 50, '#FFD42A'),
-	('med kit', 'consumable', 75, 0, 0, 0, '', 70, '#FF0100'),
-	('heart', 'consumable', 100, 100, 0, 0, '', 120, '#FEF202'),
+	('healing pot', 'consumable', 25, 0, 0, 0, 'public/images/consumables/LifePot.png', 10, '#FF0100'),
+	('stamina pot', 'consumable', 0, 30, 0, 0, 'public/images/consumables/WaterPot.png', 10, '#00D400'),
+	('speed pot', 'consumable', 0, 50, 10, 0, 'public/images/consumables/Honey.png', 40, '#FF9A1E'),
+	('mega pot', 'consumable', 40, 40, 0, 0, 'public/images/consumables/MilkPot.png', 50, '#FFD42A'),
+	('beef', 'consumable', 30, 40, 0, 0, 'public/images/consumables/Yakitori.png', 50, '#FFD42A'),
+	('med kit', 'consumable', 75, 0, 0, 0, 'public/images/consumables/Medpack.png', 70, '#FF0100'),
+	('heart', 'consumable', 100, 100, 0, 0, 'public/images/consumables/Heart.png', 120, '#FEF202'),
 
 	('stick', 'held', 10, 0, 0, 5, '', 100, '#000000'),
 	('club', 'held', 20, 0, 0, 0, '', 150, '#000000'),
