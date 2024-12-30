@@ -1592,7 +1592,7 @@ function Battle() {
           this.opacity = 1;
           this.isEnemy = isEnemy;
           this.rotation = rotation;
-          this.name = name
+          this.name = name;
         }
 
         draw() {
@@ -1670,7 +1670,6 @@ function Battle() {
         }
 
         attack({ attack, recipient, renderedSprites }) {
-          
           let rotation = 1;
           if (this.isEnemy) rotation = -2.2;
 
@@ -1823,10 +1822,9 @@ function Battle() {
             // console.log(button);
             const selectedAttack = button.className;
 
-            document.getElementById("dialogueBox").style.display = 'block';
+            document.getElementById("dialogueBox").style.display = "block";
 
-            console.log('enemyOne', enemyOne);
-            
+            console.log("enemyOne", enemyOne);
 
             if (
               currentSpeed >= enemyOne.speed ||
@@ -1840,7 +1838,8 @@ function Battle() {
                 renderedSprites,
               });
 
-              document.getElementById("dialogueBox").innerHTML = currentName + ' used ' + selectedAttack
+              document.getElementById("dialogueBox").innerHTML =
+                currentName + " used " + selectedAttack;
 
               setTimeout(() => {
                 enemy.attack({
@@ -1849,7 +1848,8 @@ function Battle() {
                   renderedSprites,
                 });
 
-                document.getElementById("dialogueBox").innerHTML = enemyOne.name + ' used ' + enemyOne.unique_attack
+                document.getElementById("dialogueBox").innerHTML =
+                  enemyOne.name + " used " + enemyOne.unique_attack;
               }, 2700);
             } else {
               enemy.attack({
@@ -1858,7 +1858,8 @@ function Battle() {
                 renderedSprites,
               });
 
-              document.getElementById("dialogueBox").innerHTML = enemyOne.name + ' used ' + enemyOne.unique_attack
+              document.getElementById("dialogueBox").innerHTML =
+                enemyOne.name + " used " + enemyOne.unique_attack;
 
               setTimeout(() => {
                 starter.attack({
@@ -1867,12 +1868,12 @@ function Battle() {
                   renderedSprites,
                 });
 
-                document.getElementById("dialogueBox").innerHTML = currentName + ' used ' + selectedAttack
-
+                document.getElementById("dialogueBox").innerHTML =
+                  currentName + " used " + selectedAttack;
               }, 2700);
             }
             setTimeout(() => {
-              document.getElementById("dialogueBox").style.display = 'none';
+              document.getElementById("dialogueBox").style.display = "none";
             }, 4500);
           }
         });
@@ -1887,7 +1888,6 @@ function Battle() {
 
       {/* the area of the whole canvas */}
       <div style={{ display: "inline-block", position: "relative" }}>
-
         {/* enemy health box */}
         <div
           style={{
@@ -1977,21 +1977,21 @@ function Battle() {
             display: "flex",
           }}
         >
-
-          <div 
-          id="dialogueBox"
-          style={{
-            position: "absolute",
-            bottom: 0,
-            left: 0,
-            right: 0,
-            top: 0,
-            backgroundColor: "white",
-            padding: '12px',
-            display: "none",
-            fontSize: "30px",
-            zIndex: 1,
-          }}></div>
+          <div
+            id="dialogueBox"
+            style={{
+              position: "absolute",
+              bottom: 0,
+              left: 0,
+              right: 0,
+              top: 0,
+              backgroundColor: "white",
+              padding: "12px",
+              display: "none",
+              fontSize: "30px",
+              zIndex: 1,
+            }}
+          ></div>
 
           {/* all of the togglable buttons */}
           <div
