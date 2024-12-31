@@ -1655,8 +1655,7 @@ function Battle() {
           if (this.isEnemy) rotation = -2.2;
 
           if (attack === "tackle") {
-            console.log("in tackle");
-
+            
             const tl = gsap.timeline();
 
             let movementDistance = 20;
@@ -1690,7 +1689,6 @@ function Battle() {
                 x: this.position.x,
               });
           } else if (attack === "fireball") {
-            console.log("in fireball");
 
             const fireballImage = new Image();
             fireballImage.src = fireballSpriteImage;
@@ -1733,13 +1731,10 @@ function Battle() {
               },
             });
           } else if (attack === "ice") {
-            console.log('in ice');
             
             const iceImage = new Image();
             iceImage.src = iceSpriteImage;
 
-            console.log('recipient', recipient);
-            
             const ice = new Sprite({
               position: {
                 x: recipient.position.x + 10,
