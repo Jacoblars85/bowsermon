@@ -1172,23 +1172,17 @@ function Battle() {
 
   // after 3.5 seconds this will run and put whatever enemy did on the screen
   const enemyTextBox = () => {
-      if (enemyStamina >= enemyOne.unique_stamina) {
-        setTextBox(
-          `${enemyOne.name} used ${enemyOne.unique_attack}`
-        );
-      } else if (enemyStamina >= basicAttacks[0].stamina) {
-        setTextBox(
-          `${enemyOne.name} used ${basicAttacks[0].attack}`
-        );
-      } else if (enemyStamina >= basicAttacks[1].stamina) {
-        setTextBox(
-          `${enemyOne.name} used ${basicAttacks[1].attack}`
-        );
-      } else if (enemyStamina === 0) {
-        setTextBox(
-          `${enemyOne.name} tried to attack but it failed. They have no more stamina and could not move.`
-        );
-      }
+    if (enemyStamina >= enemyOne.unique_stamina) {
+      setTextBox(`${enemyOne.name} used ${enemyOne.unique_attack}`);
+    } else if (enemyStamina >= basicAttacks[0].stamina) {
+      setTextBox(`${enemyOne.name} used ${basicAttacks[0].attack}`);
+    } else if (enemyStamina >= basicAttacks[1].stamina) {
+      setTextBox(`${enemyOne.name} used ${basicAttacks[1].attack}`);
+    } else if (enemyStamina === 0) {
+      setTextBox(
+        `${enemyOne.name} tried to attack but it failed. They have no more stamina and could not move.`
+      );
+    }
   };
 
   // holds every battle funtions inside and in order
@@ -1655,7 +1649,6 @@ function Battle() {
           if (this.isEnemy) rotation = -2.2;
 
           if (attack === "tackle") {
-            
             const tl = gsap.timeline();
 
             let movementDistance = 20;
@@ -1689,7 +1682,6 @@ function Battle() {
                 x: this.position.x,
               });
           } else if (attack === "fireball") {
-
             const fireballImage = new Image();
             fireballImage.src = fireballSpriteImage;
 
@@ -1731,7 +1723,6 @@ function Battle() {
               },
             });
           } else if (attack === "ice") {
-            
             const iceImage = new Image();
             iceImage.src = iceSpriteImage;
 
@@ -1753,8 +1744,8 @@ function Battle() {
 
             gsap.to(ice.position, {
               x: recipient.position.x + 10,
-              y: recipient.position.y  + 30,
-              duration: 1.20,
+              y: recipient.position.y + 30,
+              duration: 1.2,
               onComplete: () => {
                 gsap.to(recipient.position, {
                   x: recipient.position.x + 10,
@@ -1772,7 +1763,6 @@ function Battle() {
                 renderedSprites.splice(2, 1);
               },
             });
-
           }
         }
       }
@@ -1854,7 +1844,6 @@ function Battle() {
                   recipient: starter,
                   renderedSprites,
                 });
-
               }, 2700);
             } else {
               enemy.attack({
@@ -1869,11 +1858,10 @@ function Battle() {
                   recipient: enemy,
                   renderedSprites,
                 });
-
               }, 2700);
             }
             setTimeout(() => {
-              setTextBox("")
+              setTextBox("");
               document.getElementById("dialogueBox").style.display = "none";
             }, 4500);
           }
@@ -1992,7 +1980,9 @@ function Battle() {
               fontSize: "30px",
               zIndex: 1,
             }}
-          >{textBox}</div>
+          >
+            {textBox}
+          </div>
 
           {/* all of the togglable buttons */}
           <div
