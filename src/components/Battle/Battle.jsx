@@ -1826,9 +1826,7 @@ function Battle() {
 
             console.log("enemyOne", enemyOne);
 
-            if (
-              currentSpeed >= enemyOne.speed
-            ) {
+            if (currentSpeed >= enemyOne.speed) {
               starter.attack({
                 attack: selectedAttack,
                 recipient: enemy,
@@ -1842,18 +1840,18 @@ function Battle() {
                   renderedSprites,
                 });
               }, 2700);
-            } else if (button.id === "starterOne" ||
+            } else if (
+              button.id === "starterOne" ||
               button.id === "starterTwo" ||
-              button.id == "consumable") {
-              
-                setTimeout(() => {
-                  enemy.attack({
-                    attack: selectedAttack,
-                    recipient: starter,
-                    renderedSprites,
-                  });
-                }, 2700);
-                
+              button.id == "consumable"
+            ) {
+              setTimeout(() => {
+                enemy.attack({
+                  attack: selectedAttack,
+                  recipient: starter,
+                  renderedSprites,
+                });
+              }, 2700);
             } else {
               enemy.attack({
                 attack: selectedAttack,
