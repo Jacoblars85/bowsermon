@@ -14,6 +14,8 @@ DROP TABLE IF EXISTS rewards;
 
 DROP TABLE IF EXISTS characters;
 
+DROP TABLE IF EXISTS attacks;
+
 DROP TABLE IF EXISTS basic_attacks;
 
 
@@ -81,12 +83,24 @@ CREATE TABLE "user_characters" (
 	"xp_level" DEC DEFAULT 1,
 	"merged_level" DEC DEFAULT 1,
 	"item_id" INT DEFAULT NULL REFERENCES "items" ON DELETE CASCADE);
+
+CREATE TABLE "attacks" (
+	"id" SERIAL PRIMARY KEY,
+	"attack_name" VARCHAR(10),
+	"damage" INT,
+	"stamina" INT,
+	"attack_type",
+	"hold_time",
+	"max_frames");
 	
 CREATE TABLE "basic_attacks" (
 	"id" SERIAL PRIMARY KEY,
 	"attack" VARCHAR(10),
 	"damage" INT,
-	"stamina" INT);
+	"stamina" INT,
+	"attack_type",
+	"hold_time",
+	"max_frames");
 	
 CREATE TABLE "levels" (
 	"id" SERIAL PRIMARY KEY,
