@@ -20,7 +20,7 @@ import forestBackground from "./img/backgroundImg/RockForest.webp";
 import battleBackground from "./img/backgroundImg/battleBackground.png";
 
 import fireballSpriteImage from "./img/fx/fireball.png";
-import iceSpriteImage from "./img/fx/IceSpriteSheetBFx.png";
+import iceSpriteImage from "./img/fx/ThunderSpriteSheetFx.png";
 
 import enemySpriteImage from "./img/sprites/Snake3/Snake3.png";
 import starterSpriteImage from "./img/sprites/Snake4/Snake4.png";
@@ -1223,7 +1223,7 @@ function Battle() {
           <button
             onClick={() => battle("unique")}
             id="attackButton"
-            className="fireball"
+            className="projectile"
             // className={
             //   starter.length === 1
             //     ? starterOne.attack_type
@@ -1270,7 +1270,7 @@ function Battle() {
             onClick={() => battle("punch")}
             id="attackButton"
             // className="tackele"
-            className="ice"
+            className="summon"
             style={{
               display: "flex",
               width: "33.33%",
@@ -1306,7 +1306,7 @@ function Battle() {
           <button
             onClick={() => battle("poke")}
             id="attackButton"
-            className="fireball"
+            className="physical"
             style={{
               display: "flex",
               width: "33.33%",
@@ -1648,7 +1648,7 @@ function Battle() {
           let rotation = 1;
           if (this.isEnemy) rotation = -2.2;
 
-          if (attack === "tackle") {
+          if (attack === "physical") {
             const tl = gsap.timeline();
 
             let movementDistance = 20;
@@ -1681,7 +1681,7 @@ function Battle() {
               .to(this.position, {
                 x: this.position.x,
               });
-          } else if (attack === "fireball") {
+          } else if (attack === "projectile") {
             const fireballImage = new Image();
             fireballImage.src = fireballSpriteImage;
 
@@ -1722,7 +1722,7 @@ function Battle() {
                 renderedSprites.splice(1, 1);
               },
             });
-          } else if (attack === "ice") {
+          } else if (attack === "summon") {
             const iceImage = new Image();
             iceImage.src = iceSpriteImage;
 
@@ -1733,8 +1733,8 @@ function Battle() {
               },
               image: iceImage,
               frames: {
-                max: 9,
-                hold: 13,
+                max: 8,
+                hold: 5,
                 attackFx: true,
               },
               animate: true,
@@ -1827,10 +1827,7 @@ function Battle() {
             console.log("enemyOne", enemyOne);
 
             if (
-              currentSpeed >= enemyOne.speed ||
-              button.id === "starterOne" ||
-              button.id === "starterTwo" ||
-              button.id == "consumable"
+              currentSpeed >= enemyOne.speed
             ) {
               starter.attack({
                 attack: selectedAttack,
@@ -1845,6 +1842,18 @@ function Battle() {
                   renderedSprites,
                 });
               }, 2700);
+            } else if (button.id === "starterOne" ||
+              button.id === "starterTwo" ||
+              button.id == "consumable") {
+              
+                setTimeout(() => {
+                  enemy.attack({
+                    attack: selectedAttack,
+                    recipient: starter,
+                    renderedSprites,
+                  });
+                }, 2700);
+                
             } else {
               enemy.attack({
                 attack: selectedAttack,
