@@ -18,6 +18,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import lakeBackground from "./img/backgroundImg/LakeBackground.png";
 import forestBackground from "./img/backgroundImg/RockForest.webp";
 import battleBackground from "./img/backgroundImg/battleBackground.png";
+
 import fireballSpriteImage from "./img/fx/fireball.png";
 
 import enemySpriteImage from "./img/sprites/Snake3/Snake3.png";
@@ -1729,19 +1730,7 @@ function Battle() {
                 renderedSprites.splice(1, 1);
               },
             });
-          } else if (attack === "ice") {
-            console.log("in ice");
-          } else if (attack === "rock") {
-            console.log("in rock");
-          } else if (attack === "plant") {
-            console.log("in plant");
-          } else if (attack === "fire") {
-            console.log("in fire");
-          } else if (attack === "lightning") {
-            console.log("in lightning");
-          } else if (attack === "poison") {
-            console.log("in poison");
-          }
+          } 
         }
       }
 
