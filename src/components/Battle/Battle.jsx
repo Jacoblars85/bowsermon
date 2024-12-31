@@ -20,6 +20,7 @@ import forestBackground from "./img/backgroundImg/RockForest.webp";
 import battleBackground from "./img/backgroundImg/battleBackground.png";
 
 import fireballSpriteImage from "./img/fx/fireball.png";
+import iceSpriteImage from "./img/fx/IceSpriteSheetBFx.png";
 
 import enemySpriteImage from "./img/sprites/Snake3/Snake3.png";
 import starterSpriteImage from "./img/sprites/Snake4/Snake4.png";
@@ -1274,7 +1275,7 @@ function Battle() {
             onClick={() => battle("punch")}
             id="attackButton"
             // className="tackele"
-            className="fireball"
+            className="ice"
             style={{
               display: "flex",
               width: "33.33%",
@@ -1734,16 +1735,18 @@ function Battle() {
             console.log('in ice');
             
             const iceImage = new Image();
-            iceImage.src = fireballSpriteImage;
+            iceImage.src = iceSpriteImage;
 
+            console.log('recipient', recipient);
+            
             const ice = new Sprite({
               position: {
                 x: recipient.position.x,
                 y: recipient.position.y,
               },
-              image: fireballImage,
+              image: iceImage,
               frames: {
-                max: 4,
+                max: 9,
                 hold: 10,
                 attackFx: true,
               },
