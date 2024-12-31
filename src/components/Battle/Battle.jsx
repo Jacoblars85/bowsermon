@@ -1730,7 +1730,28 @@ function Battle() {
                 renderedSprites.splice(1, 1);
               },
             });
-          } 
+          } else if (attack === "ice") {
+            console.log('in ice');
+            
+            const iceImage = new Image();
+            iceImage.src = fireballSpriteImage;
+
+            const ice = new Sprite({
+              position: {
+                x: recipient.position.x,
+                y: recipient.position.y,
+              },
+              image: fireballImage,
+              frames: {
+                max: 4,
+                hold: 10,
+                attackFx: true,
+              },
+              animate: true,
+            });
+
+            renderedSprites.splice(1, 0, ice);
+          }
         }
       }
 
