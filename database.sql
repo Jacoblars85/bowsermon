@@ -140,10 +140,10 @@ INSERT INTO "characters"
 
 	
 INSERT INTO "basic_attacks" 
-	("attack", "damage", "stamina")
+	("attack", "damage", "stamina", "attack_type")
 	VALUES 
-	('tackle', 5, 5),
-	('poke', 1, 1);
+	('tackle', 5, 5, 'physical'),
+	('poke', 1, 1, 'physical');
 	
 	
 INSERT INTO "levels" 
