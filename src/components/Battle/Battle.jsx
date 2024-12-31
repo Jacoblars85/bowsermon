@@ -41,6 +41,7 @@ import Box from "@mui/material/Box";
 // import ListItemButton from "@mui/material/ListItemButton";
 import battleMusic from "../../audio/battleMusic.mp3";
 import logger from "redux-logger";
+import { duration } from "@mui/material";
 
 const Transition = forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -1741,19 +1742,42 @@ function Battle() {
             
             const ice = new Sprite({
               position: {
-                x: recipient.position.x,
-                y: recipient.position.y,
+                x: recipient.position.x + 10,
+                y: recipient.position.y + 30,
               },
               image: iceImage,
               frames: {
                 max: 9,
-                hold: 10,
+                hold: 13,
                 attackFx: true,
               },
               animate: true,
             });
 
-            renderedSprites.splice(1, 0, ice);
+            renderedSprites.splice(2, 0, ice);
+
+            gsap.to(ice.position, {
+              x: recipient.position.x + 10,
+              y: recipient.position.y  + 30,
+              duration: 1.20,
+              onComplete: () => {
+                gsap.to(recipient.position, {
+                  x: recipient.position.x + 10,
+                  yoyo: true,
+                  repeat: 5,
+                  duration: 0.08,
+                });
+                gsap.to(recipient, {
+                  opacity: 0,
+                  repeat: 5,
+                  yoyo: true,
+                  duration: 0.08,
+                });
+
+                renderedSprites.splice(2, 1);
+              },
+            });
+
           }
         }
       }
