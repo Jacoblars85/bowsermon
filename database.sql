@@ -88,6 +88,7 @@ CREATE TABLE "user_characters" (
 
 CREATE TABLE "attack_animations" (
 	"id" SERIAL PRIMARY KEY,
+	"animation_name" VARCHAR(100)
 	"hold_time" INT,
 	"max_frames" INT, 
 	"fx_img" VARCHAR(2000));
