@@ -19,7 +19,7 @@ import lakeBackground from "./img/backgroundImg/LakeBackground.png";
 import forestBackground from "./img/backgroundImg/RockForest.webp";
 import battleBackground from "./img/backgroundImg/battleBackground.png";
 
-import fireballSpriteImage from "./img/fx/fireball.png";
+import fireballSpriteImage from "./img/fx/PlantSpriteSheetFx.png";
 import iceSpriteImage from "./img/fx/ThunderSpriteSheetFx.png";
 
 import enemySpriteImage from "./img/sprites/Snake3/Snake3.png";
@@ -1684,6 +1684,7 @@ function Battle() {
           } else if (attack === "projectile") {
             const fireballImage = new Image();
             fireballImage.src = fireballSpriteImage;
+            // console.log(fireballSpriteImage);
 
             const fireball = new Sprite({
               position: {
@@ -1692,8 +1693,8 @@ function Battle() {
               },
               image: fireballImage,
               frames: {
-                max: 4,
-                hold: 10,
+                max: 8,
+                hold: 5,
                 attackFx: true,
               },
               animate: true,
@@ -1725,6 +1726,7 @@ function Battle() {
           } else if (attack === "summon") {
             const iceImage = new Image();
             iceImage.src = iceSpriteImage;
+            // console.log(iceSpriteImage);
 
             const ice = new Sprite({
               position: {
@@ -1734,7 +1736,7 @@ function Battle() {
               image: iceImage,
               frames: {
                 max: 8,
-                hold: 5,
+                hold: 10,
                 attackFx: true,
               },
               animate: true,
@@ -1745,7 +1747,7 @@ function Battle() {
             gsap.to(ice.position, {
               x: recipient.position.x + 10,
               y: recipient.position.y + 30,
-              duration: 1.2,
+              duration: 1.3,
               onComplete: () => {
                 gsap.to(recipient.position, {
                   x: recipient.position.x + 10,
