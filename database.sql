@@ -50,10 +50,8 @@ CREATE TABLE "characters" (
 	"hp" INT,
 	"stamina" INT,
 	"speed" INT,
-	"unique_attack" VARCHAR(50),
-	"unique_damage" INT,
-	"unique_stamina" INT,
-	"battle_pic" VARCHAR(1000));
+	"battle_pic" VARCHAR(1000),
+	"attacks_id" INT DEFAULT NULL REFERENCES "attacks" ON DELETE CASCADE);
 	
 CREATE TABLE "items" (
 	"id" SERIAL PRIMARY KEY,
