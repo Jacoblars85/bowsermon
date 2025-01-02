@@ -88,16 +88,16 @@ CREATE TABLE "user_characters" (
 
 CREATE TABLE "attack_animations" (
 	"id" SERIAL PRIMARY KEY,
-	"hold_time",
-	"max_frames", 
-	"fx_img");
+	"hold_time" INT,
+	"max_frames" INT, 
+	"fx_img" VARCHAR(200));
 
 CREATE TABLE "attacks" (
 	"id" SERIAL PRIMARY KEY,
 	"attack_name" VARCHAR(10),
 	"damage" INT,
 	"stamina" INT,
-	"attack_type",
+	"attack_type" VARCHAR(20),
 	"attack_animations_id" INT NOT NULL REFERENCES "attack_animations" ON DELETE CASCADE);
 	
 CREATE TABLE "basic_attacks" (
@@ -105,9 +105,9 @@ CREATE TABLE "basic_attacks" (
 	"attack" VARCHAR(10),
 	"damage" INT,
 	"stamina" INT,
-	"attack_type",
-	"hold_time",
-	"max_frames");
+	"attack_type" VARCHAR(20),
+	"hold_time" INT,
+	"max_frames" INT);
 	
 CREATE TABLE "levels" (
 	"id" SERIAL PRIMARY KEY,
