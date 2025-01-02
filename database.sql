@@ -104,9 +104,7 @@ CREATE TABLE "basic_attacks" (
 	"attack" VARCHAR(10),
 	"damage" INT,
 	"stamina" INT,
-	"attack_type" VARCHAR(20),
-	"hold_time" INT,
-	"max_frames" INT);
+	"attack_type" VARCHAR(20));
 	
 CREATE TABLE "levels" (
 	"id" SERIAL PRIMARY KEY,
