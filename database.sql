@@ -161,16 +161,15 @@ INSERT INTO "characters"
 
 
 INSERT INTO "attack_animations" 
-	("hold_time", "max_frames", "fx_img")
+	("animation_name", "hold_time", "max_frames", "fx_img")
 	VALUES 
-	(5, 5, ''),
-	(5, 5, ''),
-	(5, 5, ''),
-	(5, 5, ''),
-	(5, 5, ''),
-	(5, 5, ''),
-	(5, 5, ''),
-	(1, 1, '');
+	('', 5, 5, ''),
+	('', 5, 5, ''),
+	('', 5, 5, ''),
+	('', 5, 5, ''),
+	('', 5, 5, ''),
+	('', 5, 5, ''),
+	('', 1, 1, '');
 
 
 INSERT INTO "attacks" 
