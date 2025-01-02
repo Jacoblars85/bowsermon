@@ -161,31 +161,31 @@ INSERT INTO "characters"
 
 
 INSERT INTO "attack_animations" 
-	("attack_type", "hold_time", "max_frames", "fx_img")
+	("hold_time", "max_frames", "fx_img")
 	VALUES 
-	('', 5, 5, ''),
-	('', 5, 5, ''),
-	('', 5, 5, ''),
-	('', 5, 5, ''),
-	('', 5, 5, ''),
-	('', 5, 5, ''),
-	('', 5, 5, ''),
-	('', 1, 1, '');
+	(5, 5, ''),
+	(5, 5, ''),
+	(5, 5, ''),
+	(5, 5, ''),
+	(5, 5, ''),
+	(5, 5, ''),
+	(5, 5, ''),
+	(1, 1, '');
 
 
 INSERT INTO "attacks" 
-	("attack", "damage", "stamina", "attack_animations_id")
+	("attack", "damage", "stamina", "attack_type", "attack_animations_id")
 	VALUES 
-	('fireball', 5, 5, 'projectile', 0, 0, 0),
-	('ember', 5, 5, 'projectile', 0, 0, 0),
-	('thunder', 5, 5, 'summon', 0, 0, 0),
-	('ice', 5, 5, 'summon', 0, 0, 0),
-	('', 5, 5, '', 0, 0, 0),
-	('', 5, 5, '', 0, 0, 0),
-	('', 5, 5, '', 0, 0, ''),
-	('strangle', 5, 5, 'physical', 0, 0, ''),
-	('life drain', 5, 5, 'physical', 0, 0, ''),
-	('bite', 1, 1, 'physical', 0, 0, '');
+	('fireball', 5, 5, 'projectile', 0),
+	('ember', 5, 5, 'projectile', 0),
+	('thunder', 5, 5, 'summon', 0),
+	('ice', 5, 5, 'summon', 0),
+	('', 5, 5, '', 0),
+	('', 5, 5, 'summon', 0),
+	('', 5, 5, 'summon', 0),
+	('strangle', 5, 5, 'physical', 0),
+	('life drain', 5, 5, 'physical', 0),
+	('bite', 1, 1, 'physical', 0);
 	
 
 	
