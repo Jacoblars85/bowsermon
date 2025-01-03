@@ -1822,22 +1822,35 @@ function Battle() {
         button.addEventListener("click", (e) => {
           if (button.id === "attackButton") {
             // console.log(button);
-            const selectedAttack = button.className;
+            const characterSelectedAttack = button.className;
+
+            let enemySelectedAttack;
+
+            if (enemyStamina >= enemyOne.unique_stamina) {
+              enemySelectedAttack = enemyOne.attack_type
+            } else if (enemyStamina >= basicAttacks[0].stamina) {
+              enemySelectedAttack = basicAttacks[0].attack_type
+            } else if (enemyStamina >= basicAttacks[1].stamina) {
+              enemySelectedAttack = basicAttacks[1].attack_type
+            } else if (enemyStamina === 0) {
+              enemySelectedAttack = 'tired'
+            }
+
+            console.log('enemySelectedAttack', enemySelectedAttack);
+            
 
             document.getElementById("dialogueBox").style.display = "block";
 
-            console.log("enemyOne", enemyOne);
-
             if (currentSpeed >= enemyOne.speed) {
               starter.attack({
-                attack: selectedAttack,
+                attack: characterSelectedAttack,
                 recipient: enemy,
                 renderedSprites,
               });
 
               setTimeout(() => {
                 enemy.attack({
-                  attack: selectedAttack,
+                  attack: enemySelectedAttack,
                   recipient: starter,
                   renderedSprites,
                 });
@@ -1847,23 +1860,24 @@ function Battle() {
               button.id === "starterTwo" ||
               button.id == "consumable"
             ) {
+
               setTimeout(() => {
                 enemy.attack({
-                  attack: selectedAttack,
+                  attack: enemySelectedAttack,
                   recipient: starter,
                   renderedSprites,
                 });
               }, 2700);
             } else {
               enemy.attack({
-                attack: selectedAttack,
+                attack: enemySelectedAttack,
                 recipient: starter,
                 renderedSprites,
               });
 
               setTimeout(() => {
                 starter.attack({
-                  attack: selectedAttack,
+                  attack: characterSelectedAttack,
                   recipient: enemy,
                   renderedSprites,
                 });
