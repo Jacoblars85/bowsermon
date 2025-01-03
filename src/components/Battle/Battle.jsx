@@ -1824,17 +1824,17 @@ function Battle() {
             // console.log(button);
             const characterSelectedAttack = button.className;
 
-            let enemySelectedAttack;
+            let enemySelectedAttack = 'physical'
 
-            if (enemyStamina >= enemyOne.unique_stamina) {
-              enemySelectedAttack = enemyOne.attack_type;
-            } else if (enemyStamina >= basicAttacks[0].stamina) {
-              enemySelectedAttack = basicAttacks[0].attack_type;
-            } else if (enemyStamina >= basicAttacks[1].stamina) {
-              enemySelectedAttack = basicAttacks[1].attack_type;
-            } else if (enemyStamina === 0) {
-              enemySelectedAttack = "tired";
-            }
+            // if (enemyStamina >= enemyOne.unique_stamina) {
+            //   enemySelectedAttack = enemyOne.attack_type;
+            // } else if (enemyStamina >= basicAttacks[0].stamina) {
+            //   enemySelectedAttack = basicAttacks[0].attack_type;
+            // } else if (enemyStamina >= basicAttacks[1].stamina) {
+            //   enemySelectedAttack = basicAttacks[1].attack_type;
+            // } else if (enemyStamina === 0) {
+            //   enemySelectedAttack = "physical";
+            // }
 
             console.log("enemySelectedAttack", enemySelectedAttack);
 
