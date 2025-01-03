@@ -1827,17 +1827,16 @@ function Battle() {
             let enemySelectedAttack;
 
             if (enemyStamina >= enemyOne.unique_stamina) {
-              enemySelectedAttack = enemyOne.attack_type
+              enemySelectedAttack = enemyOne.attack_type;
             } else if (enemyStamina >= basicAttacks[0].stamina) {
-              enemySelectedAttack = basicAttacks[0].attack_type
+              enemySelectedAttack = basicAttacks[0].attack_type;
             } else if (enemyStamina >= basicAttacks[1].stamina) {
-              enemySelectedAttack = basicAttacks[1].attack_type
+              enemySelectedAttack = basicAttacks[1].attack_type;
             } else if (enemyStamina === 0) {
-              enemySelectedAttack = 'tired'
+              enemySelectedAttack = "tired";
             }
 
-            console.log('enemySelectedAttack', enemySelectedAttack);
-            
+            console.log("enemySelectedAttack", enemySelectedAttack);
 
             document.getElementById("dialogueBox").style.display = "block";
 
@@ -1860,7 +1859,6 @@ function Battle() {
               button.id === "starterTwo" ||
               button.id == "consumable"
             ) {
-
               setTimeout(() => {
                 enemy.attack({
                   attack: enemySelectedAttack,
