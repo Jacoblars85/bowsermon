@@ -1765,6 +1765,19 @@ function Battle() {
                 renderedSprites.splice(2, 1);
               },
             });
+          } else if (attack === "tired") {
+            gsap.to(this.position, {
+              x: this.position.x + 10,
+              yoyo: true,
+              repeat: 5,
+              duration: 0.08,
+            });
+            gsap.to(this, {
+              opacity: 0.5,
+              repeat: 5,
+              yoyo: true,
+              duration: 0.08,
+            });
           }
         }
       }
@@ -1824,7 +1837,7 @@ function Battle() {
             // console.log(button);
             const characterSelectedAttack = button.className;
 
-            let enemySelectedAttack = 'physical'
+            let enemySelectedAttack = 'tired'
 
             // if (enemyStamina >= enemyOne.unique_stamina) {
             //   enemySelectedAttack = enemyOne.attack_type;
