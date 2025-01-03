@@ -141,7 +141,7 @@ INSERT INTO "attack_animations"
 
 
 INSERT INTO "attacks" 
-	("attack_name", "damage", "stamina", "attack_type", "attack_animations_id")
+	("attack_name", "attack_damage", "attack_stamina", "attack_type", "attack_animations_id")
 	VALUES 
 	('fireball', 0, 0, 'projectile', 1),
 	('ember', 0, 0, 'projectile', 2),
@@ -203,7 +203,7 @@ INSERT INTO "characters"
 	
 	
 INSERT INTO "basic_attacks" 
-	("attack_name", "damage", "stamina", "attack_type")
+	("attack_name", "attack_damage", "attack_stamina", "attack_type")
 	VALUES 
 	('tackle', 5, 5, 'physical'),
 	('poke', 1, 1, 'physical');
