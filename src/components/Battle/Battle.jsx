@@ -1837,7 +1837,7 @@ function Battle() {
             // console.log(button);
             const characterSelectedAttack = button.className;
 
-            let enemySelectedAttack = 'physical'
+            let enemySelectedAttack = "physical";
 
             // if (enemyStamina >= enemyOne.unique_stamina) {
             //   enemySelectedAttack = enemyOne.attack_type;
