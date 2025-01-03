@@ -1837,7 +1837,7 @@ function Battle() {
             // console.log(button);
             const characterSelectedAttack = button.className;
 
-            let enemySelectedAttack = 'tired'
+            let enemySelectedAttack = 'physical'
 
             // if (enemyStamina >= enemyOne.unique_stamina) {
             //   enemySelectedAttack = enemyOne.attack_type;
@@ -1846,7 +1846,7 @@ function Battle() {
             // } else if (enemyStamina >= basicAttacks[1].stamina) {
             //   enemySelectedAttack = basicAttacks[1].attack_type;
             // } else if (enemyStamina === 0) {
-            //   enemySelectedAttack = "physical";
+            //   enemySelectedAttack = "tired";
             // }
 
             console.log("enemySelectedAttack", enemySelectedAttack);
