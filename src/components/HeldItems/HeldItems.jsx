@@ -300,11 +300,7 @@ function HeldItems({ heldItem }) {
           }}
         >
           {heldItem.cost}x{" "}
-          <img
-            height={20}
-            width={20}
-            src="/images/Coin2Preview.gif"
-          />{" "}
+          <img height={20} width={20} src="/images/Coin2Preview.gif" />{" "}
         </h5>
 
         <button
