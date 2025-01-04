@@ -31,7 +31,8 @@ function Campaign() {
             payload: params
         });
         setTimeout(() => {
-            history.push(`/battle/${params}`)
+            // history.push(`/battle/${params}`)
+            history.push(`/exploring`)
         }, 450);
     };
 
