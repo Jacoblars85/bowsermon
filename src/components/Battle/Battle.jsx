@@ -1401,6 +1401,7 @@ function Battle() {
                       }`}
                     />
                     <Button
+                    id="consumable"
                       sx={{
                         color: "black",
                         fontSize: 9,
