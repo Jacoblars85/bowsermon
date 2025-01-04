@@ -71,9 +71,14 @@ function Inventory() {
       <Nav />
 
       <div className="inventory">
-
-        <Box sx={{ width: "100%", }}>
-          <Box sx={{ borderBottom: 1, borderColor: "divider", fontFamily: "New Super Mario Font U", }}>
+        <Box sx={{ width: "100%" }}>
+          <Box
+            sx={{
+              borderBottom: 1,
+              borderColor: "divider",
+              fontFamily: "New Super Mario Font U",
+            }}
+          >
             <Tabs
               value={value}
               onChange={handleChange}
@@ -137,7 +142,6 @@ function Inventory() {
             </div>
           </CustomTabPanel>
         </Box>
-
       </div>
 
       <BackButton />
