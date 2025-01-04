@@ -221,7 +221,13 @@ function MysteryBoxItem({ mysteryBoxItem }) {
           />
         </h5>
 
-        <button onClick={() => setRandomOpen(true)} disabled={user.coins >= mysteryBoxItem.cost ? false : true} style={{ width: "100%" }}>Buy</button>
+        <button
+          onClick={() => setRandomOpen(true)}
+          disabled={user.coins >= mysteryBoxItem.cost ? false : true}
+          style={{ width: "100%" }}
+        >
+          Buy
+        </button>
       </div>
 
       {/* random item dialog */}
@@ -255,18 +261,19 @@ function MysteryBoxItem({ mysteryBoxItem }) {
           </DialogContentText>
         </DialogContent>
         <DialogActions
-         sx={{
-          justifyContent: "center",
-        }}>
+          sx={{
+            justifyContent: "center",
+          }}
+        >
           <Button
             sx={{
               color: "whitesmoke",
               fontSize: 16,
               fontFamily: "New Super Mario Font U",
-              borderColor: "black"
+              borderColor: "black",
             }}
             color="success"
-              variant="contained"
+            variant="contained"
             onClick={openBox}
             autoFocus
           >
@@ -277,7 +284,7 @@ function MysteryBoxItem({ mysteryBoxItem }) {
               color: "black",
               fontSize: 16,
               fontFamily: "New Super Mario Font U",
-              borderColor: "black"
+              borderColor: "black",
             }}
             variant="outlined"
             onClick={handleRandomClose}
@@ -324,7 +331,7 @@ function MysteryBoxItem({ mysteryBoxItem }) {
               color: "black",
               fontSize: 16,
               fontFamily: "New Super Mario Font U",
-              borderColor: "black"
+              borderColor: "black",
             }}
             variant="outlined"
             onClick={handleCloseAnimation}
