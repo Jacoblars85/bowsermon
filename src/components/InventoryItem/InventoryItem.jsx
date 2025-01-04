@@ -30,7 +30,7 @@ function InventoryItem({ inventoryItem }) {
       payload: {
         itemId: inventoryItem.items_id,
         amountNum: potValue,
-        totalCoins: Math.floor(potValue * inventoryItem.cost / 2),
+        totalCoins: Math.floor((potValue * inventoryItem.cost) / 2),
       },
     });
     setOpen(false);
@@ -57,14 +57,15 @@ function InventoryItem({ inventoryItem }) {
   const displayText = () => {
     if (isPicture) {
       return (
-        <div style={{
-          display: "flex",
-          flexDirection: "column",
-          flexWrap:"nowrap",
-          justifyContent: "center",
-          height: "125px",
-          width: "125px",
-        }}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            flexWrap: "nowrap",
+            justifyContent: "center",
+            height: "125px",
+            width: "125px",
+          }}
         >
           <p
             style={{
@@ -167,59 +168,60 @@ function InventoryItem({ inventoryItem }) {
         Sell
       </button>
 
-        <Dialog
-          open={open}
-          onClose={handleClose}
-          aria-labelledby="alert-dialog-title"
-          aria-describedby="alert-dialog-description"
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle
+          id="alert-dialog-title"
+          sx={{ fontFamily: "New Super Mario Font U", textAlign: "center" }}
         >
-          <DialogTitle
-            id="alert-dialog-title"
+          {`Are you sure you want to sell ${potValue} ${inventoryItem.name}s`}
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText
+            id="alert-dialog-description"
             sx={{ fontFamily: "New Super Mario Font U", textAlign: "center" }}
           >
-            {`Are you sure you want to sell ${potValue} ${inventoryItem.name}s`}
-          </DialogTitle>
-          <DialogContent>
-            <DialogContentText
-              id="alert-dialog-description"
-              sx={{ fontFamily: "New Super Mario Font U", textAlign: "center" }}
-            >
-              You will receive {Math.floor(potValue * inventoryItem.cost / 2)} coins if
-              you sell {inventoryItem.name}s.
-            </DialogContentText>
-          </DialogContent>
-          <DialogActions
-           sx={{
+            You will receive {Math.floor((potValue * inventoryItem.cost) / 2)}{" "}
+            coins if you sell {inventoryItem.name}s.
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions
+          sx={{
             justifyContent: "center",
-          }}>
-            <Button
-              sx={{
-                fontFamily: "New Super Mario Font U",
-                textAlign: "center",
-                color: "black",
-                borderColor: "black"
-              }}
-              color="error"
-              variant="contained"
-              onClick={() => sellPot(potValue)}
-              autoFocus
-            >
-              Sell
-            </Button>
-            <Button
-              sx={{
-                fontFamily: "New Super Mario Font U",
-                textAlign: "center",
-                color: "black",
-                borderColor: "black"
-              }}
-              variant="outlined"
-              onClick={handleClose}
-            >
-              Close
-            </Button>
-          </DialogActions>
-        </Dialog>
+          }}
+        >
+          <Button
+            sx={{
+              fontFamily: "New Super Mario Font U",
+              textAlign: "center",
+              color: "black",
+              borderColor: "black",
+            }}
+            color="error"
+            variant="contained"
+            onClick={() => sellPot(potValue)}
+            autoFocus
+          >
+            Sell
+          </Button>
+          <Button
+            sx={{
+              fontFamily: "New Super Mario Font U",
+              textAlign: "center",
+              color: "black",
+              borderColor: "black",
+            }}
+            variant="outlined"
+            onClick={handleClose}
+          >
+            Close
+          </Button>
+        </DialogActions>
+      </Dialog>
     </div>
   );
 }
