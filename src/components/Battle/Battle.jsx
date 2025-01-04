@@ -1434,7 +1434,8 @@ function Battle() {
                   primary={`starter 1: ${starterOne.name}`}
                   secondary={`${starterOneHp}/${starterOne.hp} hp | ${starterOneStamina}/${starterOne.stamina} stamina | ${starterOne.speed} speed`}
                 />
-                <Button
+                <button
+                id="starterOne"
                   sx={{
                     color: "black",
                     fontSize: 10,
@@ -1452,7 +1453,7 @@ function Battle() {
                   onClick={() => battle("starterOne")}
                 >
                   Change Starter
-                </Button>
+                </button>
               </ListItem>
             </List>
           ) : (
@@ -1464,14 +1465,15 @@ function Battle() {
                   primary={`starter 1: ${starterOne.name}`}
                   secondary={`${starterOneHp}/${starterOne.hp} hp | ${starterOneStamina}/${starterOne.stamina} stamina | ${starterOne.speed} speed`}
                 />
-                <Button
+                <button
+                id="starterOne"
                   sx={{
                     color: "black",
                     fontSize: 10,
                     fontFamily: "New Super Mario Font U",
                     borderColor: "black",
                   }}
-                  variant="outlined"
+                  // variant="outlined"
                   disabled={
                     currentId === starterOne.id
                       ? true
@@ -1482,7 +1484,7 @@ function Battle() {
                   onClick={() => battle("starterOne")}
                 >
                   Change Starter
-                </Button>
+                </button>
               </ListItem>
 
               <Divider />
@@ -1494,7 +1496,8 @@ function Battle() {
                   primary={`starter 2: ${starterTwo.name}`}
                   secondary={`${starterTwoHp}/${starterTwo.hp} hp | ${starterTwoStamina}/${starterTwo.stamina} stamina | ${starterTwo.speed} speed`}
                 />
-                <Button
+                <button
+                id="starterTwo"
                   sx={{
                     color: "black",
                     fontSize: 10,
@@ -1502,7 +1505,7 @@ function Battle() {
                     borderColor: "black",
                     ml: 2,
                   }}
-                  variant="outlined"
+                  // variant="outlined"
                   disabled={
                     currentId === starterTwo.id
                       ? true
@@ -1513,7 +1516,7 @@ function Battle() {
                   onClick={() => battle("starterTwo")}
                 >
                   Change Starter
-                </Button>
+                </button>
               </ListItem>
             </List>
           )}
@@ -1832,7 +1835,11 @@ function Battle() {
       animateBattle();
 
       document.querySelectorAll("button").forEach((button) => {
+        console.log('button', button);
+        
         button.addEventListener("click", (e) => {
+          console.log('button id', button.id);
+          
           if (button.id === "attackButton") {
             // console.log(button);
             const characterSelectedAttack = button.className;
@@ -1872,6 +1879,9 @@ function Battle() {
               button.id === "starterTwo" ||
               button.id == "consumable"
             ) {
+
+              console.log('in switch');
+              
 
               if (button.id === "starterOne") {
                 this.image = starterOne.battle_pic
