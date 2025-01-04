@@ -1872,6 +1872,13 @@ function Battle() {
               button.id === "starterTwo" ||
               button.id == "consumable"
             ) {
+
+              if (button.id === "starterOne") {
+                this.image = starterOne.battle_pic
+              } else if (button.id === "starterTwo") {
+                this.image = starterTwo.battle_pic
+              }
+
               setTimeout(() => {
                 enemy.attack({
                   attack: enemySelectedAttack,
