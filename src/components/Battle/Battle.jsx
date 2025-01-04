@@ -1401,7 +1401,7 @@ function Battle() {
                       }`}
                     />
                     <Button
-                    id="consumable"
+                      id="consumable"
                       sx={{
                         color: "black",
                         fontSize: 9,
@@ -1436,7 +1436,7 @@ function Battle() {
                   secondary={`${starterOneHp}/${starterOne.hp} hp | ${starterOneStamina}/${starterOne.stamina} stamina | ${starterOne.speed} speed`}
                 />
                 <button
-                id="starterOne"
+                  id="starterOne"
                   sx={{
                     color: "black",
                     fontSize: 10,
@@ -1467,7 +1467,7 @@ function Battle() {
                   secondary={`${starterOneHp}/${starterOne.hp} hp | ${starterOneStamina}/${starterOne.stamina} stamina | ${starterOne.speed} speed`}
                 />
                 <button
-                id="starterOne"
+                  id="starterOne"
                   sx={{
                     color: "black",
                     fontSize: 10,
@@ -1498,7 +1498,7 @@ function Battle() {
                   secondary={`${starterTwoHp}/${starterTwo.hp} hp | ${starterTwoStamina}/${starterTwo.stamina} stamina | ${starterTwo.speed} speed`}
                 />
                 <button
-                id="starterTwo"
+                  id="starterTwo"
                   sx={{
                     color: "black",
                     fontSize: 10,
@@ -1836,11 +1836,11 @@ function Battle() {
       animateBattle();
 
       document.querySelectorAll("button").forEach((button) => {
-        console.log('button', button);
-        
+        console.log("button", button);
+
         button.addEventListener("click", (e) => {
-          console.log('button id', button.id);
-          
+          console.log("button id", button.id);
+
           if (button.id === "attackButton") {
             // console.log(button);
             const characterSelectedAttack = button.className;
@@ -1880,14 +1880,12 @@ function Battle() {
               button.id === "starterTwo" ||
               button.id == "consumable"
             ) {
-
-              console.log('in switch');
-              
+              console.log("in switch");
 
               if (button.id === "starterOne") {
-                this.image = starterOne.battle_pic
+                this.image = starterOne.battle_pic;
               } else if (button.id === "starterTwo") {
-                this.image = starterTwo.battle_pic
+                this.image = starterTwo.battle_pic;
               }
 
               setTimeout(() => {
