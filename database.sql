@@ -14,9 +14,9 @@ DROP TABLE IF EXISTS rewards;
 
 DROP TABLE IF EXISTS characters;
 
-DROP TABLE IF EXISTS attack_animations;
-
 DROP TABLE IF EXISTS attacks;
+
+DROP TABLE IF EXISTS attack_animations;
 
 DROP TABLE IF EXISTS basic_attacks;
 
@@ -227,7 +227,7 @@ INSERT INTO "levels"
 	
 	
 INSERT INTO "items" 
-	("item_name", "type", "hp", "stamina", "speed", "attack", "pic", "cost", "color")
+	("item_name", "item_type", "item_hp", "item_stamina", "item_speed", "item_damage", "item_pic", "item_cost", "item_color")
 	VALUES 
 	('healing pot', 'consumable', 25, 0, 0, 0, 'public/images/consumables/LifePot.png', 10, '#FF0100'),
 	('stamina pot', 'consumable', 0, 30, 0, 0, 'public/images/consumables/WaterPot.png', 10, '#00D400'),
