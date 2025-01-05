@@ -601,7 +601,7 @@ function CharacterItem({ character }) {
               {/* <Divider /> */}
               <ListItemText
                 primary="Special Attack Cost"
-                secondary={character.unique_stamina}
+                secondary={character.attack_stamina}
                 sx={{ backgroundColor: "lightgrey", margin: 0 }}
               />
             </Box>

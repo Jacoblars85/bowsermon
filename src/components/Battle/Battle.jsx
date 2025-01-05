@@ -377,7 +377,7 @@ function Battle() {
       if (currentId === starterOne.id) {
         if (attackType === "unique") {
           setEnemyHp(enemyHp - starterOne.attack_damage);
-          setStarterOneStamina(starterOneStamina - starterOne.unique_stamina);
+          setStarterOneStamina(starterOneStamina - starterOne.attack_stamina);
 
           if (enemyHp - starterOne.attack_damage <= 0) {
             setEnemyHp(0);
@@ -428,7 +428,7 @@ function Battle() {
       if (currentId === starterOne.id) {
         if (attackType === "unique") {
           setEnemyHp(enemyHp - starterOne.attack_damage);
-          setStarterOneStamina(starterOneStamina - starterOne.unique_stamina);
+          setStarterOneStamina(starterOneStamina - starterOne.attack_stamina);
 
           if (enemyHp - starterOne.attack_damage <= 0) {
             setEnemyHp(0);
@@ -484,7 +484,7 @@ function Battle() {
       } else if (currentId === starterTwo.id) {
         if (attackType === "unique") {
           setEnemyHp(enemyHp - starterTwo.attack_damage);
-          setStarterTwoStamina(starterTwoStamina - starterTwo.unique_stamina);
+          setStarterTwoStamina(starterTwoStamina - starterTwo.attack_stamina);
 
           if (enemyHp - starterTwo.attack_damage <= 0) {
             setEnemyHp(0);
@@ -688,16 +688,16 @@ function Battle() {
     setTimeout(() => {
       if (starter.length === 1) {
         if (currentId === starterOne.id) {
-          if (enemyStamina >= enemyOne.unique_stamina) {
+          if (enemyStamina >= enemyOne.attack_stamina) {
             if (attackType.type == "consumable") {
               if (starterOneHp + attackType.hp > starterOne.hp) {
                 setStarterOneHp(starterOne.hp - enemyOne.attack_damage);
-                setEnemyStamina(enemyStamina - enemyOne.unique_stamina);
+                setEnemyStamina(enemyStamina - enemyOne.attack_stamina);
               } else {
                 setStarterOneHp(
                   starterOneHp + attackType.hp - enemyOne.attack_damage
                 );
-                setEnemyStamina(enemyStamina - enemyOne.unique_stamina);
+                setEnemyStamina(enemyStamina - enemyOne.attack_stamina);
               }
 
               if (starterOneHp + attackType.hp - enemyOne.attack_damage <= 0) {
@@ -707,7 +707,7 @@ function Battle() {
               }
             } else if (attackType === "starterTwo") {
               setStarterTwoHp(starterTwoHp - enemyOne.attack_damage);
-              setEnemyStamina(enemyStamina - enemyOne.unique_stamina);
+              setEnemyStamina(enemyStamina - enemyOne.attack_stamina);
 
               if (starterTwoHp - enemyOne.attack_damage <= 0) {
                 setStarterTwoHp(0);
@@ -716,7 +716,7 @@ function Battle() {
               }
             } else {
               setStarterOneHp(starterOneHp - enemyOne.attack_damage);
-              setEnemyStamina(enemyStamina - enemyOne.unique_stamina);
+              setEnemyStamina(enemyStamina - enemyOne.attack_stamina);
 
               if (starterOneHp - enemyOne.attack_damage <= 0) {
                 setStarterOneHp(0);
@@ -800,16 +800,16 @@ function Battle() {
         }
       } else if (starter.length === 2) {
         if (currentId === starterOne.id) {
-          if (enemyStamina >= enemyOne.unique_stamina) {
+          if (enemyStamina >= enemyOne.attack_stamina) {
             if (attackType.type == "consumable") {
               if (starterOneHp + attackType.hp > starterOne.hp) {
                 setStarterOneHp(starterOne.hp - enemyOne.attack_damage);
-                setEnemyStamina(enemyStamina - enemyOne.unique_stamina);
+                setEnemyStamina(enemyStamina - enemyOne.attack_stamina);
               } else {
                 setStarterOneHp(
                   starterOneHp + attackType.hp - enemyOne.attack_damage
                 );
-                setEnemyStamina(enemyStamina - enemyOne.unique_stamina);
+                setEnemyStamina(enemyStamina - enemyOne.attack_stamina);
               }
 
               if (
@@ -829,7 +829,7 @@ function Battle() {
               }
             } else if (attackType === "starterTwo") {
               setStarterTwoHp(starterTwoHp - enemyOne.attack_damage);
-              setEnemyStamina(enemyStamina - enemyOne.unique_stamina);
+              setEnemyStamina(enemyStamina - enemyOne.attack_stamina);
 
               if (
                 starterTwoHp - enemyOne.attack_damage <= 0 &&
@@ -845,7 +845,7 @@ function Battle() {
               }
             } else {
               setStarterOneHp(starterOneHp - enemyOne.attack_damage);
-              setEnemyStamina(enemyStamina - enemyOne.unique_stamina);
+              setEnemyStamina(enemyStamina - enemyOne.attack_stamina);
 
               if (
                 starterOneHp - enemyOne.attack_damage <= 0 &&
@@ -982,16 +982,16 @@ function Battle() {
             }
           }
         } else if (currentId === starterTwo.id) {
-          if (enemyStamina >= enemyOne.unique_stamina) {
+          if (enemyStamina >= enemyOne.attack_stamina) {
             if (attackType.type == "consumable") {
               if (starterTwoHp + attackType.hp > starterTwo.hp) {
                 setStarterTwoHp(starterTwo.hp - enemyOne.attack_damage);
-                setEnemyStamina(enemyStamina - enemyOne.unique_stamina);
+                setEnemyStamina(enemyStamina - enemyOne.attack_stamina);
               } else {
                 setStarterTwoHp(
                   starterTwoHp + attackType.hp - enemyOne.attack_damage
                 );
-                setEnemyStamina(enemyStamina - enemyOne.unique_stamina);
+                setEnemyStamina(enemyStamina - enemyOne.attack_stamina);
               }
 
               if (
@@ -1011,7 +1011,7 @@ function Battle() {
               }
             } else if (attackType === "starterOne") {
               setStarterOneHp(starterOneHp - enemyOne.attack_damage);
-              setEnemyStamina(enemyStamina - enemyOne.unique_stamina);
+              setEnemyStamina(enemyStamina - enemyOne.attack_stamina);
 
               if (
                 starterOneHp - enemyOne.attack_damage <= 0 &&
@@ -1027,7 +1027,7 @@ function Battle() {
               }
             } else {
               setStarterTwoHp(starterTwoHp - enemyOne.attack_damage);
-              setEnemyStamina(enemyStamina - enemyOne.unique_stamina);
+              setEnemyStamina(enemyStamina - enemyOne.attack_stamina);
 
               if (
                 starterTwoHp - enemyOne.attack_damage <= 0 &&
@@ -1172,7 +1172,7 @@ function Battle() {
 
   // after 3.5 seconds this will run and put whatever enemy did on the screen
   const enemyTextBox = () => {
-    if (enemyStamina >= enemyOne.unique_stamina) {
+    if (enemyStamina >= enemyOne.attack_stamina) {
       setTextBox(`${enemyOne.name} used ${enemyOne.attack_name}`);
     } else if (enemyStamina >= basicAttacks[0].stamina) {
       setTextBox(`${enemyOne.name} used ${basicAttacks[0].attack}`);
@@ -1247,14 +1247,14 @@ function Battle() {
             }}
             disabled={
               starter.length === 1
-                ? starterOneStamina < starterOne.unique_stamina
+                ? starterOneStamina < starterOne.attack_stamina
                   ? true
                   : isDisabled
                 : currentId === starterOne.id
-                ? starterOneStamina < starterOne.unique_stamina
+                ? starterOneStamina < starterOne.attack_stamina
                   ? true
                   : isDisabled
-                : starterTwoStamina < starterTwo.unique_stamina
+                : starterTwoStamina < starterTwo.attack_stamina
                 ? true
                 : isDisabled
             }
@@ -1847,7 +1847,7 @@ function Battle() {
 
             let enemySelectedAttack = "physical";
 
-            // if (enemyStamina >= enemyOne.unique_stamina) {
+            // if (enemyStamina >= enemyOne.attack_stamina) {
             //   enemySelectedAttack = enemyOne.attack_type;
             // } else if (enemyStamina >= basicAttacks[0].stamina) {
             //   enemySelectedAttack = basicAttacks[0].attack_type;
