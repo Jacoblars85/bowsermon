@@ -4,41 +4,88 @@ const pool = require('../modules/pool')
 
 router.get('/user/characters', (req, res) => {
     // console.log('im in character get');
-    const query = `
-    SELECT "user_characters"."id" as "id",
-    "user_characters"."user_id" as "user_id",
-    "user_characters"."character_id",
-    "user_characters"."starter_1",
-    "user_characters"."starter_2",
-    "user_characters"."new",
-    "user_characters"."nickname",
-    "characters"."name",
-    "characters"."profile_pic",
-    "characters"."hp",
-    "characters"."stamina",
-    "characters"."speed",
-    "characters"."unique_attack",
-    "characters"."unique_damage",
-    "characters"."unique_stamina",
-    "characters"."battle_pic",
-    "items"."id" as "item_id",
-    "items"."name" as "item_name",
-    "items"."hp" as "item_hp",
-    "items"."stamina" as "item_stamina",
-    "items"."pic" as "item_pic",
-    "items"."type" as "item_type",
-    "items"."speed" as "item_speed",
-    "items"."attack" as "item_attack",
-    "items"."cost" as "item_cost",
-    "items"."color" as "item_color"
-FROM "user_characters" 
-INNER JOIN "characters"
-    ON "user_characters"."character_id" = "characters"."id"
-LEFT JOIN "items"
-    ON "user_characters"."item_id" = "items"."id"
-WHERE "user_id" = $1
-ORDER BY "character_id", "id" ASC;
-  `;
+//     const query = `
+//     SELECT "user_characters"."id" as "id",
+//     "user_characters"."user_id" as "user_id",
+//     "user_characters"."character_id",
+//     "user_characters"."starter_1",
+//     "user_characters"."starter_2",
+//     "user_characters"."new",
+//     "user_characters"."nickname",
+//     "characters"."name",
+//     "characters"."profile_pic",
+//     "characters"."hp",
+//     "characters"."stamina",
+//     "characters"."speed",
+//     "characters"."unique_attack",
+//     "characters"."unique_damage",
+//     "characters"."unique_stamina",
+//     "characters"."battle_pic",
+//     "items"."id" as "item_id",
+//     "items"."name" as "item_name",
+//     "items"."hp" as "item_hp",
+//     "items"."stamina" as "item_stamina",
+//     "items"."pic" as "item_pic",
+//     "items"."type" as "item_type",
+//     "items"."speed" as "item_speed",
+//     "items"."attack" as "item_attack",
+//     "items"."cost" as "item_cost",
+//     "items"."color" as "item_color"
+// FROM "user_characters" 
+// INNER JOIN "characters"
+//     ON "user_characters"."character_id" = "characters"."id"
+// LEFT JOIN "items"
+//     ON "user_characters"."item_id" = "items"."id"
+// WHERE "user_id" = $1
+// ORDER BY "character_id", "id" ASC;
+//   `;
+
+const query = `
+SELECT "user_characters"."id" as "id",
+		"user_characters"."user_id" as "user_id",
+		"user_characters"."character_id",
+        "user_characters"."starter_1",
+        "user_characters"."starter_2",
+        "user_characters"."new",
+        "user_characters"."nickname",
+		"characters"."character_name",
+		"characters"."profile_pic",
+		"characters"."hp",
+		"characters"."stamina",
+        "characters"."speed",
+        "characters"."battle_pic",
+        "attacks"."id" as "attacks_id",
+        "attacks"."attack_name",
+        "attacks"."attack_damage",
+        "attacks"."attack_stamina",
+        "attacks"."attack_type",
+        "attack_animations"."id" as "attack_animations_id",
+        "attack_animations"."animation_name",
+        "attack_animations"."max_frames",
+        "attack_animations"."hold_time",
+        "attack_animations"."fx_img",
+        "items"."id" as "item_id",
+        "items"."item_name",
+        "items"."item_hp",
+        "items"."item_stamina",
+        "items"."item_pic",
+        "items"."item_type",
+        "items"."item_speed",
+        "items"."item_damage",
+        "items"."item_cost",
+    	"items"."item_color"
+ FROM "user_characters" 
+	INNER JOIN "characters"
+    	ON "user_characters"."character_id" = "characters"."id"
+    	INNER JOIN "attacks"
+            ON "attacks"."id" = "characters"."attacks_id"
+        INNER JOIN "attack_animations"
+        	ON "attacks"."attack_animations_id" = "attack_animations"."id"
+    LEFT JOIN "items"
+    	ON "user_characters"."item_id" = "items"."id"
+	WHERE "user_id" = 1
+	ORDER BY "character_id", "id" ASC;
+	`
 
   const sqlValues = [req.user.id];
 
