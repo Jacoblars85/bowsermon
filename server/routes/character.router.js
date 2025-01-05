@@ -102,23 +102,48 @@ router.get('/all/characters', (req, res) => {
 
 router.get('/enemy/:id', (req, res) => {
     // console.log('im in enemy get');
-    const query = `
-    SELECT "levels"."id" as "level_id",
-        "levels"."enemy_id" as "enemy_id",
-        "levels"."name" as "level_name",
-        "characters"."name",
+    // const query = `
+    // SELECT "levels"."id" as "level_id",
+    //     "levels"."enemy_id" as "enemy_id",
+    //     "levels"."name" as "level_name",
+    //     "characters"."name",
+    //     "characters"."profile_pic",
+    //     "characters"."hp",
+    //     "characters"."stamina",
+    //     "characters"."speed",
+    //     "characters"."unique_attack",
+    //     "characters"."unique_damage",
+    //     "characters"."unique_stamina",
+    //     "characters"."battle_pic"
+    //         FROM "levels"
+    //     INNER JOIN "characters"
+    //         ON "levels"."enemy_id" = "characters"."id"
+    //     WHERE "levels"."id" = $1;
+    //   `;
+
+        const query = `
+SELECT  "characters"."character_name",
         "characters"."profile_pic",
         "characters"."hp",
         "characters"."stamina",
         "characters"."speed",
-        "characters"."unique_attack",
-        "characters"."unique_damage",
-        "characters"."unique_stamina",
-        "characters"."battle_pic"
-            FROM "levels"
-        INNER JOIN "characters"
-            ON "levels"."enemy_id" = "characters"."id"
-        WHERE "levels"."id" = $1;
+        "characters"."battle_pic",
+        "attacks"."id" as "attacks_id",
+        "attacks"."attack_name",
+        "attacks"."attack_damage",
+        "attacks"."attack_stamina",
+        "attacks"."attack_type",
+        "attack_animations"."id" as "attack_animations_id",
+        "attack_animations"."animation_name",
+        "attack_animations"."max_frames",
+        "attack_animations"."hold_time",
+        "attack_animations"."fx_img"
+            FROM "characters"
+        INNER JOIN "attacks"
+            ON "attacks"."id" = "characters"."attacks_id"
+        INNER JOIN "attack_animations"
+        	ON "attacks"."attack_animations_id" = "attack_animations"."id"
+        WHERE "characters"."id" = $1;
       `;
 
       const sqlValues = [req.params.id];
