@@ -283,11 +283,7 @@ function Nav(props) {
               fontSize: "20px",
             }}
           >
-            <img
-              height={20}
-              width={20}
-              src="/images/Coin2Preview.gif"
-            />{" "}
+            <img height={20} width={20} src="/images/Coin2Preview.gif" />{" "}
             {user.coins}
           </div>
 
@@ -330,7 +326,7 @@ function Nav(props) {
               color="inherit"
               onClick={handleCloseReward}
               aria-label="close"
-              sx={{ boxShadow: "0px 0px 0px 0px"}}
+              sx={{ boxShadow: "0px 0px 0px 0px" }}
             >
               <CloseIcon />
             </IconButton>
@@ -462,7 +458,7 @@ function Nav(props) {
               color: "black",
               fontSize: 16,
               fontFamily: "New Super Mario Font U",
-              borderColor: "black"
+              borderColor: "black",
             }}
             variant="outlined"
             onClick={handleCloseAnimation}
