@@ -595,7 +595,7 @@ function CharacterItem({ character }) {
               {/* <Divider /> */}
               <ListItemText
                 primary="Special Attack Damage"
-                secondary={character.unique_damage}
+                secondary={character.attack_damage}
                 sx={{ backgroundColor: "whitesmoke", margin: 0 }}
               />
               {/* <Divider /> */}
