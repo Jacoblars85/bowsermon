@@ -19,7 +19,7 @@ function StarterItem({ start }) {
             <p className="starterTextSpeed">{start.speed} speed</p>
           </div>
 
-          <p className="starterTextAttack">{start.unique_attack}</p>
+          <p className="starterTextAttack">{start.attack_name}</p>
           <p className="starterDamageTextHp">{start.unique_damage} damage</p>
           <p className="starterTextTakenStamina">
             {start.unique_stamina} stamina

@@ -553,7 +553,7 @@ function Battle() {
               starterOne.nickname === null
                 ? starterOne.name
                 : starterOne.nickname
-            } used ${starterOne.unique_attack}`
+            } used ${starterOne.attack_name}`
           );
         } else if (attackType === "punch") {
           setTextBox(
@@ -597,7 +597,7 @@ function Battle() {
               starterOne.nickname === null
                 ? starterOne.name
                 : starterOne.nickname
-            } used ${starterOne.unique_attack}`
+            } used ${starterOne.attack_name}`
           );
         } else if (attackType === "punch") {
           setTextBox(
@@ -639,7 +639,7 @@ function Battle() {
               starterTwo.nickname === null
                 ? starterTwo.name
                 : starterTwo.nickname
-            } used ${starterTwo.unique_attack}`
+            } used ${starterTwo.attack_name}`
           );
         } else if (attackType === "punch") {
           setTextBox(
@@ -1173,7 +1173,7 @@ function Battle() {
   // after 3.5 seconds this will run and put whatever enemy did on the screen
   const enemyTextBox = () => {
     if (enemyStamina >= enemyOne.unique_stamina) {
-      setTextBox(`${enemyOne.name} used ${enemyOne.unique_attack}`);
+      setTextBox(`${enemyOne.name} used ${enemyOne.attack_name}`);
     } else if (enemyStamina >= basicAttacks[0].stamina) {
       setTextBox(`${enemyOne.name} used ${basicAttacks[0].attack}`);
     } else if (enemyStamina >= basicAttacks[1].stamina) {
@@ -1260,10 +1260,10 @@ function Battle() {
             }
           >
             {starter.length === 1
-              ? starterOne.unique_attack
+              ? starterOne.attack_name
               : currentId === starterOne.id
-              ? starterOne.unique_attack
-              : starterTwo.unique_attack}
+              ? starterOne.attack_name
+              : starterTwo.attack_name}
           </button>
 
           <button
