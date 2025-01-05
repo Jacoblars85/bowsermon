@@ -75,7 +75,7 @@ CREATE TABLE "items" (
 	"item_hp" INT,
 	"item_stamina" INT, 
 	"item_speed" INT,
-	"item_attack" INT,
+	"item_damage" INT,
 	"item_pic" VARCHAR(100),
 	"item_cost" INT,
 	"item_color" VARCHAR(25));
