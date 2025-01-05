@@ -71,14 +71,14 @@ CREATE TABLE "characters" (
 CREATE TABLE "items" (
 	"id" SERIAL PRIMARY KEY,
 	"item_name" VARCHAR(100),
-	"type" VARCHAR(100),
-	"hp" INT,
-	"stamina" INT, 
-	"speed" INT,
-	"attack" INT,
-	"pic" VARCHAR(100),
-	"cost" INT,
-	"color" VARCHAR(25));
+	"item_type" VARCHAR(100),
+	"item_hp" INT,
+	"item_stamina" INT, 
+	"item_speed" INT,
+	"item_attack" INT,
+	"item_pic" VARCHAR(100),
+	"item_cost" INT,
+	"item_color" VARCHAR(25));
 	
 CREATE TABLE "rewards" (
 	"id" SERIAL PRIMARY KEY,
