@@ -1389,11 +1389,11 @@ function Battle() {
                           ? ""
                           : `+${usersConsumables.item_hp} hp`
                       } ${
-                        usersConsumables.stamina === 0
+                        usersConsumables.item_stamina === 0
                           ? ""
                           : usersConsumables.item_hp === 0
-                          ? `+${usersConsumables.stamina} stamina`
-                          : `| +${usersConsumables.stamina} stamina`
+                          ? `+${usersConsumables.item_stamina} stamina`
+                          : `| +${usersConsumables.item_stamina} stamina`
                       } ${
                         usersConsumables.speed === 0
                           ? ""
@@ -2523,11 +2523,11 @@ function Battle() {
                               ? ""
                               : `+${usersConsumables.item_hp} hp`
                           } ${
-                            usersConsumables.stamina === 0
+                            usersConsumables.item_stamina === 0
                               ? ""
                               : usersConsumables.item_hp === 0
-                              ? `+${usersConsumables.stamina} stamina`
-                              : `| +${usersConsumables.stamina} stamina`
+                              ? `+${usersConsumables.item_stamina} stamina`
+                              : `| +${usersConsumables.item_stamina} stamina`
                           } ${
                             usersConsumables.speed === 0
                               ? ""

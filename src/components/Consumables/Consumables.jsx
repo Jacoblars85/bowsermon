@@ -241,9 +241,9 @@ function Consumables({ consumableItem }) {
               margin: 0,
             }}
           >
-            {consumableItem.stamina === 0
+            {consumableItem.item_stamina === 0
               ? ""
-              : `+${consumableItem.stamina} stamina`}
+              : `+${consumableItem.item_stamina} stamina`}
           </p>
 
           <p
@@ -302,7 +302,7 @@ function Consumables({ consumableItem }) {
           }}
           onClick={handleConsumableInfoClose}
         >
-          +{consumableItem.stamina} stamina
+          +{consumableItem.item_stamina} stamina
         </MenuItem>
       </Menu> */}
 

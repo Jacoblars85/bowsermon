@@ -90,9 +90,9 @@ function InventoryItem({ inventoryItem }) {
               margin: 0,
             }}
           >
-            {inventoryItem.stamina === 0
+            {inventoryItem.item_stamina === 0
               ? ""
-              : `+${inventoryItem.stamina} stamina`}
+              : `+${inventoryItem.item_stamina} stamina`}
           </p>
 
           <p

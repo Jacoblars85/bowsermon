@@ -735,9 +735,9 @@ function CharacterItem({ character }) {
                               margin: 0,
                             }}
                           >
-                            {usersHeld.stamina === 0
+                            {usersHeld.item_stamina === 0
                               ? ""
-                              : `+${usersHeld.stamina} stamina`}
+                              : `+${usersHeld.item_stamina} stamina`}
                           </p>
 
                           <p

@@ -260,7 +260,7 @@ function HeldItems({ heldItem }) {
               margin: 0,
             }}
           >
-            {heldItem.stamina === 0 ? "" : `+${heldItem.stamina} stamina`}
+            {heldItem.item_stamina === 0 ? "" : `+${heldItem.item_stamina} stamina`}
           </p>
 
           <p
