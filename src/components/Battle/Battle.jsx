@@ -404,13 +404,13 @@ function Battle() {
           }
         } else if (attackType.type == "consumable") {
           setStarterOneHp(starterOneHp + attackType.item_hp);
-          setStarterOneStamina(starterOneStamina + attackType.stamina);
+          setStarterOneStamina(starterOneStamina + attackType.item_stamina);
           setCurrentSpeed(starterOne.speed + attackType.speed);
 
           if (starterOneHp + attackType.item_hp > starterOne.hp) {
             setStarterOneHp(starterOne.hp);
           }
-          if (starterOneStamina + attackType.stamina > starterOne.stamina) {
+          if (starterOneStamina + attackType.item_stamina > starterOne.stamina) {
             setStarterOneStamina(starterOne.stamina);
           }
 
@@ -455,13 +455,13 @@ function Battle() {
           }
         } else if (attackType.type == "consumable") {
           setStarterOneHp(starterOneHp + attackType.item_hp);
-          setStarterOneStamina(starterOneStamina + attackType.stamina);
+          setStarterOneStamina(starterOneStamina + attackType.item_stamina);
           setCurrentSpeed(starterOne.speed + attackType.speed);
 
           if (starterOneHp + attackType.item_hp > starterOne.hp) {
             setStarterOneHp(starterOne.hp);
           }
-          if (starterOneStamina + attackType.stamina > starterOne.stamina) {
+          if (starterOneStamina + attackType.item_stamina > starterOne.stamina) {
             setStarterOneStamina(starterOne.stamina);
           }
 
@@ -511,13 +511,13 @@ function Battle() {
           }
         } else if (attackType.type == "consumable") {
           setStarterTwoHp(starterTwoHp + attackType.item_hp);
-          setStarterTwoStamina(starterTwoStamina + attackType.stamina);
+          setStarterTwoStamina(starterTwoStamina + attackType.item_stamina);
           setCurrentSpeed(starterTwo.speed + attackType.speed);
 
           if (starterTwoHp + attackType.item_hp > starterTwo.hp) {
             setStarterTwoHp(starterTwo.hp);
           }
-          if (starterTwoStamina + attackType.stamina > starterTwo.stamina) {
+          if (starterTwoStamina + attackType.item_stamina > starterTwo.stamina) {
             setStarterTwoStamina(starterTwo.stamina);
           }
 
