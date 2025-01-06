@@ -700,7 +700,7 @@ function CharacterItem({ character }) {
                             width: "100px",
                           }}
                         >
-                          {usersHeld.name}
+                          {usersHeld.item_name}
                         </h4>
 
                         <Box

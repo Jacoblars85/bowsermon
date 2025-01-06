@@ -51,7 +51,7 @@ function AllCharactersItem({ allCharactersItem }) {
     <>
     <div style={{ width: "100px", }}>
         <h4 style={{ color: "white", width: "100px", height: "auto", margin: 0 }}>
-          {allCharactersItem.name}
+          {allCharactersItem.item_name}
         </h4>
       </div>
 
@@ -161,7 +161,7 @@ function AllCharactersItem({ allCharactersItem }) {
           id="alert-dialog-title"
           sx={{ fontFamily: "New Super Mario Font U", textAlign: "center" }}
         >
-          {`Are you sure you want to buy ${allCharactersItem.name}?`}
+          {`Are you sure you want to buy ${allCharactersItem.item_name}?`}
         </DialogTitle>
         <DialogContent>
           <DialogContentText

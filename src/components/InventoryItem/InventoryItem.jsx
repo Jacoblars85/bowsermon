@@ -136,7 +136,7 @@ function InventoryItem({ inventoryItem }) {
   return (
     <div className={"item_box"}>
       <div className="headerLine">
-        <h3>{inventoryItem.name}</h3>
+        <h3>{inventoryItem.item_name}</h3>
 
         <p className="amountOfItems">{inventoryItem.number}X</p>
       </div>
@@ -178,7 +178,7 @@ function InventoryItem({ inventoryItem }) {
           id="alert-dialog-title"
           sx={{ fontFamily: "New Super Mario Font U", textAlign: "center" }}
         >
-          {`Are you sure you want to sell ${potValue} ${inventoryItem.name}s`}
+          {`Are you sure you want to sell ${potValue} ${inventoryItem.item_name}s`}
         </DialogTitle>
         <DialogContent>
           <DialogContentText
@@ -186,7 +186,7 @@ function InventoryItem({ inventoryItem }) {
             sx={{ fontFamily: "New Super Mario Font U", textAlign: "center" }}
           >
             You will receive {Math.floor((potValue * inventoryItem.cost) / 2)}{" "}
-            coins if you sell {inventoryItem.name}s.
+            coins if you sell {inventoryItem.item_name}s.
           </DialogContentText>
         </DialogContent>
         <DialogActions

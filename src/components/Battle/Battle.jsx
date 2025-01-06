@@ -2517,7 +2517,7 @@ function Battle() {
                             ml: 55,
                             fontFamily: "New Super Mario Font U",
                           }}
-                          primary={usersConsumables.name}
+                          primary={usersConsumables.item_name}
                           secondary={`${
                             usersConsumables.hp === 0
                               ? ""

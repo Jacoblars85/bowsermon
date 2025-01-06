@@ -223,7 +223,7 @@ function HeldItems({ heldItem }) {
 
       <div style={{ width: "100px", marginLeft: "5px" }}>
         <h4 style={{ color: heldItem.color, width: "100px" }}>
-          {heldItem.name}
+          {heldItem.item_name}
         </h4>
       </div>
 
@@ -323,7 +323,7 @@ function HeldItems({ heldItem }) {
           id="alert-dialog-title"
           sx={{ fontFamily: "New Super Mario Font U", textAlign: "center" }}
         >
-          {`Are you sure you want ${heldValue} of the ${heldItem.name}?`}
+          {`Are you sure you want ${heldValue} of the ${heldItem.item_name}?`}
         </DialogTitle>
         <DialogContent>
           <DialogContentText
@@ -385,7 +385,7 @@ function HeldItems({ heldItem }) {
         open={openHeldSnack}
         autoHideDuration={4000}
         onClose={handleHeldSnackClose}
-        message={`Your ${heldItem.name} has been Sent to Your Inventory`}
+        message={`Your ${heldItem.item_name} has been Sent to Your Inventory`}
         // action={action}
       />
     </>

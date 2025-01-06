@@ -204,7 +204,7 @@ function Consumables({ consumableItem }) {
 
       <div style={{ width: "100px", marginLeft: "5px" }}>
         <h4 style={{ color: consumableItem.color, width: "100px" }}>
-          {consumableItem.name}
+          {consumableItem.item_name}
         </h4>
       </div>
 
@@ -352,7 +352,7 @@ function Consumables({ consumableItem }) {
           id="alert-dialog-title"
           sx={{ fontFamily: "New Super Mario Font U", textAlign: "center" }}
         >
-          {`Are you sure you want ${consumableValue} of the ${consumableItem.name}?`}
+          {`Are you sure you want ${consumableValue} of the ${consumableItem.item_name}?`}
         </DialogTitle>
         <DialogContent>
           <DialogContentText
@@ -415,7 +415,7 @@ function Consumables({ consumableItem }) {
         open={openConsumableSnack}
         autoHideDuration={4000}
         onClose={handleConsumableSnackClose}
-        message={`Your ${consumableItem.name} has been Sent to Your Inventory`}
+        message={`Your ${consumableItem.item_name} has been Sent to Your Inventory`}
         // action={action}
       />
     </>
