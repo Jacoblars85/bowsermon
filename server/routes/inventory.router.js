@@ -7,16 +7,16 @@ router.get('/consumable', (req, res) => {
 
     const query = `
     SELECT "id",
- 		"name",
- 		"type",
-        "hp",
-        "stamina",
-        "speed",
-        "pic",
-        "cost",
-        "color"
+ 		"item_name",
+ 		"item_type",
+        "item_hp",
+        "item_stamina",
+        "item_speed",
+        "item_pic",
+        "item_cost",
+        "item_color"
     FROM "items"
-        WHERE "type" = 'consumable';
+        WHERE "item_type" = 'consumable';
   `;
 
     pool.query(query)
@@ -33,17 +33,17 @@ router.get('/held', (req, res) => {
 
     const query = `
     SELECT "id",
- 		"name",
- 		"type",
-        "hp",
-        "stamina",
-        "speed",
-        "attack",
-        "pic",
-        "cost",
-        "color"
+ 		"item_name",
+ 		"item_type",
+        "item_hp",
+        "item_stamina",
+        "item_speed",
+        "item_damage",
+        "item_pic",
+        "item_cost",
+        "item_color"
     FROM "items"
-        WHERE "type" = 'held';
+        WHERE "item_type" = 'held';
   `;
 
     pool.query(query)
@@ -60,15 +60,15 @@ router.get('/all/items', (req, res) => {
 
     const query = `
     SELECT "id",
- 		"name",
- 		"type",
-        "hp",
-        "stamina",
-        "speed",
-        "attack",
-        "pic",
-        "cost",
-        "color"
+ 		"item_name",
+ 		"item_type",
+        "item_hp",
+        "item_stamina",
+        "item_speed",
+        "item_damage",
+        "item_pic",
+        "item_cost",
+        "item_color"
     FROM "items";
   `;
 
