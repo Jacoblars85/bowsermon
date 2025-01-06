@@ -750,9 +750,9 @@ function CharacterItem({ character }) {
                               margin: 0,
                             }}
                           >
-                            {usersHeld.speed === 0
+                            {usersHeld.item_speed === 0
                               ? ""
-                              : `+${usersHeld.speed} speed`}
+                              : `+${usersHeld.item_speed} speed`}
                           </p>
 
                           <p

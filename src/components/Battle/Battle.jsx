@@ -405,7 +405,7 @@ function Battle() {
         } else if (attackType.item_type == "consumable") {
           setStarterOneHp(starterOneHp + attackType.item_hp);
           setStarterOneStamina(starterOneStamina + attackType.item_stamina);
-          setCurrentSpeed(starterOne.speed + attackType.speed);
+          setCurrentSpeed(starterOne.speed + attackType.item_speed);
 
           if (starterOneHp + attackType.item_hp > starterOne.hp) {
             setStarterOneHp(starterOne.hp);
@@ -456,7 +456,7 @@ function Battle() {
         } else if (attackType.item_type == "consumable") {
           setStarterOneHp(starterOneHp + attackType.item_hp);
           setStarterOneStamina(starterOneStamina + attackType.item_stamina);
-          setCurrentSpeed(starterOne.speed + attackType.speed);
+          setCurrentSpeed(starterOne.speed + attackType.item_speed);
 
           if (starterOneHp + attackType.item_hp > starterOne.hp) {
             setStarterOneHp(starterOne.hp);
@@ -512,7 +512,7 @@ function Battle() {
         } else if (attackType.item_type == "consumable") {
           setStarterTwoHp(starterTwoHp + attackType.item_hp);
           setStarterTwoStamina(starterTwoStamina + attackType.item_stamina);
-          setCurrentSpeed(starterTwo.speed + attackType.speed);
+          setCurrentSpeed(starterTwo.speed + attackType.item_speed);
 
           if (starterTwoHp + attackType.item_hp > starterTwo.hp) {
             setStarterTwoHp(starterTwo.hp);
@@ -1395,9 +1395,9 @@ function Battle() {
                           ? `+${usersConsumables.item_stamina} stamina`
                           : `| +${usersConsumables.item_stamina} stamina`
                       } ${
-                        usersConsumables.speed === 0
+                        usersConsumables.item_speed === 0
                           ? ""
-                          : `| +${usersConsumables.speed} speed`
+                          : `| +${usersConsumables.item_speed} speed`
                       }`}
                     />
                     <Button
@@ -2529,9 +2529,9 @@ function Battle() {
                               ? `+${usersConsumables.item_stamina} stamina`
                               : `| +${usersConsumables.item_stamina} stamina`
                           } ${
-                            usersConsumables.speed === 0
+                            usersConsumables.item_speed === 0
                               ? ""
-                              : `| +${usersConsumables.speed} speed`
+                              : `| +${usersConsumables.item_speed} speed`
                           }`}
                         />
                         <Button

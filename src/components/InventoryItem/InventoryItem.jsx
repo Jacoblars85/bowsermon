@@ -105,7 +105,7 @@ function InventoryItem({ inventoryItem }) {
               margin: 0,
             }}
           >
-            {inventoryItem.speed === 0 ? "" : `+${inventoryItem.speed} speed`}
+            {inventoryItem.item_speed === 0 ? "" : `+${inventoryItem.item_speed} speed`}
           </p>
 
           <p

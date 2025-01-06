@@ -273,7 +273,7 @@ function HeldItems({ heldItem }) {
               margin: 0,
             }}
           >
-            {heldItem.speed === 0 ? "" : `+${heldItem.speed} speed`}
+            {heldItem.item_speed === 0 ? "" : `+${heldItem.item_speed} speed`}
           </p>
 
           <p

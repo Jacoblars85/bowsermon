@@ -256,7 +256,7 @@ function Consumables({ consumableItem }) {
               margin: 0,
             }}
           >
-            {consumableItem.speed === 0 ? "" : `+${consumableItem.speed} speed`}
+            {consumableItem.item_speed === 0 ? "" : `+${consumableItem.item_speed} speed`}
           </p>
         </div>
       </div>
