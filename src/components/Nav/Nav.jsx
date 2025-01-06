@@ -392,7 +392,7 @@ function Nav(props) {
                         textAlign: "center",
                       }}
                     >
-                      {rewards.name}
+                      {rewards.reward_name}
                     </h4>
 
                     <button onClick={() => openBox(rewards.reward_id)}>

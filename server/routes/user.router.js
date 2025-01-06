@@ -138,7 +138,7 @@ router.get('/rewards', (req, res) => {
   "user_rewards"."user_id" as "user_id",
   "user_rewards"."reward_id" as "reward_id",
   "user_rewards"."number" as "number",
-  "rewards"."name",
+  "rewards"."reward_name",
   "rewards"."pic"
 FROM "user_rewards"
 INNER JOIN "rewards"
@@ -163,7 +163,7 @@ router.get('/all/rewards', (req, res) => {
 
   const query = `
   SELECT "id",
-  "name",
+  "reward_name",
   "pic",
   "cost"
 FROM "rewards";
