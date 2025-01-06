@@ -1385,13 +1385,13 @@ function Battle() {
                       }}
                       // primary={usersConsumables.name}
                       secondary={`${
-                        usersConsumables.hp === 0
+                        usersConsumables.item_hp === 0
                           ? ""
-                          : `+${usersConsumables.hp} hp`
+                          : `+${usersConsumables.item_hp} hp`
                       } ${
                         usersConsumables.stamina === 0
                           ? ""
-                          : usersConsumables.hp === 0
+                          : usersConsumables.item_hp === 0
                           ? `+${usersConsumables.stamina} stamina`
                           : `| +${usersConsumables.stamina} stamina`
                       } ${
@@ -2519,13 +2519,13 @@ function Battle() {
                           }}
                           primary={usersConsumables.item_name}
                           secondary={`${
-                            usersConsumables.hp === 0
+                            usersConsumables.item_hp === 0
                               ? ""
-                              : `+${usersConsumables.hp} hp`
+                              : `+${usersConsumables.item_hp} hp`
                           } ${
                             usersConsumables.stamina === 0
                               ? ""
-                              : usersConsumables.hp === 0
+                              : usersConsumables.item_hp === 0
                               ? `+${usersConsumables.stamina} stamina`
                               : `| +${usersConsumables.stamina} stamina`
                           } ${

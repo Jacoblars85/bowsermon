@@ -81,7 +81,7 @@ function AllCharactersItem({ allCharactersItem }) {
               margin: 0,
             }}
           >
-            {heldItem.hp === 0 ? "" : `+${heldItem.hp} hp`}
+            {heldItem.item_hp === 0 ? "" : `+${heldItem.item_hp} hp`}
           </p>
 
           <p

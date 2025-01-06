@@ -228,7 +228,7 @@ function Consumables({ consumableItem }) {
               margin: 0,
             }}
           >
-            {consumableItem.hp === 0 ? "" : `+${consumableItem.hp} hp`}
+            {consumableItem.item_hp === 0 ? "" : `+${consumableItem.item_hp} hp`}
           </p>
 
           <p
@@ -290,7 +290,7 @@ function Consumables({ consumableItem }) {
           }}
           onClick={handleConsumableInfoClose}
         >
-          +{consumableItem.hp} HP
+          +{consumableItem.item_hp} HP
         </MenuItem>
         <MenuItem
           sx={{

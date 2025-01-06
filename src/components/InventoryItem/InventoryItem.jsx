@@ -77,7 +77,7 @@ function InventoryItem({ inventoryItem }) {
               margin: 0,
             }}
           >
-            {inventoryItem.hp === 0 ? "" : `+${inventoryItem.hp} hp`}
+            {inventoryItem.item_hp === 0 ? "" : `+${inventoryItem.item_hp} hp`}
           </p>
 
           <p

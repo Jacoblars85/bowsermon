@@ -722,7 +722,7 @@ function CharacterItem({ character }) {
                               margin: 0,
                             }}
                           >
-                            {usersHeld.hp === 0 ? "" : `+${usersHeld.hp} hp`}
+                            {usersHeld.item_hp === 0 ? "" : `+${usersHeld.item_hp} hp`}
                           </p>
 
                           <p
