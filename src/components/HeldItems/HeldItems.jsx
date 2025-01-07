@@ -144,7 +144,7 @@ function HeldItems({ heldItem }) {
   };
 
   const buyHeld = (heldAmount) => {
-    if (user.coins < heldAmount * heldItem.cost) {
+    if (user.coins < heldAmount * heldItem.item_cost) {
       setHeldOpen(false);
       return alert("you are broke broke, sorry");
     } else {
@@ -155,7 +155,7 @@ function HeldItems({ heldItem }) {
         payload: {
           itemId: heldItem.id,
           amountNum: heldAmount,
-          totalCoins: heldAmount * heldItem.cost,
+          totalCoins: heldAmount * heldItem.item_cost,
         },
       });
 
@@ -165,7 +165,7 @@ function HeldItems({ heldItem }) {
       //     data: {
       //       itemId: heldItem.id,
       //     amountNum: heldAmount,
-      //     totalCoins: heldAmount * heldItem.cost,
+      //     totalCoins: heldAmount * heldItem.item_cost,
       //     },
       //   })
       //     .then((responses) => {
@@ -299,13 +299,13 @@ function HeldItems({ heldItem }) {
             textShadow: "2px 2px black",
           }}
         >
-          {heldItem.cost}x{" "}
+          {heldItem.item_cost}x{" "}
           <img height={20} width={20} src="/images/Coin2Preview.gif" />{" "}
         </h5>
 
         <button
           style={{ width: "100%" }}
-          disabled={user.coins < heldItem.cost ? true : false}
+          disabled={user.coins < heldItem.item_cost ? true : false}
           onClick={handleHeldClickOpen}
         >
           Buy
@@ -333,7 +333,7 @@ function HeldItems({ heldItem }) {
               textAlign: "center",
             }}
           >
-            This will cost {heldValue * heldItem.cost} coins and you can not get
+            This will cost {heldValue * heldItem.item_cost} coins and you can not get
             a refund.
           </DialogContentText>
         </DialogContent>
@@ -346,9 +346,9 @@ function HeldItems({ heldItem }) {
             onChange={(event, val) => setHeldValue(val)}
             min={1}
             max={
-              Math.floor(user.coins / heldItem.cost) >= 9
+              Math.floor(user.coins / heldItem.item_cost) >= 9
                 ? 9
-                : Math.floor(user.coins / heldItem.cost)
+                : Math.floor(user.coins / heldItem.item_cost)
             }
           />
           <Button

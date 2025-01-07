@@ -146,7 +146,7 @@ function Consumables({ consumableItem }) {
   };
 
   const buyConsumable = (consumableAmount) => {
-    if (user.coins < consumableAmount * consumableItem.cost) {
+    if (user.coins < consumableAmount * consumableItem.item_cost) {
       setConsumableOpen(false);
       return alert("you are broke broke, sorry");
     } else {
@@ -157,7 +157,7 @@ function Consumables({ consumableItem }) {
         payload: {
           itemId: consumableItem.id,
           amountNum: consumableAmount,
-          totalCoins: consumableAmount * consumableItem.cost,
+          totalCoins: consumableAmount * consumableItem.item_cost,
         },
       });
     }
@@ -324,7 +324,7 @@ function Consumables({ consumableItem }) {
 
       <div style={{ marginRight: "10px" }}>
         <h5 style={{ color: "#FEF202", fontSize: 25 }}>
-          {consumableItem.cost}x{" "}
+          {consumableItem.item_cost}x{" "}
           <img
             height={20}
             width={20}
@@ -334,7 +334,7 @@ function Consumables({ consumableItem }) {
 
         <button
           style={{ width: "100%" }}
-          disabled={user.coins < consumableItem.cost ? true : false}
+          disabled={user.coins < consumableItem.item_cost ? true : false}
           onClick={handleConsumableClickOpen}
         >
           Buy
@@ -362,7 +362,7 @@ function Consumables({ consumableItem }) {
               textAlign: "center",
             }}
           >
-            This will cost {consumableValue * consumableItem.cost} coins and you
+            This will cost {consumableValue * consumableItem.item_cost} coins and you
             can not get a refund.
           </DialogContentText>
         </DialogContent>
@@ -376,9 +376,9 @@ function Consumables({ consumableItem }) {
             onChange={(event, val) => setConsumableValue(val)}
             min={1}
             max={
-              Math.floor(user.coins / consumableItem.cost) >= 9
+              Math.floor(user.coins / consumableItem.item_cost) >= 9
                 ? 9
-                : Math.floor(user.coins / consumableItem.cost)
+                : Math.floor(user.coins / consumableItem.item_cost)
             }
           />
           <Button
