@@ -203,7 +203,7 @@ function Consumables({ consumableItem }) {
       </div>
 
       <div style={{ width: "100px", marginLeft: "5px" }}>
-        <h4 style={{ color: consumableItem.color, width: "100px" }}>
+        <h4 style={{ color: consumableItem.item_color, width: "100px" }}>
           {consumableItem.item_name}
         </h4>
       </div>

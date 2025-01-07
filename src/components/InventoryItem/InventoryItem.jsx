@@ -159,7 +159,7 @@ function InventoryItem({ inventoryItem }) {
             marks
             min={1}
             max={inventoryItem.number}
-            sx={{ color: inventoryItem.color }}
+            sx={{ color: inventoryItem.item_color }}
           />
         </Box>
       </div>

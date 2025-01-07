@@ -222,7 +222,7 @@ function HeldItems({ heldItem }) {
       </div>
 
       <div style={{ width: "100px", marginLeft: "5px" }}>
-        <h4 style={{ color: heldItem.color, width: "100px" }}>
+        <h4 style={{ color: heldItem.item_color, width: "100px" }}>
           {heldItem.item_name}
         </h4>
       </div>

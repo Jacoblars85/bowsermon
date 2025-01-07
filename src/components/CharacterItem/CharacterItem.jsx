@@ -685,7 +685,7 @@ function CharacterItem({ character }) {
                         >
                           <p
                             style={{
-                              color: usersHeld.color,
+                              color: usersHeld.item_color,
                               fontSize: "25px",
                             }}
                           >
@@ -695,7 +695,7 @@ function CharacterItem({ character }) {
                         </Box>
                         <h4
                           style={{
-                            color: usersHeld.color,
+                            color: usersHeld.item_color,
                             fontSize: "25px",
                             width: "100px",
                           }}
