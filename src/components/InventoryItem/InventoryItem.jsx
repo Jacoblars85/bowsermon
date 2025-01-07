@@ -118,9 +118,9 @@ function InventoryItem({ inventoryItem }) {
               margin: 0,
             }}
           >
-            {inventoryItem.attack === 0
+            {inventoryItem.item_damage === 0
               ? ""
-              : `+${inventoryItem.attack} damage`}
+              : `+${inventoryItem.item_damage} damage`}
           </p>
         </div>
       );

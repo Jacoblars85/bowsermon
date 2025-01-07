@@ -286,7 +286,7 @@ function HeldItems({ heldItem }) {
               margin: 0,
             }}
           >
-            {heldItem.attack === 0 ? "" : `+${heldItem.attack} damage`}
+            {heldItem.item_damage === 0 ? "" : `+${heldItem.item_damage} damage`}
           </p>
         </div>
       </div>

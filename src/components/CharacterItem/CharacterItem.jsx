@@ -765,9 +765,9 @@ function CharacterItem({ character }) {
                               margin: 0,
                             }}
                           >
-                            {usersHeld.attack === 0
+                            {usersHeld.item_damage === 0
                               ? ""
-                              : `+${usersHeld.attack} damage`}
+                              : `+${usersHeld.item_damage} damage`}
                           </p>
                         </Box>
                       </Box>
