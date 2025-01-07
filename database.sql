@@ -229,21 +229,21 @@ INSERT INTO "levels"
 INSERT INTO "items" 
 	("item_name", "item_type", "item_hp", "item_stamina", "item_speed", "item_damage", "item_pic", "item_cost", "item_color")
 	VALUES 
-	('healing pot', 'consumable', 25, 0, 0, 0, 'public/images/consumables/LifePot.png', 10, '#FF0100'),
-	('stamina pot', 'consumable', 0, 50, 0, 0, 'public/images/consumables/WaterPot.png', 10, '#00D400'),
-	('speed pot', 'consumable', 0, 50, 10, 0, 'public/images/consumables/Honey.png', 40, '#FF9A1E'),
-	('mega pot', 'consumable', 50, 75, 0, 0, 'public/images/consumables/MilkPot.png', 50, '#FFD42A'),
-	('beef', 'consumable', 30, 40, 0, 0, 'public/images/consumables/Yakitori.png', 50, '#FFD42A'),
-	('med kit', 'consumable', 75, 0, 0, 0, 'public/images/consumables/Medpack.png', 70, '#FF0100'),
-	('heart', 'consumable', 100, 100, 0, 0, 'public/images/consumables/Heart.png', 120, '#FEF202'),
+	('healing pot', 'consumable', 25, 0, 0, 0, '/images/consumables/LifePot.png', 10, '#FF0100'),
+	('stamina pot', 'consumable', 0, 50, 0, 0, '/images/consumables/WaterPot.png', 10, '#00D400'),
+	('speed pot', 'consumable', 0, 50, 10, 0, '/images/consumables/Honey.png', 40, '#FF9A1E'),
+	('mega pot', 'consumable', 50, 75, 0, 0, '/images/consumables/MilkPot.png', 50, '#FFD42A'),
+	('beef', 'consumable', 30, 40, 0, 0, '/images/consumables/Yakitori.png', 50, '#FFD42A'),
+	('med kit', 'consumable', 75, 0, 0, 0, '/images/consumables/Medpack.png', 70, '#FF0100'),
+	('heart', 'consumable', 100, 100, 0, 0, '/images/consumables/Heart.png', 120, '#FEF202'),
 
-	('stick', 'held', 0, 0, 0, 5, 'public/images/held/StickSprite.png', 100, '#000000'),
-	('club', 'held', 0, 0, 0, 10, 'public/images/held/ClubSprite.png', 150, '#000000'),
-	('short sword', 'held', 0, 0, 0, 20, 'public/images/held/ShortSwordSprite.png', 80, '#000000'),
-	('sword', 'held', 0, 0, 0, 30, 'public/images/held/SwordSprite.png', 150, '#000000'),
-	('book', 'held', 0, 0, 0, 0, 'public/images/held/BookSprite.png', 80, '#000000'),
-	('hammer', 'held', 0, 0, 0, 25, 'public/images/held/HammerSprite.png', 100, '#000000'),
-	('magic wand', 'held', 0, 0, 0, 0, 'public/images/held/MagicWandSprite.png', 150, '#000000'),
+	('stick', 'held', 0, 0, 0, 5, '/images/held/StickSprite.png', 100, '#000000'),
+	('club', 'held', 0, 0, 0, 10, '/images/held/ClubSprite.png', 150, '#000000'),
+	('short sword', 'held', 0, 0, 0, 20, '/images/held/ShortSwordSprite.png', 80, '#000000'),
+	('sword', 'held', 0, 0, 0, 30, '/images/held/SwordSprite.png', 150, '#000000'),
+	('book', 'held', 0, 0, 0, 0, '/images/held/BookSprite.png', 80, '#000000'),
+	('hammer', 'held', 0, 0, 0, 25, '/images/held/HammerSprite.png', 100, '#000000'),
+	('magic wand', 'held', 0, 0, 0, 0, '/images/held/MagicWandSprite.png', 150, '#000000'),
 	('', 'held', 0, 0, 0, 0, '', 200, '#000000'),
 	('', 'held', 0, 0, 0, 0, '', 250, '#000000');
 	
