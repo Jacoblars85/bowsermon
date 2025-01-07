@@ -1366,7 +1366,7 @@ function Battle() {
                       >
                         {usersConsumables.number}X
                       </p>
-                      <img height={35} width={35} src={usersConsumables.pic} />
+                      <img height={35} width={35} src={usersConsumables.item_pic} />
                     </Box>
 
                     <ListItemText
@@ -2508,7 +2508,7 @@ function Battle() {
                           <img
                             height={125}
                             width={125}
-                            src={usersConsumables.pic}
+                            src={usersConsumables.item_pic}
                           />
                         </Box>
 

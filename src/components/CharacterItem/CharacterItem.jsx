@@ -691,7 +691,7 @@ function CharacterItem({ character }) {
                           >
                             {usersHeld.number}X
                           </p>
-                          <img height={70} width={70} src={usersHeld.pic} />
+                          <img height={70} width={70} src={usersHeld.item_pic} />
                         </Box>
                         <h4
                           style={{

@@ -127,7 +127,7 @@ function InventoryItem({ inventoryItem }) {
     } else {
       return (
         <>
-          <img height={125} width={125} src={inventoryItem.pic} />
+          <img height={125} width={125} src={inventoryItem.item_pic} />
         </>
       );
     }
