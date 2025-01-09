@@ -2019,7 +2019,7 @@ function Battle() {
             padding: "10px",
           }}
         >
-          <h1 style={{ margin: 0 }}>{enemyOne.name}</h1>
+          <h1 style={{ margin: 0 }}>{enemyOne.character_name}</h1>
 
           <progress
             className="hp-meter"
