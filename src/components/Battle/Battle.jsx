@@ -76,6 +76,8 @@ function Battle() {
       url: "/api/characters/starter",
     })
       .then((response) => {
+        console.log('response', response);
+        
         if (response.data.length === 1) {
           setStarterOneHp(response.data[0].hp);
           setStarterOneStamina(response.data[0].stamina);
@@ -126,9 +128,11 @@ function Battle() {
       url: `/api/characters/basic`,
     })
       .then((response) => {
-        setKickAttack(response.data[0].attack);
+        console.log('basic response', response);
+
+        setKickAttack(response.data[0].attack_name);
         setKickStamina(response.data[0].stamina);
-        setPokeAttack(response.data[1].attack);
+        setPokeAttack(response.data[1].attack_name);
         setPokeStamina(response.data[1].stamina);
       })
       .catch((err) => {
