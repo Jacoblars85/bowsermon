@@ -131,9 +131,9 @@ function Battle() {
         console.log('basic response', response);
 
         setKickAttack(response.data[0].attack_name);
-        setKickStamina(response.data[0].stamina);
+        setKickStamina(response.data[0].attack_stamina);
         setPokeAttack(response.data[1].attack_name);
-        setPokeStamina(response.data[1].stamina);
+        setPokeStamina(response.data[1].attack_stamina);
       })
       .catch((err) => {
         console.log(err);
