@@ -1991,7 +1991,7 @@ function Battle() {
         });
       });
     }
-  }, [pokeAttack]);
+  }, [enemyPicture]);
 
   return (
     <div className="battle">
