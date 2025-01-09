@@ -128,8 +128,6 @@ function Battle() {
       url: `/api/characters/basic`,
     })
       .then((response) => {
-        console.log('basic response', response);
-
         setKickAttack(response.data[0].attack_name);
         setKickStamina(response.data[0].attack_stamina);
         setPokeAttack(response.data[1].attack_name);
@@ -565,7 +563,7 @@ function Battle() {
               starterOne.nickname === null
                 ? starterOne.name
                 : starterOne.nickname
-            } used ${basicAttacks[0].attack}`
+            } used ${basicAttacks[0].attack_name}`
           );
         } else if (attackType === "poke") {
           setTextBox(
@@ -573,7 +571,7 @@ function Battle() {
               starterOne.nickname === null
                 ? starterOne.name
                 : starterOne.nickname
-            } used ${basicAttacks[1].attack}`
+            } used ${basicAttacks[1].attack_name}`
           );
         } else if (attackType.item_type == "consumable") {
           setTextBox(
@@ -609,7 +607,7 @@ function Battle() {
               starterOne.nickname === null
                 ? starterOne.name
                 : starterOne.nickname
-            } used ${basicAttacks[0].attack}`
+            } used ${basicAttacks[0].attack_name}`
           );
         } else if (attackType === "poke") {
           setTextBox(
@@ -617,7 +615,7 @@ function Battle() {
               starterOne.nickname === null
                 ? starterOne.name
                 : starterOne.nickname
-            } used ${basicAttacks[1].attack}`
+            } used ${basicAttacks[1].attack_name}`
           );
         } else if (attackType.item_type == "consumable") {
           setTextBox(
@@ -651,7 +649,7 @@ function Battle() {
               starterTwo.nickname === null
                 ? starterTwo.name
                 : starterTwo.nickname
-            } used ${basicAttacks[0].attack}`
+            } used ${basicAttacks[0].attack_name}`
           );
         } else if (attackType === "poke") {
           setTextBox(
@@ -659,7 +657,7 @@ function Battle() {
               starterTwo.nickname === null
                 ? starterTwo.name
                 : starterTwo.nickname
-            } used ${basicAttacks[1].attack}`
+            } used ${basicAttacks[1].attack_name}`
           );
         } else if (attackType.item_type == "consumable") {
           setTextBox(
@@ -1179,9 +1177,9 @@ function Battle() {
     if (enemyStamina >= enemyOne.attack_stamina) {
       setTextBox(`${enemyOne.name} used ${enemyOne.attack_name}`);
     } else if (enemyStamina >= basicAttacks[0].attack_stamina) {
-      setTextBox(`${enemyOne.name} used ${basicAttacks[0].attack}`);
+      setTextBox(`${enemyOne.name} used ${basicAttacks[0].attack_name}`);
     } else if (enemyStamina >= basicAttacks[1].attack_stamina) {
-      setTextBox(`${enemyOne.name} used ${basicAttacks[1].attack}`);
+      setTextBox(`${enemyOne.name} used ${basicAttacks[1].attack_name}`);
     } else if (enemyStamina === 0) {
       setTextBox(
         `${enemyOne.name} tried to attack but it failed. They have no more stamina and could not move.`
