@@ -1175,14 +1175,14 @@ function Battle() {
   // after 3.5 seconds this will run and put whatever enemy did on the screen
   const enemyTextBox = () => {
     if (enemyStamina >= enemyOne.attack_stamina) {
-      setTextBox(`${enemyOne.name} used ${enemyOne.attack_name}`);
+      setTextBox(`${enemyOne.character_name} used ${enemyOne.attack_name}`);
     } else if (enemyStamina >= basicAttacks[0].attack_stamina) {
-      setTextBox(`${enemyOne.name} used ${basicAttacks[0].attack_name}`);
+      setTextBox(`${enemyOne.character_name} used ${basicAttacks[0].attack_name}`);
     } else if (enemyStamina >= basicAttacks[1].attack_stamina) {
-      setTextBox(`${enemyOne.name} used ${basicAttacks[1].attack_name}`);
+      setTextBox(`${enemyOne.character_name} used ${basicAttacks[1].attack_name}`);
     } else if (enemyStamina === 0) {
       setTextBox(
-        `${enemyOne.name} tried to attack but it failed. They have no more stamina and could not move.`
+        `${enemyOne.character_name} tried to attack but it failed. They have no more stamina and could not move.`
       );
     }
   };
