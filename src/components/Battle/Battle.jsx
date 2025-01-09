@@ -1474,7 +1474,9 @@ function Battle() {
                       }`}
                     />
                     <Button
-                      id="consumable"
+                      // id="consumable"
+                      id="attackButton"
+                  className="consumable"
                       sx={{
                         color: "black",
                         fontSize: 9,
@@ -1509,7 +1511,8 @@ function Battle() {
                   secondary={`${starterOneHp}/${starterOne.hp} hp | ${starterOneStamina}/${starterOne.stamina} stamina | ${starterOne.speed} speed`}
                 />
                 <button
-                  id="starterOne"
+                  id="attackButton"
+                  className="starterOne"
                   sx={{
                     color: "black",
                     fontSize: 10,
@@ -1540,7 +1543,8 @@ function Battle() {
                   secondary={`${starterOneHp}/${starterOne.hp} hp | ${starterOneStamina}/${starterOne.stamina} stamina | ${starterOne.speed} speed`}
                 />
                 <button
-                  id="starterOne"
+                  id="attackButton"
+                  className="starterOne"
                   sx={{
                     color: "black",
                     fontSize: 10,
@@ -1571,7 +1575,8 @@ function Battle() {
                   secondary={`${starterTwoHp}/${starterTwo.hp} hp | ${starterTwoStamina}/${starterTwo.stamina} stamina | ${starterTwo.speed} speed`}
                 />
                 <button
-                  id="starterTwo"
+                  id="attackButton"
+                  className="starterTwo"
                   sx={{
                     color: "black",
                     fontSize: 10,
@@ -1909,13 +1914,13 @@ function Battle() {
       animateBattle();
 
       document.querySelectorAll("button").forEach((button) => {
-        console.log("button", button);
+        // console.log("button", button);
 
         button.addEventListener("click", (e) => {
-          console.log("button id", button.id);
+          // console.log("button id", button.id);
 
           if (button.id === "attackButton") {
-            // console.log(button);
+            // console.log('in attack button', button);
             const characterSelectedAttack = button.className;
 
             let enemySelectedAttack = "physical";
