@@ -608,7 +608,7 @@ function Battle() {
               starterOne.nickname === null
                 ? starterOne.character_name
                 : starterOne.nickname
-            } switched out into ${starterTwo.name}.`
+            } switched out into ${starterTwo.character_name}.`
           );
         }
       }
@@ -652,7 +652,7 @@ function Battle() {
               starterOne.nickname === null
                 ? starterOne.character_name
                 : starterOne.nickname
-            } switched out into ${starterTwo.name}.`
+            } switched out into ${starterTwo.character_name}.`
           );
         }
       } else if (currentId === starterTwo.id) {
@@ -1572,7 +1572,7 @@ function Battle() {
                 <img height={50} width={50} src={starterTwo.profile_pic} />
                 <ListItemText
                   sx={{ ml: 25 }}
-                  primary={`starter 2: ${starterTwo.name}`}
+                  primary={`starter 2: ${starterTwo.character_name}`}
                   secondary={`${starterTwoHp}/${starterTwo.hp} hp | ${starterTwoStamina}/${starterTwo.stamina} stamina | ${starterTwo.speed} speed`}
                 />
                 <button
@@ -2369,7 +2369,7 @@ function Battle() {
                 <img height={200} width={200} src={starterTwo.profile_pic} />
                 <ListItemText
                   sx={{ ml: 55 }}
-                  primary={`starter 2: ${starterTwo.name}`}
+                  primary={`starter 2: ${starterTwo.character_name}`}
                   secondary={`${starterTwoHp}/${starterTwo.hp} hp | ${starterTwoStamina}/${starterTwo.stamina} stamina | ${starterTwo.speed} speed`}
                 />
                 <Button
@@ -2497,7 +2497,7 @@ function Battle() {
                 <img height={200} width={200} src={starterTwo.profile_pic} />
                 <ListItemText
                   sx={{ ml: 55 }}
-                  primary={`starter 2: ${starterTwo.name}`}
+                  primary={`starter 2: ${starterTwo.character_name}`}
                   secondary={`${starterTwoHp}/${starterTwo.hp} hp | ${starterTwoStamina}/${starterTwo.stamina} stamina | ${starterTwo.speed} speed`}
                 />
                 <Button
