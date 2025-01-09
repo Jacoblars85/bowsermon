@@ -553,7 +553,7 @@ function Battle() {
           setTextBox(
             `${
               starterOne.nickname === null
-                ? starterOne.name
+                ? starterOne.character_name
                 : starterOne.nickname
             } used ${starterOne.attack_name}`
           );
@@ -561,7 +561,7 @@ function Battle() {
           setTextBox(
             `${
               starterOne.nickname === null
-                ? starterOne.name
+                ? starterOne.character_name
                 : starterOne.nickname
             } used ${basicAttacks[0].attack_name}`
           );
@@ -569,7 +569,7 @@ function Battle() {
           setTextBox(
             `${
               starterOne.nickname === null
-                ? starterOne.name
+                ? starterOne.character_name
                 : starterOne.nickname
             } used ${basicAttacks[1].attack_name}`
           );
@@ -577,7 +577,7 @@ function Battle() {
           setTextBox(
             `${
               starterOne.nickname === null
-                ? starterOne.name
+                ? starterOne.character_name
                 : starterOne.nickname
             } used a ${attackType.name}`
           );
@@ -585,7 +585,7 @@ function Battle() {
           setTextBox(
             `${
               starterOne.nickname === null
-                ? starterOne.name
+                ? starterOne.character_name
                 : starterOne.nickname
             } switched out into ${starterTwo.name}.`
           );
