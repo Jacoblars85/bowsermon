@@ -82,7 +82,7 @@ function Battle() {
           setStarterOneHp(response.data[0].hp);
           setStarterOneStamina(response.data[0].stamina);
           setCurrentId(response.data[0].id);
-          setCurrentName(response.data[0].name);
+          setCurrentName(response.data[0].character_name);
           setCurrentSpeed(response.data[0].speed);
           setMaxHp(response.data[0].hp);
           setMaxStamina(response.data[0].stamina);
@@ -91,7 +91,7 @@ function Battle() {
           setStarterOneHp(response.data[0].hp);
           setStarterOneStamina(response.data[0].stamina);
           setCurrentId(response.data[0].id);
-          setCurrentName(response.data[0].name);
+          setCurrentName(response.data[0].character_name);
           setCurrentSpeed(response.data[0].speed);
           setMaxHp(response.data[0].hp);
           setMaxStamina(response.data[0].stamina);
@@ -618,7 +618,7 @@ function Battle() {
           setTextBox(
             `${
               starterOne.nickname === null
-                ? starterOne.name
+                ? starterOne.character_name
                 : starterOne.nickname
             } used ${starterOne.attack_name}`
           );
@@ -626,7 +626,7 @@ function Battle() {
           setTextBox(
             `${
               starterOne.nickname === null
-                ? starterOne.name
+                ? starterOne.character_name
                 : starterOne.nickname
             } used ${basicAttacks[0].attack_name}`
           );
@@ -634,7 +634,7 @@ function Battle() {
           setTextBox(
             `${
               starterOne.nickname === null
-                ? starterOne.name
+                ? starterOne.character_name
                 : starterOne.nickname
             } used ${basicAttacks[1].attack_name}`
           );
@@ -642,7 +642,7 @@ function Battle() {
           setTextBox(
             `${
               starterOne.nickname === null
-                ? starterOne.name
+                ? starterOne.character_name
                 : starterOne.nickname
             } used a ${attackType.name}`
           );
@@ -650,7 +650,7 @@ function Battle() {
           setTextBox(
             `${
               starterOne.nickname === null
-                ? starterOne.name
+                ? starterOne.character_name
                 : starterOne.nickname
             } switched out into ${starterTwo.name}.`
           );
@@ -660,7 +660,7 @@ function Battle() {
           setTextBox(
             `${
               starterTwo.nickname === null
-                ? starterTwo.name
+                ? starterTwo.character_name
                 : starterTwo.nickname
             } used ${starterTwo.attack_name}`
           );
@@ -668,7 +668,7 @@ function Battle() {
           setTextBox(
             `${
               starterTwo.nickname === null
-                ? starterTwo.name
+                ? starterTwo.character_name
                 : starterTwo.nickname
             } used ${basicAttacks[0].attack_name}`
           );
@@ -676,7 +676,7 @@ function Battle() {
           setTextBox(
             `${
               starterTwo.nickname === null
-                ? starterTwo.name
+                ? starterTwo.character_name
                 : starterTwo.nickname
             } used ${basicAttacks[1].attack_name}`
           );
@@ -684,7 +684,7 @@ function Battle() {
           setTextBox(
             `${
               starterTwo.nickname === null
-                ? starterTwo.name
+                ? starterTwo.character_name
                 : starterTwo.nickname
             } used a ${attackType.name}`
           );
@@ -692,9 +692,9 @@ function Battle() {
           setTextBox(
             `${
               starterTwo.nickname === null
-                ? starterTwo.name
+                ? starterTwo.character_name
                 : starterTwo.nickname
-            } switched out into ${starterOne.name}.`
+            } switched out into ${starterOne.character_name}.`
           );
         }
       }
@@ -1510,7 +1510,7 @@ function Battle() {
                 <img height={50} width={50} src={starterOne.profile_pic} />
                 <ListItemText
                   sx={{ ml: 25 }}
-                  primary={`starter 1: ${starterOne.name}`}
+                  primary={`starter 1: ${starterOne.character_name}`}
                   secondary={`${starterOneHp}/${starterOne.hp} hp | ${starterOneStamina}/${starterOne.stamina} stamina | ${starterOne.speed} speed`}
                 />
                 <button
@@ -1541,7 +1541,7 @@ function Battle() {
                 <img height={50} width={50} src={starterOne.profile_pic} />
                 <ListItemText
                   sx={{ ml: 25 }}
-                  primary={`starter 1: ${starterOne.name}`}
+                  primary={`starter 1: ${starterOne.character_name}`}
                   secondary={`${starterOneHp}/${starterOne.hp} hp | ${starterOneStamina}/${starterOne.stamina} stamina | ${starterOne.speed} speed`}
                 />
                 <button
@@ -2308,7 +2308,7 @@ function Battle() {
                 <img height={200} width={200} src={starterOne.profile_pic} />
                 <ListItemText
                   sx={{ ml: 55 }}
-                  primary={`starter 1: ${starterOne.name}`}
+                  primary={`starter 1: ${starterOne.character_name}`}
                   secondary={`${starterOneHp}/${starterOne.hp} hp | ${starterOneStamina}/${starterOne.stamina} stamina | ${starterOne.speed} speed`}
                 />
                 <Button
@@ -2339,7 +2339,7 @@ function Battle() {
                 <img height={200} width={200} src={starterOne.profile_pic} />
                 <ListItemText
                   sx={{ ml: 55 }}
-                  primary={`starter 1: ${starterOne.name}`}
+                  primary={`starter 1: ${starterOne.character_name}`}
                   secondary={`${starterOneHp}/${starterOne.hp} hp | ${starterOneStamina}/${starterOne.stamina} stamina | ${starterOne.speed} speed`}
                 />
                 <Button
@@ -2436,7 +2436,7 @@ function Battle() {
                 <img height={200} width={200} src={starterOne.profile_pic} />
                 <ListItemText
                   sx={{ ml: 55 }}
-                  primary={`starter 1: ${starterOne.name}`}
+                  primary={`starter 1: ${starterOne.character_name}`}
                   secondary={`${starterOneHp}/${starterOne.hp} hp | ${starterOneStamina}/${starterOne.stamina} stamina | ${starterOne.speed} speed`}
                 />
                 <Button
@@ -2467,7 +2467,7 @@ function Battle() {
                 <img height={200} width={200} src={starterOne.profile_pic} />
                 <ListItemText
                   sx={{ ml: 55 }}
-                  primary={`starter 1: ${starterOne.name}`}
+                  primary={`starter 1: ${starterOne.character_name}`}
                   secondary={`${starterOneHp}/${starterOne.hp} hp | ${starterOneStamina}/${starterOne.stamina} stamina | ${starterOne.speed} speed`}
                 />
                 <Button
