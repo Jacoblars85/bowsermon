@@ -129,10 +129,10 @@ function Battle() {
       .then((response) => {
         setKickAttack(response.data[0].attack_name);
         setKickStamina(response.data[0].attack_stamina);
-        setKickAttackType(response.data[0].attack_type)
+        setKickAttackType(response.data[0].attack_type);
         setPokeAttack(response.data[1].attack_name);
         setPokeStamina(response.data[1].attack_stamina);
-        setPokeAttackType(response.data[1].attack_type)
+        setPokeAttackType(response.data[1].attack_type);
       })
       .catch((err) => {
         console.log(err);
@@ -181,7 +181,6 @@ function Battle() {
   const [kickAttack, setKickAttack] = useState("");
   const [kickStamina, setKickStamina] = useState(0);
   const [kickAttackType, setKickAttackType] = useState("");
-
 
   // poke attack name and stamina
   const [pokeAttack, setPokeAttack] = useState("");
@@ -1343,8 +1342,8 @@ function Battle() {
           <button
             onClick={() => battle("punch")}
             id="attackButton"
-            className={kickAttackType}
-            // className="summon"
+            // className={kickAttackType}
+            className="summon"
             style={{
               display: "flex",
               width: "33.33%",
@@ -1609,11 +1608,6 @@ function Battle() {
     }
   };
 
-  console.log('basicAttacks', basicAttacks);
-  
-
-  // console.log("current speed", currentSpeed);
-
   // the canvas function
   const battleCanvasRef = useRef(null);
   useEffect(() => {
@@ -1623,7 +1617,6 @@ function Battle() {
 
       const backgroundImage = new Image();
       backgroundImage.src = battleBackground;
-      // console.log(backgroundImage);
 
       const enemyImage = new Image();
       enemyImage.src = enemyPicture;
@@ -1748,7 +1741,6 @@ function Battle() {
           //             holdTime = enemyOne.hold_time
           //             fxImage = enemyOne.fx_img
           //           }
-          // // console.log('starterOne', starterOne);
 
           //           console.log('maxFrames', maxFrames);
           //           console.log('holdTime', holdTime);
@@ -1959,7 +1951,7 @@ function Battle() {
             //   enemySelectedAttack = "tired";
             // }
 
-            console.log("enemySelectedAttack", enemySelectedAttack);
+            // console.log("enemySelectedAttack", enemySelectedAttack);
 
             document.getElementById("dialogueBox").style.display = "block";
 
