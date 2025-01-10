@@ -1473,7 +1473,7 @@ function Battle() {
                           : `| +${usersConsumables.item_speed} speed`
                       }`}
                     />
-                    <Button
+                    <button
                       // id="consumable"
                       id="attackButton"
                   className="consumable"
@@ -1490,7 +1490,7 @@ function Battle() {
                       onClick={() => battle(usersConsumables)}
                     >
                       Use Consumable
-                    </Button>
+                    </button>
                   </ListItem>
                   <Divider />
                 </div>
@@ -1730,21 +1730,21 @@ function Battle() {
           let rotation = 1;
           if (this.isEnemy) rotation = -2.2;
           
-          let maxFrames = starterOne.max_frames
-          let holdTime = starterOne.hold_time
-          let fxImage = starterOne.fx_img
-          if (this.isEnemy) {
-            console.log('in enemy');
+//           let maxFrames = starterOne.max_frames
+//           let holdTime = starterOne.hold_time
+//           let fxImage = starterOne.fx_img
+//           if (this.isEnemy) {
+//             console.log('in enemy');
             
-            maxFrames = enemyOne.max_frames
-            holdTime = enemyOne.hold_time
-            fxImage = enemyOne.fx_img
-          }
-// console.log('starterOne', starterOne);
+//             maxFrames = enemyOne.max_frames
+//             holdTime = enemyOne.hold_time
+//             fxImage = enemyOne.fx_img
+//           }
+// // console.log('starterOne', starterOne);
 
-          console.log('maxFrames', maxFrames);
-          console.log('holdTime', holdTime);
-          console.log('fxImage', fxImage);
+//           console.log('maxFrames', maxFrames);
+//           console.log('holdTime', holdTime);
+//           console.log('fxImage', fxImage);
           
           
           
