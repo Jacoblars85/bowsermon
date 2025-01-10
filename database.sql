@@ -143,10 +143,10 @@ INSERT INTO "attack_animations"
 INSERT INTO "attacks" 
 	("attack_name", "attack_damage", "attack_stamina", "attack_type", "attack_animations_id")
 	VALUES 
-	('fireball', 0, 0, '', 1),
-	('thunder', 0, 0, '', 10),
-	('', 0, 0, '', 1),
-	('', 0, 0, '', 1),
+	('fireball', 0, 0, 'projectile', 1),
+	('thunder', 0, 0, 'summon', 10),
+	('fire blast', 0, 0, 'summon', 2),
+	('ice berg', 0, 0, 'summon', 3),
 	('', 0, 0, '', 1),
 	('', 0, 0, '', 1),
 	('', 0, 0, '', 1),
