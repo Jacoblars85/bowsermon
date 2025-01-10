@@ -1729,6 +1729,26 @@ function Battle() {
         attack({ attack, recipient, renderedSprites }) {
           let rotation = 1;
           if (this.isEnemy) rotation = -2.2;
+          
+          let maxFrames = starterOne.max_frames
+          let holdTime = starterOne.hold_time
+          let fxImage = starterOne.fx_img
+          if (this.isEnemy) {
+            console.log('in enemy');
+            
+            maxFrames = enemyOne.max_frames
+            holdTime = enemyOne.hold_time
+            fxImage = enemyOne.fx_img
+          }
+// console.log('starterOne', starterOne);
+
+          console.log('maxFrames', maxFrames);
+          console.log('holdTime', holdTime);
+          console.log('fxImage', fxImage);
+          
+          
+          
+
 
           if (attack === "physical") {
             const tl = gsap.timeline();
@@ -1764,28 +1784,28 @@ function Battle() {
                 x: this.position.x,
               });
           } else if (attack === "projectile") {
-            const fireballImage = new Image();
-            fireballImage.src = fireballSpriteImage;
+            const attackFxImage = new Image();
+            attackFxImage.src = fireballSpriteImage;
             // console.log(fireballSpriteImage);
 
-            const fireball = new Sprite({
+            const attackFx = new Sprite({
               position: {
                 x: this.position.x,
                 y: this.position.y,
               },
-              image: fireballImage,
+              image: attackFxImage,
               frames: {
-                max: 8,
-                hold: 5,
+                max: maxFrames,
+                hold: holdTime,
                 attackFx: true,
               },
               animate: true,
               rotation,
             });
 
-            renderedSprites.splice(1, 0, fireball);
+            renderedSprites.splice(1, 0, attackFx);
 
-            gsap.to(fireball.position, {
+            gsap.to(attackFx.position, {
               x: recipient.position.x,
               y: recipient.position.y,
               onComplete: () => {
@@ -1996,7 +2016,7 @@ function Battle() {
         });
       });
     }
-  }, [enemyPicture]);
+  }, [starterOne]);
 
   return (
     <div className="battle">
