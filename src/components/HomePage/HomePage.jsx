@@ -25,8 +25,6 @@ function HomePage() {
     <div>
       <Nav />
 
-      <div className="bowserLogo"></div>
-
       <div className="homePage">
         <div className="bigStarterHomeView">
           <div className="switchButtonHomePage">
