@@ -10,10 +10,6 @@ function LandingPage() {
 
   return (
     <div>
-      <div className="bowsermonMainHeader">
-
-        <h1>Bowsermon</h1>
-      </div>
 
       <RegisterForm />
 
