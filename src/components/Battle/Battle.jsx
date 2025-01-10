@@ -131,6 +131,7 @@ function Battle() {
         setKickStamina(response.data[0].attack_stamina);
         setPokeAttack(response.data[1].attack_name);
         setPokeStamina(response.data[1].attack_stamina);
+        setPokeAttackType(response.data[1].attack_type)
       })
       .catch((err) => {
         console.log(err);
@@ -182,6 +183,7 @@ function Battle() {
   // poke attack name and stamina
   const [pokeAttack, setPokeAttack] = useState("");
   const [pokeStamina, setPokeStamina] = useState(0);
+  const [pokeAttackType, setPokeAttackType] = useState("");
 
   // text box
   const [textBox, setTextBox] = useState("");
@@ -1375,7 +1377,7 @@ function Battle() {
           <button
             onClick={() => battle("poke")}
             id="attackButton"
-            className="physical"
+            className={pokeAttackType}
             style={{
               display: "flex",
               width: "33.33%",
@@ -1603,6 +1605,9 @@ function Battle() {
       );
     }
   };
+
+  console.log('basicAttacks', basicAttacks);
+  
 
   // console.log("current speed", currentSpeed);
 
