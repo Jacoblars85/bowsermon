@@ -114,7 +114,7 @@ function Battle() {
       .then((response) => {
         setEnemyHp(response.data[0].hp);
         setEnemyStamina(response.data[0].stamina);
-        setEnemyPicture(response.data[0].battle_pic)
+        setEnemyPicture(response.data[0].battle_pic);
       })
       .catch((err) => {
         console.log(err);
@@ -1476,7 +1476,7 @@ function Battle() {
                     <button
                       // id="consumable"
                       id="attackButton"
-                  className="consumable"
+                      className="consumable"
                       sx={{
                         color: "black",
                         fontSize: 9,
@@ -1729,26 +1729,22 @@ function Battle() {
         attack({ attack, recipient, renderedSprites }) {
           let rotation = 1;
           if (this.isEnemy) rotation = -2.2;
-          
-//           let maxFrames = starterOne.max_frames
-//           let holdTime = starterOne.hold_time
-//           let fxImage = starterOne.fx_img
-//           if (this.isEnemy) {
-//             console.log('in enemy');
-            
-//             maxFrames = enemyOne.max_frames
-//             holdTime = enemyOne.hold_time
-//             fxImage = enemyOne.fx_img
-//           }
-// // console.log('starterOne', starterOne);
 
-//           console.log('maxFrames', maxFrames);
-//           console.log('holdTime', holdTime);
-//           console.log('fxImage', fxImage);
-          
-          
-          
+          //           let maxFrames = starterOne.max_frames
+          //           let holdTime = starterOne.hold_time
+          //           let fxImage = starterOne.fx_img
+          //           if (this.isEnemy) {
+          //             console.log('in enemy');
 
+          //             maxFrames = enemyOne.max_frames
+          //             holdTime = enemyOne.hold_time
+          //             fxImage = enemyOne.fx_img
+          //           }
+          // // console.log('starterOne', starterOne);
+
+          //           console.log('maxFrames', maxFrames);
+          //           console.log('holdTime', holdTime);
+          //           console.log('fxImage', fxImage);
 
           if (attack === "physical") {
             const tl = gsap.timeline();
