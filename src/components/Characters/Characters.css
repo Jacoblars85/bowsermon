@@ -110,7 +110,6 @@
   justify-content: center;
   text-align: center;
   background-color: black;
-  background-image: url('/public/images/brickBlock.png');
   background-repeat: repeat-x;
   background-size: 6vh;
   background-position-y: 150px;
@@ -170,7 +169,6 @@
   justify-content: center;
   text-align: center;
   background-color: black;
-  background-image: url('/public/images/brickBlock.png');
   background-repeat: repeat-x;
   background-size: 6vh;
   background-position-y: 150px;
@@ -196,8 +194,6 @@
 .starter-single-box {
   height: 50%;
   width: 100%;
-  /* background-image: url(/public/images/pixelGrassBlock.jpeg); */
-  background-image: url('/public/images/brickBlock.png');
   background-repeat: repeat-x;
   background-size: 8.7vh;
   background-position-y: bottom;
