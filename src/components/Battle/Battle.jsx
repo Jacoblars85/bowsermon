@@ -129,6 +129,7 @@ function Battle() {
       .then((response) => {
         setKickAttack(response.data[0].attack_name);
         setKickStamina(response.data[0].attack_stamina);
+        setKickAttackType(response.data[0].attack_type)
         setPokeAttack(response.data[1].attack_name);
         setPokeStamina(response.data[1].attack_stamina);
         setPokeAttackType(response.data[1].attack_type)
@@ -179,6 +180,8 @@ function Battle() {
   // kick attack name and stamina
   const [kickAttack, setKickAttack] = useState("");
   const [kickStamina, setKickStamina] = useState(0);
+  const [kickAttackType, setKickAttackType] = useState("");
+
 
   // poke attack name and stamina
   const [pokeAttack, setPokeAttack] = useState("");
@@ -1340,8 +1343,8 @@ function Battle() {
           <button
             onClick={() => battle("punch")}
             id="attackButton"
-            // className="tackele"
-            className="summon"
+            className={kickAttackType}
+            // className="summon"
             style={{
               display: "flex",
               width: "33.33%",
