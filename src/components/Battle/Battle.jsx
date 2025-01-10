@@ -1731,16 +1731,16 @@ function Battle() {
           let rotation = 1;
           if (this.isEnemy) rotation = -2.2;
 
-          //           let maxFrames = starterOne.max_frames
-          //           let holdTime = starterOne.hold_time
-          //           let fxImage = starterOne.fx_img
-          //           if (this.isEnemy) {
-          //             console.log('in enemy');
+                    let maxFrames = starterOne.max_frames
+                    let holdTime = starterOne.hold_time
+                    // let fxImage = starterOne.fx_img
+                    if (this.isEnemy) {
+                      console.log('in enemy fx changed');
 
-          //             maxFrames = enemyOne.max_frames
-          //             holdTime = enemyOne.hold_time
-          //             fxImage = enemyOne.fx_img
-          //           }
+                      maxFrames = enemyOne.max_frames
+                      holdTime = enemyOne.hold_time
+                      // fxImage = enemyOne.fx_img
+                    }
 
           //           console.log('maxFrames', maxFrames);
           //           console.log('holdTime', holdTime);
@@ -1780,16 +1780,16 @@ function Battle() {
                 x: this.position.x,
               });
           } else if (attack === "projectile") {
-            const attackFxImage = new Image();
-            attackFxImage.src = fireballSpriteImage;
+            const projectileAttackFxImage = new Image();
+            projectileAttackFxImage.src = fireballSpriteImage;
             // console.log(fireballSpriteImage);
 
-            const attackFx = new Sprite({
+            const projectileAttackFx = new Sprite({
               position: {
                 x: this.position.x,
                 y: this.position.y,
               },
-              image: attackFxImage,
+              image: projectileAttackFxImage,
               frames: {
                 max: maxFrames,
                 hold: holdTime,
@@ -1799,9 +1799,9 @@ function Battle() {
               rotation,
             });
 
-            renderedSprites.splice(1, 0, attackFx);
+            renderedSprites.splice(1, 0, projectileAttackFx);
 
-            gsap.to(attackFx.position, {
+            gsap.to(projectileAttackFx.position, {
               x: recipient.position.x,
               y: recipient.position.y,
               onComplete: () => {
@@ -1822,27 +1822,27 @@ function Battle() {
               },
             });
           } else if (attack === "summon") {
-            const iceImage = new Image();
-            iceImage.src = iceSpriteImage;
+            const summonAttackFxImage = new Image();
+            summonAttackFxImage.src = iceSpriteImage;
             // console.log(iceSpriteImage);
 
-            const ice = new Sprite({
+            const summonAttackFx = new Sprite({
               position: {
                 x: recipient.position.x + 10,
                 y: recipient.position.y + 30,
               },
-              image: iceImage,
+              image: summonAttackFxImage,
               frames: {
-                max: 8,
-                hold: 10,
+                max: maxFrames,
+                hold: holdTime,
                 attackFx: true,
               },
               animate: true,
             });
 
-            renderedSprites.splice(2, 0, ice);
+            renderedSprites.splice(2, 0, summonAttackFx);
 
-            gsap.to(ice.position, {
+            gsap.to(summonAttackFx.position, {
               x: recipient.position.x + 10,
               y: recipient.position.y + 30,
               duration: 1.3,
