@@ -284,7 +284,9 @@ function GameWorld() {
                     onComplete() {
                       // where you get sent to the battle
                       // added the fade out in the battle seq
-                      history.push(`/battle/${Math.floor(Math.random() * 8 + 1)}`);
+                      history.push(
+                        `/battle/${Math.floor(Math.random() * 8 + 1)}`
+                      );
                     },
                   });
                 },
