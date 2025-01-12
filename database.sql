@@ -163,12 +163,12 @@ INSERT INTO "attacks"
 	('', 0, 0, '', 1),
 	('', 0, 0, '', 1),
 	('', 0, 0, '', 1),
-	('', 0, 0, '', 1),
-	('', 0, 0, '', 1),
-	('', 0, 0, '', 1),
-	('', 0, 0, '', 1),
-	('', 0, 0, '', 1),
-	('', 0, 0, '', 1);
+	('bash', 0, 0, 'physical', 1),
+	('leaf cyclone', 0, 0, 'projectile', 7),
+	('stomp', 0, 0, 'physical', 1),
+	('ice breath', 0, 0, 'projectile', 1),
+	('rock fall', 0, 0, 'summon', 8),
+	('strangle', 0, 0, 'physical', 1);
 	
 
 INSERT INTO "characters" 
