@@ -117,7 +117,6 @@ function GameWorld() {
       class Sprite {
         constructor({
           position,
-          velocity,
           image,
           frames = { max: 1, hold: 10 },
           sprites,
