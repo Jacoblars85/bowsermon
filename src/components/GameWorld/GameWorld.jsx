@@ -8,7 +8,6 @@ import PlayerUp from "./img/playerUp.png";
 import PlayerLeft from "./img/playerLeft.png";
 import PlayerRight from "./img/playerRight.png";
 import PlayerDown from "./img/playerDown.png";
-// import { duration } from "@mui/material";
 const bowsermonMapJson = require("./data/bowsermonMap");
 const collisionsArray = require("./data/collisions");
 const battleZonesArray = require("./data/battleZones");
