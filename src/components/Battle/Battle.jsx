@@ -1934,7 +1934,7 @@ function Battle() {
           console.log('e', e.target);
           
 
-          if (button.id === "attackButton") {
+          if (e.target.id === "attackButton") {
             // console.log('in attack button', button);
             const characterSelectedAttack = button.className;
 
