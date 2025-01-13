@@ -1629,7 +1629,6 @@ function Battle() {
       class Sprite {
         constructor({
           position,
-          velocity,
           image,
           frames = { max: 1, hold: 10, alignment: 0, attackFx: false },
           sprites,
