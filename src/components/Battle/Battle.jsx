@@ -193,13 +193,6 @@ function Battle() {
   // disables all buttons when user clicks button
   const [isDisabled, setIsDisabled] = useState(false);
 
-  // All of the Switch dialog functions
-  const [switchOpen, setSwitchOpen] = useState(false);
-
-  const handleSwitchClose = () => {
-    setSwitchOpen(false);
-  };
-
   // All of the Dead switch dialog function
   const [deadOpen, setDeadOpen] = useState(false);
 
