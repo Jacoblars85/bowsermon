@@ -193,13 +193,6 @@ function Battle() {
   // disables all buttons when user clicks button
   const [isDisabled, setIsDisabled] = useState(false);
 
-  // All the inventory dialog functions
-  const [inventoryOpen, setInventoryOpen] = useState(false);
-
-  const handleInventoryClose = () => {
-    setInventoryOpen(false);
-  };
-
   // All of the Switch dialog functions
   const [switchOpen, setSwitchOpen] = useState(false);
 
