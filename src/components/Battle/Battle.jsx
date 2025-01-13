@@ -22,9 +22,6 @@ import battleBackground from "./img/backgroundImg/battleBackground.png";
 import fireballSpriteImage from "./img/fx/PlantSpriteSheetFx.png";
 import iceSpriteImage from "./img/fx/ThunderSpriteSheetFx.png";
 
-import enemySpriteImage from "./img/sprites/Snake3/Snake3.png";
-import starterSpriteImage from "./img/sprites/Snake4/Snake4.png";
-
 import ListItemText from "@mui/material/ListItemText";
 import ListItem from "@mui/material/ListItem";
 import List from "@mui/material/List";
@@ -40,8 +37,7 @@ import axios from "axios";
 import Box from "@mui/material/Box";
 // import ListItemButton from "@mui/material/ListItemButton";
 import battleMusic from "../../audio/battleMusic.mp3";
-import logger from "redux-logger";
-import { duration } from "@mui/material";
+
 
 const Transition = forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
