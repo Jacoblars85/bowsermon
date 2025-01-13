@@ -1931,8 +1931,7 @@ function Battle() {
         button.addEventListener("click", (e) => {
           // console.log("button id", button.id);
 
-          console.log('e', e.target);
-          
+          console.log("e", e.target);
 
           if (e.target.id === "attackButton") {
             // console.log('in attack button', button);
