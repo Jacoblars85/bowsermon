@@ -229,11 +229,11 @@ INSERT INTO "levels"
 INSERT INTO "items" 
 	("item_name", "item_type", "item_hp", "item_stamina", "item_speed", "item_damage", "item_pic", "item_cost", "item_color")
 	VALUES 
-	('healing pot', 'consumable', 25, 0, 0, 0, '/images/consumables/LifePot.png', 10, '#FF0100'),
-	('stamina pot', 'consumable', 0, 50, 0, 0, '/images/consumables/WaterPot.png', 10, '#00D400'),
+	('healing pot', 'consumable', 50, 0, 0, 0, '/images/consumables/LifePot.png', 10, '#FF0100'),
+	('stamina pot', 'consumable', 0, 70, 0, 0, '/images/consumables/WaterPot.png', 10, '#00D400'),
 	('speed pot', 'consumable', 0, 50, 10, 0, '/images/consumables/Honey.png', 40, '#FF9A1E'),
 	('mega pot', 'consumable', 50, 75, 0, 0, '/images/consumables/MilkPot.png', 50, '#FFD42A'),
-	('beef', 'consumable', 30, 40, 0, 0, '/images/consumables/Yakitori.png', 50, '#FFD42A'),
+	('beef', 'consumable', 50, 50, 0, 0, '/images/consumables/Yakitori.png', 50, '#FFD42A'),
 	('med kit', 'consumable', 75, 0, 0, 0, '/images/consumables/Medpack.png', 70, '#FF0100'),
 	('heart', 'consumable', 100, 100, 0, 0, '/images/consumables/Heart.png', 120, '#FEF202'),
 	('stick', 'held', 0, 0, 0, 5, '/images/held/StickSprite.png', 50, '#000000'),
