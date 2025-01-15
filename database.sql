@@ -236,13 +236,13 @@ INSERT INTO "items"
 	('beef', 'consumable', 30, 40, 0, 0, '/images/consumables/Yakitori.png', 50, '#FFD42A'),
 	('med kit', 'consumable', 75, 0, 0, 0, '/images/consumables/Medpack.png', 70, '#FF0100'),
 	('heart', 'consumable', 100, 100, 0, 0, '/images/consumables/Heart.png', 120, '#FEF202'),
-	('stick', 'held', 0, 0, 0, 5, '/images/held/StickSprite.png', 100, '#000000'),
-	('club', 'held', 0, 0, 0, 10, '/images/held/ClubSprite.png', 150, '#000000'),
-	('short sword', 'held', 0, 0, 0, 20, '/images/held/ShortSwordSprite.png', 80, '#000000'),
-	('sword', 'held', 0, 0, 0, 30, '/images/held/SwordSprite.png', 150, '#000000'),
-	('book', 'held', 0, 0, 0, 0, '/images/held/BookSprite.png', 80, '#000000'),
-	('hammer', 'held', 0, 0, 0, 25, '/images/held/HammerSprite.png', 100, '#000000'),
-	('magic wand', 'held', 0, 0, 0, 0, '/images/held/MagicWandSprite.png', 150, '#000000');
+	('stick', 'held', 0, 0, 0, 5, '/images/held/StickSprite.png', 50, '#000000'),
+	('club', 'held', 0, 0, 0, 10, '/images/held/ClubSprite.png', 70, '#000000'),
+	('short sword', 'held', 0, 0, 0, 15, '/images/held/ShortSwordSprite.png', 100, '#000000'),
+	('sword', 'held', 0, 0, 0, 20, '/images/held/SwordSprite.png', 150, '#000000'),
+	('book', 'held', 0, 20, 10, 0, '/images/held/BookSprite.png', 120, '#000000'),
+	('hammer', 'held', 0, 0, 0, 15, '/images/held/HammerSprite.png', 100, '#000000'),
+	('magic wand', 'held', 15, 0, 0, 0, '/images/held/MagicWandSprite.png', 150, '#000000');
 	
 	
 INSERT INTO "rewards" 
