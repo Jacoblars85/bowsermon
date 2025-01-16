@@ -1809,8 +1809,8 @@ function Battle() {
               },
               image: summonAttackFxImage,
               frames: {
-                max: maxFrames,
-                hold: holdTime,
+                max: this.isEnemy ? enemyOne.max_frames : starterOne.max_frames,
+                hold: this.isEnemy ? enemyOne.hold_time : starterOne.hold_time,
                 attackFx: true,
               },
               animate: true,
