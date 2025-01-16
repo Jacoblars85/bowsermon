@@ -1768,7 +1768,7 @@ function Battle() {
               image: projectileAttackFxImage,
               frames: {
                 max: this.isEnemy ? enemyOne.max_frames : starterOne.max_frames,
-                hold: holdTime,
+                hold: this.isEnemy ? enemyOne.hold_time : starterOne.hold_time,
                 attackFx: true,
               },
               animate: true,
