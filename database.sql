@@ -52,7 +52,7 @@ CREATE TABLE "attack_animations" (
 
 CREATE TABLE "attacks" (
 	"id" SERIAL PRIMARY KEY,
-	"attack_name" VARCHAR(10),
+	"attack_name" VARCHAR(20),
 	"attack_damage" INT,
 	"attack_stamina" INT,
 	"attack_type" VARCHAR(20),
@@ -101,7 +101,7 @@ CREATE TABLE "user_characters" (
 	
 CREATE TABLE "basic_attacks" (
 	"id" SERIAL PRIMARY KEY,
-	"attack_name" VARCHAR(10),
+	"attack_name" VARCHAR(20),
 	"attack_damage" INT,
 	"attack_stamina" INT,
 	"attack_type" VARCHAR(20));
