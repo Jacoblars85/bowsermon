@@ -175,10 +175,10 @@ INSERT INTO "attacks"
 	('blizard', 40, 20, 'summon', 4),
 	('bash', 40, 20, 'physical', 1),
 	('plant spike', 40, 20, 'projectile', 18),
-	('stomp', 40, 20, 'physical', 1),
+	('poison gas', 40, 20, 'summon', 20),
 	('water ball ', 40, 20, 'projectile', 14),
 	('rock fall', 40, 20, 'summon', 8),
-	('strangle', 40, 20, 'physical', 1);
+	('slash', 40, 20, 'summon', 12);
 	
 
 INSERT INTO "characters" 
