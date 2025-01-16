@@ -144,10 +144,10 @@ INSERT INTO "attack_animations"
 	('energy ball', 4, 10, ''),
 	('big energy ball', 4, 10, ''),
 	('canonball', 5, 8, ''),
-	('', 4, 10, ''),
-	('', 4, 10, ''),
-	('', 4, 10, ''),
-	('', 4, 10, '');
+	('ice spike', 8, 6, ''),
+	('plant spike', 4, 10, ''),
+	('rock ball', 4, 10, ''),
+	('smoke', 6, 7, '');
 
 
 INSERT INTO "attacks" 
