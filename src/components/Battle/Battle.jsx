@@ -19,8 +19,8 @@ import lakeBackground from "./img/backgroundImg/LakeBackground.png";
 import forestBackground from "./img/backgroundImg/RockForest.webp";
 import battleBackground from "./img/backgroundImg/battleBackground.png";
 
-import fireballSpriteImage from "./img/fx/PlantSpriteSheetFx.png";
-import iceSpriteImage from "./img/fx/ThunderSpriteSheetFx.png";
+import fireballSpriteImage from "./img/fx/SmokeSpriteSheet.png";
+import iceSpriteImage from "./img/fx/SmokeSpriteSheet.png";
 
 import ListItemText from "@mui/material/ListItemText";
 import ListItem from "@mui/material/ListItem";
@@ -1912,7 +1912,7 @@ function Battle() {
         button.addEventListener("click", (e) => {
           // console.log("button id", button.id);
 
-          console.log("e", e.target);
+          // console.log("e", e.target);
 
           if (e.target.id === "attackButton") {
             // console.log('in attack button', button);
