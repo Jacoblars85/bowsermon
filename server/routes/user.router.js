@@ -66,8 +66,7 @@ router.post('/register', (req, res, next) => {
             ($1, 11, 0),
             ($1, 12, 0),
             ($1, 13, 0),
-            ($1, 14, 0),
-            ($1, 15, 0)
+            ($1, 14, 0)
             RETURNING user_id;;
         `;
           const insertNewUserValues = [createdUserId]
