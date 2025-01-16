@@ -38,7 +38,6 @@ import Box from "@mui/material/Box";
 // import ListItemButton from "@mui/material/ListItemButton";
 import battleMusic from "../../audio/battleMusic.mp3";
 
-
 const Transition = forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
