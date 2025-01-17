@@ -82,6 +82,7 @@ function Battle() {
           setMaxHp(response.data[0].hp);
           setMaxStamina(response.data[0].stamina);
           setCharacterPicture(response.data[0].battle_pic);
+          setStarterFxImg(response.data[0].fx_img)
         } else if (response.data.length === 2) {
           setStarterOneHp(response.data[0].hp);
           setStarterOneStamina(response.data[0].stamina);
@@ -165,6 +166,7 @@ function Battle() {
   const [currentStamina, setCurrentStamina] = useState(0);
   const [currentSpeed, setCurrentSpeed] = useState(0);
   const [currentUniqueDamage, setUniqueDamage] = useState(0);
+  const [starterFxImg, setStarterFxImg] = useState("");
   const [maxHp, setMaxHp] = useState(0);
   const [maxStamina, setMaxStamina] = useState(0);
 
@@ -1761,7 +1763,7 @@ function Battle() {
             enemyProjectileAttackFxImage.src = enemyFxImg;
 
             const starterProjectileAttackFxImage = new Image();
-            starterProjectileAttackFxImage.src = fireballSpriteImage;
+            starterProjectileAttackFxImage.src = starterFxImg;
             // console.log(fireballSpriteImage);
 
             const projectileAttackFx = new Sprite({
