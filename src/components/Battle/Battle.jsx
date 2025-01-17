@@ -82,7 +82,7 @@ function Battle() {
           setMaxHp(response.data[0].hp);
           setMaxStamina(response.data[0].stamina);
           setCharacterPicture(response.data[0].battle_pic);
-          setStarterFxImg(response.data[0].fx_img)
+          setStarterFxImg(response.data[0].fx_img);
         } else if (response.data.length === 2) {
           setStarterOneHp(response.data[0].hp);
           setStarterOneStamina(response.data[0].stamina);
@@ -92,7 +92,7 @@ function Battle() {
           setMaxHp(response.data[0].hp);
           setMaxStamina(response.data[0].stamina);
           setCharacterPicture(response.data[0].battle_pic);
-          setStarterFxImg(response.data[0].fx_img)
+          setStarterFxImg(response.data[0].fx_img);
 
           setStarterTwoHp(response.data[1].hp);
           setStarterTwoStamina(response.data[1].stamina);
@@ -112,7 +112,7 @@ function Battle() {
         setEnemyHp(response.data[0].hp);
         setEnemyStamina(response.data[0].stamina);
         setEnemyPicture(response.data[0].battle_pic);
-        setEnemyFxImg(response.data[0].fx_img)
+        setEnemyFxImg(response.data[0].fx_img);
       })
       .catch((err) => {
         console.log(err);
@@ -1772,7 +1772,9 @@ function Battle() {
                 x: this.position.x,
                 y: this.position.y,
               },
-              image: this.isEnemy ? enemyProjectileAttackFxImage : starterProjectileAttackFxImage,
+              image: this.isEnemy
+                ? enemyProjectileAttackFxImage
+                : starterProjectileAttackFxImage,
               frames: {
                 max: this.isEnemy ? enemyOne.max_frames : starterOne.max_frames,
                 hold: this.isEnemy ? enemyOne.hold_time : starterOne.hold_time,
@@ -1817,7 +1819,9 @@ function Battle() {
                 x: recipient.position.x + 10,
                 y: recipient.position.y + 30,
               },
-              image: this.isEnemy ? enemySummonAttackFxImage : starterSummonAttackFxImage,
+              image: this.isEnemy
+                ? enemySummonAttackFxImage
+                : starterSummonAttackFxImage,
               frames: {
                 max: this.isEnemy ? enemyOne.max_frames : starterOne.max_frames,
                 hold: this.isEnemy ? enemyOne.hold_time : starterOne.hold_time,
