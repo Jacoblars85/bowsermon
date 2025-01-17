@@ -1716,7 +1716,6 @@ function Battle() {
           // // let fxImage = starterOne.fx_img
           // if (this.isEnemy) {
           //   // console.log("in enemy fx changed");
-
           //   maxFrames = enemyOne.max_frames;
           //   holdTime = enemyOne.hold_time;
           //   // fxImage = enemyOne.fx_img
@@ -1756,8 +1755,11 @@ function Battle() {
                 x: this.position.x,
               });
           } else if (attack === "projectile") {
-            const projectileAttackFxImage = new Image();
-            projectileAttackFxImage.src = fireballSpriteImage;
+            const enemyProjectileAttackFxImage = new Image();
+            enemyProjectileAttackFxImage.src = fireballSpriteImage;
+
+            const starterProjectileAttackFxImage = new Image();
+            starterProjectileAttackFxImage.src = fireballSpriteImage;
             // console.log(fireballSpriteImage);
 
             const projectileAttackFx = new Sprite({
@@ -1765,7 +1767,7 @@ function Battle() {
                 x: this.position.x,
                 y: this.position.y,
               },
-              image: projectileAttackFxImage,
+              image: this.isEnemy ? enemyProjectileAttackFxImage : starterProjectileAttackFxImage,
               frames: {
                 max: this.isEnemy ? enemyOne.max_frames : starterOne.max_frames,
                 hold: this.isEnemy ? enemyOne.hold_time : starterOne.hold_time,
@@ -1917,7 +1919,7 @@ function Battle() {
             // console.log('in attack button', button);
             const characterSelectedAttack = button.className;
 
-            let enemySelectedAttack = "summon";
+            let enemySelectedAttack = "projectile";
 
             // if (enemyStamina >= enemyOne.attack_stamina) {
             //   enemySelectedAttack = enemyOne.attack_type;
