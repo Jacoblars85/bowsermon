@@ -110,6 +110,7 @@ function Battle() {
         setEnemyHp(response.data[0].hp);
         setEnemyStamina(response.data[0].stamina);
         setEnemyPicture(response.data[0].battle_pic);
+        setEnemyFxImg(response.data[0].fx_img)
       })
       .catch((err) => {
         console.log(err);
@@ -171,6 +172,7 @@ function Battle() {
   const [enemyPicture, setEnemyPicture] = useState("");
   const [enemyHp, setEnemyHp] = useState(0);
   const [enemyStamina, setEnemyStamina] = useState(0);
+  const [enemyFxImg, setEnemyFxImg] = useState("");
 
   // kick attack name and stamina
   const [kickAttack, setKickAttack] = useState("");
@@ -1756,7 +1758,7 @@ function Battle() {
               });
           } else if (attack === "projectile") {
             const enemyProjectileAttackFxImage = new Image();
-            enemyProjectileAttackFxImage.src = fireballSpriteImage;
+            enemyProjectileAttackFxImage.src = enemyFxImg;
 
             const starterProjectileAttackFxImage = new Image();
             starterProjectileAttackFxImage.src = fireballSpriteImage;
