@@ -92,6 +92,7 @@ function Battle() {
           setMaxHp(response.data[0].hp);
           setMaxStamina(response.data[0].stamina);
           setCharacterPicture(response.data[0].battle_pic);
+          setStarterFxImg(response.data[0].fx_img)
 
           setStarterTwoHp(response.data[1].hp);
           setStarterTwoStamina(response.data[1].stamina);
@@ -165,7 +166,7 @@ function Battle() {
   const [currentHp, setCurrentHp] = useState(0);
   const [currentStamina, setCurrentStamina] = useState(0);
   const [currentSpeed, setCurrentSpeed] = useState(0);
-  const [currentUniqueDamage, setUniqueDamage] = useState(0);
+  const [currentDamage, setDamage] = useState(0);
   const [starterFxImg, setStarterFxImg] = useState("");
   const [maxHp, setMaxHp] = useState(0);
   const [maxStamina, setMaxStamina] = useState(0);
@@ -1804,8 +1805,11 @@ function Battle() {
               },
             });
           } else if (attack === "summon") {
-            const summonAttackFxImage = new Image();
-            summonAttackFxImage.src = iceSpriteImage;
+            const enemySummonAttackFxImage = new Image();
+            enemySummonAttackFxImage.src = iceSpriteImage;
+
+            const starterSummonAttackFxImage = new Image();
+            starterSummonAttackFxImage.src = iceSpriteImage;
             // console.log(iceSpriteImage);
 
             const summonAttackFx = new Sprite({
@@ -1813,7 +1817,7 @@ function Battle() {
                 x: recipient.position.x + 10,
                 y: recipient.position.y + 30,
               },
-              image: summonAttackFxImage,
+              image: this.isEnemy ? enemySummonAttackFxImage : starterSummonAttackFxImage,
               frames: {
                 max: this.isEnemy ? enemyOne.max_frames : starterOne.max_frames,
                 hold: this.isEnemy ? enemyOne.hold_time : starterOne.hold_time,
