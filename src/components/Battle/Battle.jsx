@@ -1806,10 +1806,10 @@ function Battle() {
             });
           } else if (attack === "summon") {
             const enemySummonAttackFxImage = new Image();
-            enemySummonAttackFxImage.src = iceSpriteImage;
+            enemySummonAttackFxImage.src = enemyFxImg;
 
             const starterSummonAttackFxImage = new Image();
-            starterSummonAttackFxImage.src = iceSpriteImage;
+            starterSummonAttackFxImage.src = starterFxImg;
             // console.log(iceSpriteImage);
 
             const summonAttackFx = new Sprite({
