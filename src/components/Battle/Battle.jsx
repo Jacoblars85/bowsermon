@@ -2004,7 +2004,7 @@ function Battle() {
         });
       });
     }
-  }, [starterOne, enemyOne, basicAttacks]);
+  }, [starterOne]);
 
   return (
     <div className="battle">
