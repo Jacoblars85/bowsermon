@@ -1927,17 +1927,17 @@ function Battle() {
             // console.log('in attack button', button);
             const characterSelectedAttack = button.className;
 
-            let enemySelectedAttack = "projectile";
+            let enemySelectedAttack = enemyOne.attack_type;
 
-            // if (enemyStamina >= enemyOne.attack_stamina) {
-            //   enemySelectedAttack = enemyOne.attack_type;
-            // } else if (enemyStamina >= basicAttacks[0].attack_stamina) {
-            //   enemySelectedAttack = basicAttacks[0].attack_type;
-            // } else if (enemyStamina >= basicAttacks[1].attack_stamina) {
-            //   enemySelectedAttack = basicAttacks[1].attack_type;
-            // } else if (enemyStamina === 0) {
-            //   enemySelectedAttack = "tired";
-            // }
+            if (enemyStamina >= enemyOne.attack_stamina) {
+              enemySelectedAttack = enemyOne.attack_type;
+            } else if (enemyStamina >= kickStamina) {
+              enemySelectedAttack = kickAttackType;
+            } else if (enemyStamina >= pokeStamina) {
+              enemySelectedAttack = pokeAttackType;
+            } else if (enemyStamina === 0) {
+              enemySelectedAttack = "tired";
+            }
 
             // console.log("enemySelectedAttack", enemySelectedAttack);
 
@@ -2000,7 +2000,7 @@ function Battle() {
         });
       });
     }
-  }, [starterOne]);
+  }, [starterOne, enemyOne, basicAttacks]);
 
   return (
     <div className="battle">
