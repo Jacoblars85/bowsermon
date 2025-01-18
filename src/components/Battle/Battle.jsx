@@ -1914,9 +1914,10 @@ function Battle() {
           alignment: 86,
         },
         animate: true,
+        opacity: 1,
       });
 
-      const renderedSprites = [enemy, starter];
+      const renderedSprites = [enemy, starter, starterTwo];
 
       function animateBattle() {
         window.requestAnimationFrame(animateBattle);
