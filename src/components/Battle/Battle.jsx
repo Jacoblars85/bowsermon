@@ -1716,16 +1716,6 @@ function Battle() {
           let rotation = 1;
           if (this.isEnemy) rotation = -2.2;
 
-          // let maxFrames = starterOne.max_frames;
-          // let holdTime = starterOne.hold_time;
-          // // let fxImage = starterOne.fx_img
-          // if (this.isEnemy) {
-          //   // console.log("in enemy fx changed");
-          //   maxFrames = enemyOne.max_frames;
-          //   holdTime = enemyOne.hold_time;
-          //   // fxImage = enemyOne.fx_img
-          // }
-
           if (attack === "physical") {
             const tl = gsap.timeline();
 
