@@ -55,7 +55,7 @@ function MysteryBoxItem({ mysteryBoxItem }) {
           return alert("you can only have 20 characters");
         } else {
           // character box
-          randomNum = Math.floor(Math.random() * 9 + 1);
+          randomNum = Math.floor(Math.random() * 26) + 1;
 
           const newCharacter = allCharacters.find(
             (Characters) => Characters.id === randomNum
@@ -75,7 +75,7 @@ function MysteryBoxItem({ mysteryBoxItem }) {
         }
       } else if (mysteryBoxItem.id === 2) {
         // held item box
-        randomNum = Math.floor(Math.random() * (16 - 7) + 7);
+        randomNum = Math.floor(Math.random() * (15 - 8)) + 8;
 
         const newHeld = held.find((heldItem) => heldItem.id === randomNum);
 
@@ -92,7 +92,7 @@ function MysteryBoxItem({ mysteryBoxItem }) {
         setOpenAnimation(true);
       } else if (mysteryBoxItem.id === 3) {
         // consumable box
-        randomNum = Math.floor(Math.random() * 6 + 1);
+        randomNum = Math.floor(Math.random() * 7) + 1;
 
         const newConsumable = consumables.find(
           (consumableItem) => consumableItem.id === randomNum
@@ -111,7 +111,7 @@ function MysteryBoxItem({ mysteryBoxItem }) {
         setOpenAnimation(true);
       } else if (mysteryBoxItem.id === 4) {
         // all item box
-        randomNum = Math.floor(Math.random() * 15 + 1);
+        randomNum = Math.floor(Math.random() * 14) + 1;
 
         const newItem = allItems.find((item) => item.id === randomNum);
 
