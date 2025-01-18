@@ -71,7 +71,6 @@ function Battle() {
       url: "/api/characters/starter",
     })
       .then((response) => {
-
         if (response.data.length === 1) {
           setStarterOneHp(response.data[0].hp);
           setStarterOneStamina(response.data[0].stamina);
@@ -2200,18 +2199,26 @@ function Battle() {
           onClose={handleWinnerClose}
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
-          sx={{ opacity: .9 }}
+          sx={{ opacity: 0.9 }}
         >
           <DialogTitle
             id="alert-dialog-title"
-            sx={{ fontFamily: "New Super Mario Font U", textAlign: "center", opacity: 1 }}
+            sx={{
+              fontFamily: "New Super Mario Font U",
+              textAlign: "center",
+              opacity: 1,
+            }}
           >
             {"Congrats, you win!!"}
           </DialogTitle>
           <DialogContent>
             <DialogContentText
               id="alert-dialog-description"
-              sx={{ fontFamily: "New Super Mario Font U", textAlign: "center", opacity: 1 }}
+              sx={{
+                fontFamily: "New Super Mario Font U",
+                textAlign: "center",
+                opacity: 1,
+              }}
             >
               You've unlocked the next level! Click the close button to go back
               home and collect your 10 coins!
@@ -2229,7 +2236,7 @@ function Battle() {
                 color: "black",
                 fontSize: 16,
                 borderColor: "black",
-                opacity: 1
+                opacity: 1,
               }}
               variant="outlined"
               onClick={handleWinnerClose}
@@ -2249,18 +2256,26 @@ function Battle() {
           onClose={handleLoserClose}
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
-          sx={{ opacity: .9 }}
+          sx={{ opacity: 0.9 }}
         >
           <DialogTitle
             id="alert-dialog-title"
-            sx={{ fontFamily: "New Super Mario Font U", textAlign: "center", opacity: 1 }}
+            sx={{
+              fontFamily: "New Super Mario Font U",
+              textAlign: "center",
+              opacity: 1,
+            }}
           >
             {"You Lost, better luck next time pal."}
           </DialogTitle>
           <DialogContent>
             <DialogContentText
               id="alert-dialog-description"
-              sx={{ fontFamily: "New Super Mario Font U", textAlign: "center", opacity: 1 }}
+              sx={{
+                fontFamily: "New Super Mario Font U",
+                textAlign: "center",
+                opacity: 1,
+              }}
             >
               You Suck, click the close button to go home and try again!
             </DialogContentText>
@@ -2268,7 +2283,7 @@ function Battle() {
           <DialogActions
             sx={{
               justifyContent: "center",
-              opacity: 1
+              opacity: 1,
             }}
           >
             <Button
@@ -2278,7 +2293,7 @@ function Battle() {
                 color: "black",
                 fontSize: 16,
                 borderColor: "black",
-                opacity: 1
+                opacity: 1,
               }}
               variant="outlined"
               onClick={handleLoserClose}
