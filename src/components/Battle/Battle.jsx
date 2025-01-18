@@ -71,7 +71,6 @@ function Battle() {
       url: "/api/characters/starter",
     })
       .then((response) => {
-        console.log("response", response);
 
         if (response.data.length === 1) {
           setStarterOneHp(response.data[0].hp);
