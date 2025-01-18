@@ -96,7 +96,7 @@ function Battle() {
 
           setStarterTwoHp(response.data[1].hp);
           setStarterTwoStamina(response.data[1].stamina);
-          setStarterTwoPicture(response.data[1].battle_pic)
+          setStarterTwoPicture(response.data[1].battle_pic);
         }
       })
       .catch((err) => {
@@ -157,6 +157,7 @@ function Battle() {
   const [starterOneHp, setStarterOneHp] = useState(0);
   const [starterOneStamina, setStarterOneStamina] = useState(0);
   const [starterPicture, setStarterPicture] = useState("");
+
   // starter two hp and stamina
   const [starterTwoHp, setStarterTwoHp] = useState(0);
   const [starterTwoStamina, setStarterTwoStamina] = useState(0);
@@ -2200,17 +2201,18 @@ function Battle() {
           onClose={handleWinnerClose}
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
+          sx={{ opacity: .9 }}
         >
           <DialogTitle
             id="alert-dialog-title"
-            sx={{ fontFamily: "New Super Mario Font U", textAlign: "center" }}
+            sx={{ fontFamily: "New Super Mario Font U", textAlign: "center", opacity: 1 }}
           >
             {"Congrats, you win!!"}
           </DialogTitle>
           <DialogContent>
             <DialogContentText
               id="alert-dialog-description"
-              sx={{ fontFamily: "New Super Mario Font U", textAlign: "center" }}
+              sx={{ fontFamily: "New Super Mario Font U", textAlign: "center", opacity: 1 }}
             >
               You've unlocked the next level! Click the close button to go back
               home and collect your 10 coins!
@@ -2228,6 +2230,7 @@ function Battle() {
                 color: "black",
                 fontSize: 16,
                 borderColor: "black",
+                opacity: 1
               }}
               variant="outlined"
               onClick={handleWinnerClose}
