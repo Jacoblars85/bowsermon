@@ -1627,6 +1627,7 @@ function Battle() {
           isEnemy = false,
           rotation = 0,
           name,
+          opacity = 1,
         }) {
           this.position = position;
           this.image = image;
@@ -1637,7 +1638,7 @@ function Battle() {
             });
           this.animate = animate;
           this.sprites = sprites;
-          this.opacity = 1;
+          this.opacity = opacity;
           this.isEnemy = isEnemy;
           this.rotation = rotation;
           this.name = name;
@@ -1914,7 +1915,7 @@ function Battle() {
           alignment: 86,
         },
         animate: true,
-        opacity: 1,
+        opacity: 0,
       });
 
       const renderedSprites = [enemy, starter, starterTwo];
