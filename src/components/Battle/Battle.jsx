@@ -96,6 +96,7 @@ function Battle() {
 
           setStarterTwoHp(response.data[1].hp);
           setStarterTwoStamina(response.data[1].stamina);
+          setStarterTwoPicture(response.data[1].battle_pic)
         }
       })
       .catch((err) => {
@@ -159,6 +160,7 @@ function Battle() {
   // starter two hp and stamina
   const [starterTwoHp, setStarterTwoHp] = useState(0);
   const [starterTwoStamina, setStarterTwoStamina] = useState(0);
+  const [starterTwoPicture, setStarterTwoPicture] = useState("");
 
   // All current varibles for battle
   const [currentId, setCurrentId] = useState(0);
