@@ -81,7 +81,7 @@ function Battle() {
           setCurrentSpeed(response.data[0].speed);
           setMaxHp(response.data[0].hp);
           setMaxStamina(response.data[0].stamina);
-          setCharacterPicture(response.data[0].battle_pic);
+          setStarterPicture(response.data[0].battle_pic);
           setStarterFxImg(response.data[0].fx_img);
         } else if (response.data.length === 2) {
           setStarterOneHp(response.data[0].hp);
@@ -91,7 +91,7 @@ function Battle() {
           setCurrentSpeed(response.data[0].speed);
           setMaxHp(response.data[0].hp);
           setMaxStamina(response.data[0].stamina);
-          setCharacterPicture(response.data[0].battle_pic);
+          setStarterPicture(response.data[0].battle_pic);
           setStarterFxImg(response.data[0].fx_img);
 
           setStarterTwoHp(response.data[1].hp);
@@ -155,12 +155,12 @@ function Battle() {
   // starter one hp and stamina
   const [starterOneHp, setStarterOneHp] = useState(0);
   const [starterOneStamina, setStarterOneStamina] = useState(0);
+  const [starterPicture, setStarterPicture] = useState("");
   // starter two hp and stamina
   const [starterTwoHp, setStarterTwoHp] = useState(0);
   const [starterTwoStamina, setStarterTwoStamina] = useState(0);
 
   // All current varibles for battle
-  const [characterPicture, setCharacterPicture] = useState("");
   const [currentId, setCurrentId] = useState(0);
   const [currentName, setCurrentName] = useState("");
   const [currentHp, setCurrentHp] = useState(0);
@@ -210,14 +210,14 @@ function Battle() {
       setCurrentSpeed(starterOne.speed);
       setMaxHp(starterOne.hp);
       setMaxStamina(starterOne.stamina);
-      setCharacterPicture(starterOne.profile_pic);
+      setStarterPicture(starterOne.profile_pic);
       setDeadOpen(false);
     } else if (switchType === "starterTwo") {
       setCurrentId(starterTwo.id);
       setCurrentSpeed(starterTwo.speed);
       setMaxHp(starterTwo.hp);
       setMaxStamina(starterTwo.stamina);
-      setCharacterPicture(starterTwo.profile_pic);
+      setStarterPicture(starterTwo.profile_pic);
       setDeadOpen(false);
     }
   };
@@ -479,7 +479,7 @@ function Battle() {
           setCurrentSpeed(starterTwo.speed);
           setMaxHp(starterTwo.hp);
           setMaxStamina(starterTwo.stamina);
-          setCharacterPicture(starterTwo.battle_pic);
+          setStarterPicture(starterTwo.battle_pic);
           setSwitchOpen(false);
         }
       } else if (currentId === starterTwo.id) {
@@ -542,7 +542,7 @@ function Battle() {
           setCurrentSpeed(starterOne.speed);
           setMaxHp(starterOne.hp);
           setMaxStamina(starterOne.stamina);
-          setCharacterPicture(starterOne.battle_pic);
+          setStarterPicture(starterOne.battle_pic);
           setSwitchOpen(false);
         }
       }
@@ -1609,7 +1609,7 @@ function Battle() {
       // console.log('enemySpriteImage', enemySpriteImage);
 
       const starterImage = new Image();
-      starterImage.src = characterPicture;
+      starterImage.src = starterPicture;
       // console.log('starterSpriteImage', starterSpriteImage);
 
       class Sprite {
