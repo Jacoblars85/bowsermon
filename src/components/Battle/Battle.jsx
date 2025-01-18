@@ -1902,6 +1902,20 @@ function Battle() {
         animate: true,
       });
 
+      const starterTwo = new Sprite({
+        position: {
+          x: 280,
+          y: 325,
+        },
+        image: starterTwoImage,
+        frames: {
+          max: 4,
+          hold: 30,
+          alignment: 86,
+        },
+        animate: true,
+      });
+
       const renderedSprites = [enemy, starter];
 
       function animateBattle() {
