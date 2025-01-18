@@ -1614,6 +1614,9 @@ function Battle() {
       starterImage.src = starterPicture;
       // console.log('starterSpriteImage', starterSpriteImage);
 
+      const starterTwoImage = new Image();
+      starterTwoImage.src = starterTwoPicture;
+
       class Sprite {
         constructor({
           position,
