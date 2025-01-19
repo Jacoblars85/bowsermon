@@ -173,7 +173,7 @@ function* setStarterConditionally(action) {
 
 
 function* switchStarters(action) {
-  console.log('action.payload', action.payload);
+  // console.log('action.payload', action.payload);
   try {
     const response = yield axios({
       method: 'PUT',
