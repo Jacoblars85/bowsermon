@@ -292,7 +292,6 @@ function CharacterItem({ character }) {
             <img
               src={character.item_pic}
               height={35}
-              width={35}
               style={{ paddingRight: "3px" }}
             />
           )}
