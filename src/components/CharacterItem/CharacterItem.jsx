@@ -562,14 +562,14 @@ function CharacterItem({ character }) {
                 width={100}
               >
                 <h4 style={{ margin: "0px", fontSize: "20px" }}>Held Item</h4>
-                <Box height={100} width={100} border="1px solid black">
+                <Box height={100} width={100} border="1px solid black" >
                   {character.item_id === null ? (
                     <CloseIcon
                       sx={{ height: "100%", width: "100%", color: "grey" }}
                       fontSize="100px"
                     />
                   ) : (
-                    <img src={character.item_pic} height={100} width={100} />
+                    <img src={character.item_pic} height={100} />
                   )}
                 </Box>
                 {character.item_id === null ? (
