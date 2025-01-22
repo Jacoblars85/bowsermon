@@ -279,29 +279,29 @@ function CharacterItem({ character }) {
             {character.nickname === null ? character.name : character.nickname}
           </h5>
           <Box
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-          height="35px"
-          width="35px"
-        >
-          {character.item_id === null ? (
-            <CloseIcon
-              sx={{
-                height: "35px",
-                width: "35px",
-                color: "grey",
-                paddingRight: "3px",
-              }}
-              fontSize="100px"
-            />
-          ) : (
-            <img
-              src={character.item_pic}
-              height={35}
-              style={{ paddingRight: "3px" }}
-            />
-          )}
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            height="35px"
+            width="35px"
+          >
+            {character.item_id === null ? (
+              <CloseIcon
+                sx={{
+                  height: "35px",
+                  width: "35px",
+                  color: "grey",
+                  paddingRight: "3px",
+                }}
+                fontSize="100px"
+              />
+            ) : (
+              <img
+                src={character.item_pic}
+                height={35}
+                style={{ paddingRight: "3px" }}
+              />
+            )}
           </Box>
         </Box>
 
