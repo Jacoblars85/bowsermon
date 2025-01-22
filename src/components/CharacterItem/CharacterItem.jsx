@@ -278,6 +278,13 @@ function CharacterItem({ character }) {
           <h5 style={{ width: "130px", marginRight: "0px" }}>
             {character.nickname === null ? character.name : character.nickname}
           </h5>
+          <Box
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          height="35px"
+          width="35px"
+        >
           {character.item_id === null ? (
             <CloseIcon
               sx={{
@@ -295,6 +302,7 @@ function CharacterItem({ character }) {
               style={{ paddingRight: "3px" }}
             />
           )}
+          </Box>
         </Box>
 
         <img
