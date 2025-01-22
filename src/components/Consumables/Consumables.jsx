@@ -199,7 +199,7 @@ function Consumables({ consumableItem }) {
   return (
     <>
       <div style={{ marginLeft: "10px" }}>
-        <img height={70} width={70} src={consumableItem.item_pic} />
+        <img height={50} width={50} src={consumableItem.item_pic} />
       </div>
 
       <div style={{ width: "100px", marginLeft: "5px" }}>
