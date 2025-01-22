@@ -48,6 +48,13 @@ function StarterItem({ start }) {
         <h5 style={{ width: "170px", marginRight: "0px" }}>
           {start.nickname === null ? start.name : start.nickname}
         </h5>
+        <Box
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            height="35px"
+            width="35px"
+          >
         {start.item_id === null ? (
           <CloseIcon
             sx={{
@@ -65,6 +72,7 @@ function StarterItem({ start }) {
             style={{ paddingRight: "3px" }}
           />
         )}
+        </Box>
       </Box>
       <h4 onClick={togglePicture}> {displayText()} </h4>
     </div>
