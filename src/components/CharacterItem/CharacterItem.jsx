@@ -569,7 +569,7 @@ function CharacterItem({ character }) {
               >
                 <h4 style={{ margin: "0px", fontSize: "20px" }}>Held Item</h4>
                 <Box
-                display="flex"
+                  display="flex"
                   height={100}
                   width={100}
                   border="1px solid black"
