@@ -236,7 +236,7 @@ function CharacterItem({ character }) {
 
   const editCharacterName = () => {
     if (newNickname.length >= 15 || newNickname.length === 0) {
-      alert("The nickname cannot be longer than 15 characters")
+      alert("The nickname cannot be longer than 15 characters");
     } else {
       dispatch({
         type: "SAGA_EDIT_CHARACTERS_NAME",
@@ -343,18 +343,19 @@ function CharacterItem({ character }) {
           </DialogContentText>
         </DialogContent>
         <DialogActions
-         sx={{
-          justifyContent: "center",
-        }}>
+          sx={{
+            justifyContent: "center",
+          }}
+        >
           <Button
             sx={{
               color: "black",
               fontSize: 20,
               fontFamily: "New Super Mario Font U",
-              borderColor: "black"
+              borderColor: "black",
             }}
             color="error"
-              variant="contained"
+            variant="contained"
             onClick={sellCharacter}
             autoFocus
           >
@@ -365,7 +366,7 @@ function CharacterItem({ character }) {
               color: "black",
               fontSize: 20,
               fontFamily: "New Super Mario Font U",
-              borderColor: "black"
+              borderColor: "black",
             }}
             variant="outlined"
             onClick={handleSellClose}
@@ -400,18 +401,19 @@ function CharacterItem({ character }) {
           </DialogContentText>
         </DialogContent>
         <DialogActions
-         sx={{
-          justifyContent: "center",
-        }}>
+          sx={{
+            justifyContent: "center",
+          }}
+        >
           <Button
             sx={{
               color: "whitesmoke",
               fontSize: 20,
               fontFamily: "New Super Mario Font U",
-              borderColor: "black"
+              borderColor: "black",
             }}
             color="success"
-              variant="contained"
+            variant="contained"
             onClick={equipItem}
             autoFocus
           >
@@ -422,7 +424,7 @@ function CharacterItem({ character }) {
               color: "black",
               fontSize: 20,
               fontFamily: "New Super Mario Font U",
-              borderColor: "black"
+              borderColor: "black",
             }}
             variant="outlined"
             onClick={handleEquipClose}
@@ -433,10 +435,7 @@ function CharacterItem({ character }) {
       </Dialog>
 
       {/* nickname form dialog */}
-      <Dialog
-        open={openNickname}
-        onClose={handleNicknameClose}
-      >
+      <Dialog open={openNickname} onClose={handleNicknameClose}>
         <DialogTitle
           sx={{
             fontFamily: "New Super Mario Font U",
@@ -476,10 +475,10 @@ function CharacterItem({ character }) {
               textAlign: "center",
               color: "whitesmoke",
               fontSize: 16,
-              borderColor: "black"
+              borderColor: "black",
             }}
             color="success"
-              variant="contained"
+            variant="contained"
             onClick={editCharacterName}
           >
             Submit
@@ -490,7 +489,7 @@ function CharacterItem({ character }) {
               textAlign: "center",
               color: "black",
               fontSize: 16,
-              borderColor: "black"
+              borderColor: "black",
             }}
             variant="outlined"
             onClick={handleNicknameClose}
@@ -514,11 +513,15 @@ function CharacterItem({ character }) {
               color="inherit"
               onClick={handleInfoClose}
               aria-label="close"
-              sx={{ boxShadow: "0px 0px 0px 0px"}}
+              sx={{ boxShadow: "0px 0px 0px 0px" }}
             >
               <CloseIcon />
             </IconButton>
-            <Typography sx={{ ml: 2, flex: 1, fontFamily: "New Super Mario Font U", }} variant="h6" component="div">
+            <Typography
+              sx={{ ml: 2, flex: 1, fontFamily: "New Super Mario Font U" }}
+              variant="h6"
+              component="div"
+            >
               {character.nickname === null
                 ? character.name
                 : character.nickname}{" "}
@@ -528,7 +531,11 @@ function CharacterItem({ character }) {
                 sx={{ cursor: "pointer" }}
               />
             </Typography>
-            <Typography sx={{ ml: 2, flex: 1, fontFamily: "New Super Mario Font U", }} variant="h6" component="div">
+            <Typography
+              sx={{ ml: 2, flex: 1, fontFamily: "New Super Mario Font U" }}
+              variant="h6"
+              component="div"
+            >
               {character.starter_1 === true
                 ? "Starter 1"
                 : character.starter_2 === true
@@ -554,14 +561,21 @@ function CharacterItem({ character }) {
               <Box
                 display="flex"
                 flexDirection="column"
-                justifyContent="space-around"
+                justifyContent="center"
                 alignItems="center"
                 alignSelf="flex-end"
                 height={140}
                 width={100}
               >
                 <h4 style={{ margin: "0px", fontSize: "20px" }}>Held Item</h4>
-                <Box height={100} width={100} border="1px solid black" >
+                <Box
+                display="flex"
+                  height={100}
+                  width={100}
+                  border="1px solid black"
+                  justifyContent="center"
+                  alignItems="center"
+                >
                   {character.item_id === null ? (
                     <CloseIcon
                       sx={{ height: "100%", width: "100%", color: "grey" }}
@@ -580,16 +594,28 @@ function CharacterItem({ character }) {
             </Box>
 
             <Box display="flex" flexDirection="column" border="2px solid black">
-              <ListItemText primary="Hp" secondary={character.hp} sx={{ backgroundColor: "whitesmoke", margin: 0 }} />
+              <ListItemText
+                primary="Hp"
+                secondary={character.hp}
+                sx={{ backgroundColor: "whitesmoke", margin: 0 }}
+              />
               {/* <Divider /> */}
-              <ListItemText primary="Stamina" secondary={character.stamina} sx={{ backgroundColor: "lightgrey", margin: 0 }} />
+              <ListItemText
+                primary="Stamina"
+                secondary={character.stamina}
+                sx={{ backgroundColor: "lightgrey", margin: 0 }}
+              />
               {/* <Divider /> */}
-              <ListItemText primary="Speed" secondary={character.speed} sx={{ backgroundColor: "whitesmoke", margin: 0 }} />
+              <ListItemText
+                primary="Speed"
+                secondary={character.speed}
+                sx={{ backgroundColor: "whitesmoke", margin: 0 }}
+              />
               {/* <Divider /> */}
               <ListItemText
                 primary="Special Attack"
                 secondary={character.attack_name}
-                sx={{ backgroundColor: "lightgrey", margin: 0  }}
+                sx={{ backgroundColor: "lightgrey", margin: 0 }}
               />
               {/* <Divider /> */}
               <ListItemText
@@ -619,7 +645,7 @@ function CharacterItem({ character }) {
             paddingTop={2}
           >
             <Button
-              style={{ color: "black", fontFamily: "New Super Mario Font U", }}
+              style={{ color: "black", fontFamily: "New Super Mario Font U" }}
               variant="contained"
               color="inherit"
               onClick={confirmSale}
@@ -627,7 +653,7 @@ function CharacterItem({ character }) {
               Sell Character
             </Button>
             <Button
-              style={{ color: "black", fontFamily: "New Super Mario Font U", }}
+              style={{ color: "black", fontFamily: "New Super Mario Font U" }}
               variant="contained"
               color="inherit"
               onClick={setStarterOne}
@@ -635,7 +661,7 @@ function CharacterItem({ character }) {
               Set Starter 1
             </Button>
             <Button
-              style={{ color: "black", fontFamily: "New Super Mario Font U", }}
+              style={{ color: "black", fontFamily: "New Super Mario Font U" }}
               variant="contained"
               color="inherit"
               onClick={setStarterTwo}
@@ -643,7 +669,7 @@ function CharacterItem({ character }) {
               Set Starter 2
             </Button>
             <Button
-              style={{ color: "black", fontFamily: "New Super Mario Font U", }}
+              style={{ color: "black", fontFamily: "New Super Mario Font U" }}
               variant="contained"
               color="inherit"
               onClick={clearStarter}
@@ -659,7 +685,9 @@ function CharacterItem({ character }) {
           >
             <h1 style={{ paddingLeft: "10px" }}>Held Items</h1>
             <Divider />
-            {usersHeldItems.length === 0 ? "You do not have any held items, go to the shop to buy held items" : ""}
+            {usersHeldItems.length === 0
+              ? "You do not have any held items, go to the shop to buy held items"
+              : ""}
             {usersHeldItems &&
               usersHeldItems.map((usersHeld) => {
                 return (
@@ -721,7 +749,9 @@ function CharacterItem({ character }) {
                               margin: 0,
                             }}
                           >
-                            {usersHeld.item_hp === 0 ? "" : `+${usersHeld.item_hp} hp`}
+                            {usersHeld.item_hp === 0
+                              ? ""
+                              : `+${usersHeld.item_hp} hp`}
                           </p>
 
                           <p
