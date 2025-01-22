@@ -49,29 +49,29 @@ function StarterItem({ start }) {
           {start.nickname === null ? start.name : start.nickname}
         </h5>
         <Box
-            display="flex"
-            justifyContent="center"
-            alignItems="center"
-            height="35px"
-            width="35px"
-          >
-        {start.item_id === null ? (
-          <CloseIcon
-            sx={{
-              height: "35px",
-              width: "35px",
-              color: "grey",
-              paddingRight: "3px",
-            }}
-            fontSize="100px"
-          />
-        ) : (
-          <img
-            src={start.item_pic}
-            height={35}
-            style={{ paddingRight: "3px" }}
-          />
-        )}
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          height="35px"
+          width="35px"
+        >
+          {start.item_id === null ? (
+            <CloseIcon
+              sx={{
+                height: "35px",
+                width: "35px",
+                color: "grey",
+                paddingRight: "3px",
+              }}
+              fontSize="100px"
+            />
+          ) : (
+            <img
+              src={start.item_pic}
+              height={35}
+              style={{ paddingRight: "3px" }}
+            />
+          )}
         </Box>
       </Box>
       <h4 onClick={togglePicture}> {displayText()} </h4>
