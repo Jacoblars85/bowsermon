@@ -62,7 +62,6 @@ function StarterItem({ start }) {
           <img
             src={start.item_pic}
             height={35}
-            width={35}
             style={{ paddingRight: "3px" }}
           />
         )}
