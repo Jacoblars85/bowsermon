@@ -70,7 +70,7 @@ function HomePage() {
           className="campaignButton"
           onClick={() => history.push(`/exploring`)}
         >
-          Campaign
+          Play
         </button>
       </div>
     </div>
