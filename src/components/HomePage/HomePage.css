@@ -44,17 +44,17 @@
   position: absolute;
   bottom: 1.5%;
   left: 0.5%;
-  height: 10%;
+  height: 30%;
   width: 30%;
-  background-image: url('/public/images/campaignButtonPic.png');
+  /* background-image: url('/public/images/campaignButtonPic.png');
   background-repeat: no-repeat;
   background-size: 55%;
   background-position: center;
-  background-position-y: 100%;
+  background-position-y: 100%; */
   text-align: center;
-  padding-bottom: 200px;
+  /* padding-bottom: 200px; */
   border: 3px solid black;
-  font-size: 40px;
+  font-size: 80px;
 }
 
 .campaignButton:hover {
