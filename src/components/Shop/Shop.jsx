@@ -75,9 +75,6 @@ function Shop() {
 
   useEffect(() => {
     dispatch({ type: "SAGA_FETCH_IVENTORY" });
-  }, []);
-
-  useEffect(() => {
     dispatch({ type: "SAGA_FETCH_CHARACTERS" });
   }, []);
 
