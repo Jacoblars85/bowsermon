@@ -16,9 +16,6 @@ function Characters() {
 
   useEffect(() => {
     dispatch({ type: "SAGA_FETCH_CHARACTERS" });
-  }, []);
-
-  useEffect(() => {
     dispatch({ type: "SAGA_FETCH_IVENTORY" });
   }, []);
 
