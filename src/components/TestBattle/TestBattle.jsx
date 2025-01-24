@@ -1599,10 +1599,10 @@ import React, {
 
   
     // the canvas function
-    const drawing = (c) => {
+    const drawing = (canvas, c) => {
         // c.clearRect(0, 0, c.canvas.width, c.canvas.height)
-        // c.fillStyle = 'white'
-        // c.fillRect(10,10,100,100)
+        c.fillStyle = 'white'
+        c.fillRect(0, 0, canvas.width, canvas.height)
         
       
             const backgroundImage = new Image();
