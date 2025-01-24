@@ -1,17 +1,9 @@
 import React, { useEffect, useRef } from "react";
+import UseCanvas from "../UseCanvas/UseCanvas";
 
 function Canvas({ draw }) {
 
-  const canvasRef = useRef(null);
-
-  useEffect(() => {
-    if (canvasRef.current) {
-      const canvas = canvasRef.current;
-      const c = canvas.getContext("2d");
-
-
-    }
-  }, []);
+  const canvasRef = UseCanvas(draw);
 
   return (
     <div>
