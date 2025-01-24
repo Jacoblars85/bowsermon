@@ -12,7 +12,7 @@ const UseCanvas = draw => {
       let animationId;
 
       const renderer = () => {
-        draw(c)
+        draw(canvas, c)
         animationId = window.requestAnimationFrame(renderer)
       }
       renderer()
