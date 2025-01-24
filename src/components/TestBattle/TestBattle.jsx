@@ -37,6 +37,8 @@ import React, {
   import Box from "@mui/material/Box";
   // import ListItemButton from "@mui/material/ListItemButton";
   import battleMusic from "../../audio/battleMusic.mp3";
+
+  import Canvas from "../Canvas/Canvas";
   
   const Transition = forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
@@ -1594,197 +1596,151 @@ import React, {
         );
       }
     };
+
   
     // the canvas function
-    const battleCanvasRef = useRef(null);
-    useEffect(() => {
-      if (battleCanvasRef.current) {
-        const canvas = battleCanvasRef.current;
-        const c = canvas.getContext("2d");
-  
-        const backgroundImage = new Image();
-        backgroundImage.src = battleBackground;
-  
-        const enemyImage = new Image();
-        enemyImage.src = enemyPicture;
-        // console.log('enemySpriteImage', enemySpriteImage);
-  
-        const starterImage = new Image();
-        starterImage.src = starterPicture;
-        // console.log('starterSpriteImage', starterSpriteImage);
-  
-        const starterTwoImage = new Image();
-        starterTwoImage.src = starterTwoPicture;
-  
-        class Sprite {
-          constructor({
-            position,
-            image,
-            frames = { max: 1, hold: 10, alignment: 0, attackFx: false },
-            sprites,
-            animate = false,
-            isEnemy = false,
-            rotation = 0,
-            name,
-            opacity = 1,
-          }) {
-            this.position = position;
-            this.image = image;
-            (this.frames = { ...frames, val: 0, elapsed: 0 }),
-              (this.image.onload = () => {
-                this.width = this.image.width / this.frames.max;
-                this.height = this.image.height;
-              });
-            this.animate = animate;
-            this.sprites = sprites;
-            this.opacity = opacity;
-            this.isEnemy = isEnemy;
-            this.rotation = rotation;
-            this.name = name;
-          }
-  
-          draw() {
-            c.save();
-            c.translate(
-              this.position.x + this.width / 2,
-              this.position.y + this.height / 2
+    const drawing = (c) => {
+        // c.clearRect(0, 0, c.canvas.width, c.canvas.height)
+        // c.fillStyle = 'white'
+        // c.fillRect(10,10,100,100)
+        
+      
+            const backgroundImage = new Image();
+            backgroundImage.src = battleBackground;
+      
+            // const enemyImage = new Image();
+            // enemyImage.src = enemyPicture;
+            // // console.log('enemySpriteImage', enemySpriteImage);
+      
+            // const starterImage = new Image();
+            // starterImage.src = starterPicture;
+            // // console.log('starterSpriteImage', starterSpriteImage);
+      
+            // const starterTwoImage = new Image();
+            // starterTwoImage.src = starterTwoPicture;
+
+
+      class Sprite {
+        constructor({
+          position,
+          image,
+          frames = { max: 1, hold: 10, alignment: 0, attackFx: false },
+          sprites,
+          animate = false,
+          isEnemy = false,
+          rotation = 0,
+          name,
+          opacity = 1,
+        }) {
+          this.position = position;
+          this.image = image;
+          (this.frames = { ...frames, val: 0, elapsed: 0 }),
+            (this.image.onload = () => {
+              this.width = this.image.width / this.frames.max;
+              this.height = this.image.height;
+            });
+          this.animate = animate;
+          this.sprites = sprites;
+          this.opacity = opacity;
+          this.isEnemy = isEnemy;
+          this.rotation = rotation;
+          this.name = name;
+        }
+
+        draw() {
+          c.save();
+          c.translate(
+            this.position.x + this.width / 2,
+            this.position.y + this.height / 2
+          );
+          c.rotate(this.rotation);
+          c.translate(
+            -this.position.x - this.width / 2,
+            -this.position.y - this.height / 2
+          );
+          c.globalAlpha = this.opacity;
+
+          if (this.frames.attackFx) {
+            c.drawImage(
+              this.image,
+              this.frames.val * this.width,
+              0,
+              this.image.width / this.frames.max,
+              this.image.height,
+              this.position.x,
+              this.position.y,
+              this.image.width / this.frames.max,
+              this.image.height
             );
-            c.rotate(this.rotation);
-            c.translate(
-              -this.position.x - this.width / 2,
-              -this.position.y - this.height / 2
+          } else {
+            c.drawImage(
+              this.image,
+              this.frames.alignment,
+              this.frames.val * this.width,
+              this.image.width / this.frames.max,
+              this.image.height / this.frames.max,
+              this.position.x,
+              this.position.y,
+              this.image.width / this.frames.max,
+              this.image.height / this.frames.max
             );
-            c.globalAlpha = this.opacity;
-  
-            if (this.frames.attackFx) {
-              c.drawImage(
-                this.image,
-                this.frames.val * this.width,
-                0,
-                this.image.width / this.frames.max,
-                this.image.height,
-                this.position.x,
-                this.position.y,
-                this.image.width / this.frames.max,
-                this.image.height
-              );
-            } else {
-              c.drawImage(
-                this.image,
-                this.frames.alignment,
-                this.frames.val * this.width,
-                this.image.width / this.frames.max,
-                this.image.height / this.frames.max,
-                this.position.x,
-                this.position.y,
-                this.image.width / this.frames.max,
-                this.image.height / this.frames.max
-              );
-            }
-  
-            // c.drawImage(
-            //   this.image,
-            //   this.frames.val * this.width,
-            //   0,
-            //   this.image.width / this.frames.max,
-            //   this.image.height,
-            //   this.position.x,
-            //   this.position.y,
-            //   this.image.width / this.frames.max,
-            //   this.image.height
-            // );
-  
-            // c.drawImage(
-            //   this.image,
-            //   this.frames.alignment,
-            //   this.frames.val * this.width,
-            //   this.image.width / this.frames.max,
-            //   this.image.height / this.frames.max,
-            //   this.position.x,
-            //   this.position.y,
-            //   this.image.width / this.frames.max,
-            //   this.image.height / this.frames.max
-            // );
-            c.restore();
-  
-            if (!this.animate) return;
-            if (this.frames.max > 1) {
-              this.frames.elapsed++;
-            }
-            if (this.frames.elapsed % this.frames.hold === 0) {
-              if (this.frames.val < this.frames.max - 1) this.frames.val++;
-              else this.frames.val = 0;
-            }
           }
-  
-          attack({ attack, recipient, renderedSprites }) {
-            let rotation = 1;
-            if (this.isEnemy) rotation = -2.2;
-  
-            if (attack === "physical") {
-              const tl = gsap.timeline();
-  
-              let movementDistance = 20;
-  
-              if (this.isEnemy) {
-                movementDistance = -20;
-              }
-  
-              tl.to(this.position, {
-                x: this.position.x - movementDistance,
-              })
-                .to(this.position, {
-                  x: this.position.x + movementDistance * 2,
-                  duration: 0.1,
-                  onComplete() {
-                    gsap.to(recipient.position, {
-                      x: recipient.position.x + 10,
-                      yoyo: true,
-                      repeat: 5,
-                      duration: 0.08,
-                    });
-                    gsap.to(recipient, {
-                      opacity: 0,
-                      repeat: 5,
-                      yoyo: true,
-                      duration: 0.08,
-                    });
-                  },
-                })
-                .to(this.position, {
-                  x: this.position.x,
-                });
-            } else if (attack === "projectile") {
-              const enemyProjectileAttackFxImage = new Image();
-              enemyProjectileAttackFxImage.src = enemyFxImg;
-  
-              const starterProjectileAttackFxImage = new Image();
-              starterProjectileAttackFxImage.src = starterFxImg;
-              // console.log(fireballSpriteImage);
-  
-              const projectileAttackFx = new Sprite({
-                position: {
-                  x: this.position.x,
-                  y: this.position.y,
-                },
-                image: this.isEnemy
-                  ? enemyProjectileAttackFxImage
-                  : starterProjectileAttackFxImage,
-                frames: {
-                  max: this.isEnemy ? enemyOne.max_frames : starterOne.max_frames,
-                  hold: this.isEnemy ? enemyOne.hold_time : starterOne.hold_time,
-                  attackFx: true,
-                },
-                animate: true,
-                rotation,
-              });
-  
-              renderedSprites.splice(1, 0, projectileAttackFx);
-  
-              gsap.to(projectileAttackFx.position, {
-                x: recipient.position.x,
-                y: recipient.position.y,
-                onComplete: () => {
+
+          // c.drawImage(
+          //   this.image,
+          //   this.frames.val * this.width,
+          //   0,
+          //   this.image.width / this.frames.max,
+          //   this.image.height,
+          //   this.position.x,
+          //   this.position.y,
+          //   this.image.width / this.frames.max,
+          //   this.image.height
+          // );
+
+          // c.drawImage(
+          //   this.image,
+          //   this.frames.alignment,
+          //   this.frames.val * this.width,
+          //   this.image.width / this.frames.max,
+          //   this.image.height / this.frames.max,
+          //   this.position.x,
+          //   this.position.y,
+          //   this.image.width / this.frames.max,
+          //   this.image.height / this.frames.max
+          // );
+          c.restore();
+
+          if (!this.animate) return;
+          if (this.frames.max > 1) {
+            this.frames.elapsed++;
+          }
+          if (this.frames.elapsed % this.frames.hold === 0) {
+            if (this.frames.val < this.frames.max - 1) this.frames.val++;
+            else this.frames.val = 0;
+          }
+        }
+
+        attack({ attack, recipient, renderedSprites }) {
+          let rotation = 1;
+          if (this.isEnemy) rotation = -2.2;
+
+          if (attack === "physical") {
+            const tl = gsap.timeline();
+
+            let movementDistance = 20;
+
+            if (this.isEnemy) {
+              movementDistance = -20;
+            }
+
+            tl.to(this.position, {
+              x: this.position.x - movementDistance,
+            })
+              .to(this.position, {
+                x: this.position.x + movementDistance * 2,
+                duration: 0.1,
+                onComplete() {
                   gsap.to(recipient.position, {
                     x: recipient.position.x + 10,
                     yoyo: true,
@@ -1797,224 +1753,697 @@ import React, {
                     yoyo: true,
                     duration: 0.08,
                   });
-  
-                  renderedSprites.splice(1, 1);
                 },
+              })
+              .to(this.position, {
+                x: this.position.x,
               });
-            } else if (attack === "summon") {
-              const enemySummonAttackFxImage = new Image();
-              enemySummonAttackFxImage.src = enemyFxImg;
-  
-              const starterSummonAttackFxImage = new Image();
-              starterSummonAttackFxImage.src = starterFxImg;
-              // console.log(iceSpriteImage);
-  
-              const summonAttackFx = new Sprite({
-                position: {
+          } else if (attack === "projectile") {
+            const enemyProjectileAttackFxImage = new Image();
+            enemyProjectileAttackFxImage.src = enemyFxImg;
+
+            const starterProjectileAttackFxImage = new Image();
+            starterProjectileAttackFxImage.src = starterFxImg;
+            // console.log(fireballSpriteImage);
+
+            const projectileAttackFx = new Sprite({
+              position: {
+                x: this.position.x,
+                y: this.position.y,
+              },
+              image: this.isEnemy
+                ? enemyProjectileAttackFxImage
+                : starterProjectileAttackFxImage,
+              frames: {
+                max: this.isEnemy ? enemyOne.max_frames : starterOne.max_frames,
+                hold: this.isEnemy ? enemyOne.hold_time : starterOne.hold_time,
+                attackFx: true,
+              },
+              animate: true,
+              rotation,
+            });
+
+            renderedSprites.splice(1, 0, projectileAttackFx);
+
+            gsap.to(projectileAttackFx.position, {
+              x: recipient.position.x,
+              y: recipient.position.y,
+              onComplete: () => {
+                gsap.to(recipient.position, {
                   x: recipient.position.x + 10,
-                  y: recipient.position.y + 30,
-                },
-                image: this.isEnemy
-                  ? enemySummonAttackFxImage
-                  : starterSummonAttackFxImage,
-                frames: {
-                  max: this.isEnemy ? enemyOne.max_frames : starterOne.max_frames,
-                  hold: this.isEnemy ? enemyOne.hold_time : starterOne.hold_time,
-                  attackFx: true,
-                },
-                animate: true,
-              });
-  
-              renderedSprites.splice(2, 0, summonAttackFx);
-  
-              gsap.to(summonAttackFx.position, {
+                  yoyo: true,
+                  repeat: 5,
+                  duration: 0.08,
+                });
+                gsap.to(recipient, {
+                  opacity: 0,
+                  repeat: 5,
+                  yoyo: true,
+                  duration: 0.08,
+                });
+
+                renderedSprites.splice(1, 1);
+              },
+            });
+          } else if (attack === "summon") {
+            const enemySummonAttackFxImage = new Image();
+            enemySummonAttackFxImage.src = enemyFxImg;
+
+            const starterSummonAttackFxImage = new Image();
+            starterSummonAttackFxImage.src = starterFxImg;
+            // console.log(iceSpriteImage);
+
+            const summonAttackFx = new Sprite({
+              position: {
                 x: recipient.position.x + 10,
                 y: recipient.position.y + 30,
-                duration: 1.3,
-                onComplete: () => {
-                  gsap.to(recipient.position, {
-                    x: recipient.position.x + 10,
-                    yoyo: true,
-                    repeat: 5,
-                    duration: 0.08,
-                  });
-                  gsap.to(recipient, {
-                    opacity: 0,
-                    repeat: 5,
-                    yoyo: true,
-                    duration: 0.08,
-                  });
-  
-                  renderedSprites.splice(2, 1);
-                },
-              });
-            } else if (attack === "tired") {
-              gsap.to(this.position, {
-                x: this.position.x + 10,
-                yoyo: true,
-                repeat: 5,
-                duration: 0.08,
-              });
-              gsap.to(this, {
-                opacity: 0.5,
-                repeat: 5,
-                yoyo: true,
-                duration: 0.08,
-              });
-            }
+              },
+              image: this.isEnemy
+                ? enemySummonAttackFxImage
+                : starterSummonAttackFxImage,
+              frames: {
+                max: this.isEnemy ? enemyOne.max_frames : starterOne.max_frames,
+                hold: this.isEnemy ? enemyOne.hold_time : starterOne.hold_time,
+                attackFx: true,
+              },
+              animate: true,
+            });
+
+            renderedSprites.splice(2, 0, summonAttackFx);
+
+            gsap.to(summonAttackFx.position, {
+              x: recipient.position.x + 10,
+              y: recipient.position.y + 30,
+              duration: 1.3,
+              onComplete: () => {
+                gsap.to(recipient.position, {
+                  x: recipient.position.x + 10,
+                  yoyo: true,
+                  repeat: 5,
+                  duration: 0.08,
+                });
+                gsap.to(recipient, {
+                  opacity: 0,
+                  repeat: 5,
+                  yoyo: true,
+                  duration: 0.08,
+                });
+
+                renderedSprites.splice(2, 1);
+              },
+            });
+          } else if (attack === "tired") {
+            gsap.to(this.position, {
+              x: this.position.x + 10,
+              yoyo: true,
+              repeat: 5,
+              duration: 0.08,
+            });
+            gsap.to(this, {
+              opacity: 0.5,
+              repeat: 5,
+              yoyo: true,
+              duration: 0.08,
+            });
           }
         }
-  
-        const background = new Sprite({
-          position: {
-            x: 0,
-            y: 0,
-          },
-          image: backgroundImage,
-        });
-  
-        const enemy = new Sprite({
-          position: {
-            x: 800,
-            y: 100,
-          },
-          image: enemyImage,
-          frames: {
-            max: 4,
-            hold: 30,
-            alignment: 0,
-          },
-          animate: true,
-          isEnemy: true,
-        });
-  
-        const starter = new Sprite({
-          position: {
-            x: 280,
-            y: 325,
-          },
-          image: starterImage,
-          frames: {
-            max: 4,
-            hold: 30,
-            alignment: 86,
-          },
-          animate: true,
-        });
-  
-        const starterTwo = new Sprite({
-          position: {
-            x: 280,
-            y: 325,
-          },
-          image: starterTwoImage,
-          frames: {
-            max: 4,
-            hold: 30,
-            alignment: 86,
-          },
-          animate: true,
-          opacity: 0,
-        });
-  
-        const renderedSprites = [enemy, starter, starterTwo];
-  
-        function animateBattle() {
-          window.requestAnimationFrame(animateBattle);
-          background.draw();
-  
-          renderedSprites.forEach((sprite) => {
-            sprite.draw();
-          });
-        }
-        animateBattle();
-  
-        document.querySelectorAll("button").forEach((button) => {
-          // console.log("button", button);
-  
-          button.addEventListener("click", (e) => {
-            // console.log("button id", button.id);
-  
-            // console.log("e", e.target);
-  
-            if (e.target.id === "attackButton") {
-              // console.log('in attack button', button);
-              const characterSelectedAttack = button.className;
-  
-              let enemySelectedAttack = enemyOne.attack_type;
-  
-              if (enemyStamina >= enemyOne.attack_stamina) {
-                enemySelectedAttack = enemyOne.attack_type;
-              } else if (enemyStamina >= kickStamina) {
-                enemySelectedAttack = kickAttackType;
-              } else if (enemyStamina >= pokeStamina) {
-                enemySelectedAttack = pokeAttackType;
-              } else if (enemyStamina === 0) {
-                enemySelectedAttack = "tired";
-              }
-  
-              // console.log("enemySelectedAttack", enemySelectedAttack);
-  
-              document.getElementById("dialogueBox").style.display = "block";
-  
-              if (currentSpeed >= enemyOne.speed) {
-                starter.attack({
-                  attack: characterSelectedAttack,
-                  recipient: enemy,
-                  renderedSprites,
-                });
-  
-                setTimeout(() => {
-                  enemy.attack({
-                    attack: enemySelectedAttack,
-                    recipient: starter,
-                    renderedSprites,
-                  });
-                }, 2700);
-              } else if (
-                button.id === "starterOne" ||
-                button.id === "starterTwo" ||
-                button.id == "consumable"
-              ) {
-                console.log("in switch");
-  
-                if (button.id === "starterOne") {
-                  this.image = starterOne.battle_pic;
-                } else if (button.id === "starterTwo") {
-                  this.image = starterTwo.battle_pic;
-                }
-  
-                setTimeout(() => {
-                  enemy.attack({
-                    attack: enemySelectedAttack,
-                    recipient: starter,
-                    renderedSprites,
-                  });
-                }, 2700);
-              } else {
-                enemy.attack({
-                  attack: enemySelectedAttack,
-                  recipient: starter,
-                  renderedSprites,
-                });
-  
-                setTimeout(() => {
-                  starter.attack({
-                    attack: characterSelectedAttack,
-                    recipient: enemy,
-                    renderedSprites,
-                  });
-                }, 2700);
-              }
-              setTimeout(() => {
-                setTextBox("");
-                document.getElementById("dialogueBox").style.display = "none";
-              }, 4500);
-            }
-          });
-        });
       }
-    }, [starterOne]);
+      
+            const background = new Sprite({
+              position: {
+                x: 0,
+                y: 0,
+              },
+              image: backgroundImage,
+            });
+
+            // console.log('background', background);
+            
+      
+            // const enemy = new Sprite({
+            //   position: {
+            //     x: 800,
+            //     y: 100,
+            //   },
+            //   image: enemyImage,
+            //   frames: {
+            //     max: 4,
+            //     hold: 30,
+            //     alignment: 0,
+            //   },
+            //   animate: true,
+            //   isEnemy: true,
+            // });
+      
+            // const starter = new Sprite({
+            //   position: {
+            //     x: 280,
+            //     y: 325,
+            //   },
+            //   image: starterImage,
+            //   frames: {
+            //     max: 4,
+            //     hold: 30,
+            //     alignment: 86,
+            //   },
+            //   animate: true,
+            // });
+      
+            // const starterTwo = new Sprite({
+            //   position: {
+            //     x: 280,
+            //     y: 325,
+            //   },
+            //   image: starterTwoImage,
+            //   frames: {
+            //     max: 4,
+            //     hold: 30,
+            //     alignment: 86,
+            //   },
+            //   animate: true,
+            //   opacity: 0,
+            // });
+      
+            // const renderedSprites = [enemy, starter, starterTwo];
+      
+            function animateBattle() {
+            //   window.requestAnimationFrame(animateBattle);
+            // console.log('back', background);
+            
+              background.draw();
+      
+            //   renderedSprites.forEach((sprite) => {
+            //     sprite.draw();
+            //   });
+            }
+            animateBattle();
+      
+            // document.querySelectorAll("button").forEach((button) => {
+            //   // console.log("button", button);
+      
+            //   button.addEventListener("click", (e) => {
+            //     // console.log("button id", button.id);
+      
+            //     // console.log("e", e.target);
+      
+            //     if (e.target.id === "attackButton") {
+            //       // console.log('in attack button', button);
+            //       const characterSelectedAttack = button.className;
+      
+            //       let enemySelectedAttack = enemyOne.attack_type;
+      
+            //       if (enemyStamina >= enemyOne.attack_stamina) {
+            //         enemySelectedAttack = enemyOne.attack_type;
+            //       } else if (enemyStamina >= kickStamina) {
+            //         enemySelectedAttack = kickAttackType;
+            //       } else if (enemyStamina >= pokeStamina) {
+            //         enemySelectedAttack = pokeAttackType;
+            //       } else if (enemyStamina === 0) {
+            //         enemySelectedAttack = "tired";
+            //       }
+      
+            //       // console.log("enemySelectedAttack", enemySelectedAttack);
+      
+            //       document.getElementById("dialogueBox").style.display = "block";
+      
+            //       if (currentSpeed >= enemyOne.speed) {
+            //         starter.attack({
+            //           attack: characterSelectedAttack,
+            //           recipient: enemy,
+            //           renderedSprites,
+            //         });
+      
+            //         setTimeout(() => {
+            //           enemy.attack({
+            //             attack: enemySelectedAttack,
+            //             recipient: starter,
+            //             renderedSprites,
+            //           });
+            //         }, 2700);
+            //       } else if (
+            //         button.id === "starterOne" ||
+            //         button.id === "starterTwo" ||
+            //         button.id == "consumable"
+            //       ) {
+            //         console.log("in switch");
+      
+            //         if (button.id === "starterOne") {
+            //           this.image = starterOne.battle_pic;
+            //         } else if (button.id === "starterTwo") {
+            //           this.image = starterTwo.battle_pic;
+            //         }
+      
+            //         setTimeout(() => {
+            //           enemy.attack({
+            //             attack: enemySelectedAttack,
+            //             recipient: starter,
+            //             renderedSprites,
+            //           });
+            //         }, 2700);
+            //       } else {
+            //         enemy.attack({
+            //           attack: enemySelectedAttack,
+            //           recipient: starter,
+            //           renderedSprites,
+            //         });
+      
+            //         setTimeout(() => {
+            //           starter.attack({
+            //             attack: characterSelectedAttack,
+            //             recipient: enemy,
+            //             renderedSprites,
+            //           });
+            //         }, 2700);
+            //       }
+            //       setTimeout(() => {
+            //         setTextBox("");
+            //         document.getElementById("dialogueBox").style.display = "none";
+            //       }, 4500);
+            //     }
+            //   });
+            // });
+
+    }
+
+    // const battleCanvasRef = useRef(null);
+    // useEffect(() => {
+    //   if (battleCanvasRef.current) {
+    //     const canvas = battleCanvasRef.current;
+    //     const c = canvas.getContext("2d");
+  
+    //     const backgroundImage = new Image();
+    //     backgroundImage.src = battleBackground;
+  
+    //     const enemyImage = new Image();
+    //     enemyImage.src = enemyPicture;
+    //     // console.log('enemySpriteImage', enemySpriteImage);
+  
+    //     const starterImage = new Image();
+    //     starterImage.src = starterPicture;
+    //     // console.log('starterSpriteImage', starterSpriteImage);
+  
+    //     const starterTwoImage = new Image();
+    //     starterTwoImage.src = starterTwoPicture;
+  
+    //     class Sprite {
+    //       constructor({
+    //         position,
+    //         image,
+    //         frames = { max: 1, hold: 10, alignment: 0, attackFx: false },
+    //         sprites,
+    //         animate = false,
+    //         isEnemy = false,
+    //         rotation = 0,
+    //         name,
+    //         opacity = 1,
+    //       }) {
+    //         this.position = position;
+    //         this.image = image;
+    //         (this.frames = { ...frames, val: 0, elapsed: 0 }),
+    //           (this.image.onload = () => {
+    //             this.width = this.image.width / this.frames.max;
+    //             this.height = this.image.height;
+    //           });
+    //         this.animate = animate;
+    //         this.sprites = sprites;
+    //         this.opacity = opacity;
+    //         this.isEnemy = isEnemy;
+    //         this.rotation = rotation;
+    //         this.name = name;
+    //       }
+  
+    //       draw() {
+    //         c.save();
+    //         c.translate(
+    //           this.position.x + this.width / 2,
+    //           this.position.y + this.height / 2
+    //         );
+    //         c.rotate(this.rotation);
+    //         c.translate(
+    //           -this.position.x - this.width / 2,
+    //           -this.position.y - this.height / 2
+    //         );
+    //         c.globalAlpha = this.opacity;
+  
+    //         if (this.frames.attackFx) {
+    //           c.drawImage(
+    //             this.image,
+    //             this.frames.val * this.width,
+    //             0,
+    //             this.image.width / this.frames.max,
+    //             this.image.height,
+    //             this.position.x,
+    //             this.position.y,
+    //             this.image.width / this.frames.max,
+    //             this.image.height
+    //           );
+    //         } else {
+    //           c.drawImage(
+    //             this.image,
+    //             this.frames.alignment,
+    //             this.frames.val * this.width,
+    //             this.image.width / this.frames.max,
+    //             this.image.height / this.frames.max,
+    //             this.position.x,
+    //             this.position.y,
+    //             this.image.width / this.frames.max,
+    //             this.image.height / this.frames.max
+    //           );
+    //         }
+  
+    //         // c.drawImage(
+    //         //   this.image,
+    //         //   this.frames.val * this.width,
+    //         //   0,
+    //         //   this.image.width / this.frames.max,
+    //         //   this.image.height,
+    //         //   this.position.x,
+    //         //   this.position.y,
+    //         //   this.image.width / this.frames.max,
+    //         //   this.image.height
+    //         // );
+  
+    //         // c.drawImage(
+    //         //   this.image,
+    //         //   this.frames.alignment,
+    //         //   this.frames.val * this.width,
+    //         //   this.image.width / this.frames.max,
+    //         //   this.image.height / this.frames.max,
+    //         //   this.position.x,
+    //         //   this.position.y,
+    //         //   this.image.width / this.frames.max,
+    //         //   this.image.height / this.frames.max
+    //         // );
+    //         c.restore();
+  
+    //         if (!this.animate) return;
+    //         if (this.frames.max > 1) {
+    //           this.frames.elapsed++;
+    //         }
+    //         if (this.frames.elapsed % this.frames.hold === 0) {
+    //           if (this.frames.val < this.frames.max - 1) this.frames.val++;
+    //           else this.frames.val = 0;
+    //         }
+    //       }
+  
+    //       attack({ attack, recipient, renderedSprites }) {
+    //         let rotation = 1;
+    //         if (this.isEnemy) rotation = -2.2;
+  
+    //         if (attack === "physical") {
+    //           const tl = gsap.timeline();
+  
+    //           let movementDistance = 20;
+  
+    //           if (this.isEnemy) {
+    //             movementDistance = -20;
+    //           }
+  
+    //           tl.to(this.position, {
+    //             x: this.position.x - movementDistance,
+    //           })
+    //             .to(this.position, {
+    //               x: this.position.x + movementDistance * 2,
+    //               duration: 0.1,
+    //               onComplete() {
+    //                 gsap.to(recipient.position, {
+    //                   x: recipient.position.x + 10,
+    //                   yoyo: true,
+    //                   repeat: 5,
+    //                   duration: 0.08,
+    //                 });
+    //                 gsap.to(recipient, {
+    //                   opacity: 0,
+    //                   repeat: 5,
+    //                   yoyo: true,
+    //                   duration: 0.08,
+    //                 });
+    //               },
+    //             })
+    //             .to(this.position, {
+    //               x: this.position.x,
+    //             });
+    //         } else if (attack === "projectile") {
+    //           const enemyProjectileAttackFxImage = new Image();
+    //           enemyProjectileAttackFxImage.src = enemyFxImg;
+  
+    //           const starterProjectileAttackFxImage = new Image();
+    //           starterProjectileAttackFxImage.src = starterFxImg;
+    //           // console.log(fireballSpriteImage);
+  
+    //           const projectileAttackFx = new Sprite({
+    //             position: {
+    //               x: this.position.x,
+    //               y: this.position.y,
+    //             },
+    //             image: this.isEnemy
+    //               ? enemyProjectileAttackFxImage
+    //               : starterProjectileAttackFxImage,
+    //             frames: {
+    //               max: this.isEnemy ? enemyOne.max_frames : starterOne.max_frames,
+    //               hold: this.isEnemy ? enemyOne.hold_time : starterOne.hold_time,
+    //               attackFx: true,
+    //             },
+    //             animate: true,
+    //             rotation,
+    //           });
+  
+    //           renderedSprites.splice(1, 0, projectileAttackFx);
+  
+    //           gsap.to(projectileAttackFx.position, {
+    //             x: recipient.position.x,
+    //             y: recipient.position.y,
+    //             onComplete: () => {
+    //               gsap.to(recipient.position, {
+    //                 x: recipient.position.x + 10,
+    //                 yoyo: true,
+    //                 repeat: 5,
+    //                 duration: 0.08,
+    //               });
+    //               gsap.to(recipient, {
+    //                 opacity: 0,
+    //                 repeat: 5,
+    //                 yoyo: true,
+    //                 duration: 0.08,
+    //               });
+  
+    //               renderedSprites.splice(1, 1);
+    //             },
+    //           });
+    //         } else if (attack === "summon") {
+    //           const enemySummonAttackFxImage = new Image();
+    //           enemySummonAttackFxImage.src = enemyFxImg;
+  
+    //           const starterSummonAttackFxImage = new Image();
+    //           starterSummonAttackFxImage.src = starterFxImg;
+    //           // console.log(iceSpriteImage);
+  
+    //           const summonAttackFx = new Sprite({
+    //             position: {
+    //               x: recipient.position.x + 10,
+    //               y: recipient.position.y + 30,
+    //             },
+    //             image: this.isEnemy
+    //               ? enemySummonAttackFxImage
+    //               : starterSummonAttackFxImage,
+    //             frames: {
+    //               max: this.isEnemy ? enemyOne.max_frames : starterOne.max_frames,
+    //               hold: this.isEnemy ? enemyOne.hold_time : starterOne.hold_time,
+    //               attackFx: true,
+    //             },
+    //             animate: true,
+    //           });
+  
+    //           renderedSprites.splice(2, 0, summonAttackFx);
+  
+    //           gsap.to(summonAttackFx.position, {
+    //             x: recipient.position.x + 10,
+    //             y: recipient.position.y + 30,
+    //             duration: 1.3,
+    //             onComplete: () => {
+    //               gsap.to(recipient.position, {
+    //                 x: recipient.position.x + 10,
+    //                 yoyo: true,
+    //                 repeat: 5,
+    //                 duration: 0.08,
+    //               });
+    //               gsap.to(recipient, {
+    //                 opacity: 0,
+    //                 repeat: 5,
+    //                 yoyo: true,
+    //                 duration: 0.08,
+    //               });
+  
+    //               renderedSprites.splice(2, 1);
+    //             },
+    //           });
+    //         } else if (attack === "tired") {
+    //           gsap.to(this.position, {
+    //             x: this.position.x + 10,
+    //             yoyo: true,
+    //             repeat: 5,
+    //             duration: 0.08,
+    //           });
+    //           gsap.to(this, {
+    //             opacity: 0.5,
+    //             repeat: 5,
+    //             yoyo: true,
+    //             duration: 0.08,
+    //           });
+    //         }
+    //       }
+    //     }
+  
+    //     const background = new Sprite({
+    //       position: {
+    //         x: 0,
+    //         y: 0,
+    //       },
+    //       image: backgroundImage,
+    //     });
+  
+    //     const enemy = new Sprite({
+    //       position: {
+    //         x: 800,
+    //         y: 100,
+    //       },
+    //       image: enemyImage,
+    //       frames: {
+    //         max: 4,
+    //         hold: 30,
+    //         alignment: 0,
+    //       },
+    //       animate: true,
+    //       isEnemy: true,
+    //     });
+  
+    //     const starter = new Sprite({
+    //       position: {
+    //         x: 280,
+    //         y: 325,
+    //       },
+    //       image: starterImage,
+    //       frames: {
+    //         max: 4,
+    //         hold: 30,
+    //         alignment: 86,
+    //       },
+    //       animate: true,
+    //     });
+  
+    //     const starterTwo = new Sprite({
+    //       position: {
+    //         x: 280,
+    //         y: 325,
+    //       },
+    //       image: starterTwoImage,
+    //       frames: {
+    //         max: 4,
+    //         hold: 30,
+    //         alignment: 86,
+    //       },
+    //       animate: true,
+    //       opacity: 0,
+    //     });
+  
+    //     const renderedSprites = [enemy, starter, starterTwo];
+  
+    //     function animateBattle() {
+    //       window.requestAnimationFrame(animateBattle);
+    //       background.draw();
+  
+    //       renderedSprites.forEach((sprite) => {
+    //         sprite.draw();
+    //       });
+    //     }
+    //     animateBattle();
+  
+    //     document.querySelectorAll("button").forEach((button) => {
+    //       // console.log("button", button);
+  
+    //       button.addEventListener("click", (e) => {
+    //         // console.log("button id", button.id);
+  
+    //         // console.log("e", e.target);
+  
+    //         if (e.target.id === "attackButton") {
+    //           // console.log('in attack button', button);
+    //           const characterSelectedAttack = button.className;
+  
+    //           let enemySelectedAttack = enemyOne.attack_type;
+  
+    //           if (enemyStamina >= enemyOne.attack_stamina) {
+    //             enemySelectedAttack = enemyOne.attack_type;
+    //           } else if (enemyStamina >= kickStamina) {
+    //             enemySelectedAttack = kickAttackType;
+    //           } else if (enemyStamina >= pokeStamina) {
+    //             enemySelectedAttack = pokeAttackType;
+    //           } else if (enemyStamina === 0) {
+    //             enemySelectedAttack = "tired";
+    //           }
+  
+    //           // console.log("enemySelectedAttack", enemySelectedAttack);
+  
+    //           document.getElementById("dialogueBox").style.display = "block";
+  
+    //           if (currentSpeed >= enemyOne.speed) {
+    //             starter.attack({
+    //               attack: characterSelectedAttack,
+    //               recipient: enemy,
+    //               renderedSprites,
+    //             });
+  
+    //             setTimeout(() => {
+    //               enemy.attack({
+    //                 attack: enemySelectedAttack,
+    //                 recipient: starter,
+    //                 renderedSprites,
+    //               });
+    //             }, 2700);
+    //           } else if (
+    //             button.id === "starterOne" ||
+    //             button.id === "starterTwo" ||
+    //             button.id == "consumable"
+    //           ) {
+    //             console.log("in switch");
+  
+    //             if (button.id === "starterOne") {
+    //               this.image = starterOne.battle_pic;
+    //             } else if (button.id === "starterTwo") {
+    //               this.image = starterTwo.battle_pic;
+    //             }
+  
+    //             setTimeout(() => {
+    //               enemy.attack({
+    //                 attack: enemySelectedAttack,
+    //                 recipient: starter,
+    //                 renderedSprites,
+    //               });
+    //             }, 2700);
+    //           } else {
+    //             enemy.attack({
+    //               attack: enemySelectedAttack,
+    //               recipient: starter,
+    //               renderedSprites,
+    //             });
+  
+    //             setTimeout(() => {
+    //               starter.attack({
+    //                 attack: characterSelectedAttack,
+    //                 recipient: enemy,
+    //                 renderedSprites,
+    //               });
+    //             }, 2700);
+    //           }
+    //           setTimeout(() => {
+    //             setTextBox("");
+    //             document.getElementById("dialogueBox").style.display = "none";
+    //           }, 4500);
+    //         }
+    //       });
+    //     });
+    //   }
+    // }, [starterOne]);
   
     return (
       <div className="battle">
@@ -2092,12 +2521,13 @@ import React, {
           </div>
   
           {/* canvas */}
-          <canvas
+          {/* <canvas
             ref={battleCanvasRef}
             height={576}
             width={1024}
             className="canvasForBattle"
-          ></canvas>
+          ></canvas> */}
+          <Canvas draw={drawing} style={{broder: '10px solid black' }} height={576} width={1024}/>
   
           {/* the attack box */}
           <div
