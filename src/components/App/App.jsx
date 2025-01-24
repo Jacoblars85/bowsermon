@@ -14,6 +14,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import Campaign from '../Campaign/Campaign';
 import Battle from '../Battle/Battle';
+import TestBattle from '../TestBattle/TestBattle';
 import Shop from '../Shop/Shop';
 import Characters from '../Characters/Characters';
 import Inventory from '../Inventory/Inventory';
@@ -79,8 +80,12 @@ function App() {
             <Characters />
           </ProtectedRoute>
 
-          <ProtectedRoute exact path="/battle/:id">
+          {/* <ProtectedRoute exact path="/battle/:id">
             <Battle />
+          </ProtectedRoute> */}
+
+          <ProtectedRoute exact path="/battle/:id">
+            <TestBattle />
           </ProtectedRoute>
 
           <ProtectedRoute exact path="/campaign">
