@@ -1877,6 +1877,10 @@ import React, {
               image: backgroundImage,
             });
 
+            // c.drawImage(backgroundImage, 0, 0)
+
+            background.draw()
+
             // console.log('background', background);
             
       
@@ -1929,6 +1933,7 @@ import React, {
             function animateBattle() {
             //   window.requestAnimationFrame(animateBattle);
             // console.log('back', background);
+            // console.log(background.draw);
             
               background.draw();
       
@@ -1936,7 +1941,11 @@ import React, {
             //     sprite.draw();
             //   });
             }
-            animateBattle();
+            // console.log(animateBattle());
+            // background.draw();
+            
+            // animateBattle()
+            // background.draw();
       
             // document.querySelectorAll("button").forEach((button) => {
             //   // console.log("button", button);
