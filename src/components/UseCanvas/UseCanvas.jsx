@@ -1,12 +1,12 @@
 import React, { useEffect, useRef } from "react";
 
-function UseCanvas({ draw }) {
+const UseCanvas = draw => {
 
-  const canvasRef = useRef(null);
+  const ref = useRef();
 
   useEffect(() => {
-    if (canvasRef.current) {
-      const canvas = canvasRef.current;
+    // if (canvasRef.current) {
+      const canvas = ref.current;
       const c = canvas.getContext("2d");
 
       let animationId;
@@ -17,20 +17,11 @@ function UseCanvas({ draw }) {
       }
       renderer()
 
-      return () => window.requestAnimationFrame(animationId)
-    }
+      return () => window.cancelAnimationFrame(animationId)
+    // }
   }, [draw]);
 
-  return (
-    <div>
-
-      <canvas
-        ref={canvasRef}
-        height={576}
-        width={1024}
-      ></canvas>
-    </div>
-  );
+  return ref
 }
 
 export default UseCanvas;
