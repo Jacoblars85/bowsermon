@@ -50,7 +50,7 @@ import React, {
     return <Slide direction="up" ref={ref} {...props} />;
   });
   
-  function Battle() {
+  function TestBattle() {
     const dispatch = useDispatch();
     const history = useHistory();
     const { id } = useParams();
@@ -2438,5 +2438,5 @@ import React, {
     );
   }
   
-  export default Battle;
+  export default TestBattle;
   
