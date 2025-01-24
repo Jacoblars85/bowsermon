@@ -1,10 +1,7 @@
-import React, { useState, useEffect, useRef } from "react";
-import { useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import React, { useEffect, useRef } from "react";
 
-function Canvas({ Draw }) {
+function Canvas({ draw }) {
 
-  const history = useHistory();
   const canvasRef = useRef(null);
 
   useEffect(() => {
