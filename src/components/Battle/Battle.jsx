@@ -2112,6 +2112,7 @@ function Battle() {
             display: "flex",
           }}
         >
+          {/* text box */}
           <div
             id="dialogueBox"
             style={{
