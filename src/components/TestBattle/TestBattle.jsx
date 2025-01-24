@@ -8,7 +8,7 @@ import React, {
   import { useSelector, useDispatch } from "react-redux";
   import { useHistory, useParams } from "react-router-dom";
   // import BackButton from "../BackButton/BackButton";
-  import "./Battle.css";
+  import "./TestBattle.css";
   import Button from "@mui/material/Button";
   import Dialog from "@mui/material/Dialog";
   import DialogActions from "@mui/material/DialogActions";
