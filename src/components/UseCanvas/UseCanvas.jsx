@@ -4,7 +4,6 @@ const UseCanvas = (draw) => {
   const ref = useRef();
 
   useEffect(() => {
-    // if (canvasRef.current) {
     const canvas = ref.current;
     const c = canvas.getContext("2d");
 
@@ -17,7 +16,6 @@ const UseCanvas = (draw) => {
     renderer();
 
     return () => window.cancelAnimationFrame(animationId);
-    // }
   }, [draw]);
 
   return ref;
