@@ -2,10 +2,9 @@ import React, { useEffect, useRef } from "react";
 import UseCanvas from "../UseCanvas/UseCanvas";
 
 function Canvas(props) {
-  const {draw , ...rest} = props;
+  const { draw, ...rest } = props;
 
-//   console.log(rest);
-  
+  //   console.log(rest);
 
   const ref = UseCanvas(draw);
 
