@@ -80,13 +80,13 @@ function App() {
             <Characters />
           </ProtectedRoute>
 
-          {/* <ProtectedRoute exact path="/battle/:id">
-            <Battle />
-          </ProtectedRoute> */}
-
           <ProtectedRoute exact path="/battle/:id">
-            <TestBattle />
+            <Battle />
           </ProtectedRoute>
+
+          {/* <ProtectedRoute exact path="/battle/:id">
+            <TestBattle />
+          </ProtectedRoute> */}
 
           <ProtectedRoute exact path="/campaign">
             <Campaign />
