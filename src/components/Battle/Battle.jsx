@@ -1897,6 +1897,9 @@ function Battle() {
           alignment: 86,
         },
         animate: true,
+        name: '',
+        health: 0,
+        stamina: 0,
       });
 
       const starterTwo = new Sprite({
@@ -1912,6 +1915,9 @@ function Battle() {
         },
         animate: true,
         opacity: 0,
+        name: '',
+        health: 0,
+        stamina: 0,
       });
 
       const renderedSprites = [enemy, starter, starterTwo];
