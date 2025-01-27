@@ -1615,7 +1615,9 @@ function Battle() {
           animate = false,
           isEnemy = false,
           rotation = 0,
-          name,
+          name = 'no name',
+          health,
+          stamina,
           opacity = 1,
         }) {
           this.position = position;
@@ -1631,6 +1633,8 @@ function Battle() {
           this.isEnemy = isEnemy;
           this.rotation = rotation;
           this.name = name;
+          this.health = health
+          this.stamina = stamina
         }
 
         draw() {
