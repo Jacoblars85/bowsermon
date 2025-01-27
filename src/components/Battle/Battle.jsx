@@ -1880,6 +1880,9 @@ function Battle() {
         },
         animate: true,
         isEnemy: true,
+        name: '',
+        health: 0,
+        stamina: 0,
       });
 
       const starter = new Sprite({
