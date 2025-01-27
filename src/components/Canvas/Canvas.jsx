@@ -1,4 +1,3 @@
-import React, { useEffect, useRef } from "react";
 import UseCanvas from "../UseCanvas/UseCanvas";
 
 function Canvas(props) {
