@@ -152,6 +152,7 @@ function Battle() {
   const [starterPicture, setStarterPicture] = useState("");
   const [starterFxImg, setStarterFxImg] = useState("");
   const [starterOneName, setStarterOneName] = useState("");
+  const [starterOneSpeed, setStarterOneSpeed] = useState(0);
 
   // starter stats/info
   const [starterTwoHp, setStarterTwoHp] = useState(0);
@@ -159,6 +160,7 @@ function Battle() {
   const [starterTwoPicture, setStarterTwoPicture] = useState("");
   const [starterTwoFxImg, setStarterTwoFxImg] = useState("");
   const [starterTwoName, setStarterTwoName] = useState("");
+  const [starterTwoSpeed, setStarterTwoSpeed] = useState(0);
 
   // All current varibles for battle
   const [currentId, setCurrentId] = useState(0);
@@ -176,6 +178,7 @@ function Battle() {
   const [enemyStamina, setEnemyStamina] = useState(0);
   const [enemyFxImg, setEnemyFxImg] = useState("");
   const [enemyName, setEnemyName] = useState("");
+  const [enemySpeed, setEnemySpeed] = useState(0);
 
   // kick attack name and stamina
   const [kickAttack, setKickAttack] = useState("");
@@ -1627,6 +1630,7 @@ function Battle() {
           name = 'no name',
           health,
           stamina,
+          speed,
           opacity = 1,
         }) {
           this.position = position;
@@ -1644,6 +1648,7 @@ function Battle() {
           this.name = name;
           this.health = health
           this.stamina = stamina
+          this.speed = speed
         }
 
         draw() {
@@ -1892,6 +1897,7 @@ function Battle() {
         name: enemyName,
         health: enemyHp,
         stamina: enemyStamina,
+        speed: 0,
       });
 
       const starter = new Sprite({
@@ -1909,6 +1915,7 @@ function Battle() {
         name: starterOneName,
         health: starterOneHp,
         stamina: starterOneStamina,
+        speed: 0,
       });
 
       const starter2 = new Sprite({
@@ -1927,6 +1934,7 @@ function Battle() {
         name: starterTwoName,
         health: starterTwoHp,
         stamina: starterTwoStamina,
+        speed: 0,
       });
 
       const renderedSprites = [enemy, starter, starter2];
