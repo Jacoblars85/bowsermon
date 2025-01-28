@@ -169,10 +169,7 @@ function Battle() {
   const [starterFxImg, setStarterFxImg] = useState("");
   const [starterOneName, setStarterOneName] = useState("");
   const [starterOneSpeed, setStarterOneSpeed] = useState(0);
-  // const [starterOneAttackName, setStarterOneAttackName] = useState("");
-  // const [starterOneAttackDamage, setStarterOneAttackDamage] = useState(0);
   const [starterOneAttackStats, setStarterOneAttackStats] = useState({});
-  // const [starterOneAttack, setStarterOneAttack] = useState(0);
 
   // console.log('starterOneAttackStats', starterOneAttackStats);
   
@@ -183,6 +180,7 @@ function Battle() {
   const [starterTwoFxImg, setStarterTwoFxImg] = useState("");
   const [starterTwoName, setStarterTwoName] = useState("");
   const [starterTwoSpeed, setStarterTwoSpeed] = useState(0);
+  const [starterTwoAttackStats, setStarterTwoAttackStats] = useState({});
 
   // All current varibles for battle
   const [currentId, setCurrentId] = useState(0);
@@ -201,6 +199,8 @@ function Battle() {
   const [enemyFxImg, setEnemyFxImg] = useState("");
   const [enemyName, setEnemyName] = useState("");
   const [enemySpeed, setEnemySpeed] = useState(0);
+  const [enemyAttackStats, setEnemyAttackStats] = useState({});
+
 
   // kick attack name and stamina
   const [kickAttack, setKickAttack] = useState("");
