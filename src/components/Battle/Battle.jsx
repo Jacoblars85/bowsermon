@@ -1729,22 +1729,29 @@ function Battle() {
         }
 
         attack({ attack, recipient, renderedSprites }) {
-             // if (enemyStamina >= enemyOne.attack_stamina) {
-            //   enemySelectedAttack = enemyOne.attack_type;
-            // } else if (enemyStamina >= kickStamina) {
-            //   enemySelectedAttack = kickAttackType;
-            // } else if (enemyStamina >= pokeStamina) {
-            //   enemySelectedAttack = pokeAttackType;
-            // } else if (enemyStamina === 0) {
-            //   enemySelectedAttack = "tired";
-            // }
+          // let attackType
+          // let damage
 
-            // console.log("enemySelectedAttack", enemySelectedAttack);
+          // if (this.isEnemy) {
+          //   if (this.stamina >= enemyOne.attack_stamina) {
+          //     attackType = enemyOne.attack_type;
+          //     damage = enemyOne.attack_damage
+          //   } else if (this.stamina >= kickStamina) {
+          //     attackType = kickAttackType;
+          //     damage = basicAttacks[0].attack_damage
+          //   } else if (this.stamina >= pokeStamina) {
+          //     attackType = pokeAttackType;
+          //     damage = basicAttacks[1].attack_damage
+          //   } else if (this.stamina === 0) {
+          //     attackType = "tired";
+          //     damage = 0
+          //   }
+          // }
 
 
 
           // this.health -= attack.attack_damage;
-          // recipient.stamina -= attack.attack_stamina
+          // this.stamina -= attack.attack_stamina
 
           console.log('attack', attack);
           
