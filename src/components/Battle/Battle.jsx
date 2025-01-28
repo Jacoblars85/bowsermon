@@ -1731,7 +1731,7 @@ function Battle() {
         attack({ attack, recipient, renderedSprites }) {
           const tl = gsap.timeline();
 
-          this.health -= attack.damage;
+          // this.health -= attack.attack_damage;
 
           let rotation = 1;
           if (this.isEnemy) rotation = -2.2;
@@ -1976,12 +1976,8 @@ function Battle() {
       animateBattle();
 
       document.querySelectorAll("button").forEach((button) => {
-        // console.log("button", button);
-
         button.addEventListener("click", (e) => {
-          // console.log("button id", button.id);
-
-          // console.log("e", e.target);
+          console.log("e", e.target.innerHTML);
 
           if (e.target.id === "attackButton") {
             // console.log('in attack button', button);
@@ -1989,15 +1985,15 @@ function Battle() {
 
             let enemySelectedAttack = enemyOne.attack_type;
 
-            if (enemyStamina >= enemyOne.attack_stamina) {
-              enemySelectedAttack = enemyOne.attack_type;
-            } else if (enemyStamina >= kickStamina) {
-              enemySelectedAttack = kickAttackType;
-            } else if (enemyStamina >= pokeStamina) {
-              enemySelectedAttack = pokeAttackType;
-            } else if (enemyStamina === 0) {
-              enemySelectedAttack = "tired";
-            }
+            // if (enemyStamina >= enemyOne.attack_stamina) {
+            //   enemySelectedAttack = enemyOne.attack_type;
+            // } else if (enemyStamina >= kickStamina) {
+            //   enemySelectedAttack = kickAttackType;
+            // } else if (enemyStamina >= pokeStamina) {
+            //   enemySelectedAttack = pokeAttackType;
+            // } else if (enemyStamina === 0) {
+            //   enemySelectedAttack = "tired";
+            // }
 
             // console.log("enemySelectedAttack", enemySelectedAttack);
 
@@ -2017,27 +2013,9 @@ function Battle() {
                   renderedSprites,
                 });
               }, 2700);
-            } else if (
-              button.id === "starterOne" ||
-              button.id === "starterTwo" ||
-              button.id == "consumable"
-            ) {
-              console.log("in switch");
 
-              if (button.id === "starterOne") {
-                this.image = starterOne.battle_pic;
-              } else if (button.id === "starterTwo") {
-                this.image = starterTwo.battle_pic;
-              }
+            } else if (starterOneSpeed < enemySpeed) {
 
-              setTimeout(() => {
-                enemy.attack({
-                  attack: enemySelectedAttack,
-                  recipient: starter,
-                  renderedSprites,
-                });
-              }, 2700);
-            } else {
               enemy.attack({
                 attack: enemySelectedAttack,
                 recipient: starter,
@@ -2052,6 +2030,29 @@ function Battle() {
                 });
               }, 2700);
             }
+
+            // else if (
+            //   button.id === "starterOne" ||
+            //   button.id === "starterTwo" ||
+            //   button.id == "consumable"
+            // ) {
+            //   console.log("in switch");
+
+            //   if (button.id === "starterOne") {
+            //     this.image = starterOne.battle_pic;
+            //   } else if (button.id === "starterTwo") {
+            //     this.image = starterTwo.battle_pic;
+            //   }
+
+            //   setTimeout(() => {
+            //     enemy.attack({
+            //       attack: enemySelectedAttack,
+            //       recipient: starter,
+            //       renderedSprites,
+            //     });
+            //   }, 2700);
+            // } 
+
             setTimeout(() => {
               setTextBox("");
               document.getElementById("dialogueBox").style.display = "none";
