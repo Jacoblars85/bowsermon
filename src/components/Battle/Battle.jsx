@@ -1317,14 +1317,14 @@ function Battle() {
           <button
             onClick={() => battle("unique")}
             id="attackButton"
-            className="projectile"
-            // className={
-            //   starter.length === 1
-            //     ? starterOne.attack_type
-            //     : currentId === starterOne.id
-            //     ? starterOne.attack_type
-            //     : starterTwo.attack_type
-            // }
+            // className="projectile"
+            className={
+              starter.length === 1
+                ? starterOne.attack_type
+                : currentId === starterOne.id
+                ? starterOne.attack_type
+                : starterTwo.attack_type
+            }
             style={{
               display: "flex",
               width: "33.33%",
@@ -1363,8 +1363,8 @@ function Battle() {
           <button
             onClick={() => battle("punch")}
             id="attackButton"
-            // className={kickAttackType}
-            className="summon"
+            className={kickAttackType}
+            // className="summon"
             style={{
               display: "flex",
               width: "33.33%",
