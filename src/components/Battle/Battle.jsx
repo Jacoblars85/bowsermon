@@ -2008,6 +2008,7 @@ function Battle() {
 
       document.querySelectorAll("button").forEach((button) => {
         button.addEventListener("click", (e) => {
+          // console.log("e", e.target.innerHTML);
           if (e.target.id === "attackButton") {
             // console.log("e", e.target.innerHTML);
             // console.log('in attack button', button);
@@ -2083,6 +2084,15 @@ function Battle() {
             //   }, 2700);
             // } 
 
+          } else if (e.target.innerHTML === 'Attack') {
+            console.log('in attack');
+            
+          } else if (e.target.innerHTML === 'Switch') {
+            console.log('in switch');
+            
+          } else if (e.target.innerHTML === 'Inventory') {
+            console.log(' in inventory');
+            
           }
         });
       });
