@@ -1731,7 +1731,7 @@ function Battle() {
         attack({ attack, recipient, renderedSprites }) {
           const tl = gsap.timeline();
 
-          this.health -= attack.damage
+          this.health -= attack.damage;
 
           let rotation = 1;
           if (this.isEnemy) rotation = -2.2;
@@ -1740,8 +1740,8 @@ function Battle() {
             let movementDistance = 20;
             if (this.isEnemy) movementDistance = -20;
 
-            let healthBar = '#enemyHealthBar'
-            if (this.isEnemy) healthBar = '#starterHealthBar';
+            let healthBar = "#enemyHealthBar";
+            if (this.isEnemy) healthBar = "#starterHealthBar";
 
             tl.to(this.position, {
               x: this.position.x - movementDistance,
@@ -1750,10 +1750,9 @@ function Battle() {
                 x: this.position.x + movementDistance * 2,
                 duration: 0.1,
                 onComplete: () => {
-
                   gsap.to(healthBar, {
-                    width: this.health - attack.damage + '%'
-                  })
+                    width: this.health - attack.damage + "%",
+                  });
 
                   gsap.to(recipient.position, {
                     x: recipient.position.x + 10,
