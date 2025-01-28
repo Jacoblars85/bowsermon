@@ -1729,9 +1729,8 @@ function Battle() {
         }
 
         attack({ attack, recipient, renderedSprites }) {
-          const tl = gsap.timeline();
-
           // this.health -= attack.attack_damage;
+          // recipient.stamina -= attack.attack_stamina
 
           let rotation = 1;
           if (this.isEnemy) rotation = -2.2;
@@ -1743,6 +1742,8 @@ function Battle() {
           if (this.isEnemy) staminaBar = "#starterStaminaBar";
 
           if (attack === "physical") {
+            const tl = gsap.timeline();
+
             let movementDistance = 20;
             if (this.isEnemy) movementDistance = -20;
 
@@ -1754,10 +1755,10 @@ function Battle() {
                 duration: 0.1,
                 onComplete: () => {
                   gsap.to(healthBar, {
-                    width: this.health - attack.attack_damage + "%",
+                    width: this.health + "%",
                   });
                   gsap.to(staminaBar, {
-                    width: this.health - attack.attack_stamina + "%",
+                    width: this.health + "%",
                   });
                   gsap.to(recipient.position, {
                     x: recipient.position.x + 10,
@@ -1808,10 +1809,10 @@ function Battle() {
               y: recipient.position.y,
               onComplete: () => {
                 gsap.to(healthBar, {
-                  width: this.health - attack.attack_damage + "%",
+                  width: this.health + "%",
                 });
                 gsap.to(staminaBar, {
-                  width: this.health - attack.attack_stamina + "%",
+                  width: this.health + "%",
                 });
                 gsap.to(recipient.position, {
                   x: recipient.position.x + 10,
@@ -1861,10 +1862,10 @@ function Battle() {
               duration: 1.3,
               onComplete: () => {
                 gsap.to(healthBar, {
-                  width: this.health - attack.attack_damage + "%",
+                  width: this.health + "%",
                 });
                 gsap.to(staminaBar, {
-                  width: this.health - attack.attack_stamina + "%",
+                  width: this.health + "%",
                 });
                 gsap.to(recipient.position, {
                   x: recipient.position.x + 10,
@@ -1981,9 +1982,9 @@ function Battle() {
 
           if (e.target.id === "attackButton") {
             // console.log('in attack button', button);
-            const characterSelectedAttack = button.className;
+            // const characterSelectedAttack = button.className;
 
-            let enemySelectedAttack = enemyOne.attack_type;
+            // let enemySelectedAttack = enemyOne.attack_type;
 
             // if (enemyStamina >= enemyOne.attack_stamina) {
             //   enemySelectedAttack = enemyOne.attack_type;
@@ -1996,6 +1997,9 @@ function Battle() {
             // }
 
             // console.log("enemySelectedAttack", enemySelectedAttack);
+
+
+            let selectedAttack = e.target.innerHTML
 
             document.getElementById("dialogueBox").style.display = "block";
 
