@@ -68,6 +68,7 @@ function Battle() {
           setCurrentName(response.data[0].character_name);
           setStarterOneName(response.data[0].character_name);
           setCurrentSpeed(response.data[0].speed);
+          setStarterOneSpeed(response.data[0].speed);
           setMaxHp(response.data[0].hp);
           setMaxStamina(response.data[0].stamina);
           setStarterPicture(response.data[0].battle_pic);
@@ -79,6 +80,7 @@ function Battle() {
           setCurrentName(response.data[0].character_name);
           setStarterOneName(response.data[0].character_name);
           setCurrentSpeed(response.data[0].speed);
+          setStarterOneSpeed(response.data[0].speed);
           setMaxHp(response.data[0].hp);
           setMaxStamina(response.data[0].stamina);
           setStarterPicture(response.data[0].battle_pic);
@@ -86,6 +88,7 @@ function Battle() {
 
           setStarterTwoHp(response.data[1].hp);
           setStarterTwoStamina(response.data[1].stamina);
+          setStarterTwoSpeed(response.data[1].speed);
           setStarterTwoPicture(response.data[1].battle_pic);
           setStarterTwoFxImg(response.data[1].fx_img);
           setStarterTwoName(response.data[1].character_name);
@@ -104,6 +107,7 @@ function Battle() {
       .then((response) => {
         setEnemyHp(response.data[0].hp);
         setEnemyStamina(response.data[0].stamina);
+        setEnemySpeed(response.data[0].speed);
         setEnemyPicture(response.data[0].battle_pic);
         setEnemyFxImg(response.data[0].fx_img);
         setEnemyName(response.data[0].character_name);
