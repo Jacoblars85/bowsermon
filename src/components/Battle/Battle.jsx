@@ -1729,8 +1729,27 @@ function Battle() {
         }
 
         attack({ attack, recipient, renderedSprites }) {
+             // if (enemyStamina >= enemyOne.attack_stamina) {
+            //   enemySelectedAttack = enemyOne.attack_type;
+            // } else if (enemyStamina >= kickStamina) {
+            //   enemySelectedAttack = kickAttackType;
+            // } else if (enemyStamina >= pokeStamina) {
+            //   enemySelectedAttack = pokeAttackType;
+            // } else if (enemyStamina === 0) {
+            //   enemySelectedAttack = "tired";
+            // }
+
+            // console.log("enemySelectedAttack", enemySelectedAttack);
+
+
+
           // this.health -= attack.attack_damage;
           // recipient.stamina -= attack.attack_stamina
+
+          console.log('attack', attack);
+          
+          document.getElementById("dialogueBox").style.display = "block";
+          document.getElementById("dialogueBox").innerHTML = this.name + ' used ';
 
           let rotation = 1;
           if (this.isEnemy) rotation = -2.2;
@@ -1897,6 +1916,10 @@ function Battle() {
               duration: 0.08,
             });
           }
+
+          setTimeout(() => {
+            document.getElementById("dialogueBox").style.display = "none";
+          }, 4500);
         }
       }
 
@@ -1982,9 +2005,9 @@ function Battle() {
 
           if (e.target.id === "attackButton") {
             // console.log('in attack button', button);
-            // const characterSelectedAttack = button.className;
+            const characterSelectedAttack = button.className;
 
-            // let enemySelectedAttack = enemyOne.attack_type;
+            let enemySelectedAttack = enemyOne.attack_type;
 
             // if (enemyStamina >= enemyOne.attack_stamina) {
             //   enemySelectedAttack = enemyOne.attack_type;
@@ -2001,7 +2024,7 @@ function Battle() {
 
             let selectedAttack = e.target.innerHTML
 
-            document.getElementById("dialogueBox").style.display = "block";
+            // document.getElementById("dialogueBox").style.display = "block";
 
             if (starterOneSpeed >= enemySpeed) {
               starter.attack({
@@ -2057,10 +2080,10 @@ function Battle() {
             //   }, 2700);
             // } 
 
-            setTimeout(() => {
-              setTextBox("");
-              document.getElementById("dialogueBox").style.display = "none";
-            }, 4500);
+            // setTimeout(() => {
+            //   setTextBox("");
+            //   document.getElementById("dialogueBox").style.display = "none";
+            // }, 4500);
           }
         });
       });
@@ -2179,7 +2202,7 @@ function Battle() {
               zIndex: 1,
             }}
           >
-            {textBox}
+            {/* {textBox} */}
           </div>
 
           {/* all of the togglable buttons */}
