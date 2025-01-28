@@ -1736,12 +1736,12 @@ function Battle() {
           let rotation = 1;
           if (this.isEnemy) rotation = -2.2;
 
+          let healthBar = "#enemyHealthBar";
+          if (this.isEnemy) healthBar = "#starterHealthBar";
+
           if (attack === "physical") {
             let movementDistance = 20;
             if (this.isEnemy) movementDistance = -20;
-
-            let healthBar = "#enemyHealthBar";
-            if (this.isEnemy) healthBar = "#starterHealthBar";
 
             tl.to(this.position, {
               x: this.position.x - movementDistance,
@@ -1802,6 +1802,9 @@ function Battle() {
               x: recipient.position.x,
               y: recipient.position.y,
               onComplete: () => {
+                gsap.to(healthBar, {
+                  width: this.health - attack.damage + "%",
+                });
                 gsap.to(recipient.position, {
                   x: recipient.position.x + 10,
                   yoyo: true,
@@ -1849,6 +1852,9 @@ function Battle() {
               y: recipient.position.y + 30,
               duration: 1.3,
               onComplete: () => {
+                gsap.to(healthBar, {
+                  width: this.health - attack.damage + "%",
+                });
                 gsap.to(recipient.position, {
                   x: recipient.position.x + 10,
                   yoyo: true,
