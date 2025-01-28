@@ -35,7 +35,6 @@ import axios from "axios";
 import Box from "@mui/material/Box";
 import battleMusic from "../../audio/battleMusic.mp3";
 
-
 const DeadTransition = forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
@@ -1631,7 +1630,7 @@ function Battle() {
           animate = false,
           isEnemy = false,
           rotation = 0,
-          name = 'no name',
+          name = "no name",
           health,
           stamina,
           speed,
@@ -1650,9 +1649,9 @@ function Battle() {
           this.isEnemy = isEnemy;
           this.rotation = rotation;
           this.name = name;
-          this.health = health
-          this.stamina = stamina
-          this.speed = speed
+          this.health = health;
+          this.stamina = stamina;
+          this.speed = speed;
         }
 
         draw() {
