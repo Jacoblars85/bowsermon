@@ -1897,7 +1897,7 @@ function Battle() {
         name: enemyName,
         health: enemyHp,
         stamina: enemyStamina,
-        speed: 0,
+        speed: enemySpeed,
       });
 
       const starter = new Sprite({
@@ -1915,7 +1915,7 @@ function Battle() {
         name: starterOneName,
         health: starterOneHp,
         stamina: starterOneStamina,
-        speed: 0,
+        speed: starterOneSpeed,
       });
 
       const starter2 = new Sprite({
@@ -1934,7 +1934,7 @@ function Battle() {
         name: starterTwoName,
         health: starterTwoHp,
         stamina: starterTwoStamina,
-        speed: 0,
+        speed: starterTwoSpeed,
       });
 
       const renderedSprites = [enemy, starter, starter2];
