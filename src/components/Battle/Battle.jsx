@@ -141,12 +141,13 @@ function Battle() {
   let starterOne = starter[0];
   let starterTwo = starter[1];
 
-  // starter one hp and stamina
+  // starter stats/info
   const [starterOneHp, setStarterOneHp] = useState(0);
   const [starterOneStamina, setStarterOneStamina] = useState(0);
   const [starterPicture, setStarterPicture] = useState("");
+  const [starterFxImg, setStarterFxImg] = useState("");
 
-  // starter two hp and stamina
+  // starter stats/info
   const [starterTwoHp, setStarterTwoHp] = useState(0);
   const [starterTwoStamina, setStarterTwoStamina] = useState(0);
   const [starterTwoPicture, setStarterTwoPicture] = useState("");
@@ -158,11 +159,10 @@ function Battle() {
   const [currentStamina, setCurrentStamina] = useState(0);
   const [currentSpeed, setCurrentSpeed] = useState(0);
   const [currentDamage, setDamage] = useState(0);
-  const [starterFxImg, setStarterFxImg] = useState("");
   const [maxHp, setMaxHp] = useState(0);
   const [maxStamina, setMaxStamina] = useState(0);
 
-  // enemy hp and stamina
+  // enemy stats/info
   const [enemyPicture, setEnemyPicture] = useState("");
   const [enemyHp, setEnemyHp] = useState(0);
   const [enemyStamina, setEnemyStamina] = useState(0);
