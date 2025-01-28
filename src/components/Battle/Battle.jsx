@@ -1739,6 +1739,9 @@ function Battle() {
           let healthBar = "#enemyHealthBar";
           if (this.isEnemy) healthBar = "#starterHealthBar";
 
+          let staminaBar = "#enemyStaminaBar";
+          if (this.isEnemy) staminaBar = "#starterStaminaBar";
+
           if (attack === "physical") {
             let movementDistance = 20;
             if (this.isEnemy) movementDistance = -20;
@@ -1751,9 +1754,11 @@ function Battle() {
                 duration: 0.1,
                 onComplete: () => {
                   gsap.to(healthBar, {
-                    width: this.health - attack.damage + "%",
+                    width: this.health - attack.attack_damage + "%",
                   });
-
+                  gsap.to(staminaBar, {
+                    width: this.health - attack.attack_stamina + "%",
+                  });
                   gsap.to(recipient.position, {
                     x: recipient.position.x + 10,
                     yoyo: true,
@@ -1803,7 +1808,10 @@ function Battle() {
               y: recipient.position.y,
               onComplete: () => {
                 gsap.to(healthBar, {
-                  width: this.health - attack.damage + "%",
+                  width: this.health - attack.attack_damage + "%",
+                });
+                gsap.to(staminaBar, {
+                  width: this.health - attack.attack_stamina + "%",
                 });
                 gsap.to(recipient.position, {
                   x: recipient.position.x + 10,
@@ -1853,7 +1861,10 @@ function Battle() {
               duration: 1.3,
               onComplete: () => {
                 gsap.to(healthBar, {
-                  width: this.health - attack.damage + "%",
+                  width: this.health - attack.attack_damage + "%",
+                });
+                gsap.to(staminaBar, {
+                  width: this.health - attack.attack_stamina + "%",
                 });
                 gsap.to(recipient.position, {
                   x: recipient.position.x + 10,
