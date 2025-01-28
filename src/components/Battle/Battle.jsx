@@ -72,6 +72,14 @@ function Battle() {
           setMaxStamina(response.data[0].stamina);
           setStarterPicture(response.data[0].battle_pic);
           setStarterFxImg(response.data[0].fx_img);
+
+          setStarterOneAttackStats({
+            attack_name: response.data[0].attack_name, 
+            attack_damage: response.data[0].attack_damage,
+            attack_stamina: response.data[0].attack_stamina,
+            attack_type: response.data[0].attack_type,
+          })
+
         } else if (response.data.length === 2) {
           setStarterOneHp(response.data[0].hp);
           setStarterOneStamina(response.data[0].stamina);
@@ -98,6 +106,12 @@ function Battle() {
           setStarterTwoPicture(response.data[1].battle_pic);
           setStarterTwoFxImg(response.data[1].fx_img);
           setStarterTwoName(response.data[1].character_name);
+          setStarterTwoAttackStats({
+attack_name: response.data[1].attack_name, 
+            attack_damage: response.data[1].attack_damage,
+            attack_stamina: response.data[1].attack_stamina,
+            attack_type: response.data[1].attack_type,
+          })
         }
       })
       .catch((err) => {
@@ -2137,7 +2151,7 @@ function Battle() {
                       ? starterOneStamina < starterOneAttackStats.attack_stamina
                         ? true
                         : isDisabled
-                      : starterTwoStamina < starterOneAttackStats.attack_stamina
+                      : starterTwoStamina < starterTwoAttackStats.attack_stamina
                       ? true
                       : isDisabled
                   }
@@ -2146,7 +2160,7 @@ function Battle() {
                     ? starterOneAttackStats.attack_name
                     : currentId === starterOne.id
                     ? starterOneAttackStats.attack_name
-                    : starterOneAttackStats.attack_name}
+                    : starterTwoAttackStats.attack_name}
                 </button>
 
                 <button
