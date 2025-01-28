@@ -1981,7 +1981,7 @@ function Battle() {
 
             document.getElementById("dialogueBox").style.display = "block";
 
-            if (currentSpeed >= enemyOne.speed) {
+            if (starterOneSpeed >= enemySpeed) {
               starter.attack({
                 attack: characterSelectedAttack,
                 recipient: enemy,
