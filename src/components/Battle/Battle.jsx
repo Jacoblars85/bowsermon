@@ -146,11 +146,14 @@ function Battle() {
   const [starterOneStamina, setStarterOneStamina] = useState(0);
   const [starterPicture, setStarterPicture] = useState("");
   const [starterFxImg, setStarterFxImg] = useState("");
+  const [starterOneName, setStarterOneName] = useState("");
 
   // starter stats/info
   const [starterTwoHp, setStarterTwoHp] = useState(0);
   const [starterTwoStamina, setStarterTwoStamina] = useState(0);
   const [starterTwoPicture, setStarterTwoPicture] = useState("");
+  const [starterTwoFxImg, setStarterTwoFxImg] = useState("");
+  const [starterTwoName, setStarterTwoName] = useState("");
 
   // All current varibles for battle
   const [currentId, setCurrentId] = useState(0);
@@ -167,6 +170,7 @@ function Battle() {
   const [enemyHp, setEnemyHp] = useState(0);
   const [enemyStamina, setEnemyStamina] = useState(0);
   const [enemyFxImg, setEnemyFxImg] = useState("");
+  const [enemyName, setEnemyName] = useState("");
 
   // kick attack name and stamina
   const [kickAttack, setKickAttack] = useState("");
