@@ -66,6 +66,7 @@ function Battle() {
           setStarterOneStamina(response.data[0].stamina);
           setCurrentId(response.data[0].id);
           setCurrentName(response.data[0].character_name);
+          setStarterOneName(response.data[0].character_name);
           setCurrentSpeed(response.data[0].speed);
           setMaxHp(response.data[0].hp);
           setMaxStamina(response.data[0].stamina);
@@ -76,6 +77,7 @@ function Battle() {
           setStarterOneStamina(response.data[0].stamina);
           setCurrentId(response.data[0].id);
           setCurrentName(response.data[0].character_name);
+          setStarterOneName(response.data[0].character_name);
           setCurrentSpeed(response.data[0].speed);
           setMaxHp(response.data[0].hp);
           setMaxStamina(response.data[0].stamina);
@@ -85,6 +87,8 @@ function Battle() {
           setStarterTwoHp(response.data[1].hp);
           setStarterTwoStamina(response.data[1].stamina);
           setStarterTwoPicture(response.data[1].battle_pic);
+          setStarterTwoFxImg(response.data[1].fx_img);
+          setStarterTwoName(response.data[1].character_name);
         }
       })
       .catch((err) => {
@@ -102,6 +106,7 @@ function Battle() {
         setEnemyStamina(response.data[0].stamina);
         setEnemyPicture(response.data[0].battle_pic);
         setEnemyFxImg(response.data[0].fx_img);
+        setEnemyName(response.data[0].character_name);
       })
       .catch((err) => {
         console.log(err);
@@ -1884,7 +1889,7 @@ function Battle() {
         },
         animate: true,
         isEnemy: true,
-        name: enemyOne.character_name,
+        name: enemyName,
         health: enemyHp,
         stamina: enemyStamina,
       });
@@ -1901,7 +1906,7 @@ function Battle() {
           alignment: 86,
         },
         animate: true,
-        name: starterOne.character_name,
+        name: starterOneName,
         health: starterOneHp,
         stamina: starterOneStamina,
       });
@@ -1919,7 +1924,7 @@ function Battle() {
         },
         animate: true,
         opacity: 0,
-        name: starterTwo.character_name,
+        name: starterTwoName,
         health: starterTwoHp,
         stamina: starterTwoStamina,
       });
