@@ -2120,14 +2120,14 @@ attack_name: response.data[1].attack_name,
                 <button
                   onClick={() => battle("unique")}
                   id="attackButton"
-                  className="projectile"
-                  // className={
-                  //   starter.length === 1
-                  //     ? starterOne.attack_type
-                  //     : currentId === starterOne.id
-                  //     ? starterOne.attack_type
-                  //     : starterTwo.attack_type
-                  // }
+                  // className="projectile"
+                  className={
+                    starter.length === 1
+                      ? starterOneAttackStats.attack_type
+                      : currentId === starterOne.id
+                      ? starterOneAttackStats.attack_type
+                      : starterTwoAttackStats.attack_type
+                  }
                   style={{
                     display: "flex",
                     width: "33.33%",
@@ -2166,8 +2166,8 @@ attack_name: response.data[1].attack_name,
                 <button
                   onClick={() => battle("punch")}
                   id="attackButton"
-                  // className={kickAttackType}
-                  className="summon"
+                  className={kickAttackType}
+                  // className="summon"
                   style={{
                     display: "flex",
                     width: "33.33%",
