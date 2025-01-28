@@ -2008,9 +2008,8 @@ function Battle() {
 
       document.querySelectorAll("button").forEach((button) => {
         button.addEventListener("click", (e) => {
-          console.log("e", e.target.innerHTML);
-
           if (e.target.id === "attackButton") {
+            // console.log("e", e.target.innerHTML);
             // console.log('in attack button', button);
             const characterSelectedAttack = button.className;
 
@@ -2028,10 +2027,7 @@ function Battle() {
 
             // console.log("enemySelectedAttack", enemySelectedAttack);
 
-
             let selectedAttack = e.target.innerHTML
-
-            // document.getElementById("dialogueBox").style.display = "block";
 
             if (starterOneSpeed >= enemySpeed) {
               starter.attack({
@@ -2087,10 +2083,6 @@ function Battle() {
             //   }, 2700);
             // } 
 
-            // setTimeout(() => {
-            //   setTextBox("");
-            //   document.getElementById("dialogueBox").style.display = "none";
-            // }, 4500);
           }
         });
       });
