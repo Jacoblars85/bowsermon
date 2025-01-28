@@ -74,12 +74,11 @@ function Battle() {
           setStarterFxImg(response.data[0].fx_img);
 
           setStarterOneAttackStats({
-            attack_name: response.data[0].attack_name, 
+            attack_name: response.data[0].attack_name,
             attack_damage: response.data[0].attack_damage,
             attack_stamina: response.data[0].attack_stamina,
             attack_type: response.data[0].attack_type,
-          })
-
+          });
         } else if (response.data.length === 2) {
           setStarterOneHp(response.data[0].hp);
           setStarterOneStamina(response.data[0].stamina);
@@ -94,11 +93,11 @@ function Battle() {
           setStarterFxImg(response.data[0].fx_img);
 
           setStarterOneAttackStats({
-            attack_name: response.data[0].attack_name, 
+            attack_name: response.data[0].attack_name,
             attack_damage: response.data[0].attack_damage,
             attack_stamina: response.data[0].attack_stamina,
             attack_type: response.data[0].attack_type,
-          })
+          });
 
           setStarterTwoHp(response.data[1].hp);
           setStarterTwoStamina(response.data[1].stamina);
@@ -107,11 +106,11 @@ function Battle() {
           setStarterTwoFxImg(response.data[1].fx_img);
           setStarterTwoName(response.data[1].character_name);
           setStarterTwoAttackStats({
-attack_name: response.data[1].attack_name, 
+            attack_name: response.data[1].attack_name,
             attack_damage: response.data[1].attack_damage,
             attack_stamina: response.data[1].attack_stamina,
             attack_type: response.data[1].attack_type,
-          })
+          });
         }
       })
       .catch((err) => {
@@ -168,9 +167,7 @@ attack_name: response.data[1].attack_name,
   // console.log('characters', characters);
   // console.log('starter', starter);
   // console.log('levelEnemy', levelEnemy);
-  
-  
-  
+
   // setting each starter/enemy to a varriable
   let enemyOne = levelEnemy[0];
   let starterOne = starter[0];
@@ -186,7 +183,7 @@ attack_name: response.data[1].attack_name,
   const [starterOneAttackStats, setStarterOneAttackStats] = useState({});
 
   // console.log('starterOneAttackStats', starterOneAttackStats);
-  
+
   // starter stats/info
   const [starterTwoHp, setStarterTwoHp] = useState(0);
   const [starterTwoStamina, setStarterTwoStamina] = useState(0);
@@ -214,7 +211,6 @@ attack_name: response.data[1].attack_name,
   const [enemyName, setEnemyName] = useState("");
   const [enemySpeed, setEnemySpeed] = useState(0);
   const [enemyAttackStats, setEnemyAttackStats] = useState({});
-
 
   // kick attack name and stamina
   const [kickAttack, setKickAttack] = useState("");
@@ -2113,7 +2109,7 @@ attack_name: response.data[1].attack_name,
             //     });
             //   }, 2700);
             // }
-          }          else if (e.target.innerHTML === "Attack") {
+          } else if (e.target.innerHTML === "Attack") {
             console.log("in attack");
             document.getElementById("togglableButtons").innerHTML = (
               <>
@@ -2347,7 +2343,6 @@ attack_name: response.data[1].attack_name,
             document.getElementById("togglableButtons").innerHTML =
               "hi inventory";
           }
- 
         });
       });
     }
