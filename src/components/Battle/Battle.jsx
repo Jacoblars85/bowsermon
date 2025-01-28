@@ -1880,9 +1880,9 @@ function Battle() {
         },
         animate: true,
         isEnemy: true,
-        name: '',
-        health: 0,
-        stamina: 0,
+        name: enemyOne.character_name,
+        health: enemyHp,
+        stamina: enemyStamina,
       });
 
       const starter = new Sprite({
@@ -1897,12 +1897,12 @@ function Battle() {
           alignment: 86,
         },
         animate: true,
-        name: '',
-        health: 0,
-        stamina: 0,
+        name: starterOne.character_name,
+        health: starterOneHp,
+        stamina: starterOneStamina,
       });
 
-      const starterTwo = new Sprite({
+      const starter2 = new Sprite({
         position: {
           x: 280,
           y: 325,
@@ -1915,12 +1915,12 @@ function Battle() {
         },
         animate: true,
         opacity: 0,
-        name: '',
-        health: 0,
-        stamina: 0,
+        name: starterTwo.character_name,
+        health: starterTwoHp,
+        stamina: starterTwoStamina,
       });
 
-      const renderedSprites = [enemy, starter, starterTwo];
+      const renderedSprites = [enemy, starter, starter2];
 
       function animateBattle() {
         window.requestAnimationFrame(animateBattle);
