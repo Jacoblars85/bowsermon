@@ -2068,7 +2068,7 @@ function Battle() {
             // console.log("e", e.target.innerHTML);
             // console.log('in attack button', button);
             const characterSelectedAttack = e.target.innerHTML;
-            let selectedAttack;
+            let selectedAttack = {};
 
             // console.log('characterSelectedAttack', characterSelectedAttack);
 
@@ -2084,21 +2084,7 @@ function Battle() {
               selectedAttack = pokeAttackStats;
             }
 
-            // console.log('selectedAttack', selectedAttack);
-
-            let enemySelectedAttack = enemyOne.attack_type;
-
-            // if (enemyStamina >= enemyOne.attack_stamina) {
-            //   enemySelectedAttack = enemyOne.attack_type;
-            // } else if (enemyStamina >= kickStamina) {
-            //   enemySelectedAttack = kickAttackType;
-            // } else if (enemyStamina >= pokeStamina) {
-            //   enemySelectedAttack = pokeAttackType;
-            // } else if (enemyStamina === 0) {
-            //   enemySelectedAttack = "tired";
-            // }
-
-            // console.log("enemySelectedAttack", enemySelectedAttack);
+            // console.log("selectedAttack", selectedAttack);
 
             if (starterOneSpeed >= enemySpeed) {
               starter.attack({
@@ -2109,14 +2095,14 @@ function Battle() {
 
               setTimeout(() => {
                 enemy.attack({
-                  attack: enemySelectedAttack,
+                  attack: selectedAttack,
                   recipient: starter,
                   renderedSprites,
                 });
               }, 2700);
             } else if (starterOneSpeed < enemySpeed) {
               enemy.attack({
-                attack: enemySelectedAttack,
+                attack: selectedAttack,
                 recipient: starter,
                 renderedSprites,
               });
