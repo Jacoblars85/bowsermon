@@ -130,6 +130,13 @@ function Battle() {
         setEnemyPicture(response.data[0].battle_pic);
         setEnemyFxImg(response.data[0].fx_img);
         setEnemyName(response.data[0].character_name);
+
+        setEnemyAttackStats({
+          attack_name: response.data[0].attack_name,
+          attack_damage: response.data[0].attack_damage,
+          attack_stamina: response.data[0].attack_stamina,
+          attack_type: response.data[0].attack_type,
+        });
       })
       .catch((err) => {
         console.log(err);
@@ -1775,7 +1782,7 @@ function Battle() {
           //     attackType = "tired";
           //     damage = 0
           //   }
-          // }
+          // } 
 
           // this.health -= attack.attack_damage;
           // this.stamina -= attack.attack_stamina
