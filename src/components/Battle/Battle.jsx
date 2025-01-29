@@ -2036,6 +2036,7 @@ function Battle() {
 
       document.querySelectorAll("button").forEach((button) => {
         button.addEventListener("click", (e) => {
+          let dynamicButtons = document.getElementById("togglableButtons")
           // console.log("e", e.target.innerHTML);
           if (e.target.id === "attackButton") {
             // console.log("e", e.target.innerHTML);
@@ -2111,20 +2112,19 @@ function Battle() {
             // }
           } else if (e.target.innerHTML === "Attack") {
             console.log("in attack");
-            document.getElementById("togglableButtons").innerHTML = (
-              <>
-                <button
-                  onClick={() => battle("unique")}
-                  id="attackButton"
-                  // className="projectile"
-                  className={
+            dynamicButtons.innerHTML = `
+              <div>
+                <button 
+                onClick="() => battle("unique")" 
+                id="attackButton"
+                  className=${
                     starter.length === 1
                       ? starterOneAttackStats.attack_type
                       : currentId === starterOne.id
                       ? starterOneAttackStats.attack_type
                       : starterTwoAttackStats.attack_type
                   }
-                  style={{
+                  style=${{
                     display: "flex",
                     width: "33.33%",
                     height: "100%",
@@ -2138,7 +2138,7 @@ function Battle() {
                     // backgroundColor: "white",
                     boxShadow: "0 0 0 0",
                   }}
-                  disabled={
+                  disabled=${
                     starter.length === 1
                       ? starterOneStamina < starterOneAttackStats.attack_stamina
                         ? true
@@ -2152,7 +2152,7 @@ function Battle() {
                       : isDisabled
                   }
                 >
-                  {starter.length === 1
+                  ${starter.length === 1
                     ? starterOneAttackStats.attack_name
                     : currentId === starterOne.id
                     ? starterOneAttackStats.attack_name
@@ -2160,11 +2160,10 @@ function Battle() {
                 </button>
 
                 <button
-                  onClick={() => battle("punch")}
+                  onClick="() => battle("punch")"
                   id="attackButton"
-                  className={kickAttackType}
-                  // className="summon"
-                  style={{
+                  className=${kickAttackType}
+                  style=${{
                     display: "flex",
                     width: "33.33%",
                     height: "100%",
@@ -2179,7 +2178,7 @@ function Battle() {
                     // backgroundColor: "white",
                     boxShadow: "0 0 0 0",
                   }}
-                  disabled={
+                  disabled=${
                     starter.length === 1
                       ? starterOneStamina < kickStamina
                         ? true
@@ -2193,14 +2192,14 @@ function Battle() {
                       : isDisabled
                   }
                 >
-                  {kickAttack}
+                  ${kickAttack}
                 </button>
 
                 <button
-                  onClick={() => battle("poke")}
+                  onClick="() => battle("poke")"
                   id="attackButton"
-                  className={pokeAttackType}
-                  style={{
+                  className=${pokeAttackType}
+                  style=${{
                     display: "flex",
                     width: "33.33%",
                     height: "100%",
@@ -2215,7 +2214,7 @@ function Battle() {
                     // backgroundColor: "white",
                     boxShadow: "0 0 0 0",
                   }}
-                  disabled={
+                  disabled=${
                     starter.length === 1
                       ? starterOneStamina < pokeStamina
                         ? true
@@ -2229,10 +2228,12 @@ function Battle() {
                       : isDisabled
                   }
                 >
-                  {pokeAttack}
+                  ${pokeAttack}
                 </button>
-              </>
-            );
+              </div>
+`
+console.log('dynamicButtons', dynamicButtons);
+
           } else if (e.target.innerHTML === "Switch") {
             console.log("in switch");
 
@@ -2473,9 +2474,9 @@ function Battle() {
               justifyContent: "center",
             }}
           >
-            {toggleAllButtons()}
+            {/* {toggleAllButtons()} */}
 
-            {/* <>
+            <>
               <button
                 onClick={() => battle("unique")}
                 id="attackButton"
@@ -2594,7 +2595,7 @@ function Battle() {
               >
                 {pokeAttack}
               </button>
-            </> */}
+            </>
           </div>
 
           {/* all of the basic buttons */}
