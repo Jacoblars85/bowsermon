@@ -2069,10 +2069,10 @@ function Battle() {
           if (e.target.id === "attackButton") {
             // console.log("e", e.target.innerHTML);
             // console.log('in attack button', button);
-            const characterSelectedAttack = button.className;
+            const characterSelectedAttack = e.target.innerHTML;
             let selectedAttack
 
-            console.log('characterSelectedAttack', characterSelectedAttack);
+            // console.log('characterSelectedAttack', characterSelectedAttack);
             
             if (characterSelectedAttack === starterOneAttackStats.attack_name) {
               selectedAttack = starterOneAttackStats
@@ -2082,7 +2082,7 @@ function Battle() {
               selectedAttack = pokeAttackStats
             }
 
-            console.log('selectedAttack', selectedAttack);
+            // console.log('selectedAttack', selectedAttack);
             
 
             let enemySelectedAttack = enemyOne.attack_type;
@@ -2101,7 +2101,7 @@ function Battle() {
 
             if (starterOneSpeed >= enemySpeed) {
               starter.attack({
-                attack: characterSelectedAttack,
+                attack: selectedAttack,
                 recipient: enemy,
                 renderedSprites,
               });
@@ -2122,7 +2122,7 @@ function Battle() {
 
               setTimeout(() => {
                 starter.attack({
-                  attack: characterSelectedAttack,
+                  attack: selectedAttack,
                   recipient: enemy,
                   renderedSprites,
                 });
@@ -2657,7 +2657,7 @@ function Battle() {
               <button
                 onClick={() => battle("punch")}
                 id="attackButton"
-                className={kickAttackType}
+                className={kickAttack}
                 style={{
                   display: "flex",
                   width: "33.33%",
@@ -2693,7 +2693,7 @@ function Battle() {
               <button
                 onClick={() => battle("poke")}
                 id="attackButton"
-                className={pokeAttackType}
+                className={pokeAttack}
                 style={{
                   display: "flex",
                   width: "33.33%",
