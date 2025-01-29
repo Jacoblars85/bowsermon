@@ -1782,26 +1782,16 @@ function Battle() {
         }
 
         attack({ attack, recipient, renderedSprites }) {
-          // let attackType
-          // let damage
-
-
           
-
           if (this.isEnemy) {
             if (this.stamina >= enemyOne.attack_stamina) {
               attack = enemyAttackStats
-              // attackType = enemyOne.attack_type;
-              // damage = enemyOne.attack_damage
             } else if (this.stamina >= kickStamina) {
-              // attackType = kickAttackType;
-              // damage = basicAttacks[0].attack_damage
+              attack = kickAttackStats
             } else if (this.stamina >= pokeStamina) {
-              // attackType = pokeAttackType;
-              // damage = basicAttacks[1].attack_damage
+              attack = pokeAttackStats
             } else if (this.stamina === 0) {
-              // attackType = "tired";
-              // damage = 0
+              attack = {}
             }
           } 
 
