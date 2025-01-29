@@ -2036,7 +2036,7 @@ function Battle() {
 
       document.querySelectorAll("button").forEach((button) => {
         button.addEventListener("click", (e) => {
-          let dynamicButtons = document.getElementById("togglableButtons")
+          let dynamicButtons = document.getElementById("togglableButtons");
           // console.log("e", e.target.innerHTML);
           if (e.target.id === "attackButton") {
             // console.log("e", e.target.innerHTML);
@@ -2152,11 +2152,13 @@ function Battle() {
                       : isDisabled
                   }
                 >
-                  ${starter.length === 1
-                    ? starterOneAttackStats.attack_name
-                    : currentId === starterOne.id
-                    ? starterOneAttackStats.attack_name
-                    : starterTwoAttackStats.attack_name}
+                  ${
+                    starter.length === 1
+                      ? starterOneAttackStats.attack_name
+                      : currentId === starterOne.id
+                      ? starterOneAttackStats.attack_name
+                      : starterTwoAttackStats.attack_name
+                  }
                 </button>
 
                 <button
@@ -2231,9 +2233,8 @@ function Battle() {
                   ${pokeAttack}
                 </button>
               </div>
-`
-console.log('dynamicButtons', dynamicButtons);
-
+`;
+            console.log("dynamicButtons", dynamicButtons);
           } else if (e.target.innerHTML === "Switch") {
             console.log("in switch");
 
