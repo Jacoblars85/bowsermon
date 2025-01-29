@@ -152,6 +152,9 @@ function Battle() {
         setKickAttack(response.data[0].attack_name);
         setKickStamina(response.data[0].attack_stamina);
         setKickAttackType(response.data[0].attack_type);
+
+
+
         setPokeAttack(response.data[1].attack_name);
         setPokeStamina(response.data[1].attack_stamina);
         setPokeAttackType(response.data[1].attack_type);
@@ -220,11 +223,13 @@ function Battle() {
   const [enemyAttackStats, setEnemyAttackStats] = useState({});
 
   // kick attack name and stamina
+  const [kickAttackStats, setKickAttackStats] = useState({});
   const [kickAttack, setKickAttack] = useState("");
   const [kickStamina, setKickStamina] = useState(0);
   const [kickAttackType, setKickAttackType] = useState("");
 
   // poke attack name and stamina
+  const [pokeAttackStats, setPokeAttackStats] = useState({});
   const [pokeAttack, setPokeAttack] = useState("");
   const [pokeStamina, setPokeStamina] = useState(0);
   const [pokeAttackType, setPokeAttackType] = useState("");
@@ -2054,6 +2059,9 @@ function Battle() {
             // console.log('in attack button', button);
             const characterSelectedAttack = button.className;
 
+            console.log('characterSelectedAttack', characterSelectedAttack);
+            
+
             let enemySelectedAttack = enemyOne.attack_type;
 
             // if (enemyStamina >= enemyOne.attack_stamina) {
@@ -2585,9 +2593,9 @@ function Battle() {
                 id="attackButton"
                 className={
                   starter.length === 1
-                    ? starterOne.attack_type
+                    ? starterOne.attack_name
                     : currentId === starterOne.id
-                    ? starterOne.attack_type
+                    ? starterOne.attack_name
                     : starterTwo.attack_type
                 }
                 style={{
