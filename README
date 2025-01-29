@@ -8,3 +8,4 @@ Problems:
 6. changing the fx animation pic for the second starter
 7. try to add a js to the html to source into all of the other files
 8. Maybe add the hp and stamina to the battle useEffect sprite class
+9. fix the winning battle being sent to server
