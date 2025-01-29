@@ -1783,25 +1783,34 @@ function Battle() {
 
         attack({ attack, recipient, renderedSprites }) {
           if (this.isEnemy) {
-            if (this.stamina >= enemyOne.attack_stamina) {
+            if (this.stamina >= enemyAttackStats.attack_stamina) {
               attack = enemyAttackStats;
             } else if (this.stamina >= kickStamina) {
               attack = kickAttackStats;
             } else if (this.stamina >= pokeStamina) {
               attack = pokeAttackStats;
             } else if (this.stamina === 0) {
-              attack = {};
+              attack = {
+                attack_type: "tired", 
+                attack_name: "tired",
+                attack_damage: 0,
+                attack_stamina: 0,
+              };
             }
           }
 
-          // this.health -= attack.attack_damage;
-          // this.stamina -= attack.attack_stamina
+          this.health -= attack.attack_damage;
+          recipient.stamina -= attack.attack_stamina
 
-          console.log("attack", attack);
+          console.log(this.health);
+          console.log(this.stamina);
+          console.log(this.name);
+          
+          console.log("attack", attack.attack_name);
 
           document.getElementById("dialogueBox").style.display = "block";
           document.getElementById("dialogueBox").innerHTML =
-            this.name + " used ";
+            this.name + " used " + attack.attack_name;
 
           let rotation = 1;
           if (this.isEnemy) rotation = -2.2;
@@ -1812,7 +1821,7 @@ function Battle() {
           let staminaBar = "#enemyStaminaBar";
           if (this.isEnemy) staminaBar = "#starterStaminaBar";
 
-          if (attack === "physical") {
+          if (attack.attack_type === "physical") {
             const tl = gsap.timeline();
 
             let movementDistance = 20;
@@ -1848,7 +1857,7 @@ function Battle() {
               .to(this.position, {
                 x: this.position.x,
               });
-          } else if (attack === "projectile") {
+          } else if (attack.attack_type === "projectile") {
             const enemyProjectileAttackFxImage = new Image();
             enemyProjectileAttackFxImage.src = enemyFxImg;
 
@@ -1901,7 +1910,7 @@ function Battle() {
                 renderedSprites.splice(1, 1);
               },
             });
-          } else if (attack === "summon") {
+          } else if (attack.attack_type === "summon") {
             const enemySummonAttackFxImage = new Image();
             enemySummonAttackFxImage.src = enemyFxImg;
 
@@ -1954,7 +1963,7 @@ function Battle() {
                 renderedSprites.splice(2, 1);
               },
             });
-          } else if (attack === "tired") {
+          } else if (attack.attack_type === "tired") {
             gsap.to(this.position, {
               x: this.position.x + 10,
               yoyo: true,
