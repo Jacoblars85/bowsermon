@@ -1768,7 +1768,7 @@ function Battle() {
           // let attackType
           // let damage
 
-          
+
           
 
           if (this.isEnemy) {
@@ -2583,14 +2583,13 @@ function Battle() {
               <button
                 onClick={() => battle("unique")}
                 id="attackButton"
-                className="projectile"
-                // className={
-                //   starter.length === 1
-                //     ? starterOne.attack_type
-                //     : currentId === starterOne.id
-                //     ? starterOne.attack_type
-                //     : starterTwo.attack_type
-                // }
+                className={
+                  starter.length === 1
+                    ? starterOne.attack_type
+                    : currentId === starterOne.id
+                    ? starterOne.attack_type
+                    : starterTwo.attack_type
+                }
                 style={{
                   display: "flex",
                   width: "33.33%",
@@ -2629,8 +2628,7 @@ function Battle() {
               <button
                 onClick={() => battle("punch")}
                 id="attackButton"
-                // className={kickAttackType}
-                className="summon"
+                className={kickAttackType}
                 style={{
                   display: "flex",
                   width: "33.33%",
