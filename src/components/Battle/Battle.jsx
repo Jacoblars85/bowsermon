@@ -2070,8 +2070,19 @@ function Battle() {
             // console.log("e", e.target.innerHTML);
             // console.log('in attack button', button);
             const characterSelectedAttack = button.className;
+            let selectedAttack
 
             console.log('characterSelectedAttack', characterSelectedAttack);
+            
+            if (characterSelectedAttack === starterOneAttackStats.attack_name) {
+              selectedAttack = starterOneAttackStats
+            } else if (characterSelectedAttack === kickAttackStats.attack_name) {
+              selectedAttack = kickAttackStats
+            } else if (characterSelectedAttack === pokeAttackStats.attack_name) {
+              selectedAttack = pokeAttackStats
+            }
+
+            console.log('selectedAttack', selectedAttack);
             
 
             let enemySelectedAttack = enemyOne.attack_type;
@@ -2087,8 +2098,6 @@ function Battle() {
             // }
 
             // console.log("enemySelectedAttack", enemySelectedAttack);
-
-            let selectedAttack = e.target.innerHTML;
 
             if (starterOneSpeed >= enemySpeed) {
               starter.attack({
