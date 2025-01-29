@@ -2701,22 +2701,22 @@ function Battle() {
           >
             <>
               {/* the inventory button */}
-              <button
+              {/* <button
                 onClick={() => setDisplayButtons("inventory")}
                 className="inventoryMove"
                 disabled={isDisabled}
               >
                 Inventory
-              </button>
+              </button> */}
 
               {/* the switch button */}
-              <button
+              {/* <button
                 onClick={() => setDisplayButtons("switch")}
                 className="switch"
                 disabled={isDisabled}
               >
                 Switch
-              </button>
+              </button> */}
 
               {/* run button */}
               <button
