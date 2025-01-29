@@ -1791,7 +1791,7 @@ function Battle() {
               attack = pokeAttackStats;
             } else if (this.stamina === 0) {
               attack = {
-                attack_type: "tired", 
+                attack_type: "tired",
                 attack_name: "tired",
                 attack_damage: 0,
                 attack_stamina: 0,
@@ -1800,12 +1800,12 @@ function Battle() {
           }
 
           this.health -= attack.attack_damage;
-          recipient.stamina -= attack.attack_stamina
+          recipient.stamina -= attack.attack_stamina;
 
           console.log(this.health);
           console.log(this.stamina);
           console.log(this.name);
-          
+
           console.log("attack", attack.attack_name);
 
           document.getElementById("dialogueBox").style.display = "block";
