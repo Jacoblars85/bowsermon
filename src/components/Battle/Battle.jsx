@@ -1768,21 +1768,25 @@ function Battle() {
           // let attackType
           // let damage
 
-          // if (this.isEnemy) {
-          //   if (this.stamina >= enemyOne.attack_stamina) {
-          //     attackType = enemyOne.attack_type;
-          //     damage = enemyOne.attack_damage
-          //   } else if (this.stamina >= kickStamina) {
-          //     attackType = kickAttackType;
-          //     damage = basicAttacks[0].attack_damage
-          //   } else if (this.stamina >= pokeStamina) {
-          //     attackType = pokeAttackType;
-          //     damage = basicAttacks[1].attack_damage
-          //   } else if (this.stamina === 0) {
-          //     attackType = "tired";
-          //     damage = 0
-          //   }
-          // } 
+          
+          
+
+          if (this.isEnemy) {
+            if (this.stamina >= enemyOne.attack_stamina) {
+              attack = enemyAttackStats
+              // attackType = enemyOne.attack_type;
+              // damage = enemyOne.attack_damage
+            } else if (this.stamina >= kickStamina) {
+              // attackType = kickAttackType;
+              // damage = basicAttacks[0].attack_damage
+            } else if (this.stamina >= pokeStamina) {
+              // attackType = pokeAttackType;
+              // damage = basicAttacks[1].attack_damage
+            } else if (this.stamina === 0) {
+              // attackType = "tired";
+              // damage = 0
+            }
+          } 
 
           // this.health -= attack.attack_damage;
           // this.stamina -= attack.attack_stamina
