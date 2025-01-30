@@ -2138,8 +2138,9 @@ function Battle() {
             //   }, 2700);
             // }
           }
-          //           else if (e.target.innerHTML === "Attack") {
-          //             console.log("in attack");
+                    else if (e.target.innerHTML === "Attack") {
+                      console.log("in attack");
+                      document.getElementById("switchBox").style.display = "none";
           //             dynamicButtons.innerHTML = `
           //               <div>
           //                 <button
@@ -2262,207 +2263,207 @@ function Battle() {
           //                 </button>
           //               </div>
           // `;
-          //             // console.log("dynamicButtons", dynamicButtons);
-          //           } else if (e.target.innerHTML === "Switch") {
-          //             console.log("in switch");
+                      // console.log("dynamicButtons", dynamicButtons);
+                    } else if (e.target.innerHTML === "Switch") {
+                      console.log("in switch");
+                      document.getElementById("switchBox").style.display = "block";
+                      // dynamicButtons.innerHTML =
+                      // `
+                      //   <div>
+                      //   {starter.length === 1 ? (
+                      //     <List>
+                      //       <ListItem>
+                      //         <img height={50} width={50} src={starterOne.profile_pic} />
+                      //         <ListItemText
+                      //           sx={{ ml: 25 }}
+                      //           primary={"starter 1: ${starterTwoName}"}
+                      //           secondary={"${starterOneHp}/${starterOneHp} hp | ${starterOneStamina}/${starterOneStamina} stamina | ${starterOneSpeed} speed"}
+                      //         />
+                      //         <button
+                      //           id="attackButton"
+                      //           className="starterOne"
+                      //           sx={{
+                      //             color: "black",
+                      //             fontSize: 10,
+                      //             fontFamily: "New Super Mario Font U",
+                      //             borderColor: "black",
+                      //           }}
+                      //           variant="outlined"
+                      //           disabled={
+                      //             currentId === starterOne.id
+                      //               ? true
+                      //               : starterOneHp <= 0
+                      //               ? true
+                      //               : false
+                      //           }
+                      //           onClick={() => battle("starterOne")}
+                      //         >
+                      //           Change Starter
+                      //         </button>
+                      //       </ListItem>
+                      //     </List>
+                      //   ) : (
+                      //     <List>
+                      //       <ListItem>
+                      //         <img height={50} width={50} src={starterOne.profile_pic} />
+                      //         <ListItemText
+                      //           sx={{ ml: 25 }}
+                      //           primary={"starter 1: ${starterTwoName}"}
+                      //           secondary={"${starterOneHp}/${starterOneHp} hp | ${starterOneStamina}/${starterOneStamina} stamina | ${starterOneSpeed} speed"}
+                      //         />
+                      //         <button
+                      //           id="attackButton"
+                      //           className="starterOne"
+                      //           sx={{
+                      //             color: "black",
+                      //             fontSize: 10,
+                      //             fontFamily: "New Super Mario Font U",
+                      //             borderColor: "black",
+                      //           }}
+                      //           // variant="outlined"
+                      //           disabled={
+                      //             currentId === starterOne.id
+                      //               ? true
+                      //               : starterOneHp <= 0
+                      //               ? true
+                      //               : false
+                      //           }
+                      //           onClick={() => battle("starterOne")}
+                      //         >
+                      //           Change Starter
+                      //         </button>
+                      //       </ListItem>
 
-          //             dynamicButtons.innerHTML =
-          //             `
-          //               <div>
-          //               {starter.length === 1 ? (
-          //                 <List>
-          //                   <ListItem>
-          //                     <img height={50} width={50} src={starterOne.profile_pic} />
-          //                     <ListItemText
-          //                       sx={{ ml: 25 }}
-          //                       primary={"starter 1: ${starterTwoName}"}
-          //                       secondary={"${starterOneHp}/${starterOneHp} hp | ${starterOneStamina}/${starterOneStamina} stamina | ${starterOneSpeed} speed"}
-          //                     />
-          //                     <button
-          //                       id="attackButton"
-          //                       className="starterOne"
-          //                       sx={{
-          //                         color: "black",
-          //                         fontSize: 10,
-          //                         fontFamily: "New Super Mario Font U",
-          //                         borderColor: "black",
-          //                       }}
-          //                       variant="outlined"
-          //                       disabled={
-          //                         currentId === starterOne.id
-          //                           ? true
-          //                           : starterOneHp <= 0
-          //                           ? true
-          //                           : false
-          //                       }
-          //                       onClick={() => battle("starterOne")}
-          //                     >
-          //                       Change Starter
-          //                     </button>
-          //                   </ListItem>
-          //                 </List>
-          //               ) : (
-          //                 <List>
-          //                   <ListItem>
-          //                     <img height={50} width={50} src={starterOne.profile_pic} />
-          //                     <ListItemText
-          //                       sx={{ ml: 25 }}
-          //                       primary={"starter 1: ${starterTwoName}"}
-          //                       secondary={"${starterOneHp}/${starterOneHp} hp | ${starterOneStamina}/${starterOneStamina} stamina | ${starterOneSpeed} speed"}
-          //                     />
-          //                     <button
-          //                       id="attackButton"
-          //                       className="starterOne"
-          //                       sx={{
-          //                         color: "black",
-          //                         fontSize: 10,
-          //                         fontFamily: "New Super Mario Font U",
-          //                         borderColor: "black",
-          //                       }}
-          //                       // variant="outlined"
-          //                       disabled={
-          //                         currentId === starterOne.id
-          //                           ? true
-          //                           : starterOneHp <= 0
-          //                           ? true
-          //                           : false
-          //                       }
-          //                       onClick={() => battle("starterOne")}
-          //                     >
-          //                       Change Starter
-          //                     </button>
-          //                   </ListItem>
+                      //       <Divider />
 
-          //                   <Divider />
+                      //       <ListItem>
+                      //         <img height={50} width={50} src={starterTwo.profile_pic} />
+                      //         <ListItemText
+                      //           sx={{ ml: 25 }}
+                      //           primary={"starter 2: ${starterTwoName}"}
+                      //           secondary={"${starterTwoHp}/${starterTwoHp} hp | ${starterTwoStamina}/${starterTwoStamina} stamina | ${starterTwoSpeed} speed"}
+                      //         />
+                      //         <button
+                      //           id="attackButton"
+                      //           className="starterTwo"
+                      //           sx={{
+                      //             color: "black",
+                      //             fontSize: 10,
+                      //             fontFamily: "New Super Mario Font U",
+                      //             borderColor: "black",
+                      //             ml: 2,
+                      //           }}
+                      //           // variant="outlined"
+                      //           disabled={
+                      //             currentId === starterTwo.id
+                      //               ? true
+                      //               : starterTwoHp <= 0
+                      //               ? true
+                      //               : false
+                      //           }
+                      //           onClick={() => battle("starterTwo")}
+                      //         >
+                      //           Change Starter
+                      //         </button>
+                      //       </ListItem>
+                      //     </List>
+                      //   )}
+                      // </div>
+                      // `
 
-          //                   <ListItem>
-          //                     <img height={50} width={50} src={starterTwo.profile_pic} />
-          //                     <ListItemText
-          //                       sx={{ ml: 25 }}
-          //                       primary={"starter 2: ${starterTwoName}"}
-          //                       secondary={"${starterTwoHp}/${starterTwoHp} hp | ${starterTwoStamina}/${starterTwoStamina} stamina | ${starterTwoSpeed} speed"}
-          //                     />
-          //                     <button
-          //                       id="attackButton"
-          //                       className="starterTwo"
-          //                       sx={{
-          //                         color: "black",
-          //                         fontSize: 10,
-          //                         fontFamily: "New Super Mario Font U",
-          //                         borderColor: "black",
-          //                         ml: 2,
-          //                       }}
-          //                       // variant="outlined"
-          //                       disabled={
-          //                         currentId === starterTwo.id
-          //                           ? true
-          //                           : starterTwoHp <= 0
-          //                           ? true
-          //                           : false
-          //                       }
-          //                       onClick={() => battle("starterTwo")}
-          //                     >
-          //                       Change Starter
-          //                     </button>
-          //                   </ListItem>
-          //                 </List>
-          //               )}
-          //             </div>
-          //             `
+                    } else if (e.target.innerHTML === "Inventory") {
+                      console.log(" in inventory");
+                      dynamicButtons.innerHTML =
+                        `
+                        <div>
+                        <Box height="140px" overflow={"scroll"}>
+                    ${usersConsumableItems.map((usersConsumables) => {
+                        return (
+                          <div
+                            key={usersConsumables.id}
+                            style={{ height: "40px", padding: 10 }}
+                          >
+                            <ListItem>
+                              <Box
+                                display="flex"
+                                flexDirection="row"
+                                columnGap={5}
+                                justifyContent="space-around"
+                                alignItems="center"
+                              >
+                                <p
+                                  style={{
+                                    color: "black",
+                                    fontSize: "15px",
+                                  }}
+                                >
+                                  {usersConsumables.number}X
+                                </p>
+                                <img
+                                  height={35}
+                                  width={35}
+                                  src={usersConsumables.item_pic}
+                                />
+                              </Box>
 
-          //           } else if (e.target.innerHTML === "Inventory") {
-          //             console.log(" in inventory");
-          //             dynamicButtons.innerHTML =
-          //               `
-          //               <div>
-          //               <Box height="140px" overflow={"scroll"}>
-          //           ${usersConsumableItems.map((usersConsumables) => {
-          //               return (
-          //                 <div
-          //                   key={usersConsumables.id}
-          //                   style={{ height: "40px", padding: 10 }}
-          //                 >
-          //                   <ListItem>
-          //                     <Box
-          //                       display="flex"
-          //                       flexDirection="row"
-          //                       columnGap={5}
-          //                       justifyContent="space-around"
-          //                       alignItems="center"
-          //                     >
-          //                       <p
-          //                         style={{
-          //                           color: "black",
-          //                           fontSize: "15px",
-          //                         }}
-          //                       >
-          //                         {usersConsumables.number}X
-          //                       </p>
-          //                       <img
-          //                         height={35}
-          //                         width={35}
-          //                         src={usersConsumables.item_pic}
-          //                       />
-          //                     </Box>
+                              <ListItemText
+                                sx={{
+                                  ml: 20,
+                                  fontFamily: "New Super Mario Font U",
+                                }}
+                                primary={usersConsumables.name}
+                              />
 
-          //                     <ListItemText
-          //                       sx={{
-          //                         ml: 20,
-          //                         fontFamily: "New Super Mario Font U",
-          //                       }}
-          //                       primary={usersConsumables.name}
-          //                     />
-
-          //                     <ListItemText
-          //                       sx={{
-          //                         ml: 5,
-          //                         fontFamily: "New Super Mario Font U",
-          //                         width: "70px",
-          //                       }}
-          //                       // primary={usersConsumables.name}
-          //                       secondary={`${
-          //                         usersConsumables.item_hp === 0
-          //                           ? ""
-          //                           : `+${usersConsumables.item_hp} hp`
-          //                       } ${
-          //                         usersConsumables.item_stamina === 0
-          //                           ? ""
-          //                           : usersConsumables.item_hp === 0
-          //                           ? `+${usersConsumables.item_stamina} stamina`
-          //                           : `| +${usersConsumables.item_stamina} stamina`
-          //                       } ${
-          //                         usersConsumables.item_speed === 0
-          //                           ? ""
-          //                           : `| +${usersConsumables.item_speed} speed`
-          //                       }`}
-          //                     />
-          //                     <button
-          //                       // id="consumable"
-          //                       id="attackButton"
-          //                       className="consumable"
-          //                       sx={{
-          //                         color: "black",
-          //                         fontSize: 9,
-          //                         fontFamily: "New Super Mario Font U",
-          //                         borderColor: "black",
-          //                         height: "35px",
-          //                         width: "60px",
-          //                       }}
-          //                       variant="outlined"
-          //                       disabled={usersConsumables.number <= 0 ? true : false}
-          //                       onClick={() => battle(usersConsumables)}
-          //                     >
-          //                       Use Consumable
-          //                     </button>
-          //                   </ListItem>
-          //                   <Divider />
-          //                 </div>
-          //               );
-          //             })}
-          //         </Box>
-          //         </div>
-          //               `
-          //           }
+                              <ListItemText
+                                sx={{
+                                  ml: 5,
+                                  fontFamily: "New Super Mario Font U",
+                                  width: "70px",
+                                }}
+                                // primary={usersConsumables.name}
+                                secondary={`${
+                                  usersConsumables.item_hp === 0
+                                    ? ""
+                                    : `+${usersConsumables.item_hp} hp`
+                                } ${
+                                  usersConsumables.item_stamina === 0
+                                    ? ""
+                                    : usersConsumables.item_hp === 0
+                                    ? `+${usersConsumables.item_stamina} stamina`
+                                    : `| +${usersConsumables.item_stamina} stamina`
+                                } ${
+                                  usersConsumables.item_speed === 0
+                                    ? ""
+                                    : `| +${usersConsumables.item_speed} speed`
+                                }`}
+                              />
+                              <button
+                                // id="consumable"
+                                id="attackButton"
+                                className="consumable"
+                                sx={{
+                                  color: "black",
+                                  fontSize: 9,
+                                  fontFamily: "New Super Mario Font U",
+                                  borderColor: "black",
+                                  height: "35px",
+                                  width: "60px",
+                                }}
+                                variant="outlined"
+                                disabled={usersConsumables.number <= 0 ? true : false}
+                                onClick={() => battle(usersConsumables)}
+                              >
+                                Use Consumable
+                              </button>
+                            </ListItem>
+                            <Divider />
+                          </div>
+                        );
+                      })}
+                  </Box>
+                  </div>
+                        `
+                    }
         });
       });
     }
@@ -2581,6 +2582,122 @@ function Battle() {
             }}
           >
             {/* {textBox} */}
+          </div>
+
+          <div
+            id="switchBox"
+            style={{
+              position: "absolute",
+              bottom: 0,
+              left: 0,
+              right: 0,
+              top: 0,
+              width: "66%",
+              backgroundColor: "white",
+              padding: "12px",
+              display: "none",
+              fontSize: "30px",
+              zIndex: 1,
+            }}
+          >
+          {starter.length === 1 ? (
+            <List>
+              <ListItem>
+                <img height={50} width={50} src={starterOne.profile_pic} />
+                <ListItemText
+                  sx={{ ml: 25 }}
+                  primary={`starter 1: ${starterOne.character_name}`}
+                  secondary={`${starterOneHp}/${starterOne.hp} hp | ${starterOneStamina}/${starterOne.stamina} stamina | ${starterOne.speed} speed`}
+                />
+                <button
+                  id="attackButton"
+                  className="starterOne"
+                  sx={{
+                    color: "black",
+                    fontSize: 10,
+                    fontFamily: "New Super Mario Font U",
+                    borderColor: "black",
+                  }}
+                  variant="outlined"
+                  disabled={
+                    currentId === starterOne.id
+                      ? true
+                      : starterOneHp <= 0
+                      ? true
+                      : false
+                  }
+                  onClick={() => battle("starterOne")}
+                >
+                  Change Starter
+                </button>
+              </ListItem>
+            </List>
+          ) : (
+            <List>
+              <ListItem>
+                <img height={50} width={50} src={starterOne.profile_pic} />
+                <ListItemText
+                  sx={{ ml: 25 }}
+                  primary={`starter 1: ${starterOne.character_name}`}
+                  secondary={`${starterOneHp}/${starterOne.hp} hp | ${starterOneStamina}/${starterOne.stamina} stamina | ${starterOne.speed} speed`}
+                />
+                <button
+                  id="attackButton"
+                  className="starterOne"
+                  sx={{
+                    color: "black",
+                    fontSize: 10,
+                    fontFamily: "New Super Mario Font U",
+                    borderColor: "black",
+                  }}
+                  // variant="outlined"
+                  disabled={
+                    currentId === starterOne.id
+                      ? true
+                      : starterOneHp <= 0
+                      ? true
+                      : false
+                  }
+                  onClick={() => battle("starterOne")}
+                >
+                  Change Starter
+                </button>
+              </ListItem>
+
+              <Divider />
+
+              <ListItem>
+                <img height={50} width={50} src={starterTwo.profile_pic} />
+                <ListItemText
+                  sx={{ ml: 25 }}
+                  primary={`starter 2: ${starterTwo.character_name}`}
+                  secondary={`${starterTwoHp}/${starterTwo.hp} hp | ${starterTwoStamina}/${starterTwo.stamina} stamina | ${starterTwo.speed} speed`}
+                />
+                <button
+                  id="attackButton"
+                  className="starterTwo"
+                  sx={{
+                    color: "black",
+                    fontSize: 10,
+                    fontFamily: "New Super Mario Font U",
+                    borderColor: "black",
+                    ml: 2,
+                  }}
+                  // variant="outlined"
+                  disabled={
+                    currentId === starterTwo.id
+                      ? true
+                      : starterTwoHp <= 0
+                      ? true
+                      : false
+                  }
+                  onClick={() => battle("starterTwo")}
+                >
+                  Change Starter
+                </button>
+              </ListItem>
+            </List>
+          )}
           </div>
 
           {/* all of the togglable buttons */}
@@ -2735,13 +2852,13 @@ function Battle() {
               </button> */}
 
               {/* the switch button */}
-              {/* <button
+              <button
                 onClick={() => setDisplayButtons("switch")}
                 className="switch"
                 disabled={isDisabled}
               >
                 Switch
-              </button> */}
+              </button>
 
               {/* run button */}
               <button
