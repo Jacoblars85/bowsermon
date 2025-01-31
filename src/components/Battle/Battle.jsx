@@ -2583,123 +2583,6 @@ function Battle() {
             {/* {textBox} */}
           </div>
 
-          {/* switch box */}
-          <div
-            id="switchBox"
-            style={{
-              position: "absolute",
-              bottom: 0,
-              left: 0,
-              right: 0,
-              top: 0,
-              width: "64%",
-              backgroundColor: "white",
-              padding: "12px",
-              display: "none",
-              fontSize: "30px",
-              zIndex: 1,
-            }}
-          >
-            {starter.length === 1 ? (
-              <List>
-                <ListItem>
-                  <img height={50} width={50} src={starterOne.profile_pic} />
-                  <ListItemText
-                    sx={{ ml: 25 }}
-                    primary={`starter 1: ${starterOne.character_name}`}
-                    secondary={`${starterOneHp}/${starterOne.hp} hp | ${starterOneStamina}/${starterOne.stamina} stamina | ${starterOne.speed} speed`}
-                  />
-                  <button
-                    id="attackButton"
-                    className="starterOne"
-                    sx={{
-                      color: "black",
-                      fontSize: 10,
-                      fontFamily: "New Super Mario Font U",
-                      borderColor: "black",
-                    }}
-                    variant="outlined"
-                    disabled={
-                      currentId === starterOne.id
-                        ? true
-                        : starterOneHp <= 0
-                        ? true
-                        : false
-                    }
-                    onClick={() => battle("starterOne")}
-                  >
-                    Change Starter
-                  </button>
-                </ListItem>
-              </List>
-            ) : (
-              <List>
-                <ListItem>
-                  <img height={50} width={50} src={starterOne.profile_pic} />
-                  <ListItemText
-                    sx={{ ml: 25 }}
-                    primary={`starter 1: ${starterOne.character_name}`}
-                    secondary={`${starterOneHp}/${starterOne.hp} hp | ${starterOneStamina}/${starterOne.stamina} stamina | ${starterOne.speed} speed`}
-                  />
-                  <button
-                    id="attackButton"
-                    className="starterOne"
-                    sx={{
-                      color: "black",
-                      fontSize: 10,
-                      fontFamily: "New Super Mario Font U",
-                      borderColor: "black",
-                    }}
-                    // variant="outlined"
-                    disabled={
-                      currentId === starterOne.id
-                        ? true
-                        : starterOneHp <= 0
-                        ? true
-                        : false
-                    }
-                    onClick={() => battle("starterOne")}
-                  >
-                    Change Starter
-                  </button>
-                </ListItem>
-
-                <Divider />
-
-                <ListItem>
-                  <img height={50} width={50} src={starterTwo.profile_pic} />
-                  <ListItemText
-                    sx={{ ml: 25 }}
-                    primary={`starter 2: ${starterTwo.character_name}`}
-                    secondary={`${starterTwoHp}/${starterTwo.hp} hp | ${starterTwoStamina}/${starterTwo.stamina} stamina | ${starterTwo.speed} speed`}
-                  />
-                  <button
-                    id="attackButton"
-                    className="starterTwo"
-                    sx={{
-                      color: "black",
-                      fontSize: 10,
-                      fontFamily: "New Super Mario Font U",
-                      borderColor: "black",
-                      ml: 2,
-                    }}
-                    // variant="outlined"
-                    disabled={
-                      currentId === starterTwo.id
-                        ? true
-                        : starterTwoHp <= 0
-                        ? true
-                        : false
-                    }
-                    onClick={() => battle("starterTwo")}
-                  >
-                    Change Starter
-                  </button>
-                </ListItem>
-              </List>
-            )}
-          </div>
-
           {/* all of the togglable buttons */}
           <div
             id="togglableButtons"
@@ -2711,7 +2594,8 @@ function Battle() {
             }}
           >
             {/* {toggleAllButtons()} */}
-
+            
+{/* attack box */}
             <div
               id="attackBox"
               style={{
@@ -2844,6 +2728,123 @@ function Battle() {
                 {pokeAttack}
               </button>
             </div>
+          </div>
+
+          {/* switch box */}
+          <div
+            id="switchBox"
+            style={{
+              position: "absolute",
+              bottom: 0,
+              left: 0,
+              right: 0,
+              top: 0,
+              width: "64%",
+              backgroundColor: "white",
+              padding: "12px",
+              display: "none",
+              fontSize: "30px",
+              zIndex: 1,
+            }}
+          >
+            {starter.length === 1 ? (
+              <List>
+                <ListItem>
+                  <img height={50} width={50} src={starterOne.profile_pic} />
+                  <ListItemText
+                    sx={{ ml: 25 }}
+                    primary={`starter 1: ${starterOne.character_name}`}
+                    secondary={`${starterOneHp}/${starterOne.hp} hp | ${starterOneStamina}/${starterOne.stamina} stamina | ${starterOne.speed} speed`}
+                  />
+                  <button
+                    id="attackButton"
+                    className="starterOne"
+                    sx={{
+                      color: "black",
+                      fontSize: 10,
+                      fontFamily: "New Super Mario Font U",
+                      borderColor: "black",
+                    }}
+                    variant="outlined"
+                    disabled={
+                      currentId === starterOne.id
+                        ? true
+                        : starterOneHp <= 0
+                        ? true
+                        : false
+                    }
+                    onClick={() => battle("starterOne")}
+                  >
+                    Change Starter
+                  </button>
+                </ListItem>
+              </List>
+            ) : (
+              <List>
+                <ListItem>
+                  <img height={50} width={50} src={starterOne.profile_pic} />
+                  <ListItemText
+                    sx={{ ml: 25 }}
+                    primary={`starter 1: ${starterOne.character_name}`}
+                    secondary={`${starterOneHp}/${starterOne.hp} hp | ${starterOneStamina}/${starterOne.stamina} stamina | ${starterOne.speed} speed`}
+                  />
+                  <button
+                    id="attackButton"
+                    className="starterOne"
+                    sx={{
+                      color: "black",
+                      fontSize: 10,
+                      fontFamily: "New Super Mario Font U",
+                      borderColor: "black",
+                    }}
+                    // variant="outlined"
+                    disabled={
+                      currentId === starterOne.id
+                        ? true
+                        : starterOneHp <= 0
+                        ? true
+                        : false
+                    }
+                    onClick={() => battle("starterOne")}
+                  >
+                    Change Starter
+                  </button>
+                </ListItem>
+
+                <Divider />
+
+                <ListItem>
+                  <img height={50} width={50} src={starterTwo.profile_pic} />
+                  <ListItemText
+                    sx={{ ml: 25 }}
+                    primary={`starter 2: ${starterTwo.character_name}`}
+                    secondary={`${starterTwoHp}/${starterTwo.hp} hp | ${starterTwoStamina}/${starterTwo.stamina} stamina | ${starterTwo.speed} speed`}
+                  />
+                  <button
+                    id="attackButton"
+                    className="starterTwo"
+                    sx={{
+                      color: "black",
+                      fontSize: 10,
+                      fontFamily: "New Super Mario Font U",
+                      borderColor: "black",
+                      ml: 2,
+                    }}
+                    // variant="outlined"
+                    disabled={
+                      currentId === starterTwo.id
+                        ? true
+                        : starterTwoHp <= 0
+                        ? true
+                        : false
+                    }
+                    onClick={() => battle("starterTwo")}
+                  >
+                    Change Starter
+                  </button>
+                </ListItem>
+              </List>
+            )}
           </div>
 
           {/* all of the basic buttons */}
