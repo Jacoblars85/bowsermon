@@ -2584,6 +2584,7 @@ function Battle() {
             {/* {textBox} */}
           </div>
 
+            {/* switch box */}
           <div
             id="switchBox"
             style={{
@@ -2592,7 +2593,7 @@ function Battle() {
               left: 0,
               right: 0,
               top: 0,
-              width: "66%",
+              width: "64%",
               backgroundColor: "white",
               padding: "12px",
               display: "none",
@@ -2712,7 +2713,20 @@ function Battle() {
           >
             {/* {toggleAllButtons()} */}
 
-            <>
+            <div
+            id="attackBox"
+            style={{
+              position: "absolute",
+              bottom: 0,
+              left: 0,
+              right: 0,
+              top: 0,
+              width: "64%",
+              backgroundColor: "white",
+              display: "block",
+              fontSize: "30px",
+              zIndex: 1,
+            }}>
               <button
                 onClick={() => battle("unique")}
                 id="attackButton"
@@ -2829,7 +2843,7 @@ function Battle() {
               >
                 {pokeAttack}
               </button>
-            </>
+            </div>
           </div>
 
           {/* all of the basic buttons */}
