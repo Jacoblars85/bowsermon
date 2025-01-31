@@ -2139,7 +2139,7 @@ function Battle() {
             // }
           } else if (e.target.innerHTML === "Attack") {
             console.log("in attack");
-            document.getElementById("attackBox").style.display = "block";
+            document.getElementById("attackBox").style.display = "flex";
             document.getElementById("switchBox").style.display = "none";
             document.getElementById("inventoryBox").style.display = "none";
             //             dynamicButtons.innerHTML = `
@@ -2513,16 +2513,20 @@ function Battle() {
             <div
               id="attackBox"
               style={{
-                position: "absolute",
-                bottom: 0,
-                left: 0,
-                right: 0,
-                top: 0,
-                width: "64%",
+                // position: "absolute",
+                // bottom: 0,
+                // left: 0,
+                // right: 0,
+                // top: 0,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                width: "100%",
+                height: "100%",
                 backgroundColor: "white",
-                display: "block",
-                fontSize: "30px",
-                zIndex: 1,
+                // display: "block",
+                // fontSize: "30px",
+                // zIndex: 1,
               }}
             >
               <button
