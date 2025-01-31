@@ -2195,11 +2195,15 @@ function Battle() {
 </div>
 
 
-          <progress
+          {/* <progress
             className="stamina-meter"
             value={enemyStamina}
             max={enemyOne.stamina}
-          ></progress>
+          ></progress> */}
+          <div style={{ position: "relative"}}>
+<div style={{ height: "5px", backgroundColor: "#ccc", marginTop: "10px", }}></div>
+<div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "5px", backgroundColor: "green", marginTop: "10px", }}></div>
+</div>
         </div>
 
         {/* starter health box */}
