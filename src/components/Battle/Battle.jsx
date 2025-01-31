@@ -2190,8 +2190,8 @@ function Battle() {
             max={enemyOne.hp}
           ></progress> */}
 <div style={{ position: "relative"}}>
-<div style={{ height: "5px", backgroundColor: "#ccc", marginTop: "10px", }}></div>
-<div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "5px", backgroundColor: "red", marginTop: "10px", }}></div>
+<div style={{ height: "8px", backgroundColor: "#ccc", marginTop: "10px", }}></div>
+<div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "8px", backgroundColor: "red", marginTop: "10px", }}></div>
 </div>
 
 
@@ -2234,11 +2234,11 @@ function Battle() {
             max={maxHp}
           ></progress> */}
           <div style={{ position: "relative"}}>
-<div style={{ height: "5px", backgroundColor: "#ccc", marginTop: "10px", }}></div>
-<div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "5px", backgroundColor: "red", marginTop: "10px", }}></div>
+<div style={{ height: "8px", backgroundColor: "#ccc", marginTop: "10px", }}></div>
+<div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "8px", backgroundColor: "red", marginTop: "10px", }}></div>
 </div>
 
-          <progress
+          {/* <progress
             className="stamina-meter"
             value={
               starter.length === 1
@@ -2248,7 +2248,12 @@ function Battle() {
                 : starterTwoStamina
             }
             max={maxStamina}
-          ></progress>
+          ></progress> */}
+          <div style={{ position: "relative"}}>
+<div style={{ height: "5px", backgroundColor: "#ccc", marginTop: "10px", }}></div>
+<div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "5px", backgroundColor: "green", marginTop: "10px", }}></div>
+</div>
+
         </div>
 
         {/* canvas */}
