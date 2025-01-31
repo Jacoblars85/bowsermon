@@ -2378,7 +2378,6 @@ function Battle() {
             document.getElementById("inventoryBox").style.display = "block";
             document.getElementById("attackBox").style.display = "none";
             document.getElementById("switchBox").style.display = "none";
-            
           }
         });
       });
@@ -2662,7 +2661,7 @@ function Battle() {
               }}
             >
               {starter.length === 1 ? (
-                <List sx={{padding: 0}}>
+                <List sx={{ padding: 0 }}>
                   <ListItem>
                     <img height={50} width={50} src={starterOne.profile_pic} />
                     <ListItemText
@@ -2694,7 +2693,7 @@ function Battle() {
                   </ListItem>
                 </List>
               ) : (
-                <List sx={{padding: 0}}>
+                <List sx={{ padding: 0 }}>
                   <ListItem>
                     <img height={50} width={50} src={starterOne.profile_pic} />
                     <ListItemText
@@ -2761,8 +2760,8 @@ function Battle() {
               )}
             </div>
 
-              {/* inventory box */}
-              <div
+            {/* inventory box */}
+            <div
               id="inventoryBox"
               style={{
                 position: "absolute",
@@ -2775,94 +2774,97 @@ function Battle() {
                 display: "none",
                 fontSize: "30px",
                 zIndex: 1,
-              }}>
-            <Box height="140px" overflow={"scroll"}>
-          {usersConsumableItems &&
-            usersConsumableItems.map((usersConsumables) => {
-              return (
-                <div
-                  key={usersConsumables.id}
-                  style={{ height: "40px", padding: 10 }}
-                >
-                  <ListItem>
-                    <Box
-                      display="flex"
-                      flexDirection="row"
-                      columnGap={5}
-                      justifyContent="space-around"
-                      alignItems="center"
-                    >
-                      <p
-                        style={{
-                          color: "black",
-                          fontSize: "15px",
-                        }}
+              }}
+            >
+              <Box height="140px" overflow={"scroll"}>
+                {usersConsumableItems &&
+                  usersConsumableItems.map((usersConsumables) => {
+                    return (
+                      <div
+                        key={usersConsumables.id}
+                        style={{ height: "40px", padding: 10 }}
                       >
-                        {usersConsumables.number}X
-                      </p>
-                      <img
-                        height={35}
-                        width={35}
-                        src={usersConsumables.item_pic}
-                      />
-                    </Box>
+                        <ListItem>
+                          <Box
+                            display="flex"
+                            flexDirection="row"
+                            columnGap={5}
+                            justifyContent="space-around"
+                            alignItems="center"
+                          >
+                            <p
+                              style={{
+                                color: "black",
+                                fontSize: "15px",
+                              }}
+                            >
+                              {usersConsumables.number}X
+                            </p>
+                            <img
+                              height={35}
+                              width={35}
+                              src={usersConsumables.item_pic}
+                            />
+                          </Box>
 
-                    <ListItemText
-                      sx={{
-                        ml: 20,
-                        fontFamily: "New Super Mario Font U",
-                      }}
-                      primary={usersConsumables.name}
-                    />
+                          <ListItemText
+                            sx={{
+                              ml: 20,
+                              fontFamily: "New Super Mario Font U",
+                            }}
+                            primary={usersConsumables.name}
+                          />
 
-                    <ListItemText
-                      sx={{
-                        ml: 5,
-                        fontFamily: "New Super Mario Font U",
-                        width: "70px",
-                      }}
-                      // primary={usersConsumables.name}
-                      secondary={`${
-                        usersConsumables.item_hp === 0
-                          ? ""
-                          : `+${usersConsumables.item_hp} hp`
-                      } ${
-                        usersConsumables.item_stamina === 0
-                          ? ""
-                          : usersConsumables.item_hp === 0
-                          ? `+${usersConsumables.item_stamina} stamina`
-                          : `| +${usersConsumables.item_stamina} stamina`
-                      } ${
-                        usersConsumables.item_speed === 0
-                          ? ""
-                          : `| +${usersConsumables.item_speed} speed`
-                      }`}
-                    />
-                    <button
-                      // id="consumable"
-                      id="attackButton"
-                      className="consumable"
-                      style={{
-                        color: "black",
-                        fontSize: 15,
-                        fontFamily: "New Super Mario Font U",
-                        borderColor: "black",
-                        // height: "35px",
-                        // width: "60px",
-                      }}
-                      variant="outlined"
-                      disabled={usersConsumables.number <= 0 ? true : false}
-                      onClick={() => battle(usersConsumables)}
-                    >
-                      Use Consumable
-                    </button>
-                  </ListItem>
-                  <Divider />
-                </div>
-              );
-            })}
-        </Box>
-        </div>
+                          <ListItemText
+                            sx={{
+                              ml: 5,
+                              fontFamily: "New Super Mario Font U",
+                              width: "70px",
+                            }}
+                            // primary={usersConsumables.name}
+                            secondary={`${
+                              usersConsumables.item_hp === 0
+                                ? ""
+                                : `+${usersConsumables.item_hp} hp`
+                            } ${
+                              usersConsumables.item_stamina === 0
+                                ? ""
+                                : usersConsumables.item_hp === 0
+                                ? `+${usersConsumables.item_stamina} stamina`
+                                : `| +${usersConsumables.item_stamina} stamina`
+                            } ${
+                              usersConsumables.item_speed === 0
+                                ? ""
+                                : `| +${usersConsumables.item_speed} speed`
+                            }`}
+                          />
+                          <button
+                            // id="consumable"
+                            id="attackButton"
+                            className="consumable"
+                            style={{
+                              color: "black",
+                              fontSize: 15,
+                              fontFamily: "New Super Mario Font U",
+                              borderColor: "black",
+                              // height: "35px",
+                              // width: "60px",
+                            }}
+                            variant="outlined"
+                            disabled={
+                              usersConsumables.number <= 0 ? true : false
+                            }
+                            onClick={() => battle(usersConsumables)}
+                          >
+                            Use Consumable
+                          </button>
+                        </ListItem>
+                        <Divider />
+                      </div>
+                    );
+                  })}
+              </Box>
+            </div>
           </div>
 
           {/* all of the basic buttons */}
