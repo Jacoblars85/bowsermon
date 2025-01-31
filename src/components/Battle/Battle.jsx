@@ -1801,13 +1801,13 @@ function Battle() {
           }
 
           this.health -= attack.attack_damage;
-          recipient.stamina -= attack.attack_stamina;
+          this.stamina -= attack.attack_stamina;
 
           console.log(this.health);
           console.log(this.stamina);
           console.log(this.name);
 
-          console.log("attack", attack.attack_name);
+          // console.log("attack", attack.attack_name);
 
           document.getElementById("dialogueBox").style.display = "block";
           document.getElementById("dialogueBox").innerHTML =
@@ -1839,7 +1839,7 @@ function Battle() {
                     width: this.health + "%",
                   });
                   gsap.to(staminaBar, {
-                    width: this.health + "%",
+                    width: this.stamina + "%",
                   });
                   gsap.to(recipient.position, {
                     x: recipient.position.x + 10,
@@ -1893,7 +1893,7 @@ function Battle() {
                   width: this.health + "%",
                 });
                 gsap.to(staminaBar, {
-                  width: this.health + "%",
+                  width: this.stamina + "%",
                 });
                 gsap.to(recipient.position, {
                   x: recipient.position.x + 10,
@@ -1946,7 +1946,7 @@ function Battle() {
                   width: this.health + "%",
                 });
                 gsap.to(staminaBar, {
-                  width: this.health + "%",
+                  width: this.stamina + "%",
                 });
                 gsap.to(recipient.position, {
                   x: recipient.position.x + 10,
