@@ -34,6 +34,7 @@ import Slide from "@mui/material/Slide";
 import axios from "axios";
 import Box from "@mui/material/Box";
 import battleMusic from "../../audio/battleMusic.mp3";
+import { height } from "@mui/system";
 
 const DeadTransition = forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -2148,7 +2149,7 @@ function Battle() {
             document.getElementById("switchBox").style.display = "block";
             document.getElementById("attackBox").style.display = "none";
             document.getElementById("inventoryBox").style.display = "none";
-            
+
           } else if (e.target.innerHTML === "Inventory") {
             console.log(" in inventory");
             document.getElementById("inventoryBox").style.display = "block";
@@ -2183,11 +2184,17 @@ function Battle() {
         >
           <h1 style={{ margin: 0 }}>{enemyOne.character_name}</h1>
 
-          <progress
+          {/* <progress
             className="hp-meter"
             value={enemyHp}
             max={enemyOne.hp}
-          ></progress>
+          ></progress> */}
+<div style={{ position: "relative"}}>
+<div style={{ height: "5px", backgroundColor: "#ccc", marginTop: "10px", }}></div>
+<div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "5px", backgroundColor: "red", marginTop: "10px", }}></div>
+</div>
+
+
           <progress
             className="stamina-meter"
             value={enemyStamina}
