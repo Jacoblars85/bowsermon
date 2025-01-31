@@ -2187,6 +2187,8 @@ function Battle() {
             value={enemyHp}
             max={enemyOne.hp}
           ></progress> */}
+
+          {/* enemy health bar */}
           <div style={{ position: "relative" }}>
             <div
               style={{
@@ -2214,6 +2216,8 @@ function Battle() {
             value={enemyStamina}
             max={enemyOne.stamina}
           ></progress> */}
+
+          {/* enemy stamina bar */}
           <div style={{ position: "relative" }}>
             <div
               style={{
@@ -2264,6 +2268,8 @@ function Battle() {
             }
             max={maxHp}
           ></progress> */}
+
+          {/* starter health bar */}
           <div style={{ position: "relative" }}>
             <div
               style={{
@@ -2297,6 +2303,8 @@ function Battle() {
             }
             max={maxStamina}
           ></progress> */}
+
+          {/* starter stamina bar */}
           <div style={{ position: "relative" }}>
             <div
               style={{
