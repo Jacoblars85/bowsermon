@@ -539,7 +539,7 @@ function Battle() {
           setMaxHp(starterTwo.hp);
           setMaxStamina(starterTwo.stamina);
           setStarterPicture(starterTwo.battle_pic);
-          setSwitchOpen(false);
+          // setSwitchOpen(false);
         }
       } else if (currentId === starterTwo.id) {
         if (attackType === "unique") {
@@ -602,7 +602,7 @@ function Battle() {
           setMaxHp(starterOne.hp);
           setMaxStamina(starterOne.stamina);
           setStarterPicture(starterOne.battle_pic);
-          setSwitchOpen(false);
+          // setSwitchOpen(false);
         }
       }
     }
@@ -2378,97 +2378,7 @@ function Battle() {
             document.getElementById("inventoryBox").style.display = "block";
             document.getElementById("attackBox").style.display = "none";
             document.getElementById("switchBox").style.display = "none";
-            // dynamicButtons.innerHTML = `
-            //             <div>
-            //             <Box height="140px" overflow={"scroll"}>
-            //         ${usersConsumableItems.map((usersConsumables) => {
-            //           return (
-            //             <div
-            //               key={usersConsumables.id}
-            //               style={{ height: "40px", padding: 10 }}
-            //             >
-            //               <ListItem>
-            //                 <Box
-            //                   display="flex"
-            //                   flexDirection="row"
-            //                   columnGap={5}
-            //                   justifyContent="space-around"
-            //                   alignItems="center"
-            //                 >
-            //                   <p
-            //                     style={{
-            //                       color: "black",
-            //                       fontSize: "15px",
-            //                     }}
-            //                   >
-            //                     {usersConsumables.number}X
-            //                   </p>
-            //                   <img
-            //                     height={35}
-            //                     width={35}
-            //                     src={usersConsumables.item_pic}
-            //                   />
-            //                 </Box>
-
-            //                 <ListItemText
-            //                   sx={{
-            //                     ml: 20,
-            //                     fontFamily: "New Super Mario Font U",
-            //                   }}
-            //                   primary={usersConsumables.name}
-            //                 />
-
-            //                 <ListItemText
-            //                   sx={{
-            //                     ml: 5,
-            //                     fontFamily: "New Super Mario Font U",
-            //                     width: "70px",
-            //                   }}
-            //                   // primary={usersConsumables.name}
-            //                   secondary={`${
-            //                     usersConsumables.item_hp === 0
-            //                       ? ""
-            //                       : `+${usersConsumables.item_hp} hp`
-            //                   } ${
-            //                     usersConsumables.item_stamina === 0
-            //                       ? ""
-            //                       : usersConsumables.item_hp === 0
-            //                       ? `+${usersConsumables.item_stamina} stamina`
-            //                       : `| +${usersConsumables.item_stamina} stamina`
-            //                   } ${
-            //                     usersConsumables.item_speed === 0
-            //                       ? ""
-            //                       : `| +${usersConsumables.item_speed} speed`
-            //                   }`}
-            //                 />
-            //                 <button
-            //                   // id="consumable"
-            //                   id="attackButton"
-            //                   className="consumable"
-            //                   sx={{
-            //                     color: "black",
-            //                     fontSize: 9,
-            //                     fontFamily: "New Super Mario Font U",
-            //                     borderColor: "black",
-            //                     height: "35px",
-            //                     width: "60px",
-            //                   }}
-            //                   variant="outlined"
-            //                   disabled={
-            //                     usersConsumables.number <= 0 ? true : false
-            //                   }
-            //                   onClick={() => battle(usersConsumables)}
-            //                 >
-            //                   Use Consumable
-            //                 </button>
-            //               </ListItem>
-            //               <Divider />
-            //             </div>
-            //           );
-            //         })}
-            //       </Box>
-            //       </div>
-            //             `;
+            
           }
         });
       });
