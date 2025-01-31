@@ -2222,7 +2222,7 @@ function Battle() {
         >
           <h1 style={{ margin: 0 }}>{currentName}</h1>
 
-          <progress
+          {/* <progress
             className="hp-meter"
             value={
               starter.length === 1
@@ -2232,7 +2232,12 @@ function Battle() {
                 : starterTwoHp
             }
             max={maxHp}
-          ></progress>
+          ></progress> */}
+          <div style={{ position: "relative"}}>
+<div style={{ height: "5px", backgroundColor: "#ccc", marginTop: "10px", }}></div>
+<div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "5px", backgroundColor: "red", marginTop: "10px", }}></div>
+</div>
+
           <progress
             className="stamina-meter"
             value={
