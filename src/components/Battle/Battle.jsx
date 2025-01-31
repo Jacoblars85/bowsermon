@@ -467,7 +467,7 @@ function Battle() {
             setStarterOneStamina(starterOne.stamina);
           }
 
-          setInventoryOpen(false);
+          // setInventoryOpen(false);
 
           dispatch({
             type: "SAGA_USE_ITEM",
@@ -525,7 +525,7 @@ function Battle() {
             setStarterOneStamina(starterOne.stamina);
           }
 
-          setInventoryOpen(false);
+          // setInventoryOpen(false);
 
           dispatch({
             type: "SAGA_USE_ITEM",
@@ -588,7 +588,7 @@ function Battle() {
             setStarterTwoStamina(starterTwo.stamina);
           }
 
-          setInventoryOpen(false);
+          // setInventoryOpen(false);
 
           dispatch({
             type: "SAGA_USE_ITEM",
