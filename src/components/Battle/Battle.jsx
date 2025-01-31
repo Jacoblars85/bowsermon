@@ -2653,16 +2653,16 @@ function Battle() {
                 left: 0,
                 right: 0,
                 top: 0,
-                width: "64%",
+                width: "66.4%",
                 backgroundColor: "white",
-                padding: "12px",
+                padding: "0px",
                 display: "none",
-                fontSize: "30px",
+                // fontSize: "30px",
                 zIndex: 1,
               }}
             >
               {starter.length === 1 ? (
-                <List>
+                <List sx={{padding: 0}}>
                   <ListItem>
                     <img height={50} width={50} src={starterOne.profile_pic} />
                     <ListItemText
@@ -2673,9 +2673,9 @@ function Battle() {
                     <button
                       id="attackButton"
                       className="starterOne"
-                      sx={{
+                      style={{
                         color: "black",
-                        fontSize: 10,
+                        fontSize: 15,
                         fontFamily: "New Super Mario Font U",
                         borderColor: "black",
                       }}
@@ -2694,7 +2694,7 @@ function Battle() {
                   </ListItem>
                 </List>
               ) : (
-                <List>
+                <List sx={{padding: 0}}>
                   <ListItem>
                     <img height={50} width={50} src={starterOne.profile_pic} />
                     <ListItemText
@@ -2705,9 +2705,9 @@ function Battle() {
                     <button
                       id="attackButton"
                       className="starterOne"
-                      sx={{
+                      style={{
                         color: "black",
-                        fontSize: 10,
+                        fontSize: 15,
                         fontFamily: "New Super Mario Font U",
                         borderColor: "black",
                       }}
@@ -2737,9 +2737,9 @@ function Battle() {
                     <button
                       id="attackButton"
                       className="starterTwo"
-                      sx={{
+                      style={{
                         color: "black",
-                        fontSize: 10,
+                        fontSize: 15,
                         fontFamily: "New Super Mario Font U",
                         borderColor: "black",
                         ml: 2,
