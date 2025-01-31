@@ -2510,8 +2510,6 @@ function Battle() {
               justifyContent: "center",
             }}
           >
-            {/* {toggleAllButtons()} */}
-
             {/* attack box */}
             <div
               id="attackBox"
@@ -2763,7 +2761,6 @@ function Battle() {
               )}
             </div>
 
-
               {/* inventory box */}
               <div
               id="inventoryBox"
@@ -2773,9 +2770,8 @@ function Battle() {
                 left: 0,
                 right: 0,
                 top: 0,
-                width: "64%",
+                width: "66.33%",
                 backgroundColor: "white",
-                padding: "12px",
                 display: "none",
                 fontSize: "30px",
                 zIndex: 1,
@@ -2846,13 +2842,13 @@ function Battle() {
                       // id="consumable"
                       id="attackButton"
                       className="consumable"
-                      sx={{
+                      style={{
                         color: "black",
-                        fontSize: 9,
+                        fontSize: 15,
                         fontFamily: "New Super Mario Font U",
                         borderColor: "black",
-                        height: "35px",
-                        width: "60px",
+                        // height: "35px",
+                        // width: "60px",
                       }}
                       variant="outlined"
                       disabled={usersConsumables.number <= 0 ? true : false}
