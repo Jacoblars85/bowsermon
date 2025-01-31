@@ -2594,7 +2594,7 @@ function Battle() {
             }}
           >
             {/* {toggleAllButtons()} */}
-            
+
 {/* attack box */}
             <div
               id="attackBox"
@@ -2858,13 +2858,13 @@ function Battle() {
           >
             <>
               {/* the inventory button */}
-              {/* <button
+              <button
                 onClick={() => setDisplayButtons("inventory")}
                 className="inventoryMove"
                 disabled={isDisabled}
               >
                 Inventory
-              </button> */}
+              </button>
 
               {/* the switch button */}
               <button
