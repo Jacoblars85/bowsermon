@@ -2848,7 +2848,21 @@ function Battle() {
 
 
               {/* inventory box */}
-              <div>
+              <div
+              id="inventoryBox"
+              style={{
+                position: "absolute",
+                bottom: 0,
+                left: 0,
+                right: 0,
+                top: 0,
+                width: "64%",
+                backgroundColor: "white",
+                padding: "12px",
+                display: "none",
+                fontSize: "30px",
+                zIndex: 1,
+              }}>
             <Box height="140px" overflow={"scroll"}>
           {usersConsumableItems &&
             usersConsumableItems.map((usersConsumables) => {
