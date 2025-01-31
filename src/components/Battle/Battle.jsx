@@ -2191,7 +2191,7 @@ function Battle() {
           ></progress> */}
 <div style={{ position: "relative"}}>
 <div style={{ height: "8px", backgroundColor: "#ccc", marginTop: "10px", }}></div>
-<div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "8px", backgroundColor: "red", marginTop: "10px", }}></div>
+<div id="enemyHealthBar" style={{ position: "absolute", top: 0, left: 0, right: 0, height: "8px", backgroundColor: "red", marginTop: "10px", }}></div>
 </div>
 
 
@@ -2202,7 +2202,7 @@ function Battle() {
           ></progress> */}
           <div style={{ position: "relative"}}>
 <div style={{ height: "5px", backgroundColor: "#ccc", marginTop: "10px", }}></div>
-<div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "5px", backgroundColor: "green", marginTop: "10px", }}></div>
+<div id="enemyStaminaBar" style={{ position: "absolute", top: 0, left: 0, right: 0, height: "5px", backgroundColor: "green", marginTop: "10px", }}></div>
 </div>
         </div>
 
@@ -2235,7 +2235,7 @@ function Battle() {
           ></progress> */}
           <div style={{ position: "relative"}}>
 <div style={{ height: "8px", backgroundColor: "#ccc", marginTop: "10px", }}></div>
-<div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "8px", backgroundColor: "red", marginTop: "10px", }}></div>
+<div id="starterHealthBar" style={{ position: "absolute", top: 0, left: 0, right: 0, height: "8px", backgroundColor: "red", marginTop: "10px", }}></div>
 </div>
 
           {/* <progress
@@ -2251,7 +2251,7 @@ function Battle() {
           ></progress> */}
           <div style={{ position: "relative"}}>
 <div style={{ height: "5px", backgroundColor: "#ccc", marginTop: "10px", }}></div>
-<div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "5px", backgroundColor: "green", marginTop: "10px", }}></div>
+<div id="starterStaminaBar" style={{ position: "absolute", top: 0, left: 0, right: 0, height: "5px", backgroundColor: "green", marginTop: "10px", }}></div>
 </div>
 
         </div>
