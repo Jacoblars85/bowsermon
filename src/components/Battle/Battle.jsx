@@ -2143,13 +2143,11 @@ function Battle() {
             document.getElementById("attackBox").style.display = "flex";
             document.getElementById("switchBox").style.display = "none";
             document.getElementById("inventoryBox").style.display = "none";
-
           } else if (e.target.innerHTML === "Switch") {
             console.log("in switch");
             document.getElementById("switchBox").style.display = "block";
             document.getElementById("attackBox").style.display = "none";
             document.getElementById("inventoryBox").style.display = "none";
-
           } else if (e.target.innerHTML === "Inventory") {
             console.log(" in inventory");
             document.getElementById("inventoryBox").style.display = "block";
@@ -2189,21 +2187,54 @@ function Battle() {
             value={enemyHp}
             max={enemyOne.hp}
           ></progress> */}
-<div style={{ position: "relative"}}>
-<div style={{ height: "8px", backgroundColor: "#ccc", marginTop: "10px", }}></div>
-<div id="enemyHealthBar" style={{ position: "absolute", top: 0, left: 0, right: 0, height: "8px", backgroundColor: "red", marginTop: "10px", }}></div>
-</div>
-
+          <div style={{ position: "relative" }}>
+            <div
+              style={{
+                height: "8px",
+                backgroundColor: "#ccc",
+                marginTop: "10px",
+              }}
+            ></div>
+            <div
+              id="enemyHealthBar"
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                height: "8px",
+                backgroundColor: "red",
+                marginTop: "10px",
+              }}
+            ></div>
+          </div>
 
           {/* <progress
             className="stamina-meter"
             value={enemyStamina}
             max={enemyOne.stamina}
           ></progress> */}
-          <div style={{ position: "relative"}}>
-<div style={{ height: "5px", backgroundColor: "#ccc", marginTop: "10px", }}></div>
-<div id="enemyStaminaBar" style={{ position: "absolute", top: 0, left: 0, right: 0, height: "5px", backgroundColor: "green", marginTop: "10px", }}></div>
-</div>
+          <div style={{ position: "relative" }}>
+            <div
+              style={{
+                height: "5px",
+                backgroundColor: "#ccc",
+                marginTop: "10px",
+              }}
+            ></div>
+            <div
+              id="enemyStaminaBar"
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                height: "5px",
+                backgroundColor: "green",
+                marginTop: "10px",
+              }}
+            ></div>
+          </div>
         </div>
 
         {/* starter health box */}
@@ -2233,10 +2264,27 @@ function Battle() {
             }
             max={maxHp}
           ></progress> */}
-          <div style={{ position: "relative"}}>
-<div style={{ height: "8px", backgroundColor: "#ccc", marginTop: "10px", }}></div>
-<div id="starterHealthBar" style={{ position: "absolute", top: 0, left: 0, right: 0, height: "8px", backgroundColor: "red", marginTop: "10px", }}></div>
-</div>
+          <div style={{ position: "relative" }}>
+            <div
+              style={{
+                height: "8px",
+                backgroundColor: "#ccc",
+                marginTop: "10px",
+              }}
+            ></div>
+            <div
+              id="starterHealthBar"
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                height: "8px",
+                backgroundColor: "red",
+                marginTop: "10px",
+              }}
+            ></div>
+          </div>
 
           {/* <progress
             className="stamina-meter"
@@ -2249,11 +2297,27 @@ function Battle() {
             }
             max={maxStamina}
           ></progress> */}
-          <div style={{ position: "relative"}}>
-<div style={{ height: "5px", backgroundColor: "#ccc", marginTop: "10px", }}></div>
-<div id="starterStaminaBar" style={{ position: "absolute", top: 0, left: 0, right: 0, height: "5px", backgroundColor: "green", marginTop: "10px", }}></div>
-</div>
-
+          <div style={{ position: "relative" }}>
+            <div
+              style={{
+                height: "5px",
+                backgroundColor: "#ccc",
+                marginTop: "10px",
+              }}
+            ></div>
+            <div
+              id="starterStaminaBar"
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                height: "5px",
+                backgroundColor: "green",
+                marginTop: "10px",
+              }}
+            ></div>
+          </div>
         </div>
 
         {/* canvas */}
