@@ -2142,134 +2142,13 @@ function Battle() {
             document.getElementById("attackBox").style.display = "flex";
             document.getElementById("switchBox").style.display = "none";
             document.getElementById("inventoryBox").style.display = "none";
-            //             dynamicButtons.innerHTML = `
-            //               <div>
-            //                 <button
-            //                 onClick="() => battle("unique")"
-            //                 id="attackButton"
-            //                   className=${
-            //                     starter.length === 1
-            //                       ? starterOneAttackStats.attack_type
-            //                       : currentId === starterOne.id
-            //                       ? starterOneAttackStats.attack_type
-            //                       : starterTwoAttackStats.attack_type
-            //                   }
-            //                   style=${{
-            //                     display: "flex",
-            //                     width: "33.33%",
-            //                     height: "100%",
-            //                     textAlign: "center",
-            //                     fontSize: "30px",
-            //                     color: "black",
-            //                     fontFamily: "New Super Mario Font U",
-            //                     justifyContent: "center",
-            //                     alignItems: "center",
-            //                     borderRight: "4px solid black",
-            //                     // backgroundColor: "white",
-            //                     boxShadow: "0 0 0 0",
-            //                   }}
-            //                   disabled=${
-            //                     starter.length === 1
-            //                       ? starterOneStamina < starterOneAttackStats.attack_stamina
-            //                         ? true
-            //                         : isDisabled
-            //                       : currentId === starterOne.id
-            //                       ? starterOneStamina < starterOneAttackStats.attack_stamina
-            //                         ? true
-            //                         : isDisabled
-            //                       : starterTwoStamina < starterTwoAttackStats.attack_stamina
-            //                       ? true
-            //                       : isDisabled
-            //                   }
-            //                 >
-            //                   ${
-            //                     starter.length === 1
-            //                       ? starterOneAttackStats.attack_name
-            //                       : currentId === starterOne.id
-            //                       ? starterOneAttackStats.attack_name
-            //                       : starterTwoAttackStats.attack_name
-            //                   }
-            //                 </button>
 
-            //                 <button
-            //                   onClick="() => battle("punch")"
-            //                   id="attackButton"
-            //                   className=${kickAttackType}
-            //                   style=${{
-            //                     display: "flex",
-            //                     width: "33.33%",
-            //                     height: "100%",
-            //                     textAlign: "center",
-            //                     fontSize: "30px",
-            //                     color: "black",
-            //                     fontFamily: "New Super Mario Font U",
-            //                     justifyContent: "center",
-            //                     alignItems: "center",
-            //                     borderRight: "4px solid black",
-            //                     borderLeft: "4px solid black",
-            //                     // backgroundColor: "white",
-            //                     boxShadow: "0 0 0 0",
-            //                   }}
-            //                   disabled=${
-            //                     starter.length === 1
-            //                       ? starterOneStamina < kickStamina
-            //                         ? true
-            //                         : isDisabled
-            //                       : currentId === starterOne.id
-            //                       ? starterOneStamina < kickStamina
-            //                         ? true
-            //                         : isDisabled
-            //                       : starterTwoStamina < kickStamina
-            //                       ? true
-            //                       : isDisabled
-            //                   }
-            //                 >
-            //                   ${kickAttack}
-            //                 </button>
-
-            //                 <button
-            //                   onClick="() => battle("poke")"
-            //                   id="attackButton"
-            //                   className=${pokeAttackType}
-            //                   style=${{
-            //                     display: "flex",
-            //                     width: "33.33%",
-            //                     height: "100%",
-            //                     textAlign: "center",
-            //                     fontSize: "30px",
-            //                     color: "black",
-            //                     fontFamily: "New Super Mario Font U",
-            //                     justifyContent: "center",
-            //                     alignItems: "center",
-            //                     border: 0,
-            //                     borderLeft: "4px solid black",
-            //                     // backgroundColor: "white",
-            //                     boxShadow: "0 0 0 0",
-            //                   }}
-            //                   disabled=${
-            //                     starter.length === 1
-            //                       ? starterOneStamina < pokeStamina
-            //                         ? true
-            //                         : isDisabled
-            //                       : currentId === starterOne.id
-            //                       ? starterOneStamina < pokeStamina
-            //                         ? true
-            //                         : isDisabled
-            //                       : starterTwoStamina < pokeStamina
-            //                       ? true
-            //                       : isDisabled
-            //                   }
-            //                 >
-            //                   ${pokeAttack}
-            //                 </button>
-            //               </div>
-            // `;
-            // console.log("dynamicButtons", dynamicButtons);
           } else if (e.target.innerHTML === "Switch") {
             console.log("in switch");
             document.getElementById("switchBox").style.display = "block";
             document.getElementById("attackBox").style.display = "none";
             document.getElementById("inventoryBox").style.display = "none";
+            
           } else if (e.target.innerHTML === "Inventory") {
             console.log(" in inventory");
             document.getElementById("inventoryBox").style.display = "block";
