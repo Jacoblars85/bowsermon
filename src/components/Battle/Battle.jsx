@@ -1824,8 +1824,8 @@ function Battle() {
           let healthBar = "#enemyHealthBar";
           if (this.isEnemy) healthBar = "#starterHealthBar";
 
-          let staminaBar = "#enemyStaminaBar";
-          if (this.isEnemy) staminaBar = "#starterStaminaBar";
+          let staminaBar = "#starterStaminaBar";
+          if (this.isEnemy) staminaBar = "#enemyStaminaBar";
 
           if (attack.attack_type === "physical") {
             const tl = gsap.timeline();
