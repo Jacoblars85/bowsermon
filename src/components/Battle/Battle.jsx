@@ -1809,7 +1809,7 @@ function Battle() {
           console.log(this.stamina);
           console.log(this.name);
 
-          console.log((this.health / this.maxHealth) * 100 + "%");
+          // console.log((this.health / this.maxHealth) * 100 + "%");
           
 
           // console.log("attack", attack.attack_name);
@@ -1845,7 +1845,7 @@ function Battle() {
                 duration: 0.1,
                 onComplete: () => {
                   gsap.to(healthBar, {
-                    width: (this.health / this.maxHealth) * 100 + "%",
+                    width: this.health / this.maxHealth * 100 + "%",
                   });
                   gsap.to(recipient.position, {
                     x: recipient.position.x + 10,
@@ -1896,7 +1896,7 @@ function Battle() {
               y: recipient.position.y,
               onComplete: () => {
                 gsap.to(healthBar, {
-                  width: this.health + "%",
+                  width: this.health / this.maxHealth * 100 + "%",
                 });
                 gsap.to(recipient.position, {
                   x: recipient.position.x + 10,
@@ -1946,7 +1946,7 @@ function Battle() {
               duration: 1.3,
               onComplete: () => {
                 gsap.to(healthBar, {
-                  width: this.health + "%",
+                  width: this.health / this.maxHealth * 100 + "%",
                 });
                 gsap.to(recipient.position, {
                   x: recipient.position.x + 10,
