@@ -2122,34 +2122,32 @@ function Battle() {
               }, 2700);
             }
           } else if (
-              button.id === "starterOne" ||
-              button.id === "starterTwo" ||
-              button.id === "consumable"
-            ) {
-              console.log("in switch");
+            button.id === "starterOne" ||
+            button.id === "starterTwo" ||
+            button.id === "consumable"
+          ) {
+            console.log("in switch");
 
-              if (button.id === "starterOne") {
-                console.log('switching starter 1');
-                
-                // this.image = starterOne.battle_pic;
-              } else if (button.id === "starterTwo") {
-                console.log('switching starter 2');
+            if (button.id === "starterOne") {
+              console.log("switching starter 1");
 
-                // this.image = starterTwo.battle_pic;
-              } else if (button.id === "consumable") {
-                console.log('using consumable');
-                
-              }
+              // this.image = starterOne.battle_pic;
+            } else if (button.id === "starterTwo") {
+              console.log("switching starter 2");
 
-              setTimeout(() => {
-                enemy.attack({
-                  attack: selectedAttack,
-                  recipient: starter,
-                  renderedSprites,
-                });
-              }, 2700);
+              // this.image = starterTwo.battle_pic;
+            } else if (button.id === "consumable") {
+              console.log("using consumable");
+            }
 
-            } else if (e.target.innerHTML === "Attack") {
+            setTimeout(() => {
+              enemy.attack({
+                attack: selectedAttack,
+                recipient: starter,
+                renderedSprites,
+              });
+            }, 2700);
+          } else if (e.target.innerHTML === "Attack") {
             console.log("in attack");
             document.getElementById("attackBox").style.display = "flex";
             document.getElementById("switchBox").style.display = "none";
