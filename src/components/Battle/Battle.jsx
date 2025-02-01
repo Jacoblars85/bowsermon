@@ -2124,7 +2124,7 @@ function Battle() {
           } else if (
               button.id === "starterOne" ||
               button.id === "starterTwo" ||
-              button.id == "consumable"
+              button.id === "consumable"
             ) {
               console.log("in switch");
 
@@ -2136,7 +2136,10 @@ function Battle() {
                 console.log('switching starter 2');
 
                 // this.image = starterTwo.battle_pic;
-              } 
+              } else if (button.id === "consumable") {
+                console.log('using consumable');
+                
+              }
 
               setTimeout(() => {
                 enemy.attack({
