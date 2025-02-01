@@ -1826,6 +1826,10 @@ function Battle() {
 
           let staminaBar = "#starterStaminaBar";
           if (this.isEnemy) staminaBar = "#enemyStaminaBar";
+          
+          gsap.to(staminaBar, {
+            width: this.stamina + "%",
+          });
 
           if (attack.attack_type === "physical") {
             const tl = gsap.timeline();
@@ -1842,9 +1846,6 @@ function Battle() {
                 onComplete: () => {
                   gsap.to(healthBar, {
                     width: (this.health / this.maxHealth) * 100 + "%",
-                  });
-                  gsap.to(staminaBar, {
-                    width: this.stamina + "%",
                   });
                   gsap.to(recipient.position, {
                     x: recipient.position.x + 10,
@@ -1897,9 +1898,6 @@ function Battle() {
                 gsap.to(healthBar, {
                   width: this.health + "%",
                 });
-                gsap.to(staminaBar, {
-                  width: this.stamina + "%",
-                });
                 gsap.to(recipient.position, {
                   x: recipient.position.x + 10,
                   yoyo: true,
@@ -1949,9 +1947,6 @@ function Battle() {
               onComplete: () => {
                 gsap.to(healthBar, {
                   width: this.health + "%",
-                });
-                gsap.to(staminaBar, {
-                  width: this.stamina + "%",
                 });
                 gsap.to(recipient.position, {
                   x: recipient.position.x + 10,
