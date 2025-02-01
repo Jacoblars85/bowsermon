@@ -2173,7 +2173,6 @@ function Battle() {
 
       {/* the area of the whole canvas */}
       <div style={{ display: "inline-block", position: "relative" }}>
-
         {/* enemy health box */}
         <div
           style={{
@@ -2350,7 +2349,6 @@ function Battle() {
               justifyContent: "center",
             }}
           >
-            
             {/* attack box */}
             <div
               id="attackBox"
