@@ -2189,12 +2189,6 @@ function Battle() {
         >
           <h1 style={{ margin: 0 }}>{enemyOne.character_name}</h1>
 
-          {/* <progress
-            className="hp-meter"
-            value={enemyHp}
-            max={enemyOne.hp}
-          ></progress> */}
-
           {/* enemy health bar */}
           <div style={{ position: "relative" }}>
             <div
@@ -2217,12 +2211,6 @@ function Battle() {
               }}
             ></div>
           </div>
-
-          {/* <progress
-            className="stamina-meter"
-            value={enemyStamina}
-            max={enemyOne.stamina}
-          ></progress> */}
 
           {/* enemy stamina bar */}
           <div style={{ position: "relative" }}>
