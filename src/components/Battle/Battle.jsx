@@ -2070,10 +2070,8 @@ function Battle() {
 
       document.querySelectorAll("button").forEach((button) => {
         button.addEventListener("click", (e) => {
-          let dynamicButtons = document.getElementById("togglableButtons");
           // console.log("e", e.target.innerHTML);
           if (e.target.id === "attackButton") {
-            // console.log("e", e.target.innerHTML);
             // console.log('in attack button', button);
             const characterSelectedAttack = e.target.innerHTML;
             let selectedAttack = {};
@@ -2123,29 +2121,32 @@ function Battle() {
                 });
               }, 2700);
             }
+          } else if (
+              button.id === "starterOne" ||
+              button.id === "starterTwo" ||
+              button.id == "consumable"
+            ) {
+              console.log("in switch");
 
-            // else if (
-            //   button.id === "starterOne" ||
-            //   button.id === "starterTwo" ||
-            //   button.id == "consumable"
-            // ) {
-            //   console.log("in switch");
+              if (button.id === "starterOne") {
+                console.log('switching starter 1');
+                
+                // this.image = starterOne.battle_pic;
+              } else if (button.id === "starterTwo") {
+                console.log('switching starter 2');
 
-            //   if (button.id === "starterOne") {
-            //     this.image = starterOne.battle_pic;
-            //   } else if (button.id === "starterTwo") {
-            //     this.image = starterTwo.battle_pic;
-            //   }
+                // this.image = starterTwo.battle_pic;
+              } 
 
-            //   setTimeout(() => {
-            //     enemy.attack({
-            //       attack: enemySelectedAttack,
-            //       recipient: starter,
-            //       renderedSprites,
-            //     });
-            //   }, 2700);
-            // }
-          } else if (e.target.innerHTML === "Attack") {
+              setTimeout(() => {
+                enemy.attack({
+                  attack: selectedAttack,
+                  recipient: starter,
+                  renderedSprites,
+                });
+              }, 2700);
+
+            } else if (e.target.innerHTML === "Attack") {
             console.log("in attack");
             document.getElementById("attackBox").style.display = "flex";
             document.getElementById("switchBox").style.display = "none";
