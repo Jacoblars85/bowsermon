@@ -2173,6 +2173,7 @@ function Battle() {
 
       {/* the area of the whole canvas */}
       <div style={{ display: "inline-block", position: "relative" }}>
+
         {/* enemy health box */}
         <div
           style={{
@@ -2252,18 +2253,6 @@ function Battle() {
         >
           <h1 style={{ margin: 0 }}>{currentName}</h1>
 
-          {/* <progress
-            className="hp-meter"
-            value={
-              starter.length === 1
-                ? starterOneHp
-                : currentId === starterOne.id
-                ? starterOneHp
-                : starterTwoHp
-            }
-            max={maxHp}
-          ></progress> */}
-
           {/* starter health bar */}
           <div style={{ position: "relative" }}>
             <div
@@ -2286,18 +2275,6 @@ function Battle() {
               }}
             ></div>
           </div>
-
-          {/* <progress
-            className="stamina-meter"
-            value={
-              starter.length === 1
-                ? starterOneStamina
-                : currentId === starterOne.id
-                ? starterOneStamina
-                : starterTwoStamina
-            }
-            max={maxStamina}
-          ></progress> */}
 
           {/* starter stamina bar */}
           <div style={{ position: "relative" }}>
@@ -2373,6 +2350,7 @@ function Battle() {
               justifyContent: "center",
             }}
           >
+            
             {/* attack box */}
             <div
               id="attackBox"
