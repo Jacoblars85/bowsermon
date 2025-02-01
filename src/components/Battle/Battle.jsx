@@ -1686,6 +1686,7 @@ function Battle() {
           rotation = 0,
           name = "no name",
           health,
+          maxHealth,
           stamina,
           speed,
           opacity = 1,
@@ -1704,6 +1705,7 @@ function Battle() {
           this.rotation = rotation;
           this.name = name;
           this.health = health;
+          this.maxHealth = maxHealth
           this.stamina = stamina;
           this.speed = speed;
         }
@@ -1807,6 +1809,9 @@ function Battle() {
           console.log(this.stamina);
           console.log(this.name);
 
+          console.log((this.health / this.maxHealth) * 100 + "%");
+          
+
           // console.log("attack", attack.attack_name);
 
           document.getElementById("dialogueBox").style.display = "block";
@@ -1836,7 +1841,7 @@ function Battle() {
                 duration: 0.1,
                 onComplete: () => {
                   gsap.to(healthBar, {
-                    width: this.health + "%",
+                    width: (this.health / this.maxHealth) * 100 + "%",
                   });
                   gsap.to(staminaBar, {
                     width: this.stamina + "%",
@@ -2008,6 +2013,7 @@ function Battle() {
         isEnemy: true,
         name: enemyName,
         health: enemyHp,
+        maxHealth: enemyHp,
         stamina: enemyStamina,
         speed: enemySpeed,
       });
@@ -2026,6 +2032,7 @@ function Battle() {
         animate: true,
         name: starterOneName,
         health: starterOneHp,
+        maxHealth: starterOneHp,
         stamina: starterOneStamina,
         speed: starterOneSpeed,
       });
@@ -2045,6 +2052,7 @@ function Battle() {
         opacity: 0,
         name: starterTwoName,
         health: starterTwoHp,
+        maxHealth: starterTwoHp,
         stamina: starterTwoStamina,
         speed: starterTwoSpeed,
       });
