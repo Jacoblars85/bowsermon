@@ -1706,9 +1706,9 @@ function Battle() {
           this.rotation = rotation;
           this.name = name;
           this.health = health;
-          this.maxHealth = maxHealth
+          this.maxHealth = maxHealth;
           this.stamina = stamina;
-          this.maxStamina = maxStamina
+          this.maxStamina = maxStamina;
           this.speed = speed;
         }
 
@@ -1812,7 +1812,6 @@ function Battle() {
           console.log(this.name);
 
           // console.log((this.health / this.maxHealth) * 100 + "%");
-          
 
           // console.log("attack", attack.attack_name);
 
@@ -1828,9 +1827,9 @@ function Battle() {
 
           let staminaBar = "#starterStaminaBar";
           if (this.isEnemy) staminaBar = "#enemyStaminaBar";
-          
+
           gsap.to(staminaBar, {
-            width: this.stamina / this.maxStamina * 100 + "%",
+            width: (this.stamina / this.maxStamina) * 100 + "%",
           });
 
           if (attack.attack_type === "physical") {
@@ -1847,7 +1846,7 @@ function Battle() {
                 duration: 0.1,
                 onComplete: () => {
                   gsap.to(healthBar, {
-                    width: this.health / this.maxHealth * 100 + "%",
+                    width: (this.health / this.maxHealth) * 100 + "%",
                   });
                   gsap.to(recipient.position, {
                     x: recipient.position.x + 10,
@@ -1898,7 +1897,7 @@ function Battle() {
               y: recipient.position.y,
               onComplete: () => {
                 gsap.to(healthBar, {
-                  width: this.health / this.maxHealth * 100 + "%",
+                  width: (this.health / this.maxHealth) * 100 + "%",
                 });
                 gsap.to(recipient.position, {
                   x: recipient.position.x + 10,
@@ -1948,7 +1947,7 @@ function Battle() {
               duration: 1.3,
               onComplete: () => {
                 gsap.to(healthBar, {
-                  width: this.health / this.maxHealth * 100 + "%",
+                  width: (this.health / this.maxHealth) * 100 + "%",
                 });
                 gsap.to(recipient.position, {
                   x: recipient.position.x + 10,
