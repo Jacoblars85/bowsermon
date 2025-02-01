@@ -1688,6 +1688,7 @@ function Battle() {
           health,
           maxHealth,
           stamina,
+          maxStamina,
           speed,
           opacity = 1,
         }) {
@@ -1707,6 +1708,7 @@ function Battle() {
           this.health = health;
           this.maxHealth = maxHealth
           this.stamina = stamina;
+          this.maxStamina = maxStamina
           this.speed = speed;
         }
 
@@ -1828,7 +1830,7 @@ function Battle() {
           if (this.isEnemy) staminaBar = "#enemyStaminaBar";
           
           gsap.to(staminaBar, {
-            width: this.stamina + "%",
+            width: this.stamina / this.maxStamina * 100 + "%",
           });
 
           if (attack.attack_type === "physical") {
@@ -2010,6 +2012,7 @@ function Battle() {
         health: enemyHp,
         maxHealth: enemyHp,
         stamina: enemyStamina,
+        maxStamina: enemyStamina,
         speed: enemySpeed,
       });
 
@@ -2029,6 +2032,7 @@ function Battle() {
         health: starterOneHp,
         maxHealth: starterOneHp,
         stamina: starterOneStamina,
+        maxStamina: starterOneStamina,
         speed: starterOneSpeed,
       });
 
@@ -2049,6 +2053,7 @@ function Battle() {
         health: starterTwoHp,
         maxHealth: starterTwoHp,
         stamina: starterTwoStamina,
+        maxStamina: starterTwoStamina,
         speed: starterTwoSpeed,
       });
 
