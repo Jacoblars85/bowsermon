@@ -2125,19 +2125,19 @@ function Battle() {
               }, 2700);
             }
           } else if (
-            button.id === "starterOne" ||
-            button.id === "starterTwo" ||
+            button.className === "starterOne" ||
+            button.className === "starterTwo" ||
             button.id === "consumable"
           ) {
             console.log("in switch");
 
-            if (button.id === "starterOne") {
+            if (button.className === "starterOne") {
               console.log("switching starter 1");
 
               currentStarter = starter;
 
               // this.image = starterOne.battle_pic;
-            } else if (button.id === "starterTwo") {
+            } else if (button.className === "starterTwo") {
               console.log("switching starter 2");
 
               currentStarter = starter2;
