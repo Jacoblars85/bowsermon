@@ -2056,7 +2056,7 @@ function Battle() {
         speed: starterTwoSpeed,
       });
 
-      let currentStarter = starter
+      let currentStarter = starter;
 
       const renderedSprites = [enemy, starter, starter2];
 
@@ -2073,9 +2073,8 @@ function Battle() {
       document.querySelectorAll("button").forEach((button) => {
         button.addEventListener("click", (e) => {
           // console.log("e", e.target.innerHTML);
-          console.log('currentStarter', currentStarter);
+          console.log("currentStarter", currentStarter);
           if (e.target.id === "attackButton") {
-                      
             // console.log('in attack button', button);
             const characterSelectedAttack = e.target.innerHTML;
             let selectedAttack = {};
@@ -2135,13 +2134,13 @@ function Battle() {
             if (button.id === "starterOne") {
               console.log("switching starter 1");
 
-              currentStarter = starter
+              currentStarter = starter;
 
               // this.image = starterOne.battle_pic;
             } else if (button.id === "starterTwo") {
               console.log("switching starter 2");
 
-              currentStarter = starter2
+              currentStarter = starter2;
 
               // this.image = starterTwo.battle_pic;
             } else if (button.id === "consumable") {
@@ -2161,8 +2160,8 @@ function Battle() {
             document.getElementById("switchBox").style.display = "none";
             document.getElementById("inventoryBox").style.display = "none";
           } else if (e.target.innerHTML === "Switch") {
-            console.log('currentStarter', currentStarter);
-            
+            console.log("currentStarter", currentStarter);
+
             console.log("in switch");
             document.getElementById("switchBox").style.display = "block";
             document.getElementById("attackBox").style.display = "none";
