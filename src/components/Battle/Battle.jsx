@@ -2068,10 +2068,15 @@ function Battle() {
       }
       animateBattle();
 
+      let starrter = 'startere 1'
+
+
       document.querySelectorAll("button").forEach((button) => {
         button.addEventListener("click", (e) => {
           // console.log("e", e.target.innerHTML);
+          console.log('starrter', starrter);
           if (e.target.id === "attackButton") {
+                      
             // console.log('in attack button', button);
             const characterSelectedAttack = e.target.innerHTML;
             let selectedAttack = {};
@@ -2148,6 +2153,8 @@ function Battle() {
               });
             }, 2700);
           } else if (e.target.innerHTML === "Attack") {
+            starrter = 'starrter 2'
+
             console.log("in attack");
             document.getElementById("attackBox").style.display = "flex";
             document.getElementById("switchBox").style.display = "none";
