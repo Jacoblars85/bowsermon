@@ -6,3 +6,9 @@ Problems:
 6. changing the fx animation pic for the second starter
 7. try to add a js to the html to source into all of the other files
 9. fix the winning battle being sent to server
+
+
+
+New Ideas:
+
+1. use math.random to choose enemies attacks and add the option to have multipe unique attacks per character
