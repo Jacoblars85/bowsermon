@@ -1986,6 +1986,10 @@ function Battle() {
         }
       }
 
+      class Character extends Sprite {
+
+      }
+
       const background = new Sprite({
         position: {
           x: 0,
