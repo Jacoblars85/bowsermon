@@ -1828,10 +1828,10 @@ function Battle() {
             }
           }
 
-          this.health -= attack.attack_damage;
+          recipient.health -= attack.attack_damage;
           this.stamina -= attack.attack_stamina;
 
-          // console.log(this.health);
+          // console.log(recipient.health);
           // console.log(this.stamina);
           // console.log(this.name);
 
@@ -1870,7 +1870,7 @@ function Battle() {
                 duration: 0.1,
                 onComplete: () => {
                   gsap.to(healthBar, {
-                    width: (this.health / this.maxHealth) * 100 + "%",
+                    width: (recipient.health / recipient.maxHealth) * 100 + "%",
                   });
                   gsap.to(recipient.position, {
                     x: recipient.position.x + 10,
@@ -1921,7 +1921,7 @@ function Battle() {
               y: recipient.position.y,
               onComplete: () => {
                 gsap.to(healthBar, {
-                  width: (this.health / this.maxHealth) * 100 + "%",
+                  width: (recipient.health / recipient.maxHealth) * 100 + "%",
                 });
                 gsap.to(recipient.position, {
                   x: recipient.position.x + 10,
@@ -1971,7 +1971,7 @@ function Battle() {
               duration: 1.3,
               onComplete: () => {
                 gsap.to(healthBar, {
-                  width: (this.health / this.maxHealth) * 100 + "%",
+                  width: (recipient.health / recipient.maxHealth) * 100 + "%",
                 });
                 gsap.to(recipient.position, {
                   x: recipient.position.x + 10,
