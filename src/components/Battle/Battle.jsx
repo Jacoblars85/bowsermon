@@ -1682,14 +1682,7 @@ function Battle() {
           frames = { max: 1, hold: 10, alignment: 0, attackFx: false },
           sprites,
           animate = false,
-          isEnemy = false,
           rotation = 0,
-          name = "no name",
-          health,
-          maxHealth,
-          stamina,
-          maxStamina,
-          speed,
           opacity = 1,
         }) {
           this.position = position;
@@ -1702,14 +1695,7 @@ function Battle() {
           this.animate = animate;
           this.sprites = sprites;
           this.opacity = opacity;
-          this.isEnemy = isEnemy;
           this.rotation = rotation;
-          this.name = name;
-          this.health = health;
-          this.maxHealth = maxHealth;
-          this.stamina = stamina;
-          this.maxStamina = maxStamina;
-          this.speed = speed;
         }
 
         draw() {
@@ -1788,6 +1774,32 @@ function Battle() {
       }
 
       class Character extends Sprite {
+        constructor ({
+          position,
+          image,
+          frames = { max: 1, hold: 10, alignment: 0, attackFx: false },
+          sprites,
+          animate = false,
+          rotation = 0,
+          opacity = 1,
+          isEnemy = false,
+          name = "no name",
+          health,
+          maxHealth,
+          stamina,
+          maxStamina,
+          speed,
+        }) {
+          
+          this.isEnemy = isEnemy;
+          this.name = name;
+          this.health = health;
+          this.maxHealth = maxHealth;
+          this.stamina = stamina;
+          this.maxStamina = maxStamina;
+          this.speed = speed;
+        }
+
         attack({ attack, recipient, renderedSprites }) {
           if (this.isEnemy) {
             if (this.stamina >= enemyAttackStats.attack_stamina) {
