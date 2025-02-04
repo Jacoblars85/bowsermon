@@ -1809,15 +1809,16 @@ function Battle() {
         }
 
         faint() {
-          console.log('faint');
-          document.getElementById("dialogueBox").innerHTML = this.name + " fainted!"
+          console.log("faint");
+          document.getElementById("dialogueBox").innerHTML =
+            this.name + " fainted!";
 
           gsap.to(this.position, {
-            y: this.position + 20
-          })
+            y: this.position + 20,
+          });
           gsap.to(this, {
-            opacity: 0
-          })
+            opacity: 0,
+          });
         }
 
         attack({ attack, recipient, renderedSprites }) {
@@ -2112,9 +2113,12 @@ function Battle() {
 
             // console.log('characterSelectedAttack', characterSelectedAttack);
 
-            if (characterSelectedAttack === starterOneAttackStats.attack_name) selectedAttack = starterOneAttackStats;
-            else if (characterSelectedAttack === kickAttackStats.attack_name) selectedAttack = kickAttackStats;
-            else if (characterSelectedAttack === pokeAttackStats.attack_name) selectedAttack = pokeAttackStats;
+            if (characterSelectedAttack === starterOneAttackStats.attack_name)
+              selectedAttack = starterOneAttackStats;
+            else if (characterSelectedAttack === kickAttackStats.attack_name)
+              selectedAttack = kickAttackStats;
+            else if (characterSelectedAttack === pokeAttackStats.attack_name)
+              selectedAttack = pokeAttackStats;
 
             // console.log("selectedAttack", selectedAttack);
 
@@ -2125,11 +2129,11 @@ function Battle() {
                 renderedSprites,
               });
 
-              console.log('enemy.health', enemy.health);
-              
+              console.log("enemy.health", enemy.health);
+
               if (enemy.health <= 0) {
-                enemy.faint()
-                return
+                enemy.faint();
+                return;
               }
 
               setTimeout(() => {
