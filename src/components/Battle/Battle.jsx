@@ -2016,7 +2016,7 @@ function Battle() {
         image: backgroundImage,
       });
 
-      const enemy = new Sprite({
+      const enemy = new Character({
         position: {
           x: 800,
           y: 100,
@@ -2037,7 +2037,7 @@ function Battle() {
         speed: enemySpeed,
       });
 
-      const starter = new Sprite({
+      const starter = new Character({
         position: {
           x: 280,
           y: 325,
@@ -2057,7 +2057,7 @@ function Battle() {
         speed: starterOneSpeed,
       });
 
-      const starter2 = new Sprite({
+      const starter2 = new Character({
         position: {
           x: 280,
           y: 325,
