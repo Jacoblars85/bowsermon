@@ -1790,7 +1790,15 @@ function Battle() {
           maxStamina,
           speed,
         }) {
-          
+          super({
+            position,
+          image,
+          frames,
+          sprites,
+          animate,
+          rotation,
+          opacity,
+          })
           this.isEnemy = isEnemy;
           this.name = name;
           this.health = health;
