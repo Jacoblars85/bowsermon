@@ -1829,9 +1829,9 @@ function Battle() {
           this.health -= attack.attack_damage;
           this.stamina -= attack.attack_stamina;
 
-          console.log(this.health);
-          console.log(this.stamina);
-          console.log(this.name);
+          // console.log(this.health);
+          // console.log(this.stamina);
+          // console.log(this.name);
 
           // console.log((this.health / this.maxHealth) * 100 + "%");
 
@@ -2095,7 +2095,7 @@ function Battle() {
       document.querySelectorAll("button").forEach((button) => {
         button.addEventListener("click", (e) => {
           // console.log("e", e.target.innerHTML);
-          console.log("currentStarter", currentStarter);
+          // console.log("currentStarter", currentStarter);
           if (e.target.id === "attackButton") {
             // console.log('in attack button', button);
             const characterSelectedAttack = e.target.innerHTML;
@@ -2103,17 +2103,9 @@ function Battle() {
 
             // console.log('characterSelectedAttack', characterSelectedAttack);
 
-            if (characterSelectedAttack === starterOneAttackStats.attack_name) {
-              selectedAttack = starterOneAttackStats;
-            } else if (
-              characterSelectedAttack === kickAttackStats.attack_name
-            ) {
-              selectedAttack = kickAttackStats;
-            } else if (
-              characterSelectedAttack === pokeAttackStats.attack_name
-            ) {
-              selectedAttack = pokeAttackStats;
-            }
+            if (characterSelectedAttack === starterOneAttackStats.attack_name) selectedAttack = starterOneAttackStats;
+            else if (characterSelectedAttack === kickAttackStats.attack_name) selectedAttack = kickAttackStats;
+            else if (characterSelectedAttack === pokeAttackStats.attack_name) selectedAttack = pokeAttackStats;
 
             // console.log("selectedAttack", selectedAttack);
 
@@ -2123,6 +2115,8 @@ function Battle() {
                 recipient: enemy,
                 renderedSprites,
               });
+
+              
 
               setTimeout(() => {
                 enemy.attack({
