@@ -1785,7 +1785,9 @@ function Battle() {
             else this.frames.val = 0;
           }
         }
+      }
 
+      class Character extends Sprite {
         attack({ attack, recipient, renderedSprites }) {
           if (this.isEnemy) {
             if (this.stamina >= enemyAttackStats.attack_stamina) {
@@ -1984,10 +1986,6 @@ function Battle() {
             document.getElementById("dialogueBox").style.display = "none";
           }, 4500);
         }
-      }
-
-      class Character extends Sprite {
-
       }
 
       const background = new Sprite({
