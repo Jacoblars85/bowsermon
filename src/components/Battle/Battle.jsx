@@ -1808,6 +1808,11 @@ function Battle() {
           this.speed = speed;
         }
 
+        faint() {
+          console.log('faint');
+          
+        }
+
         attack({ attack, recipient, renderedSprites }) {
           if (this.isEnemy) {
             if (this.stamina >= enemyAttackStats.attack_stamina) attack = enemyAttackStats;
@@ -2113,8 +2118,10 @@ function Battle() {
                 renderedSprites,
               });
 
+              console.log('enemy.health', enemy.health);
+              
               if (enemy.health <= 0) {
-                
+                enemy.faint()
                 return
               }
 
