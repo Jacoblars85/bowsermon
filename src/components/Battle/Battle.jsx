@@ -1810,13 +1810,10 @@ function Battle() {
 
         attack({ attack, recipient, renderedSprites }) {
           if (this.isEnemy) {
-            if (this.stamina >= enemyAttackStats.attack_stamina) {
-              attack = enemyAttackStats;
-            } else if (this.stamina >= kickStamina) {
-              attack = kickAttackStats;
-            } else if (this.stamina >= pokeStamina) {
-              attack = pokeAttackStats;
-            } else if (this.stamina === 0) {
+            if (this.stamina >= enemyAttackStats.attack_stamina) attack = enemyAttackStats;
+            else if (this.stamina >= kickStamina) attack = kickAttackStats;
+            else if (this.stamina >= pokeStamina) attack = pokeAttackStats;
+            else if (this.stamina === 0) {
               attack = {
                 attack_type: "tired",
                 attack_name: "tired",
@@ -2116,7 +2113,10 @@ function Battle() {
                 renderedSprites,
               });
 
-              
+              if (enemy.health <= 0) {
+                
+                return
+              }
 
               setTimeout(() => {
                 enemy.attack({
