@@ -1774,7 +1774,7 @@ function Battle() {
       }
 
       class Character extends Sprite {
-        constructor ({
+        constructor({
           position,
           image,
           frames = { max: 1, hold: 10, alignment: 0, attackFx: false },
@@ -1792,13 +1792,13 @@ function Battle() {
         }) {
           super({
             position,
-          image,
-          frames,
-          sprites,
-          animate,
-          rotation,
-          opacity,
-          })
+            image,
+            frames,
+            sprites,
+            animate,
+            rotation,
+            opacity,
+          });
           this.isEnemy = isEnemy;
           this.name = name;
           this.health = health;
