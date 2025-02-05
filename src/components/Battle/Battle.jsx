@@ -2128,26 +2128,31 @@ function Battle() {
                 renderedSprites,
               });
 
-              queue.push(() => {
+              // queue.push(() => {
                 if (enemy.health <= 0) {
+              queue.push(() => {
+
                   enemy.faint();
+              })
                   return;
                 } else if (enemy.health > 0) {
 
                   // enemy.attacks[Math.floor(Math.random() * enemy.attacks.length)]
-
+                  queue.push(() => {
                   enemy.attack({
                     attack: selectedAttack,
                     recipient: starter,
                     renderedSprites,
                   });
-
+                })
                   if (starter.health <= 0) {
+                    queue.push(() => {
                     starter.faint();
+                    })
                     return;
                   }
                 }
-              });
+              // });
               // if (enemy.health <= 0) {
               //   enemy.faint();
               //   return;
