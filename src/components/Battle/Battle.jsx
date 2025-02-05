@@ -2166,6 +2166,11 @@ function Battle() {
                   recipient: enemy,
                   renderedSprites,
                 });
+
+                if (enemy.health <= 0) {
+                  enemy.faint();
+                  return;
+                }
               }, 2700);
             }
           }
