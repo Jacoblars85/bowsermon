@@ -2129,20 +2129,22 @@ function Battle() {
                 renderedSprites,
               });
 
-              console.log("enemy.health", enemy.health);
+              // console.log("enemy.health", enemy.health);
 
               if (enemy.health <= 0) {
                 enemy.faint();
                 return;
-              }
-
-              setTimeout(() => {
+              } else if (enemy.health > 0)  {
+ setTimeout(() => {
                 enemy.attack({
                   attack: selectedAttack,
                   recipient: starter,
                   renderedSprites,
                 });
               }, 2700);
+              }
+
+             
             } else if (starterOneSpeed < enemySpeed) {
               enemy.attack({
                 attack: selectedAttack,
