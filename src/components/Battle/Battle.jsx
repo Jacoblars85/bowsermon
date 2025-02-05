@@ -2011,10 +2011,6 @@ function Battle() {
               duration: 0.08,
             });
           }
-
-          setTimeout(() => {
-            document.getElementById("dialogueBox").style.display = "none";
-          }, 4500);
         }
       }
 
@@ -2160,6 +2156,11 @@ function Battle() {
                 });
               }, 2700);
             }
+
+            setTimeout(() => {
+              document.getElementById("dialogueBox").style.display = "none";
+            }, 4500);
+            
           } else if (
             button.className === "starterOne" ||
             button.className === "starterTwo" ||
