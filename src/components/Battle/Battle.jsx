@@ -35,6 +35,7 @@ import axios from "axios";
 import Box from "@mui/material/Box";
 import battleMusic from "../../audio/battleMusic.mp3";
 import { height } from "@mui/system";
+import logger from "redux-logger";
 
 const DeadTransition = forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -2237,13 +2238,12 @@ function Battle() {
         });
       });
 
-      document.querySelectorAll("#dialogBox").addEventListener("click", (e) => {
+      document.querySelector("#dialogueBox").addEventListener("click", (e) => {
         console.log("clicking in the dialog box");
         if (queue.length > 0) {
           queue[0]();
           queue.shift();
-        }
-        {
+        } else {
           e.currentTarget.style.display = "none";
         }
       });
