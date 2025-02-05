@@ -2148,11 +2148,17 @@ function Battle() {
                 }, 2700);
               }
             } else if (starterOneSpeed < enemySpeed) {
+
               enemy.attack({
                 attack: selectedAttack,
                 recipient: starter,
                 renderedSprites,
               });
+
+              if (starter.health <= 0) {
+                starter.faint();
+                return;
+              } else if (enemy.health > 0) {
 
               setTimeout(() => {
                 starter.attack({
@@ -2162,6 +2168,7 @@ function Battle() {
                 });
               }, 2700);
             }
+          }
 
             setTimeout(() => {
               document.getElementById("dialogueBox").style.display = "none";
