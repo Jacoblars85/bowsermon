@@ -2098,7 +2098,7 @@ function Battle() {
       }
       animateBattle();
 
-      const queue = []
+      const queue = [];
 
       document.querySelectorAll("button").forEach((button) => {
         button.addEventListener("click", (e) => {
@@ -2132,18 +2132,18 @@ function Battle() {
                   enemy.faint();
                   return;
                 } else if (enemy.health > 0) {
-                    enemy.attack({
-                      attack: selectedAttack,
-                      recipient: starter,
-                      renderedSprites,
-                    });
-  
-                    if (starter.health <= 0) {
-                      starter.faint();
-                      return;
-                    }
+                  enemy.attack({
+                    attack: selectedAttack,
+                    recipient: starter,
+                    renderedSprites,
+                  });
+
+                  if (starter.health <= 0) {
+                    starter.faint();
+                    return;
+                  }
                 }
-              })
+              });
               // if (enemy.health <= 0) {
               //   enemy.faint();
               //   return;
@@ -2237,15 +2237,16 @@ function Battle() {
         });
       });
 
-      document.querySelectorAll('#dialogBox').addEventListener('click', (e) => {
-        console.log('clicking in the dialog box');
+      document.querySelectorAll("#dialogBox").addEventListener("click", (e) => {
+        console.log("clicking in the dialog box");
         if (queue.length > 0) {
-          queue[0]()
-          queue.shift()
-        } {
-e.currentTarget.style.display = 'none'
+          queue[0]();
+          queue.shift();
         }
-      })
+        {
+          e.currentTarget.style.display = "none";
+        }
+      });
     }
   }, [usersConsumableItems]);
 
