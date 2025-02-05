@@ -2169,23 +2169,41 @@ function Battle() {
                 renderedSprites,
               });
 
-              if (starter.health <= 0) {
-                starter.faint();
-                return;
-              } else if (starter.health > 0) {
-                setTimeout(() => {
-                  starter.attack({
-                    attack: selectedAttack,
-                    recipient: enemy,
-                    renderedSprites,
-                  });
+              queue.push(() => {
+                if (starter.health <= 0) {
+                  starter.faint();
+                  return;
+                } else if (starter.health > 0) {
+                    starter.attack({
+                      attack: selectedAttack,
+                      recipient: enemy,
+                      renderedSprites,
+                    });
+  
+                    if (enemy.health <= 0) {
+                      enemy.faint();
+                      return;
+                    }
+                }
+              });
 
-                  if (enemy.health <= 0) {
-                    enemy.faint();
-                    return;
-                  }
-                }, 2700);
-              }
+              // if (starter.health <= 0) {
+              //   starter.faint();
+              //   return;
+              // } else if (starter.health > 0) {
+              //   setTimeout(() => {
+              //     starter.attack({
+              //       attack: selectedAttack,
+              //       recipient: enemy,
+              //       renderedSprites,
+              //     });
+
+              //     if (enemy.health <= 0) {
+              //       enemy.faint();
+              //       return;
+              //     }
+              //   }, 2700);
+              // }
             }
           } else if (
             button.className === "starterOne" ||
