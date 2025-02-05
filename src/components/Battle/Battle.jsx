@@ -2132,12 +2132,19 @@ function Battle() {
                 enemy.faint();
                 return;
               } else if (enemy.health > 0) {
+
                 setTimeout(() => {
                   enemy.attack({
                     attack: selectedAttack,
                     recipient: starter,
                     renderedSprites,
                   });
+
+                    if (starter.health <= 0) {
+                      starter.faint();
+                      return;
+                    }
+                  
                 }, 2700);
               }
             } else if (starterOneSpeed < enemySpeed) {
