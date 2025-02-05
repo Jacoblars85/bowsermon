@@ -2115,6 +2115,12 @@ function Battle() {
             else if (characterSelectedAttack === pokeAttackStats.attack_name)
               selectedAttack = pokeAttackStats;
 
+            const endDialogPhase = setTimeout(() => {
+              console.log('still timeouting');
+              
+              document.getElementById("dialogueBox").style.display = "none";
+            }, 4500);
+
             if (starterOneSpeed >= enemySpeed) {
               starter.attack({
                 attack: selectedAttack,
@@ -2124,6 +2130,8 @@ function Battle() {
 
               if (enemy.health <= 0) {
                 enemy.faint();
+                console.log('ending the timeout');
+                
                 clearTimeout(endDialogPhase)
                 return;
               } else if (enemy.health > 0) {
@@ -2168,9 +2176,7 @@ function Battle() {
               }
             }
 
-            const endDialogPhase = setTimeout(() => {
-              document.getElementById("dialogueBox").style.display = "none";
-            }, 4500);
+            
           } else if (
             button.className === "starterOne" ||
             button.className === "starterTwo" ||
