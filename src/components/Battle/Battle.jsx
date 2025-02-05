@@ -1823,7 +1823,8 @@ function Battle() {
 
         attack({ attack, recipient, renderedSprites }) {
           if (this.isEnemy) {
-            if (this.stamina >= enemyAttackStats.attack_stamina) attack = enemyAttackStats;
+            if (this.stamina >= enemyAttackStats.attack_stamina)
+              attack = enemyAttackStats;
             else if (this.stamina >= kickStamina) attack = kickAttackStats;
             else if (this.stamina >= pokeStamina) attack = pokeAttackStats;
             else if (this.stamina === 0) {
@@ -2130,17 +2131,15 @@ function Battle() {
               if (enemy.health <= 0) {
                 enemy.faint();
                 return;
-              } else if (enemy.health > 0)  {
- setTimeout(() => {
-                enemy.attack({
-                  attack: selectedAttack,
-                  recipient: starter,
-                  renderedSprites,
-                });
-              }, 2700);
+              } else if (enemy.health > 0) {
+                setTimeout(() => {
+                  enemy.attack({
+                    attack: selectedAttack,
+                    recipient: starter,
+                    renderedSprites,
+                  });
+                }, 2700);
               }
-
-             
             } else if (starterOneSpeed < enemySpeed) {
               enemy.attack({
                 attack: selectedAttack,
@@ -2160,7 +2159,6 @@ function Battle() {
             setTimeout(() => {
               document.getElementById("dialogueBox").style.display = "none";
             }, 4500);
-            
           } else if (
             button.className === "starterOne" ||
             button.className === "starterTwo" ||
