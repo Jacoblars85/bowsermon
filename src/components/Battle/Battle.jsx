@@ -2116,9 +2116,9 @@ function Battle() {
             else if (characterSelectedAttack === pokeAttackStats.attack_name)
               selectedAttack = pokeAttackStats;
 
-            const endDialogPhase = setTimeout(() => {
-              document.getElementById("dialogueBox").style.display = "none";
-            }, 4500);
+            // const endDialogPhase = setTimeout(() => {
+            //   document.getElementById("dialogueBox").style.display = "none";
+            // }, 4500);
 
             if (starterOneSpeed >= enemySpeed) {
               starter.attack({
@@ -2132,7 +2132,6 @@ function Battle() {
                   enemy.faint();
                   return;
                 } else if (enemy.health > 0) {
-                  setTimeout(() => {
                     enemy.attack({
                       attack: selectedAttack,
                       recipient: starter,
@@ -2143,7 +2142,6 @@ function Battle() {
                       starter.faint();
                       return;
                     }
-                  }, 2700);
                 }
               })
               // if (enemy.health <= 0) {
@@ -2247,9 +2245,6 @@ function Battle() {
         } {
 e.currentTarget.style.display = 'none'
         }
-
-       
-        
       })
     }
   }, [usersConsumableItems]);
