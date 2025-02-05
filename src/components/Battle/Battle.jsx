@@ -2098,6 +2098,8 @@ function Battle() {
       }
       animateBattle();
 
+      const queue = []
+
       document.querySelectorAll("button").forEach((button) => {
         button.addEventListener("click", (e) => {
           // console.log("e", e.target.innerHTML);
@@ -2125,23 +2127,42 @@ function Battle() {
                 renderedSprites,
               });
 
-              if (enemy.health <= 0) {
-                enemy.faint();
-                return;
-              } else if (enemy.health > 0) {
-                setTimeout(() => {
-                  enemy.attack({
-                    attack: selectedAttack,
-                    recipient: starter,
-                    renderedSprites,
-                  });
+              queue.push(() => {
+                if (enemy.health <= 0) {
+                  enemy.faint();
+                  return;
+                } else if (enemy.health > 0) {
+                  setTimeout(() => {
+                    enemy.attack({
+                      attack: selectedAttack,
+                      recipient: starter,
+                      renderedSprites,
+                    });
+  
+                    if (starter.health <= 0) {
+                      starter.faint();
+                      return;
+                    }
+                  }, 2700);
+                }
+              })
+              // if (enemy.health <= 0) {
+              //   enemy.faint();
+              //   return;
+              // } else if (enemy.health > 0) {
+              //   setTimeout(() => {
+              //     enemy.attack({
+              //       attack: selectedAttack,
+              //       recipient: starter,
+              //       renderedSprites,
+              //     });
 
-                  if (starter.health <= 0) {
-                    starter.faint();
-                    return;
-                  }
-                }, 2700);
-              }
+              //     if (starter.health <= 0) {
+              //       starter.faint();
+              //       return;
+              //     }
+              //   }, 2700);
+              // }
             } else if (starterOneSpeed < enemySpeed) {
               enemy.attack({
                 attack: selectedAttack,
@@ -2217,6 +2238,18 @@ function Battle() {
           }
         });
       });
+
+      document.querySelectorAll('#dialogBox').addEventListener('click', (e) => {
+        if (queue.length > 0) {
+          queue[0]()
+          queue.shift()
+        }
+
+        e.currentTarget.style.display = 'none'
+
+        console.log('clicking in the dialog box');
+        
+      })
     }
   }, [usersConsumableItems]);
 
