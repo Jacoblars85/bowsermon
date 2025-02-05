@@ -1809,7 +1809,6 @@ function Battle() {
         }
 
         faint() {
-          console.log("faint");
           document.getElementById("dialogueBox").innerHTML =
             this.name + " fainted!";
 
