@@ -2124,6 +2124,7 @@ function Battle() {
 
               if (enemy.health <= 0) {
                 enemy.faint();
+                clearTimeout(endDialogPhase)
                 return;
               } else if (enemy.health > 0) {
                 setTimeout(() => {
@@ -2135,6 +2136,7 @@ function Battle() {
 
                   if (starter.health <= 0) {
                     starter.faint();
+                    clearTimeout(endDialogPhase)
                     return;
                   }
                 }, 2700);
@@ -2148,6 +2150,7 @@ function Battle() {
 
               if (starter.health <= 0) {
                 starter.faint();
+                clearTimeout(endDialogPhase)
                 return;
               } else if (starter.health > 0) {
                 setTimeout(() => {
@@ -2165,7 +2168,7 @@ function Battle() {
               }
             }
 
-            setTimeout(() => {
+            const endDialogPhase = setTimeout(() => {
               document.getElementById("dialogueBox").style.display = "none";
             }, 4500);
           } else if (
