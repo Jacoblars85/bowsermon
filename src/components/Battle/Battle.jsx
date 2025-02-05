@@ -2108,8 +2108,6 @@ function Battle() {
             const characterSelectedAttack = e.target.innerHTML;
             let selectedAttack = {};
 
-            // console.log('characterSelectedAttack', characterSelectedAttack);
-
             if (characterSelectedAttack === starterOneAttackStats.attack_name)
               selectedAttack = starterOneAttackStats;
             else if (characterSelectedAttack === kickAttackStats.attack_name)
@@ -2117,16 +2115,12 @@ function Battle() {
             else if (characterSelectedAttack === pokeAttackStats.attack_name)
               selectedAttack = pokeAttackStats;
 
-            // console.log("selectedAttack", selectedAttack);
-
             if (starterOneSpeed >= enemySpeed) {
               starter.attack({
                 attack: selectedAttack,
                 recipient: enemy,
                 renderedSprites,
               });
-
-              // console.log("enemy.health", enemy.health);
 
               if (enemy.health <= 0) {
                 enemy.faint();
@@ -2155,7 +2149,7 @@ function Battle() {
               if (starter.health <= 0) {
                 starter.faint();
                 return;
-              } else if (enemy.health > 0) {
+              } else if (starter.health > 0) {
                 setTimeout(() => {
                   starter.attack({
                     attack: selectedAttack,
