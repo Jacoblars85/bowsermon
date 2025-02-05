@@ -2240,14 +2240,15 @@ function Battle() {
       });
 
       document.querySelectorAll('#dialogBox').addEventListener('click', (e) => {
+        console.log('clicking in the dialog box');
         if (queue.length > 0) {
           queue[0]()
           queue.shift()
+        } {
+e.currentTarget.style.display = 'none'
         }
 
-        e.currentTarget.style.display = 'none'
-
-        console.log('clicking in the dialog box');
+       
         
       })
     }
