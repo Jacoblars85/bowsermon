@@ -2132,7 +2132,6 @@ function Battle() {
                 enemy.faint();
                 return;
               } else if (enemy.health > 0) {
-
                 setTimeout(() => {
                   enemy.attack({
                     attack: selectedAttack,
@@ -2140,15 +2139,13 @@ function Battle() {
                     renderedSprites,
                   });
 
-                    if (starter.health <= 0) {
-                      starter.faint();
-                      return;
-                    }
-                  
+                  if (starter.health <= 0) {
+                    starter.faint();
+                    return;
+                  }
                 }, 2700);
               }
             } else if (starterOneSpeed < enemySpeed) {
-
               enemy.attack({
                 attack: selectedAttack,
                 recipient: starter,
@@ -2159,21 +2156,20 @@ function Battle() {
                 starter.faint();
                 return;
               } else if (enemy.health > 0) {
+                setTimeout(() => {
+                  starter.attack({
+                    attack: selectedAttack,
+                    recipient: enemy,
+                    renderedSprites,
+                  });
 
-              setTimeout(() => {
-                starter.attack({
-                  attack: selectedAttack,
-                  recipient: enemy,
-                  renderedSprites,
-                });
-
-                if (enemy.health <= 0) {
-                  enemy.faint();
-                  return;
-                }
-              }, 2700);
+                  if (enemy.health <= 0) {
+                    enemy.faint();
+                    return;
+                  }
+                }, 2700);
+              }
             }
-          }
 
             setTimeout(() => {
               document.getElementById("dialogueBox").style.display = "none";
