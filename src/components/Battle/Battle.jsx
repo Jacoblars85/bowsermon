@@ -2129,29 +2129,27 @@ function Battle() {
               });
 
               // queue.push(() => {
-                if (enemy.health <= 0) {
-              queue.push(() => {
-
+              if (enemy.health <= 0) {
+                queue.push(() => {
                   enemy.faint();
-              })
-                  return;
-                } else if (enemy.health > 0) {
-
-                  // enemy.attacks[Math.floor(Math.random() * enemy.attacks.length)]
-                  queue.push(() => {
+                });
+                return;
+              } else if (enemy.health > 0) {
+                // enemy.attacks[Math.floor(Math.random() * enemy.attacks.length)]
+                queue.push(() => {
                   enemy.attack({
                     attack: selectedAttack,
                     recipient: starter,
                     renderedSprites,
                   });
-                })
-                  if (starter.health <= 0) {
-                    queue.push(() => {
+                });
+                if (starter.health <= 0) {
+                  queue.push(() => {
                     starter.faint();
-                    })
-                    return;
-                  }
+                  });
+                  return;
                 }
+              }
               // });
               // if (enemy.health <= 0) {
               //   enemy.faint();
@@ -2182,16 +2180,16 @@ function Battle() {
                   starter.faint();
                   return;
                 } else if (starter.health > 0) {
-                    starter.attack({
-                      attack: selectedAttack,
-                      recipient: enemy,
-                      renderedSprites,
-                    });
-  
-                    if (enemy.health <= 0) {
-                      enemy.faint();
-                      return;
-                    }
+                  starter.attack({
+                    attack: selectedAttack,
+                    recipient: enemy,
+                    renderedSprites,
+                  });
+
+                  if (enemy.health <= 0) {
+                    enemy.faint();
+                    return;
+                  }
                 }
               });
 
