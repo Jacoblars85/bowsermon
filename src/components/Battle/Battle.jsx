@@ -2133,6 +2133,9 @@ function Battle() {
                   enemy.faint();
                 });
 
+                queue.push(() => {
+                  history.push('/exploring')
+                });
               } 
                 // enemy.attacks[Math.floor(Math.random() * enemy.attacks.length)]
                 queue.push(() => {
@@ -2146,6 +2149,10 @@ function Battle() {
                 if (starter.health <= 0) {
                   queue.push(() => {
                     starter.faint();
+                  });
+
+                  queue.push(() => {
+                    history.push('/exploring')
                   });
                 }
      
