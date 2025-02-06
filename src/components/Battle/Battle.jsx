@@ -34,8 +34,6 @@ import Slide from "@mui/material/Slide";
 import axios from "axios";
 import Box from "@mui/material/Box";
 import battleMusic from "../../audio/battleMusic.mp3";
-import { height } from "@mui/system";
-import logger from "redux-logger";
 
 const DeadTransition = forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -188,10 +186,6 @@ function Battle() {
     (store) => store.inventory.usersConsumableItems
   );
 
-  // console.log('characters', characters);
-  // console.log('starter', starter);
-  // console.log('levelEnemy', levelEnemy);
-
   // setting each starter/enemy to a varriable
   let enemyOne = levelEnemy[0];
   let starterOne = starter[0];
@@ -205,8 +199,6 @@ function Battle() {
   const [starterOneName, setStarterOneName] = useState("");
   const [starterOneSpeed, setStarterOneSpeed] = useState(0);
   const [starterOneAttackStats, setStarterOneAttackStats] = useState({});
-
-  // console.log('starterOneAttackStats', starterOneAttackStats);
 
   // starter stats/info
   const [starterTwoHp, setStarterTwoHp] = useState(0);
@@ -1338,6 +1330,7 @@ function Battle() {
 
   // const toggleAllButtons = () => {
   //   if (displayButtons === "attack") {
+  
   //     return (
   //       <>
   //         <button
