@@ -1814,7 +1814,7 @@ function Battle() {
             this.name + " fainted!";
 
           gsap.to(this.position, {
-            y: this.position + 20,
+            y: this.position.y + 20,
           });
           gsap.to(this, {
             opacity: 0,
@@ -2128,13 +2128,12 @@ function Battle() {
                 renderedSprites,
               });
 
-              // queue.push(() => {
               if (enemy.health <= 0) {
                 queue.push(() => {
                   enemy.faint();
                 });
-                return;
-              } else if (enemy.health > 0) {
+
+              } 
                 // enemy.attacks[Math.floor(Math.random() * enemy.attacks.length)]
                 queue.push(() => {
                   enemy.attack({
@@ -2143,14 +2142,14 @@ function Battle() {
                     renderedSprites,
                   });
                 });
+
                 if (starter.health <= 0) {
                   queue.push(() => {
                     starter.faint();
                   });
-                  return;
                 }
-              }
-              // });
+     
+
               // if (enemy.health <= 0) {
               //   enemy.faint();
               //   return;
