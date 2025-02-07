@@ -1,6 +1,12 @@
-import React, { useState, useEffect, useRef } from "react";
-import { useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import React, {
+  useState,
+  useEffect,
+  Fragment,
+  useRef,
+  forwardRef,
+} from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useHistory, useParams } from "react-router-dom";
 import "./gameWorld.css";
 import MarioMap from "./img/bowsermon-map-v1.png";
 import MarioMapForegroundImage from "./img/foregroundObjects.png";
@@ -11,6 +17,28 @@ import PlayerDown from "./img/playerDown.png";
 const bowsermonMapJson = require("./data/bowsermonMap");
 const collisionsArray = require("./data/collisions");
 const battleZonesArray = require("./data/battleZones");
+
+// import "./Battle.css";
+import lakeBackground from "./img/backgroundImg/LakeBackground.png";
+import forestBackground from "./img/backgroundImg/RockForest.webp";
+import battleBackground from "./img/backgroundImg/battleBackground.png";
+
+import fireballSpriteImage from "./img/fx/SmokeSpriteSheet.png";
+import iceSpriteImage from "./img/fx/SmokeSpriteSheet.png";
+
+import ListItemText from "@mui/material/ListItemText";
+import ListItem from "@mui/material/ListItem";
+import List from "@mui/material/List";
+import Divider from "@mui/material/Divider";
+// import AppBar from "@mui/material/AppBar";
+// import Toolbar from "@mui/material/Toolbar";
+// import IconButton from "@mui/material/IconButton";
+// import Typography from "@mui/material/Typography";
+// import CloseIcon from "@mui/icons-material/Close";
+// import Slide from "@mui/material/Slide";
+import axios from "axios";
+import Box from "@mui/material/Box";
+import battleMusic from "../../audio/battleMusic.mp3";
 
 function GameWorld() {
   // console.log('bowsermonMapJson', bowsermonMapJson);
