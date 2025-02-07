@@ -44,7 +44,8 @@ function GameWorld() {
   // console.log('bowsermonMapJson', bowsermonMapJson);
   // console.log('collisionsArray', collisionsArray);
   //   console.log('battleZonesArray', battleZonesArray);
-
+  const dispatch = useDispatch();
+  const { id } = useParams();
   const history = useHistory();
   const canvasRef = useRef(null);
 
