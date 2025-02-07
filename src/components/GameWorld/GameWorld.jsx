@@ -42,7 +42,7 @@ import battleMusic from "../../audio/battleMusic.mp3";
 
 function GameWorld() {
   const dispatch = useDispatch();
-  const { id } = useParams();
+  // const { id } = useParams();
   const history = useHistory();
   const canvasRef = useRef(null);
 
@@ -52,7 +52,7 @@ function GameWorld() {
 
   useEffect(() => {
     dispatch({ type: "SAGA_FETCH_CHARACTERS" });
-    dispatch({ type: "SAGA_FETCH_LEVEL_ENEMY", payload: id });
+    // dispatch({ type: "SAGA_FETCH_LEVEL_ENEMY", payload: id });
     dispatch({ type: "SAGA_FETCH_IVENTORY" });
     getStarters();
     getEnemy();
@@ -127,7 +127,7 @@ function GameWorld() {
   const getEnemy = () => {
     axios({
       method: "GET",
-      url: `/api/characters/enemy/${id}`,
+      url: `/api/characters/enemy/${enemyId}`,
     })
       .then((response) => {
         setEnemyHp(response.data[0].hp);
@@ -226,6 +226,7 @@ function GameWorld() {
   const [maxStamina, setMaxStamina] = useState(0);
 
   // enemy stats/info
+  const [enemyId, setEnemyId] = useState(0);
   const [enemyPicture, setEnemyPicture] = useState("");
   const [enemyHp, setEnemyHp] = useState(0);
   const [enemyStamina, setEnemyStamina] = useState(0);
@@ -595,11 +596,12 @@ function GameWorld() {
               overlappingArea > (player.width * player.height) / 2 &&
               Math.random() < 0.015
             ) {
-              battle.initiated = true;
-              console.log(battle.initiated, "battle.initiated ");
+      
+              // console.log(battle.initiated, "battle.initiated ");
 
               // console.log("battle start");
               window.cancelAnimationFrame(animationId);
+              battle.initiated = true;
               gsap.to("#fadeOutDiv", {
                 opacity: 1,
                 repeat: 3,
@@ -612,10 +614,20 @@ function GameWorld() {
                     onComplete() {
                       // where you get sent to the battle
                       // added the fade out in the battle seq
-                      history.push(
-                        `/battle/${Math.floor(Math.random() * 8 + 1)}`
-                      );
-                    },
+
+                      // history.push(
+                      //   `/battle/${Math.floor(Math.random() * 8 + 1)}`
+                      // );
+                      
+                      animateBattle()
+                      // setEnemyId(Math.floor(Math.random() * 8 + 1))
+                      // getEnemy()
+
+                      gsap.to("#fadeOutDiv", {
+                        opacity: 0,
+                        duration: 0.4,
+                      });
+                    },     
                   });
                 },
               });
@@ -1195,7 +1207,7 @@ function GameWorld() {
           sprite.draw();
         });
       }
-      animateBattle();
+      // animateBattle();
 
       const queue = [];
 
@@ -1374,7 +1386,7 @@ function GameWorld() {
         }
       });
     }
-  }, []);
+  }, [enemyPicture]);
 
   return (
     <div style={{ display: "inline-block", position: "relative" }}>
