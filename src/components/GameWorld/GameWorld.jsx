@@ -1589,14 +1589,14 @@ function GameWorld() {
                   starter.length === 1
                     ? starterOneStamina < starterOne.attack_stamina
                       ? true
-                      : isDisabled
+                      : false
                     : currentId === starterOne.id
                     ? starterOneStamina < starterOne.attack_stamina
                       ? true
-                      : isDisabled
+                      : false
                     : starterTwoStamina < starterTwo.attack_stamina
                     ? true
-                    : isDisabled
+                    : false
                 }
               >
                 {starter.length === 1
@@ -1629,14 +1629,14 @@ function GameWorld() {
                   starter.length === 1
                     ? starterOneStamina < kickStamina
                       ? true
-                      : isDisabled
+                      : false
                     : currentId === starterOne.id
                     ? starterOneStamina < kickStamina
                       ? true
-                      : isDisabled
+                      : false
                     : starterTwoStamina < kickStamina
                     ? true
-                    : isDisabled
+                    : false
                 }
               >
                 {kickAttack}
@@ -1665,14 +1665,14 @@ function GameWorld() {
                   starter.length === 1
                     ? starterOneStamina < pokeStamina
                       ? true
-                      : isDisabled
+                      : false
                     : currentId === starterOne.id
                     ? starterOneStamina < pokeStamina
                       ? true
-                      : isDisabled
+                      : false
                     : starterTwoStamina < pokeStamina
                     ? true
-                    : isDisabled
+                    : false
                 }
               >
                 {pokeAttack}
@@ -1917,7 +1917,7 @@ function GameWorld() {
               <button
                 onClick={() => setDisplayButtons("inventory")}
                 className="inventoryMove"
-                disabled={isDisabled}
+                // disabled={isDisabled}
               >
                 Inventory
               </button>
@@ -1926,7 +1926,7 @@ function GameWorld() {
               <button
                 onClick={() => setDisplayButtons("switch")}
                 className="switch"
-                disabled={isDisabled}
+                // disabled={isDisabled}
               >
                 Switch
               </button>
@@ -1935,7 +1935,7 @@ function GameWorld() {
               <button
                 onClick={() => history.push("/home")}
                 className="runButton"
-                disabled={isDisabled}
+                // disabled={isDisabled}
               >
                 Run
               </button>
@@ -1944,7 +1944,7 @@ function GameWorld() {
               <button
                 onClick={() => setDisplayButtons("attack")}
                 className="attackToggleButton"
-                disabled={isDisabled}
+                // disabled={isDisabled}
               >
                 Attack
               </button>
