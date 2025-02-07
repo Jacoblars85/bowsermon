@@ -1328,7 +1328,6 @@ function Battle() {
   // Displays the canvas buttons
   const [displayButtons, setDisplayButtons] = useState("attack");
 
-
   // the canvas function
   const battleCanvasRef = useRef(null);
   useEffect(() => {
@@ -1808,28 +1807,27 @@ function Battle() {
                 });
 
                 queue.push(() => {
-                  history.push('/exploring')
+                  history.push("/exploring");
                 });
-              } 
-                // enemy.attacks[Math.floor(Math.random() * enemy.attacks.length)]
+              }
+              // enemy.attacks[Math.floor(Math.random() * enemy.attacks.length)]
+              queue.push(() => {
+                enemy.attack({
+                  attack: selectedAttack,
+                  recipient: starter,
+                  renderedSprites,
+                });
+              });
+
+              if (starter.health <= 0) {
                 queue.push(() => {
-                  enemy.attack({
-                    attack: selectedAttack,
-                    recipient: starter,
-                    renderedSprites,
-                  });
+                  starter.faint();
                 });
 
-                if (starter.health <= 0) {
-                  queue.push(() => {
-                    starter.faint();
-                  });
-
-                  queue.push(() => {
-                    history.push('/exploring')
-                  });
-                }
-     
+                queue.push(() => {
+                  history.push("/exploring");
+                });
+              }
 
               // if (enemy.health <= 0) {
               //   enemy.faint();
