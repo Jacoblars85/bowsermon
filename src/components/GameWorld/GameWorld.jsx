@@ -21,7 +21,7 @@ const battleZonesArray = require("./data/battleZones");
 // import "./Battle.css";
 import lakeBackground from "./img/backgroundImg/LakeBackground.png";
 import forestBackground from "./img/backgroundImg/RockForest.webp";
-import battleBackground from "./img/backgroundImg/battleBackground.png";
+import battleBackgroundImage from "./img/backgroundImg/battleBackground.png";
 
 import fireballSpriteImage from "./img/fx/SmokeSpriteSheet.png";
 import iceSpriteImage from "./img/fx/SmokeSpriteSheet.png";
@@ -546,7 +546,7 @@ function GameWorld() {
 
       function animate() {
         const animationId = window.requestAnimationFrame(animate);
-        background.draw();
+        exploringBackground.draw();
         boundaries.forEach((boundary) => {
           boundary.draw();
         });
@@ -756,7 +756,7 @@ function GameWorld() {
       // console.log(keys);
 
       const backgroundImage = new Image();
-      backgroundImage.src = battleBackground;
+      backgroundImage.src = battleBackgroundImage;
 
       const enemyImage = new Image();
       enemyImage.src = enemyPicture;
