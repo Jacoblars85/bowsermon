@@ -1806,9 +1806,9 @@ function Battle() {
                   enemy.faint();
                 });
 
-                queue.push(() => {
-                  history.push("/exploring");
-                });
+                // queue.push(() => {
+                  
+                // });
               }
               // enemy.attacks[Math.floor(Math.random() * enemy.attacks.length)]
               queue.push(() => {
