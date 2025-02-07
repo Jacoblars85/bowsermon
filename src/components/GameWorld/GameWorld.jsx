@@ -1067,6 +1067,595 @@ function GameWorld() {
         width={1024}
         className="canvasForGame"
       ></canvas>
+
+{/* <div style={{ display: "inline-block", position: "relative" }}> */}
+        {/* enemy health box */}
+        <div
+          style={{
+            backgroundColor: "white",
+            width: `300px`,
+            position: "absolute",
+            top: "30px",
+            left: "50px",
+            border: "4px solid black",
+            display: "flex",
+            flexDirection: "column",
+            padding: "10px",
+          }}
+        >
+          <h1 style={{ margin: 0 }}>{enemyOne.character_name}</h1>
+
+          {/* enemy health bar */}
+          <div style={{ position: "relative" }}>
+            <div
+              style={{
+                height: "8px",
+                backgroundColor: "#ccc",
+                marginTop: "10px",
+              }}
+            ></div>
+            <div
+              id="enemyHealthBar"
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                height: "8px",
+                backgroundColor: "red",
+                marginTop: "10px",
+              }}
+            ></div>
+          </div>
+
+          {/* enemy stamina bar */}
+          <div style={{ position: "relative" }}>
+            <div
+              style={{
+                height: "5px",
+                backgroundColor: "#ccc",
+                marginTop: "10px",
+              }}
+            ></div>
+            <div
+              id="enemyStaminaBar"
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                height: "5px",
+                backgroundColor: "green",
+                marginTop: "10px",
+              }}
+            ></div>
+          </div>
+        </div>
+
+        {/* starter health box */}
+        <div
+          style={{
+            backgroundColor: "white",
+            width: `300px`,
+            position: "absolute",
+            top: "300px",
+            right: "50px",
+            border: "4px solid black",
+            display: "flex",
+            flexDirection: "column",
+            padding: "10px",
+          }}
+        >
+          <h1 style={{ margin: 0 }}>{currentName}</h1>
+
+          {/* starter health bar */}
+          <div style={{ position: "relative" }}>
+            <div
+              style={{
+                height: "8px",
+                backgroundColor: "#ccc",
+                marginTop: "10px",
+              }}
+            ></div>
+            <div
+              id="starterHealthBar"
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                height: "8px",
+                backgroundColor: "red",
+                marginTop: "10px",
+              }}
+            ></div>
+          </div>
+
+          {/* starter stamina bar */}
+          <div style={{ position: "relative" }}>
+            <div
+              style={{
+                height: "5px",
+                backgroundColor: "#ccc",
+                marginTop: "10px",
+              }}
+            ></div>
+            <div
+              id="starterStaminaBar"
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                height: "5px",
+                backgroundColor: "green",
+                marginTop: "10px",
+              }}
+            ></div>
+          </div>
+        </div>
+
+        {/* canvas */}
+        {/* <canvas
+          ref={battleCanvasRef}
+          height={576}
+          width={1024}
+          className="canvasForBattle"
+        ></canvas> */}
+
+        {/* the attack box */}
+        <div
+          style={{
+            backgroundColor: "white",
+            height: `140px`,
+            position: "absolute",
+            bottom: 0,
+            left: 0,
+            right: 0,
+            borderTop: "4px solid black",
+            display: "flex",
+          }}
+        >
+          {/* text box */}
+          <div
+            id="dialogueBox"
+            style={{
+              position: "absolute",
+              bottom: 0,
+              left: 0,
+              right: 0,
+              top: 0,
+              backgroundColor: "white",
+              padding: "12px",
+              display: "none",
+              fontSize: "30px",
+              zIndex: 1,
+            }}
+          >
+            {/* {textBox} */}
+          </div>
+
+          {/* all of the togglable buttons */}
+          <div
+            id="togglableButtons"
+            style={{
+              width: "66.66%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            {/* attack box */}
+            <div
+              id="attackBox"
+              style={{
+                // position: "absolute",
+                // bottom: 0,
+                // left: 0,
+                // right: 0,
+                // top: 0,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                width: "100%",
+                height: "100%",
+                backgroundColor: "white",
+                // display: "block",
+                // fontSize: "30px",
+                // zIndex: 1,
+              }}
+            >
+              <button
+                // onClick={() => battle("unique")}
+                id="attackButton"
+                className={
+                  starter.length === 1
+                    ? starterOne.attack_name
+                    : currentId === starterOne.id
+                    ? starterOne.attack_name
+                    : starterTwo.attack_type
+                }
+                style={{
+                  display: "flex",
+                  width: "33.33%",
+                  height: "100%",
+                  textAlign: "center",
+                  fontSize: "30px",
+                  color: "black",
+                  fontFamily: "New Super Mario Font U",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  borderRight: "4px solid black",
+                  // backgroundColor: "white",
+                  boxShadow: "0 0 0 0",
+                }}
+                disabled={
+                  starter.length === 1
+                    ? starterOneStamina < starterOne.attack_stamina
+                      ? true
+                      : isDisabled
+                    : currentId === starterOne.id
+                    ? starterOneStamina < starterOne.attack_stamina
+                      ? true
+                      : isDisabled
+                    : starterTwoStamina < starterTwo.attack_stamina
+                    ? true
+                    : isDisabled
+                }
+              >
+                {starter.length === 1
+                  ? starterOne.attack_name
+                  : currentId === starterOne.id
+                  ? starterOne.attack_name
+                  : starterTwo.attack_name}
+              </button>
+
+              <button
+                // onClick={() => battle("punch")}
+                id="attackButton"
+                className={kickAttack}
+                style={{
+                  display: "flex",
+                  width: "33.33%",
+                  height: "100%",
+                  textAlign: "center",
+                  fontSize: "30px",
+                  color: "black",
+                  fontFamily: "New Super Mario Font U",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  borderRight: "4px solid black",
+                  borderLeft: "4px solid black",
+                  // backgroundColor: "white",
+                  boxShadow: "0 0 0 0",
+                }}
+                disabled={
+                  starter.length === 1
+                    ? starterOneStamina < kickStamina
+                      ? true
+                      : isDisabled
+                    : currentId === starterOne.id
+                    ? starterOneStamina < kickStamina
+                      ? true
+                      : isDisabled
+                    : starterTwoStamina < kickStamina
+                    ? true
+                    : isDisabled
+                }
+              >
+                {kickAttack}
+              </button>
+
+              <button
+                // onClick={() => battle("poke")}
+                id="attackButton"
+                className={pokeAttack}
+                style={{
+                  display: "flex",
+                  width: "33.33%",
+                  height: "100%",
+                  textAlign: "center",
+                  fontSize: "30px",
+                  color: "black",
+                  fontFamily: "New Super Mario Font U",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  border: 0,
+                  borderLeft: "4px solid black",
+                  // backgroundColor: "white",
+                  boxShadow: "0 0 0 0",
+                }}
+                disabled={
+                  starter.length === 1
+                    ? starterOneStamina < pokeStamina
+                      ? true
+                      : isDisabled
+                    : currentId === starterOne.id
+                    ? starterOneStamina < pokeStamina
+                      ? true
+                      : isDisabled
+                    : starterTwoStamina < pokeStamina
+                    ? true
+                    : isDisabled
+                }
+              >
+                {pokeAttack}
+              </button>
+            </div>
+
+            {/* switch box */}
+            <div
+              id="switchBox"
+              style={{
+                position: "absolute",
+                bottom: 0,
+                left: 0,
+                right: 0,
+                top: 0,
+                width: "66.4%",
+                backgroundColor: "white",
+                padding: "0px",
+                display: "none",
+                // fontSize: "30px",
+                zIndex: 1,
+              }}
+            >
+              {starter.length === 1 ? (
+                <List sx={{ padding: 0 }}>
+                  <ListItem>
+                    <img height={50} width={50} src={starterOne.profile_pic} />
+                    <ListItemText
+                      sx={{ ml: 25 }}
+                      primary={`starter 1: ${starterOne.character_name}`}
+                      secondary={`${starterOneHp}/${starterOne.hp} hp | ${starterOneStamina}/${starterOne.stamina} stamina | ${starterOne.speed} speed`}
+                    />
+                    <button
+                      id="attackButton"
+                      className="starterOne"
+                      style={{
+                        color: "black",
+                        fontSize: 15,
+                        fontFamily: "New Super Mario Font U",
+                        borderColor: "black",
+                      }}
+                      variant="outlined"
+                      disabled={
+                        currentId === starterOne.id
+                          ? true
+                          : starterOneHp <= 0
+                          ? true
+                          : false
+                      }
+                      onClick={() => battle("starterOne")}
+                    >
+                      Change Starter
+                    </button>
+                  </ListItem>
+                </List>
+              ) : (
+                <List sx={{ padding: 0 }}>
+                  <ListItem>
+                    <img height={50} width={50} src={starterOne.profile_pic} />
+                    <ListItemText
+                      sx={{ ml: 25 }}
+                      primary={`starter 1: ${starterOne.character_name}`}
+                      secondary={`${starterOneHp}/${starterOne.hp} hp | ${starterOneStamina}/${starterOne.stamina} stamina | ${starterOne.speed} speed`}
+                    />
+                    <button
+                      id="attackButton"
+                      className="starterOne"
+                      style={{
+                        color: "black",
+                        fontSize: 15,
+                        fontFamily: "New Super Mario Font U",
+                        borderColor: "black",
+                      }}
+                      // variant="outlined"
+                      disabled={
+                        currentId === starterOne.id
+                          ? true
+                          : starterOneHp <= 0
+                          ? true
+                          : false
+                      }
+                      onClick={() => battle("starterOne")}
+                    >
+                      Change Starter
+                    </button>
+                  </ListItem>
+
+                  <Divider />
+
+                  <ListItem>
+                    <img height={50} width={50} src={starterTwo.profile_pic} />
+                    <ListItemText
+                      sx={{ ml: 25 }}
+                      primary={`starter 2: ${starterTwo.character_name}`}
+                      secondary={`${starterTwoHp}/${starterTwo.hp} hp | ${starterTwoStamina}/${starterTwo.stamina} stamina | ${starterTwo.speed} speed`}
+                    />
+                    <button
+                      id="attackButton"
+                      className="starterTwo"
+                      style={{
+                        color: "black",
+                        fontSize: 15,
+                        fontFamily: "New Super Mario Font U",
+                        borderColor: "black",
+                        ml: 2,
+                      }}
+                      // variant="outlined"
+                      disabled={
+                        currentId === starterTwo.id
+                          ? true
+                          : starterTwoHp <= 0
+                          ? true
+                          : false
+                      }
+                      onClick={() => battle("starterTwo")}
+                    >
+                      Change Starter
+                    </button>
+                  </ListItem>
+                </List>
+              )}
+            </div>
+
+            {/* inventory box */}
+            <div
+              id="inventoryBox"
+              style={{
+                position: "absolute",
+                bottom: 0,
+                left: 0,
+                right: 0,
+                top: 0,
+                width: "66.33%",
+                backgroundColor: "white",
+                display: "none",
+                fontSize: "30px",
+                zIndex: 1,
+              }}
+            >
+              <Box height="140px" overflow={"scroll"}>
+                {usersConsumableItems &&
+                  usersConsumableItems.map((usersConsumables) => {
+                    return (
+                      <div
+                        key={usersConsumables.id}
+                        style={{ height: "40px", padding: 10 }}
+                      >
+                        <ListItem>
+                          <Box
+                            display="flex"
+                            flexDirection="row"
+                            columnGap={5}
+                            justifyContent="space-around"
+                            alignItems="center"
+                          >
+                            <p
+                              style={{
+                                color: "black",
+                                fontSize: "15px",
+                              }}
+                            >
+                              {usersConsumables.number}X
+                            </p>
+                            <img
+                              height={35}
+                              width={35}
+                              src={usersConsumables.item_pic}
+                            />
+                          </Box>
+
+                          <ListItemText
+                            sx={{
+                              ml: 20,
+                              fontFamily: "New Super Mario Font U",
+                            }}
+                            primary={usersConsumables.name}
+                          />
+
+                          <ListItemText
+                            sx={{
+                              ml: 5,
+                              fontFamily: "New Super Mario Font U",
+                              width: "70px",
+                            }}
+                            // primary={usersConsumables.name}
+                            secondary={`${
+                              usersConsumables.item_hp === 0
+                                ? ""
+                                : `+${usersConsumables.item_hp} hp`
+                            } ${
+                              usersConsumables.item_stamina === 0
+                                ? ""
+                                : usersConsumables.item_hp === 0
+                                ? `+${usersConsumables.item_stamina} stamina`
+                                : `| +${usersConsumables.item_stamina} stamina`
+                            } ${
+                              usersConsumables.item_speed === 0
+                                ? ""
+                                : `| +${usersConsumables.item_speed} speed`
+                            }`}
+                          />
+                          <button
+                            // id="consumable"
+                            id="attackButton"
+                            className="consumable"
+                            style={{
+                              color: "black",
+                              fontSize: 15,
+                              fontFamily: "New Super Mario Font U",
+                              borderColor: "black",
+                              // height: "35px",
+                              // width: "60px",
+                            }}
+                            variant="outlined"
+                            disabled={
+                              usersConsumables.number <= 0 ? true : false
+                            }
+                            onClick={() => battle(usersConsumables)}
+                          >
+                            Use Consumable
+                          </button>
+                        </ListItem>
+                        <Divider />
+                      </div>
+                    );
+                  })}
+              </Box>
+            </div>
+          </div>
+
+          {/* all of the basic buttons */}
+          <div
+            style={{
+              width: "33.33%",
+              display: "grid",
+              gridTemplateColumns: "repeat(2, 1fr)",
+              borderLeft: "4px solid black",
+            }}
+          >
+            <>
+              {/* the inventory button */}
+              <button
+                onClick={() => setDisplayButtons("inventory")}
+                className="inventoryMove"
+                disabled={isDisabled}
+              >
+                Inventory
+              </button>
+
+              {/* the switch button */}
+              <button
+                onClick={() => setDisplayButtons("switch")}
+                className="switch"
+                disabled={isDisabled}
+              >
+                Switch
+              </button>
+
+              {/* run button */}
+              <button
+                onClick={() => history.push("/home")}
+                className="runButton"
+                disabled={isDisabled}
+              >
+                Run
+              </button>
+
+              {/* shows all the attack buttons */}
+              <button
+                onClick={() => setDisplayButtons("attack")}
+                className="attackToggleButton"
+                disabled={isDisabled}
+              >
+                Attack
+              </button>
+            </>
+          </div>
+        </div>
+      {/* </div> */}
     </div>
   );
 }
