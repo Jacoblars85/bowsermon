@@ -52,7 +52,7 @@ function GameWorld() {
 
   useEffect(() => {
     dispatch({ type: "SAGA_FETCH_CHARACTERS" });
-    // dispatch({ type: "SAGA_FETCH_LEVEL_ENEMY", payload: id });
+    dispatch({ type: "SAGA_FETCH_LEVEL_ENEMY", payload: 8 });
     dispatch({ type: "SAGA_FETCH_IVENTORY" });
     getStarters();
     getEnemy();
@@ -127,7 +127,7 @@ function GameWorld() {
   const getEnemy = () => {
     axios({
       method: "GET",
-      url: `/api/characters/enemy/${enemyId}`,
+      url: `/api/characters/enemy/${Math.floor(Math.random() * 8 + 1)}`,
     })
       .then((response) => {
         setEnemyHp(response.data[0].hp);
@@ -738,7 +738,7 @@ function GameWorld() {
             });
         }
       }
-      animate();
+      // animate();
 
       let lastKey = "";
 
@@ -1207,7 +1207,7 @@ function GameWorld() {
           sprite.draw();
         });
       }
-      // animateBattle();
+      animateBattle();
 
       const queue = [];
 
@@ -1243,9 +1243,11 @@ function GameWorld() {
                   enemy.faint();
                 });
 
-                // queue.push(() => {
-
-                // });
+                queue.push(() => {
+gsap.to('#fadeOutDiv', {
+  opacity: 1
+})
+                });
               }
               // enemy.attacks[Math.floor(Math.random() * enemy.attacks.length)]
               queue.push(() => {
@@ -1386,7 +1388,7 @@ function GameWorld() {
         }
       });
     }
-  }, [enemyPicture]);
+  }, [usersConsumableItems]);
 
   return (
     <div style={{ display: "inline-block", position: "relative" }}>
