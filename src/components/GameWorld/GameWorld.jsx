@@ -21,6 +21,203 @@ function GameWorld() {
   const canvasRef = useRef(null);
 
   useEffect(() => {
+    dispatch({ type: "SAGA_FETCH_CHARACTERS" });
+    dispatch({ type: "SAGA_FETCH_LEVEL_ENEMY", payload: id });
+    dispatch({ type: "SAGA_FETCH_IVENTORY" });
+    getStarters();
+    getEnemy();
+    getBasicAttacks();
+  }, []);
+
+  // axios functions
+  const getStarters = () => {
+    axios({
+      method: "GET",
+      url: "/api/characters/starter",
+    })
+      .then((response) => {
+        if (response.data.length === 1) {
+          setStarterOneHp(response.data[0].hp);
+          setStarterOneStamina(response.data[0].stamina);
+          setCurrentId(response.data[0].id);
+          setCurrentName(response.data[0].character_name);
+          setStarterOneName(response.data[0].character_name);
+          setCurrentSpeed(response.data[0].speed);
+          setStarterOneSpeed(response.data[0].speed);
+          setMaxHp(response.data[0].hp);
+          setMaxStamina(response.data[0].stamina);
+          setStarterPicture(response.data[0].battle_pic);
+          setStarterFxImg(response.data[0].fx_img);
+
+          setStarterOneAttackStats({
+            attack_name: response.data[0].attack_name,
+            attack_damage: response.data[0].attack_damage,
+            attack_stamina: response.data[0].attack_stamina,
+            attack_type: response.data[0].attack_type,
+          });
+        } else if (response.data.length === 2) {
+          setStarterOneHp(response.data[0].hp);
+          setStarterOneStamina(response.data[0].stamina);
+          setCurrentId(response.data[0].id);
+          setCurrentName(response.data[0].character_name);
+          setStarterOneName(response.data[0].character_name);
+          setCurrentSpeed(response.data[0].speed);
+          setStarterOneSpeed(response.data[0].speed);
+          setMaxHp(response.data[0].hp);
+          setMaxStamina(response.data[0].stamina);
+          setStarterPicture(response.data[0].battle_pic);
+          setStarterFxImg(response.data[0].fx_img);
+
+          setStarterOneAttackStats({
+            attack_name: response.data[0].attack_name,
+            attack_damage: response.data[0].attack_damage,
+            attack_stamina: response.data[0].attack_stamina,
+            attack_type: response.data[0].attack_type,
+          });
+
+          setStarterTwoHp(response.data[1].hp);
+          setStarterTwoStamina(response.data[1].stamina);
+          setStarterTwoSpeed(response.data[1].speed);
+          setStarterTwoPicture(response.data[1].battle_pic);
+          setStarterTwoFxImg(response.data[1].fx_img);
+          setStarterTwoName(response.data[1].character_name);
+          setStarterTwoAttackStats({
+            attack_name: response.data[1].attack_name,
+            attack_damage: response.data[1].attack_damage,
+            attack_stamina: response.data[1].attack_stamina,
+            attack_type: response.data[1].attack_type,
+          });
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const getEnemy = () => {
+    axios({
+      method: "GET",
+      url: `/api/characters/enemy/${id}`,
+    })
+      .then((response) => {
+        setEnemyHp(response.data[0].hp);
+        setEnemyStamina(response.data[0].stamina);
+        setEnemySpeed(response.data[0].speed);
+        setEnemyPicture(response.data[0].battle_pic);
+        setEnemyFxImg(response.data[0].fx_img);
+        setEnemyName(response.data[0].character_name);
+
+        setEnemyAttackStats({
+          attack_name: response.data[0].attack_name,
+          attack_damage: response.data[0].attack_damage,
+          attack_stamina: response.data[0].attack_stamina,
+          attack_type: response.data[0].attack_type,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const getBasicAttacks = () => {
+    axios({
+      method: "GET",
+      url: `/api/characters/basic`,
+    })
+      .then((response) => {
+        setKickAttack(response.data[0].attack_name);
+        setKickStamina(response.data[0].attack_stamina);
+        setKickAttackType(response.data[0].attack_type);
+
+        setKickAttackStats({
+          attack_name: response.data[0].attack_name,
+          attack_damage: response.data[0].attack_damage,
+          attack_stamina: response.data[0].attack_stamina,
+          attack_type: response.data[0].attack_type,
+        });
+
+        setPokeAttack(response.data[1].attack_name);
+        setPokeStamina(response.data[1].attack_stamina);
+        setPokeAttackType(response.data[1].attack_type);
+
+        setPokeAttackStats({
+          attack_name: response.data[1].attack_name,
+          attack_damage: response.data[1].attack_damage,
+          attack_stamina: response.data[1].attack_stamina,
+          attack_type: response.data[1].attack_type,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const basicAttacks = useSelector((store) => store.character.basicAttacks);
+  const characters = useSelector((store) => store.character.userCharacters);
+  const starter = useSelector((store) => store.character.starter);
+  const levelEnemy = useSelector((store) => store.character.levelEnemy);
+  const user = useSelector((store) => store.user.userReducer);
+  const inventory = useSelector((store) => store.inventory.inventory);
+  const usersConsumableItems = useSelector(
+    (store) => store.inventory.usersConsumableItems
+  );
+
+  // setting each starter/enemy to a varriable
+  let enemyOne = levelEnemy[0];
+  let starterOne = starter[0];
+  let starterTwo = starter[1];
+
+  // starter stats/info
+  const [starterOneHp, setStarterOneHp] = useState(0);
+  const [starterOneStamina, setStarterOneStamina] = useState(0);
+  const [starterPicture, setStarterPicture] = useState("");
+  const [starterFxImg, setStarterFxImg] = useState("");
+  const [starterOneName, setStarterOneName] = useState("");
+  const [starterOneSpeed, setStarterOneSpeed] = useState(0);
+  const [starterOneAttackStats, setStarterOneAttackStats] = useState({});
+
+  // starter stats/info
+  const [starterTwoHp, setStarterTwoHp] = useState(0);
+  const [starterTwoStamina, setStarterTwoStamina] = useState(0);
+  const [starterTwoPicture, setStarterTwoPicture] = useState("");
+  const [starterTwoFxImg, setStarterTwoFxImg] = useState("");
+  const [starterTwoName, setStarterTwoName] = useState("");
+  const [starterTwoSpeed, setStarterTwoSpeed] = useState(0);
+  const [starterTwoAttackStats, setStarterTwoAttackStats] = useState({});
+
+  // All current varibles for battle
+  const [currentId, setCurrentId] = useState(0);
+  const [currentName, setCurrentName] = useState("");
+  const [currentHp, setCurrentHp] = useState(0);
+  const [currentStamina, setCurrentStamina] = useState(0);
+  const [currentSpeed, setCurrentSpeed] = useState(0);
+  const [currentDamage, setDamage] = useState(0);
+  const [maxHp, setMaxHp] = useState(0);
+  const [maxStamina, setMaxStamina] = useState(0);
+
+  // enemy stats/info
+  const [enemyPicture, setEnemyPicture] = useState("");
+  const [enemyHp, setEnemyHp] = useState(0);
+  const [enemyStamina, setEnemyStamina] = useState(0);
+  const [enemyFxImg, setEnemyFxImg] = useState("");
+  const [enemyName, setEnemyName] = useState("");
+  const [enemySpeed, setEnemySpeed] = useState(0);
+  const [enemyAttackStats, setEnemyAttackStats] = useState({});
+
+  // kick attack name and stamina
+  const [kickAttackStats, setKickAttackStats] = useState({});
+  const [kickAttack, setKickAttack] = useState("");
+  const [kickStamina, setKickStamina] = useState(0);
+  const [kickAttackType, setKickAttackType] = useState("");
+
+  // poke attack name and stamina
+  const [pokeAttackStats, setPokeAttackStats] = useState({});
+  const [pokeAttack, setPokeAttack] = useState("");
+  const [pokeStamina, setPokeStamina] = useState(0);
+  const [pokeAttackType, setPokeAttackType] = useState("");
+
+
+  useEffect(() => {
     if (canvasRef.current) {
       const canvas = canvasRef.current;
       const c = canvas.getContext("2d");
