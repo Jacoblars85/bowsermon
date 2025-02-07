@@ -41,13 +41,14 @@ import Box from "@mui/material/Box";
 import battleMusic from "../../audio/battleMusic.mp3";
 
 function GameWorld() {
-  // console.log('bowsermonMapJson', bowsermonMapJson);
-  // console.log('collisionsArray', collisionsArray);
-  //   console.log('battleZonesArray', battleZonesArray);
   const dispatch = useDispatch();
   const { id } = useParams();
   const history = useHistory();
   const canvasRef = useRef(null);
+
+  // console.log('bowsermonMapJson', bowsermonMapJson);
+  // console.log('collisionsArray', collisionsArray);
+  //   console.log('battleZonesArray', battleZonesArray);
 
   useEffect(() => {
     dispatch({ type: "SAGA_FETCH_CHARACTERS" });
