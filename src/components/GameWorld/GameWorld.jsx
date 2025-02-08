@@ -393,12 +393,14 @@ function GameWorld() {
           opacity = 1,
         }) {
           this.position = position;
-          this.image = image;
+          this.image = new Image();
           (this.frames = { ...frames, val: 0, elapsed: 0 }),
             (this.image.onload = () => {
               this.width = this.image.width / this.frames.max;
               this.height = this.image.height;
             });
+            
+            this.image.src = image.src
           this.animate = animate;
           this.sprites = sprites;
           this.opacity = opacity;
@@ -617,7 +619,7 @@ function GameWorld() {
                       // history.push(
                       //   `/battle/${Math.floor(Math.random() * 8 + 1)}`
                       // );
-
+                      initBattle()
                       animateBattle();
                       // setEnemyId(Math.floor(Math.random() * 8 + 1))
                       // getEnemy()
@@ -774,16 +776,16 @@ function GameWorld() {
       const backgroundImage = new Image();
       backgroundImage.src = battleBackgroundImage;
 
-      const enemyImage = new Image();
-      enemyImage.src = enemyPicture;
-      // console.log('enemySpriteImage', enemySpriteImage);
+      // const enemyImage = new Image();
+      // enemyImage.src = enemyPicture;
+      // // console.log('enemySpriteImage', enemySpriteImage);
 
-      const starterImage = new Image();
-      starterImage.src = starterPicture;
-      // console.log('starterSpriteImage', starterSpriteImage);
+      // const starterImage = new Image();
+      // starterImage.src = starterPicture;
+      // // console.log('starterSpriteImage', starterSpriteImage);
 
-      const starterTwoImage = new Image();
-      starterTwoImage.src = starterTwoPicture;
+      // const starterTwoImage = new Image();
+      // starterTwoImage.src = starterTwoPicture;
 
       // class Sprite {
       //   constructor({
@@ -1132,74 +1134,283 @@ function GameWorld() {
         image: backgroundImage,
       });
 
-      const enemy = new Character({
-        position: {
-          x: 800,
-          y: 100,
-        },
-        image: enemyImage,
-        frames: {
-          max: 4,
-          hold: 30,
-          alignment: 0,
-        },
-        animate: true,
-        isEnemy: true,
-        name: enemyName,
-        health: enemyHp,
-        maxHealth: enemyHp,
-        stamina: enemyStamina,
-        maxStamina: enemyStamina,
-        speed: enemySpeed,
-      });
+      let enemy 
 
-      const starter = new Character({
-        position: {
-          x: 280,
-          y: 325,
-        },
-        image: starterImage,
-        frames: {
-          max: 4,
-          hold: 30,
-          alignment: 86,
-        },
-        animate: true,
-        name: starterOneName,
-        health: starterOneHp,
-        maxHealth: starterOneHp,
-        stamina: starterOneStamina,
-        maxStamina: starterOneStamina,
-        speed: starterOneSpeed,
-      });
+      let starter 
 
-      const starter2 = new Character({
-        position: {
-          x: 280,
-          y: 325,
-        },
-        image: starterTwoImage,
-        frames: {
-          max: 4,
-          hold: 30,
-          alignment: 86,
-        },
-        animate: true,
-        opacity: 0,
-        name: starterTwoName,
-        health: starterTwoHp,
-        maxHealth: starterTwoHp,
-        stamina: starterTwoStamina,
-        maxStamina: starterTwoStamina,
-        speed: starterTwoSpeed,
-      });
+      let starter2
+
+      let renderedSprites;
 
       let currentStarter = starter;
 
-      const renderedSprites = [enemy, starter, starter2];
+      let queue;
 
 
       let battleAnimationId;
+
+      function initBattle() {
+        document.getElementById('battleInterface').style.display = 'block'
+        document.getElementById('dialogueBox').style.display = 'none'
+
+        document.getElementById('enemyHealthBar').style.width = '100%'
+        document.getElementById('enemyStaminaBar').style.width = '100%'
+
+        document.getElementById('starterHealthBar').style.width = '100%'
+        document.getElementById('starterStaminaBar').style.width = '100%'
+
+
+
+
+
+        enemy = new Character({
+          position: {
+            x: 800,
+            y: 100,
+          },
+          image: {
+            src: enemyPicture
+          },
+          frames: {
+            max: 4,
+            hold: 30,
+            alignment: 0,
+          },
+          animate: true,
+          isEnemy: true,
+          name: enemyName,
+          health: enemyHp,
+          maxHealth: enemyHp,
+          stamina: enemyStamina,
+          maxStamina: enemyStamina,
+          speed: enemySpeed,
+        });
+
+        starter = new Character({
+          position: {
+            x: 280,
+            y: 325,
+          },
+          image: {
+            src: starterPicture
+          },
+          frames: {
+            max: 4,
+            hold: 30,
+            alignment: 86,
+          },
+          animate: true,
+          name: starterOneName,
+          health: starterOneHp,
+          maxHealth: starterOneHp,
+          stamina: starterOneStamina,
+          maxStamina: starterOneStamina,
+          speed: starterOneSpeed,
+        });
+
+        starter2 = new Character({
+          position: {
+            x: 280,
+            y: 325,
+          },
+          image: {
+            src: starterTwoPicture
+          },
+          frames: {
+            max: 4,
+            hold: 30,
+            alignment: 86,
+          },
+          animate: true,
+          opacity: 0,
+          name: starterTwoName,
+          health: starterTwoHp,
+          maxHealth: starterTwoHp,
+          stamina: starterTwoStamina,
+          maxStamina: starterTwoStamina,
+          speed: starterTwoSpeed,
+        });
+
+        renderedSprites = [enemy, starter, starter2]
+
+        queue = []
+
+        document.querySelectorAll("button").forEach((button) => {
+          button.addEventListener("click", (e) => {
+            // console.log("e", e.target.innerHTML);
+            // console.log("currentStarter", currentStarter);
+            if (e.target.id === "attackButton") {
+              // console.log('in attack button', button);
+              const characterSelectedAttack = e.target.innerHTML;
+              let selectedAttack = {};
+  
+              if (characterSelectedAttack === starterOneAttackStats.attack_name)
+                selectedAttack = starterOneAttackStats;
+              else if (characterSelectedAttack === kickAttackStats.attack_name)
+                selectedAttack = kickAttackStats;
+              else if (characterSelectedAttack === pokeAttackStats.attack_name)
+                selectedAttack = pokeAttackStats;
+  
+              // const endDialogPhase = setTimeout(() => {
+              //   document.getElementById("dialogueBox").style.display = "none";
+              // }, 4500);
+  
+              if (starterOneSpeed >= enemySpeed) {
+                starter.attack({
+                  attack: selectedAttack,
+                  recipient: enemy,
+                  renderedSprites,
+                });
+  
+                if (enemy.health <= 0) {
+                  queue.push(() => {
+                    enemy.faint();
+                  });
+  
+                  queue.push(() => {
+                    gsap.to("#fadeOutDiv", {
+                      opacity: 1,
+                      onComplete: () => {
+                        cancelAnimationFrame(battleAnimationId)
+                        animate()
+                        document.getElementById('battleInterface').style.display = 'none'
+                        gsap.to("#fadeOutDiv", {
+                          opacity: 0,
+                        })
+                      }
+                    });
+                  });
+                }
+                // enemy.attacks[Math.floor(Math.random() * enemy.attacks.length)]
+                queue.push(() => {
+                  enemy.attack({
+                    attack: selectedAttack,
+                    recipient: starter,
+                    renderedSprites,
+                  });
+                });
+  
+                if (starter.health <= 0) {
+                  queue.push(() => {
+                    starter.faint();
+                  });
+  
+                  // queue.push(() => {
+                  //   // history.push("/exploring");
+                  // });
+                }
+  
+                // if (enemy.health <= 0) {
+                //   enemy.faint();
+                //   return;
+                // } else if (enemy.health > 0) {
+                //   setTimeout(() => {
+                //     enemy.attack({
+                //       attack: selectedAttack,
+                //       recipient: starter,
+                //       renderedSprites,
+                //     });
+  
+                //     if (starter.health <= 0) {
+                //       starter.faint();
+                //       return;
+                //     }
+                //   }, 2700);
+                // }
+              } else if (starterOneSpeed < enemySpeed) {
+                enemy.attack({
+                  attack: selectedAttack,
+                  recipient: starter,
+                  renderedSprites,
+                });
+  
+                queue.push(() => {
+                  if (starter.health <= 0) {
+                    starter.faint();
+                    return;
+                  } else if (starter.health > 0) {
+                    starter.attack({
+                      attack: selectedAttack,
+                      recipient: enemy,
+                      renderedSprites,
+                    });
+  
+                    if (enemy.health <= 0) {
+                      enemy.faint();
+                      return;
+                    }
+                  }
+                });
+  
+                // if (starter.health <= 0) {
+                //   starter.faint();
+                //   return;
+                // } else if (starter.health > 0) {
+                //   setTimeout(() => {
+                //     starter.attack({
+                //       attack: selectedAttack,
+                //       recipient: enemy,
+                //       renderedSprites,
+                //     });
+  
+                //     if (enemy.health <= 0) {
+                //       enemy.faint();
+                //       return;
+                //     }
+                //   }, 2700);
+                // }
+              }
+            } else if (
+              button.className === "starterOne" ||
+              button.className === "starterTwo" ||
+              button.id === "consumable"
+            ) {
+              console.log("in switch");
+  
+              if (button.className === "starterOne") {
+                console.log("switching starter 1");
+  
+                currentStarter = starter;
+  
+                // this.image = starterOne.battle_pic;
+              } else if (button.className === "starterTwo") {
+                console.log("switching starter 2");
+  
+                currentStarter = starter2;
+  
+                // this.image = starterTwo.battle_pic;
+              } else if (button.id === "consumable") {
+                console.log("using consumable");
+              }
+  
+              setTimeout(() => {
+                enemy.attack({
+                  attack: selectedAttack,
+                  recipient: starter,
+                  renderedSprites,
+                });
+              }, 2700);
+            } else if (e.target.innerHTML === "Attack") {
+              console.log("in attack");
+              document.getElementById("attackBox").style.display = "flex";
+              document.getElementById("switchBox").style.display = "none";
+              document.getElementById("inventoryBox").style.display = "none";
+            } else if (e.target.innerHTML === "Switch") {
+              console.log("currentStarter", currentStarter);
+  
+              console.log("in switch");
+              document.getElementById("switchBox").style.display = "block";
+              document.getElementById("attackBox").style.display = "none";
+              document.getElementById("inventoryBox").style.display = "none";
+            } else if (e.target.innerHTML === "Inventory") {
+              console.log(" in inventory");
+              document.getElementById("inventoryBox").style.display = "block";
+              document.getElementById("attackBox").style.display = "none";
+              document.getElementById("switchBox").style.display = "none";
+            }
+          });
+        });
+      }
 
       function animateBattle() {
         battleAnimationId =  window.requestAnimationFrame(animateBattle);
@@ -1209,185 +1420,10 @@ function GameWorld() {
           sprite.draw();
         });
       }
+      initBattle()
       animateBattle();
 
-      const queue = [];
-
-      document.querySelectorAll("button").forEach((button) => {
-        button.addEventListener("click", (e) => {
-          // console.log("e", e.target.innerHTML);
-          // console.log("currentStarter", currentStarter);
-          if (e.target.id === "attackButton") {
-            // console.log('in attack button', button);
-            const characterSelectedAttack = e.target.innerHTML;
-            let selectedAttack = {};
-
-            if (characterSelectedAttack === starterOneAttackStats.attack_name)
-              selectedAttack = starterOneAttackStats;
-            else if (characterSelectedAttack === kickAttackStats.attack_name)
-              selectedAttack = kickAttackStats;
-            else if (characterSelectedAttack === pokeAttackStats.attack_name)
-              selectedAttack = pokeAttackStats;
-
-            // const endDialogPhase = setTimeout(() => {
-            //   document.getElementById("dialogueBox").style.display = "none";
-            // }, 4500);
-
-            if (starterOneSpeed >= enemySpeed) {
-              starter.attack({
-                attack: selectedAttack,
-                recipient: enemy,
-                renderedSprites,
-              });
-
-              if (enemy.health <= 0) {
-                queue.push(() => {
-                  enemy.faint();
-                });
-
-                queue.push(() => {
-                  gsap.to("#fadeOutDiv", {
-                    opacity: 1,
-                    onComplete: () => {
-                      cancelAnimationFrame(battleAnimationId)
-                      animate()
-                      document.getElementById('battleInterface').style.display = 'none'
-                      gsap.to("#fadeOutDiv", {
-                        opacity: 0,
-                      })
-                    }
-                  });
-                });
-              }
-              // enemy.attacks[Math.floor(Math.random() * enemy.attacks.length)]
-              queue.push(() => {
-                enemy.attack({
-                  attack: selectedAttack,
-                  recipient: starter,
-                  renderedSprites,
-                });
-              });
-
-              if (starter.health <= 0) {
-                queue.push(() => {
-                  starter.faint();
-                });
-
-                // queue.push(() => {
-                //   // history.push("/exploring");
-                // });
-              }
-
-              // if (enemy.health <= 0) {
-              //   enemy.faint();
-              //   return;
-              // } else if (enemy.health > 0) {
-              //   setTimeout(() => {
-              //     enemy.attack({
-              //       attack: selectedAttack,
-              //       recipient: starter,
-              //       renderedSprites,
-              //     });
-
-              //     if (starter.health <= 0) {
-              //       starter.faint();
-              //       return;
-              //     }
-              //   }, 2700);
-              // }
-            } else if (starterOneSpeed < enemySpeed) {
-              enemy.attack({
-                attack: selectedAttack,
-                recipient: starter,
-                renderedSprites,
-              });
-
-              queue.push(() => {
-                if (starter.health <= 0) {
-                  starter.faint();
-                  return;
-                } else if (starter.health > 0) {
-                  starter.attack({
-                    attack: selectedAttack,
-                    recipient: enemy,
-                    renderedSprites,
-                  });
-
-                  if (enemy.health <= 0) {
-                    enemy.faint();
-                    return;
-                  }
-                }
-              });
-
-              // if (starter.health <= 0) {
-              //   starter.faint();
-              //   return;
-              // } else if (starter.health > 0) {
-              //   setTimeout(() => {
-              //     starter.attack({
-              //       attack: selectedAttack,
-              //       recipient: enemy,
-              //       renderedSprites,
-              //     });
-
-              //     if (enemy.health <= 0) {
-              //       enemy.faint();
-              //       return;
-              //     }
-              //   }, 2700);
-              // }
-            }
-          } else if (
-            button.className === "starterOne" ||
-            button.className === "starterTwo" ||
-            button.id === "consumable"
-          ) {
-            console.log("in switch");
-
-            if (button.className === "starterOne") {
-              console.log("switching starter 1");
-
-              currentStarter = starter;
-
-              // this.image = starterOne.battle_pic;
-            } else if (button.className === "starterTwo") {
-              console.log("switching starter 2");
-
-              currentStarter = starter2;
-
-              // this.image = starterTwo.battle_pic;
-            } else if (button.id === "consumable") {
-              console.log("using consumable");
-            }
-
-            setTimeout(() => {
-              enemy.attack({
-                attack: selectedAttack,
-                recipient: starter,
-                renderedSprites,
-              });
-            }, 2700);
-          } else if (e.target.innerHTML === "Attack") {
-            console.log("in attack");
-            document.getElementById("attackBox").style.display = "flex";
-            document.getElementById("switchBox").style.display = "none";
-            document.getElementById("inventoryBox").style.display = "none";
-          } else if (e.target.innerHTML === "Switch") {
-            console.log("currentStarter", currentStarter);
-
-            console.log("in switch");
-            document.getElementById("switchBox").style.display = "block";
-            document.getElementById("attackBox").style.display = "none";
-            document.getElementById("inventoryBox").style.display = "none";
-          } else if (e.target.innerHTML === "Inventory") {
-            console.log(" in inventory");
-            document.getElementById("inventoryBox").style.display = "block";
-            document.getElementById("attackBox").style.display = "none";
-            document.getElementById("switchBox").style.display = "none";
-          }
-        });
-      });
+      
 
       document.querySelector("#dialogueBox").addEventListener("click", (e) => {
         if (queue.length > 0) {
