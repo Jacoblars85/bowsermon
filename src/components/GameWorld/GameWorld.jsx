@@ -52,7 +52,7 @@ function GameWorld() {
 
   useEffect(() => {
     dispatch({ type: "SAGA_FETCH_CHARACTERS" });
-    dispatch({ type: "SAGA_FETCH_LEVEL_ENEMY", payload: 8 });
+    // dispatch({ type: "SAGA_FETCH_LEVEL_ENEMY", payload: 8 });
     dispatch({ type: "SAGA_FETCH_IVENTORY" });
     getStarters();
     getEnemy();
@@ -776,17 +776,6 @@ function GameWorld() {
       const backgroundImage = new Image();
       backgroundImage.src = battleBackgroundImage;
 
-      // const enemyImage = new Image();
-      // enemyImage.src = enemyPicture;
-      // // console.log('enemySpriteImage', enemySpriteImage);
-
-      // const starterImage = new Image();
-      // starterImage.src = starterPicture;
-      // // console.log('starterSpriteImage', starterSpriteImage);
-
-      // const starterTwoImage = new Image();
-      // starterTwoImage.src = starterTwoPicture;
-
       // class Sprite {
       //   constructor({
       //     position,
@@ -1257,6 +1246,9 @@ function GameWorld() {
                   renderedSprites,
                 });
 
+                console.log('enemy.health', enemy.health);
+
+
                 if (enemy.health <= 0) {
                   queue.push(() => {
                     enemy.faint();
@@ -1287,14 +1279,32 @@ function GameWorld() {
                   });
                 });
 
+                console.log('starter.health', starter.health);
+                
                 if (starter.health <= 0) {
+
+                  // console.log('why tf are u in here');
+                  
                   queue.push(() => {
                     starter.faint();
                   });
 
-                  // queue.push(() => {
-                  //   // history.push("/exploring");
-                  // });
+                  queue.push(() => {
+                    gsap.to("#fadeOutDiv", {
+                      opacity: 1,
+                      onComplete: () => {
+                        cancelAnimationFrame(battleAnimationId);
+                        animate();
+                        document.getElementById(
+                          "battleInterface"
+                        ).style.display = "none";
+                        gsap.to("#fadeOutDiv", {
+                          opacity: 0,
+                        });
+                      },
+                    });
+                  });
+
                 }
 
                 // if (enemy.health <= 0) {
@@ -1315,29 +1325,32 @@ function GameWorld() {
                 //   }, 2700);
                 // }
               } else if (starterOneSpeed < enemySpeed) {
-                enemy.attack({
-                  attack: selectedAttack,
-                  recipient: starter,
-                  renderedSprites,
-                });
 
-                queue.push(() => {
-                  if (starter.health <= 0) {
-                    starter.faint();
-                    return;
-                  } else if (starter.health > 0) {
-                    starter.attack({
-                      attack: selectedAttack,
-                      recipient: enemy,
-                      renderedSprites,
-                    });
+                console.log('enemy is faster');
+                
+                // enemy.attack({
+                //   attack: selectedAttack,
+                //   recipient: starter,
+                //   renderedSprites,
+                // });
 
-                    if (enemy.health <= 0) {
-                      enemy.faint();
-                      return;
-                    }
-                  }
-                });
+                // queue.push(() => {
+                //   if (starter.health <= 0) {
+                //     starter.faint();
+                //     return;
+                //   } else if (starter.health > 0) {
+                //     starter.attack({
+                //       attack: selectedAttack,
+                //       recipient: enemy,
+                //       renderedSprites,
+                //     });
+
+                //     if (enemy.health <= 0) {
+                //       enemy.faint();
+                //       return;
+                //     }
+                //   }
+                // });
 
                 // if (starter.health <= 0) {
                 //   starter.faint();
@@ -1429,7 +1442,7 @@ function GameWorld() {
         }
       });
     }
-  }, [usersConsumableItems]);
+  }, [starterOneAttackStats]);
 
   return (
     <div style={{ display: "inline-block", position: "relative" }}>
@@ -1473,7 +1486,7 @@ function GameWorld() {
             padding: "10px",
           }}
         >
-          <h1 style={{ margin: 0 }}>{enemyOne.character_name}</h1>
+          <h1 style={{ margin: 0 }}>{enemyName}</h1>
 
           {/* enemy health bar */}
           <div style={{ position: "relative" }}>
