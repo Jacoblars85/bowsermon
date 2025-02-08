@@ -1246,8 +1246,7 @@ function GameWorld() {
                   renderedSprites,
                 });
 
-                console.log('enemy.health', enemy.health);
-
+                console.log("enemy.health", enemy.health);
 
                 if (enemy.health <= 0) {
                   queue.push(() => {
@@ -1279,12 +1278,11 @@ function GameWorld() {
                   });
                 });
 
-                console.log('starter.health', starter.health);
-                
-                if (starter.health <= 0) {
+                console.log("starter.health", starter.health);
 
+                if (starter.health <= 0) {
                   // console.log('why tf are u in here');
-                  
+
                   queue.push(() => {
                     starter.faint();
                   });
@@ -1304,7 +1302,6 @@ function GameWorld() {
                       },
                     });
                   });
-
                 }
 
                 // if (enemy.health <= 0) {
@@ -1325,9 +1322,8 @@ function GameWorld() {
                 //   }, 2700);
                 // }
               } else if (starterOneSpeed < enemySpeed) {
+                console.log("enemy is faster");
 
-                console.log('enemy is faster');
-                
                 // enemy.attack({
                 //   attack: selectedAttack,
                 //   recipient: starter,
