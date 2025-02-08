@@ -596,7 +596,6 @@ function GameWorld() {
               overlappingArea > (player.width * player.height) / 2 &&
               Math.random() < 0.015
             ) {
-      
               // console.log(battle.initiated, "battle.initiated ");
 
               // console.log("battle start");
@@ -618,8 +617,8 @@ function GameWorld() {
                       // history.push(
                       //   `/battle/${Math.floor(Math.random() * 8 + 1)}`
                       // );
-                      
-                      animateBattle()
+
+                      animateBattle();
                       // setEnemyId(Math.floor(Math.random() * 8 + 1))
                       // getEnemy()
 
@@ -627,7 +626,7 @@ function GameWorld() {
                         opacity: 0,
                         duration: 0.4,
                       });
-                    },     
+                    },
                   });
                 },
               });
@@ -1244,9 +1243,9 @@ function GameWorld() {
                 });
 
                 queue.push(() => {
-gsap.to('#fadeOutDiv', {
-  opacity: 1
-})
+                  gsap.to("#fadeOutDiv", {
+                    opacity: 1,
+                  });
                 });
               }
               // enemy.attacks[Math.floor(Math.random() * enemy.attacks.length)]
@@ -1263,9 +1262,9 @@ gsap.to('#fadeOutDiv', {
                   starter.faint();
                 });
 
-                queue.push(() => {
-                  history.push("/exploring");
-                });
+                // queue.push(() => {
+                //   // history.push("/exploring");
+                // });
               }
 
               // if (enemy.health <= 0) {
@@ -1403,6 +1402,7 @@ gsap.to('#fadeOutDiv', {
           left: 0,
           opacity: 0,
           pointerEvents: "none",
+          zIndex: 10,
         }}
       ></div>
       <canvas
