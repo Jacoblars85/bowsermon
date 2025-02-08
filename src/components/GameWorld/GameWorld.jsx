@@ -1198,8 +1198,11 @@ function GameWorld() {
 
       const renderedSprites = [enemy, starter, starter2];
 
+
+      let battleAnimationId;
+
       function animateBattle() {
-        window.requestAnimationFrame(animateBattle);
+        battleAnimationId =  window.requestAnimationFrame(animateBattle);
         battleBackground.draw();
 
         renderedSprites.forEach((sprite) => {
@@ -1245,6 +1248,9 @@ function GameWorld() {
                 queue.push(() => {
                   gsap.to("#fadeOutDiv", {
                     opacity: 1,
+                    onComplete: () => {
+                      cancelAnimationFrame(battleAnimationId)
+                    }
                   });
                 });
               }
