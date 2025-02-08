@@ -1250,6 +1250,11 @@ function GameWorld() {
                     opacity: 1,
                     onComplete: () => {
                       cancelAnimationFrame(battleAnimationId)
+                      animate()
+                      document.getElementById('battleInterface').style.display = 'none'
+                      gsap.to("#fadeOutDiv", {
+                        opacity: 0,
+                      })
                     }
                   });
                 });
@@ -1418,7 +1423,7 @@ function GameWorld() {
         className="canvasForGame"
       ></canvas>
 
-      {/* <div style={{ display: "inline-block", position: "relative" }}> */}
+      <div id="battleInterface" style={{  }}>
       {/* enemy health box */}
       <div
         style={{
@@ -2003,7 +2008,7 @@ function GameWorld() {
           </>
         </div>
       </div>
-      {/* </div> */}
+      </div>
     </div>
   );
 }
