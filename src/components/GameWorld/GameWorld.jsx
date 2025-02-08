@@ -1433,6 +1433,7 @@ function GameWorld() {
 
   return (
     <div style={{ display: "inline-block", position: "relative" }}>
+      {/* fade out div */}
       <div
         id="fadeOutDiv"
         style={{
@@ -1447,6 +1448,8 @@ function GameWorld() {
           zIndex: 10,
         }}
       ></div>
+
+      {/* main canvas */}
       <canvas
         ref={canvasRef}
         height={576}
@@ -1454,7 +1457,8 @@ function GameWorld() {
         className="canvasForGame"
       ></canvas>
 
-      <div id="battleInterface" style={{}}>
+      {/* battle interface */}
+      <div id="battleInterface">
         {/* enemy health box */}
         <div
           style={{
