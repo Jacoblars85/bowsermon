@@ -1287,21 +1287,21 @@ function GameWorld() {
                     starter.faint();
                   });
 
-                  queue.push(() => {
-                    gsap.to("#fadeOutDiv", {
-                      opacity: 1,
-                      onComplete: () => {
-                        cancelAnimationFrame(battleAnimationId);
-                        animate();
-                        document.getElementById(
-                          "battleInterface"
-                        ).style.display = "none";
-                        gsap.to("#fadeOutDiv", {
-                          opacity: 0,
-                        });
-                      },
-                    });
-                  });
+                  // queue.push(() => {
+                  //   gsap.to("#fadeOutDiv", {
+                  //     opacity: 1,
+                  //     onComplete: () => {
+                  //       cancelAnimationFrame(battleAnimationId);
+                  //       animate();
+                  //       document.getElementById(
+                  //         "battleInterface"
+                  //       ).style.display = "none";
+                  //       gsap.to("#fadeOutDiv", {
+                  //         opacity: 0,
+                  //       });
+                  //     },
+                  //   });
+                  // });
                 }
 
                 // if (enemy.health <= 0) {
@@ -1438,7 +1438,7 @@ function GameWorld() {
         }
       });
     }
-  }, [starterOneAttackStats]);
+  }, [usersConsumableItems]);
 
   return (
     <div style={{ display: "inline-block", position: "relative" }}>
