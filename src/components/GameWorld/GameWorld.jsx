@@ -1108,6 +1108,7 @@ function GameWorld() {
                         gsap.to("#fadeOutDiv", {
                           opacity: 0,
                         });
+                        battle.initiated = false
                       },
                     });
                   });
@@ -1142,6 +1143,7 @@ function GameWorld() {
                   //       gsap.to("#fadeOutDiv", {
                   //         opacity: 0,
                   //       });
+                  // battle.initiated = false
                   //     },
                   //   });
                   // });
