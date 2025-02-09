@@ -269,15 +269,12 @@ function GameWorld() {
       for (let i = 0; i < collisionsArray.length; i += 235) {
         collisionsMap.push(collisionsArray.slice(i, 235 + i));
       }
-      // console.log(collisionsMap);
 
       const battleZonesMap = [];
 
       for (let i = 0; i < battleZonesArray.length; i += 235) {
         battleZonesMap.push(battleZonesArray.slice(i, 235 + i));
       }
-
-      //   console.log(battleZonesMap);
 
       class Boundary {
         static width = 48;
@@ -335,7 +332,6 @@ function GameWorld() {
 
       const image = new Image();
       image.src = MarioMap;
-      //   console.log(image);
 
       const foregroundImage = new Image();
       foregroundImage.src = MarioMapForegroundImage;
@@ -568,9 +564,6 @@ function GameWorld() {
               overlappingArea > (player.width * player.height) / 2 &&
               Math.random() < 0.015
             ) {
-              // console.log(battle.initiated, "battle.initiated ");
-
-              // console.log("battle start");
               window.cancelAnimationFrame(animationId);
               battle.initiated = true;
               setBattleStart(true);
@@ -584,9 +577,6 @@ function GameWorld() {
                     opacity: 1,
                     duration: 0.4,
                     onComplete() {
-                      // where you get sent to the battle
-                      // added the fade out in the battle seq
-
                       // history.push(
                       //   `/battle/${Math.floor(Math.random() * 8 + 1)}`
                       // );
@@ -741,8 +731,6 @@ function GameWorld() {
           keys.d.pressed = false;
         }
       });
-
-      // console.log(keys);
 
       const backgroundImage = new Image();
       backgroundImage.src = battleBackgroundImage;
@@ -1094,10 +1082,7 @@ function GameWorld() {
 
         document.querySelectorAll("button").forEach((button) => {
           button.addEventListener("click", (e) => {
-            // console.log("e", e.target.innerHTML);
-            // console.log("currentStarter", currentStarter);
             if (e.target.id === "attackButton") {
-              // console.log('in attack button', button);
               const characterSelectedAttack = e.target.innerHTML;
               let selectedAttack = {};
 
