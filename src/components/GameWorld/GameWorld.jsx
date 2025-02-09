@@ -50,9 +50,11 @@ function GameWorld() {
   // console.log('collisionsArray', collisionsArray);
   //   console.log('battleZonesArray', battleZonesArray);
 
+  let randomEnemy = Math.floor(Math.random() * 8 + 1)
+
   useEffect(() => {
     dispatch({ type: "SAGA_FETCH_CHARACTERS" });
-    // dispatch({ type: "SAGA_FETCH_LEVEL_ENEMY", payload: 8 });
+    dispatch({ type: "SAGA_FETCH_LEVEL_ENEMY", payload: randomEnemy });
     dispatch({ type: "SAGA_FETCH_IVENTORY" });
     getStarters();
     getEnemy();
@@ -127,7 +129,7 @@ function GameWorld() {
   const getEnemy = () => {
     axios({
       method: "GET",
-      url: `/api/characters/enemy/${Math.floor(Math.random() * 8 + 1)}`,
+      url: `/api/characters/enemy/${randomEnemy}`,
     })
       .then((response) => {
         setEnemyHp(response.data[0].hp);
