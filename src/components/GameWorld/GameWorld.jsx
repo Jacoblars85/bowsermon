@@ -1124,7 +1124,7 @@ function GameWorld() {
                 console.log("starter.health", starter.health);
 
                 if (starter.health <= 0) {
-                  console.log('are we really in the starter fainting');
+                  console.log("are we really in the starter fainting");
 
                   queue.push(() => {
                     starter.faint();
@@ -1222,19 +1222,16 @@ function GameWorld() {
                 });
               }, 2700);
             } else if (e.target.innerHTML === "Attack") {
-              console.log("in attack");
               document.getElementById("attackBox").style.display = "flex";
               document.getElementById("switchBox").style.display = "none";
               document.getElementById("inventoryBox").style.display = "none";
             } else if (e.target.innerHTML === "Switch") {
               console.log("currentStarter", currentStarter);
 
-              console.log("in switch");
               document.getElementById("switchBox").style.display = "block";
               document.getElementById("attackBox").style.display = "none";
               document.getElementById("inventoryBox").style.display = "none";
             } else if (e.target.innerHTML === "Inventory") {
-              console.log(" in inventory");
               document.getElementById("inventoryBox").style.display = "block";
               document.getElementById("attackBox").style.display = "none";
               document.getElementById("switchBox").style.display = "none";
