@@ -55,8 +55,7 @@ function GameWorld() {
 
   // let battleStart = true
 
-  console.log('battleStart', battleStart);
-  
+  console.log("battleStart", battleStart);
 
   useEffect(() => {
     dispatch({ type: "SAGA_FETCH_CHARACTERS" });
@@ -574,7 +573,7 @@ function GameWorld() {
               // console.log("battle start");
               window.cancelAnimationFrame(animationId);
               battle.initiated = true;
-              setBattleStart(true)
+              setBattleStart(true);
               gsap.to("#fadeOutDiv", {
                 opacity: 1,
                 repeat: 3,
@@ -1128,7 +1127,7 @@ function GameWorld() {
                       opacity: 1,
                       onComplete: () => {
                         cancelAnimationFrame(battleAnimationId);
-                        setBattleStart(false)
+                        setBattleStart(false);
                         animate();
                         document.getElementById(
                           "battleInterface"
@@ -1174,7 +1173,6 @@ function GameWorld() {
                   //   });
                   // });
                 }
-
               } else if (starterOneSpeed < enemySpeed) {
                 console.log("enemy is faster");
 
