@@ -2,6 +2,7 @@ Problems:
 
 1. fix the starter.faint activating without starter being at 0
 2. changing the current battle pic without using opacity
+3. fix the transision into the battle
 5. create the new hp, speed and damage system
 6. changing the fx animation pic for the second starter
 7. try to add a js to the html to source into all of the other files
