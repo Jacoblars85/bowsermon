@@ -50,7 +50,13 @@ function GameWorld() {
   // console.log('collisionsArray', collisionsArray);
   //   console.log('battleZonesArray', battleZonesArray);
 
-  let randomEnemy = Math.floor(Math.random() * 8 + 1)
+  let randomEnemy = Math.floor(Math.random() * 8 + 1);
+  const [battleStart, setBattleStart] = useState(true);
+
+  // let battleStart = true
+
+  console.log('battleStart', battleStart);
+  
 
   useEffect(() => {
     dispatch({ type: "SAGA_FETCH_CHARACTERS" });
@@ -60,6 +66,11 @@ function GameWorld() {
     getEnemy();
     getBasicAttacks();
   }, []);
+
+  useEffect(() => {
+    dispatch({ type: "SAGA_FETCH_LEVEL_ENEMY", payload: randomEnemy });
+    getEnemy();
+  }, [battleStart]);
 
   // axios functions
   const getStarters = () => {
@@ -605,6 +616,7 @@ function GameWorld() {
               // console.log("battle start");
               window.cancelAnimationFrame(animationId);
               battle.initiated = true;
+              setBattleStart(true)
               gsap.to("#fadeOutDiv", {
                 opacity: 1,
                 repeat: 3,
@@ -1260,6 +1272,7 @@ function GameWorld() {
                       opacity: 1,
                       onComplete: () => {
                         cancelAnimationFrame(battleAnimationId);
+                        setBattleStart(false)
                         animate();
                         document.getElementById(
                           "battleInterface"
