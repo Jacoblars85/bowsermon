@@ -51,11 +51,11 @@ function GameWorld() {
   //   console.log('battleZonesArray', battleZonesArray);
 
   let randomEnemy = Math.floor(Math.random() * 8 + 1);
-  const [battleStart, setBattleStart] = useState(true);
+  const [battleStart, setBattleStart] = useState(false);
 
   // let battleStart = true
 
-  console.log("battleStart", battleStart);
+  // console.log("battleStart", battleStart);
 
   useEffect(() => {
     dispatch({ type: "SAGA_FETCH_CHARACTERS" });
@@ -698,7 +698,7 @@ function GameWorld() {
             });
         }
       }
-      // animate();
+      animate();
 
       let lastKey = "";
 
@@ -1108,7 +1108,7 @@ function GameWorld() {
                         gsap.to("#fadeOutDiv", {
                           opacity: 0,
                         });
-                        battle.initiated = false
+                        battle.initiated = false;
                       },
                     });
                   });
@@ -1250,8 +1250,8 @@ function GameWorld() {
           sprite.draw();
         });
       }
-      initBattle();
-      animateBattle();
+      // initBattle();
+      // animateBattle();
 
       document.querySelector("#dialogueBox").addEventListener("click", (e) => {
         if (queue.length > 0) {
@@ -1291,7 +1291,7 @@ function GameWorld() {
       ></canvas>
 
       {/* battle interface */}
-      <div id="battleInterface">
+      <div id="battleInterface" style={{ display: 'none' }}>
         {/* enemy health box */}
         <div
           style={{
