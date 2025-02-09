@@ -582,8 +582,6 @@ function GameWorld() {
                       // );
                       initBattle();
                       animateBattle();
-                      // setEnemyId(Math.floor(Math.random() * 8 + 1))
-                      // getEnemy()
 
                       gsap.to("#fadeOutDiv", {
                         opacity: 0,
@@ -801,14 +799,6 @@ function GameWorld() {
           recipient.health -= attack.attack_damage;
           this.stamina -= attack.attack_stamina;
 
-          // console.log(recipient.health);
-          // console.log(this.stamina);
-          // console.log(this.name);
-
-          // console.log((this.health / this.maxHealth) * 100 + "%");
-
-          // console.log("attack", attack.attack_name);
-
           document.getElementById("dialogueBox").style.display = "block";
           document.getElementById("dialogueBox").innerHTML =
             this.name + " used " + attack.attack_name;
@@ -865,7 +855,6 @@ function GameWorld() {
 
             const starterProjectileAttackFxImage = new Image();
             starterProjectileAttackFxImage.src = starterFxImg;
-            // console.log(fireballSpriteImage);
 
             const projectileAttackFx = new Sprite({
               position: {
@@ -915,7 +904,6 @@ function GameWorld() {
 
             const starterSummonAttackFxImage = new Image();
             starterSummonAttackFxImage.src = starterFxImg;
-            // console.log(iceSpriteImage);
 
             const summonAttackFx = new Sprite({
               position: {
@@ -1136,7 +1124,7 @@ function GameWorld() {
                 console.log("starter.health", starter.health);
 
                 if (starter.health <= 0) {
-                  // console.log('why tf are u in here');
+                  console.log('are we really in the starter fainting');
 
                   queue.push(() => {
                     starter.faint();
